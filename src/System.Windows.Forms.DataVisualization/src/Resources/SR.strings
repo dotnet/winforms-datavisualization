@@ -1,0 +1,1512 @@
+## String resource file 
+#
+# When processed by the String Resource Tool, this file generates
+# both a .CS and a .RESX file with the same name as the file.
+# The .CS file contains a class which can be used to access these 
+# string resources, including the ability to format in parameters,
+# which are identified with the .NET {x} format (see String.Format help).    
+#
+# Comments below assume the file name is SR.strings.
+#
+
+
+#
+# LocStudio comments description:
+#
+
+
+##if WINFORMS_CONTROL
+#	namespace System.Windows.Forms.DataVisualization.Charting
+##else
+#	namespace System.Web.UI.DataVisualization.Charting
+##endif
+
+; For localizers and UE (These comments will be seen in LocStudio)
+# For internal use (These comments will not be seen in LocStudio)
+
+# Comments should be added before the string. 
+
+# When the string resource file is complied the tool will read these comments 
+# and push the comment using the <comment> tag into the resx file.  
+# LocStudio parser looks in the resx file for the comment tag to load comments 
+# into the instruction field of the database. 
+# 
+# For LocStudio to parse the comments the resx name must match the .resources 
+# name in the manifest, so if you rename the namespace you need to change the 
+# name of the project as well.  After you have done this you will need to make a 
+# single character change to the string file and save, so that the SR.String cs 
+# file has the correct namespace embedded in it. 
+#
+
+#
+# Options description:
+#
+
+# Options are specified as lines starting with "#!"
+# To use an option below delete the first # in the corresponding line
+
+# To define the SR class public instead of internal (default):
+##! accessor_class_accessibility = public
+
+# To use a code fragment as the culture instead of the Culture property (default):
+##! culture_info = <YourCodeHere>
+# for example, #! culture_info = MyResources.CommonCultureInfo
+# where CommonCultureInfo is a static member of a class MyResources
+
+[strings]
+ExceptionElementPositionConverter=ElementPositionConverter - Incorrect string format. The X, Y, Width and Height of the rectangle must be specified. For example, '0,0,100,100'.
+ExceptionInvalidServiceContainer=Valid ServiceContainer object must be provided
+
+ExceptionImageLoaderInvalidServiceContainer=ImageLoader - Valid ServiceContainer object must be provided.
+ExceptionImageLoaderUnsupportedType(String typeName)=ImageLoader - Image loader do not provide service of type: {0}
+ExceptionImageLoaderIncorrectImageUrl(String url)=ImageLoader - Cannot load image from the URL: {0}
+ExceptionImageLoaderIncorrectImageLocation(String location)=ImageLoader - Cannot load image from this location: {0}
+
+ExceptionImageMapAddedHasWrongType=Object to be added is not a MapArea object.
+ExceptionImageMapInsertedHasWrongType=Object to be inserted is not a MapArea object.
+ExceptionImageMapCircleShapeInvalid=Invalid number of coordinates specified for the circle map area shape. Three coordinates must be provided: center of the circle (x,y) followed by the radius.
+ExceptionImageMapRectangleShapeInvalid=Invalid number of coordinates specified for the rectangle map area shape. Four coordinates must be provided: x,y coordinates for the upper left corner, followed by x,y coordinates for the bottom right corner.
+ExceptionImageMapPolygonShapeInvalid=Invalid number of coordinates specified for the polygon map area shape. Each x,y pair should contain the coordinates of one vertex of the polygon.
+
+ExceptionAnnotationNameIsEmpty=Annotation name cannot be empty.
+ExceptionAnnotationNameIsNotUnique(String name)=An annotation with name '{0}' already exists. Please specify a unique name.
+ExceptionAnnotationNameAlreadyExistsInCollection(name)=An annotation with the name '{0}' already exists in the collection.
+ExceptionAnnotationNameNotFound(String name)=An annotation with the name '{0}' could not be found in the chart annotation collection.
+
+ExceptionAnnotationPathAddLineAsSegmentsInvalid=PathAddLineAsSegments - Only vertical or horizontal lines may be used.
+ExceptionAnnotationLineWidthIsNegative=Line width must be equal to or greater than 0.
+ExceptionAnnotationAnchorOffsetInvalid=Anchor offset must be in the range 100 to -100.
+ExceptionAnnotationGroupedAnchorDataPointMustBeEmpty=AnchorDataPoint property cannot be set for the annotation inside the group.
+ExceptionAnnotationGroupedUnableToStartPlacement=Unable to start placement of the grouped annotation.
+ExceptionAnnotationNotInCollection=Unable to start placement of the annotation. Make sure the annotation is added into the collection first.
+ExceptionAnnotationGroupedAxisMustBeEmpty=AxisX or AxisY property cannot be set for the annotation inside the group.
+ExceptionAnnotationArrowSizeIsZero=Arrow annotation size must be more than zero pixels.
+ExceptionAnnotationArrowSizeMustBeLessThen100=Arrow annotation size must be less than 100 pixels.
+ExceptionAnnotationArrowStyleUnknown=Arrow Annotation - Unknown arrow style.
+
+ExceptionInvalidIndexerArgumentType=Invalid indexer argument type.
+
+ExceptionTitleNameIsNotUnique(String name)=A title with name '{0}' already exists. Please specify a unique name.
+ExceptionTitleNameAddedIsNotUnique(String name)=Cannot add title. A title with the name '{0}' already exists.
+ExceptionTitleNameNotFound(String name)=A title with name '{0}' was not found in the titles collection.
+ExceptionTitleNameIsEmpty=Title name cannot be empty.
+
+ExceptionDataSeriesNameNotFound(name)=Data series with name '{0}' was not found in the series collection
+ExceptionDataSeriesObjectRequired=Data series object required.
+ExceptionDataSeriesNameIsEmpty=Data series name cannot be null.
+ExceptionDataSeriesYValuesPerPointIsZero=Number of Y values per point must be greater than 0.
+ExceptionDataSeriesPointTypeUnsupported(type)=Series data points do not support values of type {0} only values of these types can be used: Double, Decimal, Single, int, long, uint, ulong, String, DateTime, short, ushort.
+ExceptionDataSeriesYValueIndexNotExists(yValueIndex, seriesName)=Y value with index {0} does not exist in series {1}.
+ExceptionDataSeriesKeywordFormatInvalid(format)=Invalid keyword format. {0}
+ExceptionDataSeriesChartAreaInvalid(chartArea,seriesName)=An invalid chart area name '{0}' was specified for the series named '{1}."
+ExceptionDataSeriesYValueNumberInvalid=Number of Y values per point must be in the range 1 to 32.
+
+ExceptionSeriesNameIsNotUnique(name)=A series with the name '{0}' already exists. Please specify a unique name.
+ExceptionSeriesNameAddedIsNotUnique(name)=Cannot add series. A series with the name '{0}' already exists.
+ExceptionSeriesNameIsEmpty=Series name cannot be empty.
+
+ExceptionEditorChartTypeRegistryServiceInaccessible=Object uses SeriesNameConverter and does not provide access to the ChartTypeRegistry service.
+ExceptionEditorChartTypeRegistryServiceInObjectInaccessible(objectName)=Object '{0}' uses SeriesNameConverter and does not provide access to the DataManager service.
+ExceptionEditorMultipleSeriesEditiingUnsupported=Points collection cannot be edited for multiple series simultaneously. Select one series and try again.
+ExceptionEditorContectInstantsIsNotChartObject=Context instance is not a Chart object.
+ExceptionEditorUITypeEditorInapplicable=UI type editor may be set for the enumerations only.
+ExceptionEditorUITypeEditorInt32ApplicableOnly=UI type editor may be set for the enumerations with Int32 underlying type only.
+
+
+ExceptionLegendDesignerMarginObjectInvalid(string)=Cannot convert string '{0}' to Margins object.
+ExceptionRectangleConverterStringFormatInvalid=Incorrect string format. X, Y, Width and Height of the rectangle must be specified. For example, '0,0,100,100'.
+
+ExceptionChartAreaAddedIsNotUnique(name)=Cannot add chart area, since a chart area with the name '{0}' already exists.
+ExceptionChartAreaInsertedIsNotUnique(name)=Cannot insert chart area, since a chart area with the name '{0}' already exists.
+ExceptionChartAreaObjectRequired=ChartArea object required.
+ExceptionChartAreaAlreadyExistsInCollection(name)=A chart area with the name '{0}' could not be found in the chart area collection.
+ExceptionChartAreaInsertedHasWrongType=The object to be inserted is not a ChartArea object
+ExceptionChartAreaAlreadyExistsShort=Chart Area - The name of chart area already exists.
+ExceptionChartAreaNameIsEmpty=Chart Area - The chart area name cannot be empty.
+
+ExceptionChartArea3DPerspectiveInvalid=Chart area Perspective must range from 0 to 100 percent.
+ExceptionChartArea3DInclinationInvalid=The inclination angle must range from -90 to 90 degrees.
+ExceptionChartArea3DRotationInvalid=The rotation angle must range from -180 to 180 degrees.
+ExceptionChartArea3DWallWidthInvalid=The chart area wall width must range from 0 to 30 pixels.
+ExceptionChartArea3DPointsDepthInvalid=The series points depth must range from 0 to 1000 percent.
+ExceptionChartArea3DPointsGapInvalid=The series' points gap depth must range from 0 to 1000 percent.
+
+ExceptionCursorIntervalOffsetIsNegative=The IntervalOffset value cannot be negative.
+ExceptionCursorLineWidthIsNegative=Cursor - Line width must be equal to or greater than 0.
+
+ExceptionGraphicsMarkerStyleUnknown=Chart Graphics - Unknown marker style specified.
+ExceptionGraphics3DMarkerStyleUnknown=Chart Graphics 3D - Unknown marker style specified.
+ExceptionGraphics3DCoordinatesInvalid=Eight coordinates of the cube must be provided.
+
+ExceptionAxisLabelsAutoFitMinFontSizeValueInvalid=LabelsAutoFitMinFontSize property value cannot be less than 5.
+ExceptionAxisLabelsIntervalTypeUnsupported(type)=Unsupported interval type: {0}
+ExceptionAxisLabelRowIndexIsNegative=RowIndex cannot be negative.
+ExceptionAxisLabelRowIndexMustBe1Or2=Labels - LabelRow must be 1 or 2.
+ExceptionAxisLabelIndexIsNegative=Labels - LabelIndex cannot be negative.
+ExceptionAxisLabelFontAngleInvalid=The font angle must be from -90 to 90 degrees.
+
+ExceptionCustomLabelAddedHasWrongType=Object to be added is not a CustomLabel object.
+ExceptionCustomLabelInsertedHasWrongType=Object to be inserted is not a CustomLabel object.
+
+ExceptionSmartLabelsDirectionUndefined=At least one direction must be specified!
+ExceptionSmartLabelsMinMovingDistanceIsNegative=MinMovingDistance cannot be negative.
+ExceptionSmartLabelsMaxMovingDistanceIsNegative=MaxMovingDistance cannot be negative.
+
+ExceptionStripLineAddedHasWrongType=Object to be added is not a StripLine object.
+ExceptionStripLineWidthIsNegative=Strip width cannot be a negative value.
+
+ExceptionAxisWidthIsNegative=Axis - Width must be equal or greater than 0.
+ExceptionAxisDynamicIntervalCalculationFailed=Axis - Dynamic interval calculation. Number of iterations exceeded normal.
+ExceptionAxisIntervalDecreasingFailed=Axis - Interval decreasing. Number of iterations exceeded normal.
+ExceptionAxisIntervalIncreasingFailed=Axis - Interval increasing. Number of iterations exceeded normal.
+ExceptionAxisLabelsAutoFitMaxFontSizeInvalid=LabelsAutoFitMaxFontSize property value cannot be less than 5.
+ExceptionAxisMinimumMaximumInvalid=Chart Area Axes - The minimum and maximum axis values have not been specified.
+ExceptionAxisStackedChartsDataPointsNumberMismatch=Chart Area Axes Object - Stacked chart types must have the same number of data points for all series.
+
+ExceptionAxisSeriesNotAligned=Cannot display indexed series (XValueIndexed = true) on the same axis if they are not aligned.
+
+ExceptionSubAxisNameNotFoundShort(name)=SubAxis with name '{0}' cannot be found.
+ExceptionSubAxisNameIsNotUnique(name)=SubAxis name must be unique. SubAxis with name '{0}' already exists in the collection.
+
+ExceptionEnumInvalid(name)=Illegal enum value: {0}.
+ExceptionAxisScaleLogarithmBaseInvalid=The logarithm base must be equal or greater than 2.0
+ExceptionAxisScalePositionInvalid=Position argument should be in range from 0 to 100.
+ExceptionAxisScalePositionToValueCallFailed=PositionToValue method cannot be called prior to calculating position of all chart area elements.
+ExceptionAxisScaleIntervalIsZero=Axis Object - The interval cannot be zero.
+ExceptionAxisScaleMinimumMaximumInvalid=Axis object – Auto interval error due to invalid point values or axis minimum/maximum.
+ExceptionAxisScaleIntervalIsLessThen1Year=Axis Object - Interval cannot be less than 1 year.
+ExceptionAxisScaleAutoIntervalInvalid=Axis Object - Auto interval does not have proper value.
+ExceptionAxisScaleMinimumValueIsGreaterThenMaximumDataPoint=Axis Object - The minimum value of the axis is greater than the largest data point value.
+ExceptionAxisScaleLogarithmicNegativeValues=Axis object - Negative or zero values cannot be plotted correctly on logarithmic charts. Only positive values can be interpreted on a logarithmic scale.
+ExceptionChartAreaAxisScaleLogarithmicUnsuitable=Chart Area Axes - A logarithmic scale cannot be used for this axis.
+ExceptionChartAreaChartTypesCanNotCombine=Chart Area Axes - The chart area contains incompatible chart types. For example, bar charts and column charts cannot exist in the same chart area.
+ExceptionChartAreaSeriesNotFound=Chart Area Axes - There are no series in the chart area.
+
+ExceptionAxisScaleBreaksNumberInvalid=Maximum number of scale breaks must be in range from 1 to 5.
+ExceptionAxisScaleBreaksCollapsibleSpaceInvalid=The collapsible space threshold must be in the range of 10 to 90.
+ExceptionAxisScaleBreaksSpacingInvalid=Scale break spacing must be in range from 0 to 10.
+ExceptionAxisScaleBreaksLineWidthInvalid=Scale break line width must be in range from 1 to 10.
+
+ExceptionAxisScaleSegmentsPositionInvalid=Axis segment position value must be in range from 0 to 100.
+ExceptionAxisScaleSegmentsSizeInvalid=Axis segment size value must be in range from 0 to 100.
+ExceptionAxisScaleSegmentsSpacingInvalid=Axis segment spacing value must be in range from 0 to 100.
+
+ExceptionTickMarksIntervalIsZero=The grid lines interval cannot be zero.
+ExceptionTickMarksIntervalIsNegative=The interval cannot be a negative value.
+
+ExceptionScrollBarSizeInvalid=Scroll bar size should be in range from 5 pixels to 20.
+ExceptionScrollBarZoomResetsNumberInvalid=Number of zoom resets must be greater or equal to zero.
+
+ExceptionMarkerStepNegativeValue=Markers step value should be more than zero.
+ExceptionTextThresholdIsNegative=Text threshold value cannot be a negative number.
+
+ExceptionNamedImageObjectRequired=Named Image object required.
+ExceptionNamedImageNotFound(name)=An image with the name '{0}' could not be found in the named image collection.
+ExceptionNamedImageAddedIsNotUnique(name)=Cannot add image, since am image with the name '{0}' already exists.
+ExceptionNamedImageInsertedIsNotUnique(name)=Cannot insert image, since an image with the name '{0}' already exists.
+ExceptionNamedImageInsertedHasWrongType=The object to be inserted is not a NamedImage object.
+
+ExceptionLegendNameIsEmpty=Legend name cannot be empty.
+ExceptionLegendNameIsNotUnique(name)=A legend with name '{0}' already exists. Please specify a unique name.
+ExceptionLegendNotFound(name)=Chart legend with the name '{0}' could not be found in the chart legend collection.
+ExceptionLegendAddedIsNotUnique(name)=Cannot add chart legend, since a legend with the name '{0}' already exists.
+ExceptionLegendAddedHasWrongType=Object to be added is not a Legend object.
+ExceptionLegendInsertedHasWrongType=Object to be inserted is not a Legend object.
+ExceptionLegendDockedChartAreaIsMissing(name)=Legend cannot be positioned since the following chart area is missing: '{0}'. Add the chart area with specified name, or set the Legend property DockToChartArea to 'NotSet'.
+ExceptionBackSecondaryColorIsTransparent=BackSecondaryColor cannot be transparent.
+
+ExceptionLegendReferencedInSeriesNotFound(seriesName, legendName)=Series '{0}' uses non-existing legend name '{1}'. Set Legend property value to Default.
+ExceptionLegendAutoFitMinFontSizeInvalid=AutoFitMinFontSize property value cannot be less than 5.
+ExceptionLegendMaximumAutoSizeInvalid=Maximum legend auto size must be in range from 0 to 100.
+ExceptionLegendColumnSpacingInvalid=Legend table column spacing must be equal to or greater than 0.
+ExceptionLegendSeparatorTypeUnknown(type)=Unknown legend separator type '{0}'.
+ExceptionLegendMarkerBorderWidthIsNegative=Marker border width must be greater than 0.
+ExceptionLegendCellTypeUnknown(type)=Unknown legend cell type: {0}
+
+ExceptionLegendItemAddedHasWrongType=Object to be added is not a LegendItem object.
+ExceptionLegendItemInsertedHasWrongType=Object to be inserted is not a LegendItem object.
+
+ExceptionLegendColumnIsEmpty=Legend column name cannot be empty.
+ExceptionLegendColumnAlreadyExistsInCollection(name)=Legend Column with name '{0}' already exists in the collection.
+
+ExceptionSeriesSymbolSizeIsNegative=Column series symbol width and height cannot be a negative number.
+ExceptionMinimumCellWidthIsWrong=Column minimum width cannot be less than -1.
+ExceptionMaximumCellWidthIsWrong=Column maximum width cannot be less than -1.
+
+ExceptionLegendCellNameAlreadyExistsInCollection(name)=Legend cell with name '{0}' already exists in the collection.
+ExceptionLegendCellNameIsEmpty=Cell name cannot be empty.
+ExceptionLegendCellImageSizeIsNegative=Cell image width and height cannot be negative numbers.
+ExceptionLegendCellSeriesSymbolSizeIsNegative=Cell series symbol width and height cannot be negative numbers.
+ExceptionLegendCellSpanIsLessThenOne=Cell span must be equal or more than one.
+ExceptionLegendCellNotFound(name)=LegendCell with the name '{0}' could not be found in the collection.
+
+ExceptionLegendCellColumnNotFound(name)=LegendCellColumn with the name '{0}' could not be found in the collection.
+ExceptionLegendCellColumnAlreadyExistsInCollection(name)=LegendCellColumn with the name '{0}' already exists in the collection.
+
+ExceptionMarginTopIsNegative=Top margin cannot be negative.
+ExceptionMarginBottomIsNegative=Bottom margin cannot be negative.
+ExceptionMarginLeftIsNegative=Left margin cannot be negative.
+ExceptionMarginRightIsNegative=Right margin cannot be negative.
+
+
+ExceptionElementPositionArgumentOutOfRange=Element Position - Argument value should be in range from 0 to 100 percent.
+
+
+ExceptionChartHeightIsNotInPixels=Chart height must be set in pixels.
+ExceptionChartWidthIsNotInPixels=Chart width must be set in pixels.
+ExceptionChartBorderIsNegative=Border width cannot be less than 0.
+ExceptionChartAreaNameReferenceInvalid(chartArea1, chartArea2)=Cannot align chart area '{0}' with area '{1}' because it does not exist.
+
+ExceptionChartCompressionInvalid=Compression value must be from 0 to 100.
+ExceptionChartDataPointsAlignmentFaild=To align data points to X axis labels all series must have XValueIndexed property set to true or use only zero XValue for all data points.
+ExceptionChartDataPointsAlignmentFaildAxisLabelsInvalid=To align data points to X axis labels all points must have non-empty unique AxisLabels inside one series.
+ExceptionChartDataPointsInsertionFailedYValuesEmpty=Data points insertion error. Y values fields parameter cannot be empty.
+
+ExceptionTraceManagerUnsupportedType(name)=Trace Manager does not provide service of type: {0} 
+
+ExceptionChartTypeRegistryUnsupportedType(name)=Chart type registry does not provide service of type: {0}
+ExceptionChartTypeNameIsNotUnique(name)=Chart type with name '{0}' is already registered.
+ExceptionChartTypeHasNoInterface=Chart type must implement the IChartType interface.
+ExceptionChartTypeUnknown(name)=Unknown chart type '{0}'.
+ExceptionChartTypeRequiresYValues(name, yValues)=Chart type {0} requires {1} Y values in each data point.
+ExceptionChartTypeSecondaryYAxisUnsupported(name)=Chart type {0} does not support secondary Y axis.
+ExceptionChartTypeSecondaryXAxisUnsupported(name)=Chart type {0} does not support secondary X axis.
+ExceptionChartTypeCanNotCombine(type1, type2)=Series with chart type '{0}' cannot be displayed in the chart area. Only {1} chart types can be used.
+
+ExceptionBorderTypeRegistryUnsupportedType(name)=3D border registry does not provide service of type: {0}
+ExceptionBorderTypeNameIsNotUnique(name)=Border type with name '{0}' is already registered.
+ExceptionBorderTypeHasNoInterface=Border type must implement the IBorderType interface.
+ExceptionBorderTypeUnknown(name)=Unknown border type '{0}'.
+
+ExceptionChartSerializerUnsupportedType(name)=The chart serializer does not provide service of type: {0}
+ExceptionChartSerializerContentFlagUnsupported=Serializer - Unsupported serialization content flag.
+
+ExceptionChartSerializerDefaultConstructorUndefined(property)=Cannot deserialize property. Cannot find default public constructor for type '{0}'.
+ExceptionChartSerializerContentStringFormatInvalid=Invalid format of the serializable content string.
+ExceptionChartSerializerClassNameUndefined=Invalid format of the serializable content string. Class name not set.
+ExceptionChartSerializerPropertyNameUndefined=Invalid format of the serializable content string. Property name not set.
+ExceptionChartSerializerTypeUnsupported(type)=Serializer do not support objects of type '{0}'
+ExceptionChartSerializerWriterObjectInvalid=Invalid type of writer object. Can be Stream, TextWriter, XmlWriter, or String (file name).
+ExceptionChartSerializerReaderObjectInvalid=Invalid type of reader object. Can be Stream, TextReader, XmlReader, or String (file name).
+ExceptionChartSerializerPropertyNameUnknown(property, object)=Cannot deserialize property. Unknown property name '{0}' in object " {1}
+ExceptionChartSerializerDestinationObjectInvalid=Invalid type of destination object. Can be Stream, BinaryWriter, or String (file name).
+ExceptionChartSerializerSourceObjectInvalid=Invalid type of source object. Can be Stream, BinaryReader, or String (file name).
+ExceptionChartSerializerBinaryTypeUnsupported(type)=Binary serializer does not support objects of type {0}
+ExceptionChartSerializerBinaryHashCodeDuplicate(anem1, name2)=Binary serialization error. Properties {0} and {1} have the same hash code.
+ExceptionChartSerializerBinaryIgnoreUnknownAttributesUnsupported=Binary deserializer does not support 'IgnoreUnknownAttributes' property.
+ExceptionChartSerializerBinaryFromatInvalid=Deserialization error. Invalid binary format.
+ExceptionChartSerializerPropertyNotFound=Could not find property with specified ID while loading data.
+
+ExceptionDataManipulatorPointCountIsZero=PointCount parameter must be greater than zero.
+ExceptionDataManipulatorIndexUndefined=At least one element index must be specified. For example, 2,6,9-15,22.
+ExceptionDataManipulatorIndexFormatInvalid=Invalid format for element indexes specified. Use the format: 2,6,9-15,22.
+
+ExceptionDataManipulatorGroupedSeriesNotSorted=To group series data, the series must be sorted by X value, in ascending order.
+ExceptionDataManipulatorGroupingFormulaUndefined=Grouping - At least one grouping formula must be specified.
+ExceptionDataManipulatorYValuesIndexExceeded(formula)=Grouping - Y value index exceeds the maximum number of values in a point: '{0}'.
+ExceptionDataManipulatorGroupingFormulaAlreadyDefined(formulaName)=Grouping - Grouping formula already defined for this value: '{0}'.
+ExceptionDataManipulatorGroupingFormulaUnsupported=Grouping - Only First, Last, and Ave formulas may be used for the X value.
+ExceptionDataManipulatorGroupingFormulaFormatInvalid(formula)=Grouping - Invalid formula format: '{0}'.
+ExceptionDataManipulatorGroupingInputSeriesUndefined=Grouping - At least one input series must be specified.
+ExceptionDataManipulatorGroupingInputOutputSeriesNumberMismatch=Grouping - The number of output series must match the number of input series.
+ExceptionDataManipulatorGroupingFormulaNameInvalid(name)=Grouping - Invalid formula name: '{0}'.
+
+ExceptionDataBindYValuesToString=Y values cannot be data bound to the string object.
+ExceptionDataBindXValuesToString=X values cannot be data bound to the string object.
+ExceptionDataBindSeriesToString=Series cannot be data bound to the string object.
+ExceptionDataBindSeriesGroupByParameterIsEmpty=Series group by parameter cannot be empty. It must specify the field in the data source which is used to group data into series.
+
+ExceptionChartPictureUnsupportedType(name)=The chart picture does not provide a service of type: {0}
+
+
+ExceptionImageUrlIsEmpty=Image URL cannot be empty when rendering chart as image tag.
+ExceptionImageUrlInvalidFormatters=Image URL cannot contain both #UID and #SEQ formatters.
+ExceptionImageUrlInvalidFormat=Invalid image URL format. #SEQ formatter must be followed by (300,3), where 300 is a max sequence number (between 0 and 9999999) and 3 is an image file time to live (between 0 and 9999999).
+ExceptionImageUrlMissedFormatter=Image URL do not contain the #SEQ formatter.
+
+ExceptionSubAxisNameNotFound(name)=SubAxis with the name '{0}' could not be found in the chart axis SubAxes collection.
+ExceptionSubAxisNameAlreadyExistsInCollection(name)=SubAxis with the name '{0}' already exists in the collection.
+
+ExceptionChartTitleSetIsNotUnique(name)=Cannot set chart title, since title with the name '{0}' already exists.
+ExceptionChartTitleAddedIsNotUnique(name)=Cannot add chart title, since title with the name '{0}' already exists.
+ExceptionChartTitleDockedChartAreaIsMissing(name)=Title cannot be positioned since the following chart area is missing: '{0}'. Add the chart area with specified name, or set the title property DockToChartArea to 'NotSet'.
+
+ExceptionDataManagerUnsupportedType(name)=The data manager does not provide service of type: {0} 
+ExceptionDataManager100StackedSeriesPointsNumeberMismatch=Hundred percent stacked series must have the same number of points.
+ExceptionKeywordsRegistryUnsupportedType(name)=Keywords registry does not provide service of type: {0}
+ExceptionCustomAttributesRegistryUnsupportedType(name)=Custom attributes registry does not provide service of type: {0}
+
+ExceptionFormulaModuleNameIsNotUnique(name)=Formula Module with name '{0}' is already registered.
+ExceptionFormulaModuleHasNoInterface=Formula module must implement the IFormula interface.
+ExceptionFormulaModuleRegistryUnsupportedType(name)=Formula module registry does not provide service of type: {0}
+ExceptionFormulaModuleNameUnknown(name)=Unknown Formula module {0}.
+
+ExceptionColumnNameNotFound(name)=Column with name '{0}' was not found.
+
+ExceptionDataPointConverterInvalidSorting=DataPointComparer - Invalid data point sorting value specified. Use a value such as  'X', 'Y', 'Y2', 'Y3', 'AxisLabel' ...
+ExceptionDataPointConverterUnavailableSorting(value,count)=DataPointComparer - Can't sort by value '{0} '. Only {1} Y value(s) are in this series.
+ExceptionDataPointConverterWrongTypes=DataPointComparer - Comparable objects are not of type DataPoint.
+ExceptionDataPointInsertionXValuesQtyIsLessYValues=Data points insertion error. Number of X values is less than Y values
+ExceptionDataPointValueNameInvalid=Invalid data point value name. Use a format like  'X', 'Y', 'Y2', 'Y3', ... 
+ExceptionDataPointValueNameYIndexOutOfRange=Invalid data point value name. Index of Y value is out of range.
+ExceptionDataPointValueNameYIndexIsNotPositive=Invalid data point value name. Index of Y value must be greater than zero.
+ExceptionDataPointInsertionNoDataSource=Data points insertion error. Data source must be specified.
+ExceptionDataPointYValuesCountMismatch(count)=Data points insertion error. Only {0} Y values can be set for this data series.
+ExceptionDataPointYValuesBindingCountMismatch(count)=Data points binding error. Only {0} Y values can be set for this data series.
+ExceptionDataPointYValuesSettingCountMismatch(count)=You can only set {0} Y values for this data point.
+ExceptionDataPointBindingYValueNotSpecified=Data points binding error. Y value(s) must be specified.
+ExceptionDataPointInsertionYValueNotSpecified=Data points insertion error. Y value(s) must be specified.
+
+ExceptionAttributeUnableToDelete=Unable to delete common attribute from the Data series.
+ExceptionAttributeNameIsEmpty=Attribute name cannot be null
+ExceptionAttributeInvalidFormat=Invalid custom attributes format. Correct format: 'AttributeName1=Value1, AttributeName2=Value2'.
+ExceptionAttributeNameIsNotUnique(name)=Invalid custom attributes format. Attribute with name '{0}' already defined.
+ExceptionAttributeDrawSideBySideInvalid=Invalid value for the 'DrawSideBySide' custom attribute.
+
+
+ExceptionLabelBorderIsNotPositive=Label border width should be greater than 0.
+
+
+ExceptionBorderWidthIsNotPositive=Border width should be greater than 0.
+ExceptionAngleRangeInvalid=Angle value should be in range from -90 to 90 degrees.
+
+ExceptionDataPointYValueStringFormat=Cannot set Y value of the data point to a string in this format.
+
+ExceptionParameterFormatInvalid=Invalid format of the parameters
+
+ExceptionStatisticalAnalysesInvalidAlphaValue=Statistical Analyses - Invalid Alpha (probability) value.
+ExceptionStatisticalAnalysesInvalidProbabilityValue=Statistical Analyses - Invalid probability value.
+ExceptionStatisticalAnalysesInvalidDegreeOfFreedom=Statistical Analyses - Invalid degree of freedom.
+ExceptionStatisticalAnalysesNegativeMeanDifference=Statistical Analyses - The mean difference should be a positive number.
+ExceptionStatisticalAnalysesInvalidSeriesNumber=Statistical Analyses - Invalid number of data series.
+ExceptionStatisticalAnalysesInvalidMeanDifference=Statistical Analyses - Invalid hypothesized mean difference.
+ExceptionStatisticalAnalysesNotEnoughDataPoints=Statistical Analyses - More than one data point needed.
+ExceptionStatisticalAnalysesInvalidVariance=Statistical Analyses - Invalid variance.
+ExceptionStatisticalAnalysesInvalidTValue=Statistical Analyses - Invalid T value.
+ExceptionStatisticalAnalysesGammaBetaNegativeParameters=Statistical Analyses - Gamma and Beta functions cannot have negative parameters.
+
+ExceptionStatisticalAnalysesInvalidZValue=Statistical Analyses - Invalid Z value.
+ExceptionStatisticalAnalysesZeroVariance=Statistical Analysis - Variance has 0 value.
+ExceptionStatisticalAnalysesNotEnoughInputSeries=Statistical Analyses - There are not enough input series.
+ExceptionStatisticalAnalysesInvalidVariableRanges=Statistical Analyses - T test paired two samples for means. Variable ranges must have the same number of data points.
+ExceptionStatisticalAnalysesStudentsInvalidTValue=Statistical Analyses - Students distribution. The T value has to be between 0.0 and 100000.
+ExceptionStatisticalAnalysesStudentsNegativeFreedomDegree=Statistical Analyses - Students distribution. The degrees of freedom value has to be greater than 0.
+ExceptionStatisticalAnalysesNormalInvalidProbabilityValue=Statistical Analyses - Normal distribution. The Probability value has to be between 0.0001 and 0.9999.
+
+ExceptionStatisticalAnalysesInvalidTailedParameter=Statistical Analyses - Invalid One tailed parameter.
+ExceptionStatisticalAnalysesInvalidInputParameter=Statistical Analyses - Invalid input parameter.
+ExceptionStatisticalAnalysesIncompleteBetaFunction=Statistical Analyses - Beta incomplete function. a or b are too big, or MAXIT too small in BetaCF.
+ExceptionStatisticalAnalysesInvalidAnovaTest=Statistical Analyses - Anova test. Data series have different numbers of data points.
+
+ExceptionStatisticalAnalysesCovariance=Statistical Analyses – Covariance. Arrays have different numbers of data points.
+ExceptionStatisticalAnalysesInvalidMedianConditions=Statistical Analyses – Median cannot be calculated if size of the series is zero.
+ExceptionStatisticalAnalysesInvalidMeanConditions=Statistical Analyses – The mean cannot be calculated if an input series is empty (has no data points).
+ExceptionStatisticalAnalysesInvalidVarianceConditions=Statistical Analyses – Variance cannot be calculated if size of the series is less than 1.
+
+
+ExceptionPeriodParameterIsNegative=Period parameter must be a positive value.
+ExceptionPeriodAverageParameterIsNegative=Average Period parameter must be a positive value.
+ExceptionPeriodShortParameterIsNegative=Short Period parameter must be a positive value.
+ExceptionPeriodLongParameterIsNegative=Long Period parameter has to be positive.
+ExceptionFormulaInvalidPeriod(name)=Invalid Period specified for the {0} formula. Increase the number of data points, or decrease the Period.
+ExceptionFormulaNotEnoughDataPoints(name)=There are not enough data points to apply the {0} formula. Increase the number of data points, or decrease the Period.
+
+ExceptionIndicatorsDeviationMissing=Price Indicators module – Standard deviation parameter is missing.
+ExceptionIndicatorsLongPeriodLessThenShortPeriod=The Long Period must be greater than the Short period.
+ExceptionOscillatorObjectInvalidPeriod=Oscillator Object - Invalid Period specified.
+ExceptionOscillatorNegativeSignalPeriod=Signal Period must be a positive value.
+ExceptionOscillatorNegativePeriodParameter=Period parameter must be a positive value.
+
+ExceptionVolumeIndicatorStartValueMissing=VolumeIndicator Object – The Start Value parameter is missing.
+ExceptionPriceIndicatorsShiftParameterMissing=Price Indicators module – Shift parameter is missing.
+
+ExceptionPriceIndicatorsSameYNumber=Formula requires the same number of Y values for each input data point.
+ExceptionPriceIndicatorsSameXYNumber=Formula requires the same number of X and Y values for each input data point.
+ExceptionPriceIndicatorsPeriodMissing=Formula error - Period parameter is missing.
+ExceptionPriceIndicatorsNotEnoughPoints=Formula error - There are not enough data points for the Period.
+ExceptionPriceIndicatorsFormulaRequiresOneArray=Formula requires one array of input data.
+ExceptionPriceIndicatorsFormulaRequiresTwoArrays=Formula requires two arrays of input data.
+ExceptionPriceIndicatorsFormulaRequiresThreeArrays=Formula requires three arrays of input data.
+ExceptionPriceIndicatorsFormulaRequiresFourArrays=Formula requires four arrays of input data.
+
+ExceptionObjectReferenceIsNull=Object reference not set to an instance of an object.
+
+ExceptionThreeLineBreakCanNotCobine=ThreeLineBreak chart type - Cannot combine this chart type with any other charts.
+ExceptionThreeLineBreakNullReference=ThreeLineBreak chart type - Cannot get reference to the chart object.
+ExceptionThreeLineBreakUsedYValueOutOfRange=ThreeLineBreak chart type - Index specified by 'UsedYValue' custom attribute is out of range.
+ExceptionThreeLineBreakNumberOfLinesInBreakFormatInvalid=ThreeLineBreak chart type - Invalid format of the 'NumberOfLinesInBreak' custom attribute.
+ExceptionThreeLineBreakUpBrickColorInvalid=ThreeLineBreak chart type - Invalid format of the 'UpBrickColor' custom attribute.
+ExceptionThreeLineBreakUsedYValueInvalid=ThreeLineBreak chart type - Invalid format of the 'UsedYValue' custom attribute.
+ExceptionThreeLineBreakNumberOfLinesInBreakValueInvalid=ThreeLineBreak chart type - Invalid value of the 'NumberOfLinesInBreak' custom attribute.
+
+ExceptionRenkoCanNotCobine=Renko chart type - Cannot combine this chart type with any other charts.
+ExceptionRenkoNullReference=Renko chart type - Cannot get reference to the chart object.
+ExceptionRenkoUsedYValueOutOfRange=Renko chart type - Index specified by 'UsedYValue' custom attribute is out of range.
+ExceptionRenkoBoxSizeFormatInvalid=Renko chart type - Invalid format of the 'BoxSize' custom attribute.
+ExceptionRenkoUpBrickColorInvalid=Renko chart type - Invalid format of the 'UpBrickColor' custom attribute.
+ExceptionRenkoUsedYValueFormatInvalid=Renko chart type - Invalid format of the 'UsedYValue' custom attribute.
+
+ExceptionPieIntervalsInvalid=Pie Chart - Array of start intervals and array of end intervals do not have same number of items.
+ExceptionPieUnassignedFrontBackPoints=Pie Chart Data Point Order Error – Front and Back points are not assigned.
+ExceptionPiePointOrderInvalid=Pie Chart Data Point Order Error – Point already set to position.
+ExceptionPieHorizontalLineSizeInvalid=Pie Chart object – Labels Horizontal line size should be between 0 and 3. Default value is 1.
+ExceptionPieRadialLineSizeInvalid=Pie Chart object – Labels Radial line size should be between 0 and 3. Default value is 1.
+ExceptionPie3DLabelLineSizeInvalid=Pie Chart Object - The 3DLabelLineSize attribute is an invalid value. The value should be between 30 and 200.
+ExceptionPieRadiusInvalid=Pie Chart Object - The Doughnut radius attribute is an invalid value. The value should be between 0 and 99.
+ExceptionPieMinimumRelativePieSizeInvalid=Pie Chart Object - The MinimumRelativePieSize attribute is an invalid value. The value should be between 10 and 70.
+ExceptionPieOrderOperationInvalid=Invalid pie chart data point order operation.
+ExceptionPieIntervalsOverlapping=Pie Chart - Overlapping intervals.
+
+ExceptionDoughnutNullReference=Pie/Doughnut chart type - Cannot get reference to the chart object.
+ExceptionDoughnutThresholdInvalid=Pie/Doughnut chart type - Collected pie slice threshold must be greater than or equal to zero.
+ExceptionDoughnutCollectedThresholdUsePercentInvalid=Pie/Doughnut chart type - 'CollectedThresholdUsePercent' custom attribute can be set to values \\'true\\' or \\'false\\' only.
+ExceptionDoughnutCollectedColorInvalidFormat=Pie/Doughnut chart type - Invalid format of the 'CollectedColor' custom attribute.
+ExceptionDoughnutCollectedThresholdInvalidFormat=Pie/Doughnut chart type - Invalid format of the 'CollectedThreshold' custom attribute.
+ExceptionDoughnutCollectedThresholdInvalidRange=Pie/Doughnut chart type - When 'CollectedThreshold' custom attribute is expressed in percentages. The value should be in range from 0 to 100.
+ExceptionPointAndFigureUpBrickColorInvalidFormat=Point and Figure chart type - Invalid format of the 'UpBrickColor' custom attribute.
+ExceptionPointAndFigureCanNotCombine=PointAndFigure chart type - Cannot combine this chart type with any other charts.
+ExceptionPointAndFigureNullReference=PointAndFigure chart type - Cannot get reference to the chart object.
+ExceptionPointAndFigureUsedYValueHighOutOfRange=PointAndFigure chart type - Index specified by 'UsedYValueHigh' custom attribute is out of range.
+ExceptionPointAndFigureUsedYValueLowOutOfrange=PointAndFigure chart type - Index specified by 'UsedYValueLow' custom attribute is out of range.
+ExceptionPointAndFigureReversalAmountInvalidFormat=PointAndFigure chart type - Invalid format of the 'ReversalAmount' custom attribute.
+ExceptionPointAndFigureUsedYValueHighInvalidFormat=PointAndFigure chart type - Invalid format of the 'UsedYValueHigh' custom attribute.
+ExceptionPointAndFigureUsedYValueLowInvalidFormat=PointAndFigure chart type - Invalid format of the 'UsedYValueLow' custom attribute.
+
+ExceptionFastPointMarkerStyleUnknown=Fast Point - Unknown marker style specified.
+
+ExceptionFunnelAngleRangeInvalid=Funnel 3D rotation angle value must be in range from 10 to -10.
+ExceptionFunnelCanNotCombine=Funnel chart cannot be combined with any other chart type in a single chart area.
+ExceptionFunnelNeckHeightInvalid=Funnel neck height attribute value must be in range from 0 to 100.
+ExceptionFunnelNeckWidthInvalid=Funnel neck width attribute value must be in range from 0 to 100.
+
+ExceptionKagiAttributeFormatInvalid(attribute)=Kagi chart type - Invalid format of the {0} custom attribute.
+ExceptionKagiNullReference=Kagi chart type - Cannot get reference to the chart object.
+ExceptionKagiCanNotCombine=Kagi chart type - Cannot combine this chart type with any other charts.
+ExceptionKagiAttributeOutOfRange(name)=Kagi chart type - Index specified by '{0}' custom attribute is out of range.
+
+ExceptionStackedAreaChartSeriesDataPointsNumberMismatch=Data series for the Stacked Area chart cannot have a different number of data points.
+Exception3DPieLabelsIndexInvalid=3D Pie Labels - Invalid index.
+Exception3DChartPointsXValuesUnsorted=X values for the 3D chart points must be sorted in ascending or descending order.
+ExceptionFunnelStyleUnknown(style)=Unknown funnel chart drawing style: '{0}'.
+ExceptionFunnelMinimumPointHeightAttributeInvalid=Minimum point height attribute value must range from 0 to 100.
+ExceptionErrorBarParameterUndefined=Parameter must be specified for the Fixed Value error bar type.
+ExceptionErrorBarTypeInvalid(type)=Invalid error bar type {0}.
+ExceptionErrorBarTypeFormatInvalid(format)=Invalid error bar type format {0}
+Exception3DSplineY1ValueIsLessThenY2=Invalid Y1 and Y2 values of the data points for 3D SplineRange chart. Y2 must be smaller than Y1.
+ExceptionChartCanNotCombine(name)={0} chart cannot be combined with any other chart type in a single chart area.
+
+ExceptionCustomAttributeValueInvalid(value,name)="Invalid value '{0}' for the custom attribute '{1}'.
+ExceptionCustomAttributeValueInvalid2(name)="Invalid value for the '{0}' custom attribute.
+ExceptionCustomAttributeAngleOutOfRange(name)=Invalid value of the '{0}' custom attribute. Value must range from 0 to 360.
+ExceptionCustomAttributeIsNotInRange0to1(name)=Value of the '{0}' custom attribute must range from 0 to 1.
+ExceptionCustomAttributeIsNotInRange0to100(name)=Value of the '{0}' custom attribute must range from 0 to 100.
+ExceptionCustomAttributeIsNotLargerThenZiro(name)='{0}' custom attribute value must be greater than zero.
+ExceptionCustomAttributeIsNotInRange0to50(name)=Invalid value for the {0} custom attribute. Value must range from 0 to 50.
+ExceptionCustomAttributeSeriesNameNotFound(attributeName, seriesName)=Invalid value of the {0} custom attribute. Series with name '{1}' is not found."
+ExceptionCustomAttributeMustBeMoreThenValue( attributeName, value)=Custom attribute '{0}' value must be greater than {1}.
+ExceptionCustomAttributeMustBeBiggerThenValue( attributeName, value)=Custom attribute '{0}' value must be greater than {1}.
+ExceptionCustomAttributeMustBeInRange( attributeName, fromValue, toValue)=Custom attribute '{0}' value must range from {1} to {2}.
+ExceptionCustomAttributeDefaultValueTypeInvalid=Invalid default value type.
+ExceptionCustomAttributeTypeUnsupported(type)=Unsupported custom attribute type '{0}'.
+ExceptionCustomAttributeTypeOrMaximumPossibleValueInvalid(attributeName)=Invalid type of the maximum possible value in custom attribute '{0}'.
+ExceptionCustomAttributeTypeOrMinimumPossibleValueUnsupported(name)=Unsupported type of the minimum possible value in custom attribute '{0}'.
+ExceptionCustomAttributeTypeOrMinimumPossibleValueInvalid(attributeName)=Invalid type of the minimum possible value in custom attribute '{0}'.
+
+ExceptionFormulaDataItemsNumberMismatch=Formula Data Object - Array of series and array of value indexes do not have the same number of items.
+ExceptionFormulaDataItemsNumberMismatch2=Formula Data Object – Different number of data series and value indexes.
+ExceptionFormulaDataSeriesNameNotFoundInCollection(name)=Formula Data Object - Input Series does not exist in Series collection: {0}
+ExceptionFormulaDataSeriesNameNotFound(name)=Formula Data Object - Input Series doesn’t exist: {0}
+ExceptionFormulaDataFormatInvalid(name)=Formula Data Object - Invalid format: {0}
+ExceptionFormulaDataOutputSeriesNumberYValuesIncorrect=Formula Data Object - The number of output series and Y values is not correct.
+ExceptionFormulaDataSeriesAreNotAlignedDifferentXValues( series1, series2 )=Series '{0}' and Series '{1}' must be aligned to perform the operation. The series currently have different X values.
+ExceptionFormulaDataSeriesAreNotAlignedDifferentDataPoints( series1, series2 )=Series '{0}' and Series '{1}' must be aligned to perform the operation. The series currently have a different number of data points.
+ExceptionFormulaYIndexInvalid=Formula Error - Invalid Y value index.
+ExceptionFormulaXValuesNotAligned=X values are not aligned.
+ExceptionFormulaInputOutputSeriesMismatch=There is a different number of input and output series.
+ExceptionFormulaNotFound(name)=A formula with the name '{0}' does not exist.
+
+
+ExceptionForecastingDegreeInvalid=Forecasting Error – The degree of the polynomial must be between 1 and 5: (1) Constant, (2) Linear Regression, (3 - 5) Multiple Regression.
+ExceptionForecastingNotEnoughDataPoints(minimum)=Forecasting Error – There are too few data points for this regression type. A minimum of {0} data points are required.
+ExceptionForecastingExponentialRegressionHasZeroYValues=Exponential regression cannot have negative or zero input Y values.
+ExceptionForecastingPowerRegressionHasZeroYValues=Power regression cannot have negative or zero input Y values.
+
+ExceptionBorderWidthIsNegative=Border width must be equal to or greater than 0.
+ExceptionBorderWidthIsZero=Border width must be greater than 0.
+ExceptionLegendBorderWidthIsNegative=Legend - Border width must be equal to or greater than 0.
+ExceptionTitleBorderWidthIsNegative=Title - Border width must be equal to or greater than 0.
+
+ExceptionMatrix3DNotinitialized=Matrix 3D is not initialized.
+
+ExceptionPaletteIsEmpty=Palette Colors - Cannot get palette colors because the palette is not set.
+ExceptionValueMustBeGreaterThan( propertyName, value)={0} must be greater than {1}.
+ExceptionValueMustBeLessThan( propertyName, value)={0} must be less than {1}.
+ExceptionValueMustBeInRange( propertyName, fromValue, toValue)={0} must range from {1} to {2}.
+ExceptionChartPreviewNotAvailable=Chart Preview is not available.  An action that you have performed has caused failure in Chart Preview.  Please try to undo the changes or run the application to see the exception that the action has caused.
+ExceptionChartPreviewNotAvailableShort=Chart Preview is not available.
+ExceptionChartOutOfLimits=Chart Preview is not available for charts with more than 100 megapixels.
+
+ExceptionHttpHandlerCanNotSave=Chart cannot save an item after 10 attempts.
+ExceptionHttpHandlerCanNotLoadType(type)=Cannot load type {0}.
+ExceptionHttpHandlerImageHandlerInterfaceUnsupported(name)=Type {0} does not support ChartHttpHandler.ImageHandler interface.
+ExceptionHttpHandlerParameterUnknown( name, value)=Unknown parameter in chart handler configuration: {0} = {1}
+ExceptionHttpHandlerParameterInvalid( name, value)=Invalid parameter in chart handler configuration: {0} = {1}
+ExceptionHttpHandlerPrivacyKeyInvalid( name, value)=Unable to obtain privacy key from the execution context, based on configuration: {0} = {1}
+ExceptionHttpHandlerValueInvalid=Value cannot be less than -1.
+ExceptionHttpHandlerTimeoutParameterInvalid=Invalid timeout parameter in chart handler configuration.
+ExceptionHttpHandlerUrlMissing=Missing 'url' in chart handler configuration.
+ExceptionHttpHandlerUrlInvalid=Invalid 'url' in chart handler configuration.
+ExceptionHttpHandlerTempDirectoryInvalid(directory)=Invalid temp images directory in chart handler configuration [{0}]. Please edit the web.config file. The CharImageHandler key, Dir value must point to a valid directory. The directory is required for temporary image storage when storage mode equals file system.
+ExceptionHttpHandlerTempDirectoryUnaccesible(directory)=The temp directory in chart handler configuration is not accessible [{0}].
+ExceptionHttpHandlerStorageTypeUnsupported(type)=The image storage type {0} is not supported.
+ExceptionHttpHandlerInvalidLocation=The image location is not under specified directory.
+ExceptionHttpHandlerImageNotFound=The image is not found.
+ExceptionWebConfigUpdateFailed(message)=The Chart failed to modify the web.config file.  Charts may not display correctly.  Reason: {0}
+
+DescriptionCustomAttributeEmptyPointValue=Determines how an empty point is treated when the chart is drawn. If a value of 'Average' is used, then the chart is drawn as if a point exists that has an average Y value, the average being calculated using the adjacent points.  If 'Zero' is used, then the chart is drawn as if a point exists with a value of zero.
+DescriptionCustomAttributeIsXAxisQuantitive=Indicates whether the data point index (1,2,...) or XValue will be used to position the data point along the X axis.
+DescriptionCustomAttributePieDonutExploded=Determines if a Pie or Doughnut slice is exploded.
+DescriptionCustomAttributeProportionalSymbols=Determines if a Point and Figure chart should attempt to draw ‘X’ and ‘O’ symbols proportionally. This is done by adding an empty space on the right side if the width of the symbol is too large.
+DescriptionCustomAttributeDrawSideBySide=Determines if data points that have the same X value are drawn side by side, or are drawn using the same X value.  If Auto, then the chart type automatically determines if this is true or false.  Note that setting this attribute to true only has an effect if two or more series in a chart area have DrawSideBySide set to true.
+DescriptionCustomAttributeShowMarkerLines=Determines if marker lines are displayed.
+DescriptionCustomAttributeShowOpenClose=Determines if Open and Close markers (lines or triangles) are displayed.
+DescriptionCustomAttributeBoxPlotShowAverage=Determines if the average value will be shown for a Box Plot chart.
+DescriptionCustomAttributeBubbleUseSizeForLabel=Determines if the bubble size is used to generate data point labels.
+DescriptionCustomAttributeBoxPlotShowMedian=Determines if the median value will be shown for a Box Plot chart.
+DescriptionCustomAttributeBoxPlotShowUnusualValues=Determines if unusual values will be shown for a Box Plot chart.
+DescriptionCustomAttributeBoxPlotSeries=Determines the name of the series used as the data source for a Box Plot chart.
+DescriptionCustomAttributePieStartAngle=Determines the starting angle of the first pie slice, measured in degrees.
+DescriptionCustomAttributeLabelStyle=Gets or set the data point labels position.
+DescriptionCustomAttributeFunnelLabelStyle=Gets or sets a Funnel chart data point labels style.
+DescriptionCustomAttributeFunnelStyle=Gets or sets a Funnel chart's style.
+DescriptionCustomAttributePolarDrawingStyle=Gets or sets a Polar chart's drawing style.
+DescriptionCustomAttributePyramidLabelStyle=Gets or sets a Pyramid chart data point labels style.
+DescriptionCustomAttributeRadarDrawingStyle=Gets or sets a Radar chart's drawing style.
+DescriptionCustomAttributeBoxSize=Gets or sets a Renko chart's box size. This value may either be a percentage or a fixed amount.
+DescriptionCustomAttributeCollectedColor=Gets or sets collected slice color.
+DescriptionCustomAttributeCollectedLabel=Gets or sets collected slice label.
+DescriptionCustomAttributeCollectedLegendText=Gets or sets collected slice legend text.
+DescriptionCustomAttributeCollectedLegendDefaultText=Other
+DescriptionCustomAttributeCollectedLabelDefaultText=Other
+DescriptionCustomAttributeCollectedToolTip=Gets or sets collected slice tooltip.
+DescriptionCustomAttributePyramidValueType=Gets or sets if data point values represent a linear height of the segment or its surface.
+DescriptionCustomAttribute_3DLabelLineSize=Gets or sets the 3D labels line size, which represents the amount of space reserved for drawing the line that connects a slice to a label drawn outside of the chart (the label style is set by the Label custom attribute). This is measured as a percentage of the default size.
+DescriptionCustomAttributeFunnel3DRotationAngle=Gets or sets the 3D rotation angle of the funnel.
+DescriptionCustomAttributePyramid3DRotationAngle=Gets or sets the 3D rotation angle of the pyramid.
+DescriptionCustomAttributePixelPointDepth=Gets or sets the 3D series depth, measured in pixels.
+DescriptionCustomAttributePixelPointGapDepth=Gets or sets the 3D series gap, measured in pixels.
+DescriptionCustomAttributeErrorBarCenterMarkerStyle=Gets or sets the appearance type of the marker shown at the center value of the Error Bar chart.
+DescriptionCustomAttributePointFigureBoxSize=Gets or sets the box size of a Point and Figure chart. This value may either be a percentage or a fixed amount.
+DescriptionCustomAttributeBubbleScaleMax=Gets or sets the bubble size that will be used as the maximum, which is a percentage of the chart area that is set by BubbleMaxSize. For example, setting this to 20 will result in a bubble value of 20 being displayed with the maximum size. If 'Auto', then the largest plotted bubble will be displayed using the maximum size.
+DescriptionCustomAttributeBubbleScaleMin=Gets or sets the bubble size that will be used as the minimum size. For example, setting this to 4 will result in a bubble value of 4 being displayed as the smallest possible bubble. If 'Auto', then the smallest plotted bubble will be displayed using the minimum size.
+DescriptionCustomAttributeCollectedThreshold=Gets or sets the collected slice threshold value either as data point Y value or as percentage.
+DescriptionCustomAttributePieLineColor=Gets or sets the color of the radial and horizontal label lines.
+DescriptionCustomAttributeCalloutLineColor=Gets or sets the data point labels callout line color. Applies only for the 'OutsideInColumn' label style.
+DescriptionCustomAttributePieLabelStyle=Gets or sets the data point labels position.
+DescriptionCustomAttributeFunnel3DDrawingStyle=Gets or sets the drawing style of a 3D Funnel chart.
+DescriptionCustomAttributePyramid3DDrawingStyle=Gets or sets the drawing style of a 3D Pyramid chart.
+DescriptionCustomAttributeDrawingStyle=Gets or sets the drawing style of bar or column charts.
+DescriptionCustomAttributePieDrawingStyle=Gets or sets the drawing style of the Pie and Doughnut charts.
+DescriptionCustomAttributeCollectedSliceExploded=Gets or sets the flag that indicates if collected slice is exploded.
+DescriptionCustomAttributeCollectedThresholdUsePercent=Gets or sets the flag that indicates if collected slice threshold value is set in percent.
+DescriptionCustomAttributeFunnelNeckHeight=Gets or sets the funnel neck height. Only applied when a predefined funnel shape is used.
+DescriptionCustomAttributeFunnelNeckWidth=Gets or sets the funnel neck width. Only applied when a predefined funnel shape is used.
+DescriptionCustomAttributePyramidPointGap=Gets or sets the gap size between data points, in relative coordinates.
+DescriptionCustomAttributeFunnelPointGap=Gets or sets the gap size between points, in relative coordinates.
+DescriptionCustomAttributeLabelsHorizontalLineSize=Gets or sets the horizontal callout line size. This attribute is only applied if labels are drawn outside of data points.
+DescriptionCustomAttributeDoughnutRadius=Percent of the radius used as the doughnut size.
+DescriptionCustomAttributePolarCircularLabelsStyle=Gets or sets the labels drawing style of a Polar chart.
+DescriptionCustomAttributeRadarCircularLabelsStyle=Gets or sets the labels drawing style of a Radar chart.
+DescriptionCustomAttributeOpenCloseStyle=Gets or sets the marker style for Open and Close values.
+DescriptionCustomAttributeBubbleMaxSize=Gets or sets the maximum size of the bubble radius, measured as a percentage of the chart area size.
+DescriptionCustomAttributeMaxPixelPointWidth=Gets or sets the maximum width (in pixels) of data points.
+DescriptionCustomAttributePyramidMinPointHeight=Gets or sets the minimum height of data points in relative coordinates. This attribute can be used to make very small pyramid segments visible.
+DescriptionCustomAttributeFunnelMinPointHeight=Gets or sets the minimum height of data points, in relative coordinates. This attribute can be used to make very small funnel segments visible.
+DescriptionCustomAttributeMinimumRelativePieSize=Gets or sets the minimum pie size. When used with outside labeling, this property controls the minimum acceptable pie size, measured as a percentage the chart area size.  This will prevent the pie from becoming too small due to the labels dominating the chart area.
+DescriptionCustomAttributeMinPixelPointWidth=Gets or sets the minimum width (in pixels) of data points.
+DescriptionCustomAttributeErrorBarSeries=Gets or sets the name of the series that will be used for error bar calculations. The named series must exist.
+DescriptionCustomAttributeNumberOfLinesInBreak=Gets or sets the number of lines to use in the Three Line Break.
+DescriptionCustomAttributePyramidOutsideLabelPlacement=Gets or sets the outside labels placement, relative to a pyramid.
+DescriptionCustomAttributeFunnelOutsideLabelPlacement=Gets or sets the outside labels placement, relative to the funnel.
+DescriptionCustomAttributeBoxPlotPercentile=Gets or sets the percentile value of the box of a Box Plot chart.
+DescriptionCustomAttributeBoxPlotWhiskerPercentile=Gets or sets the percentile value of the whiskers of a Box Plot chart.
+DescriptionCustomAttributeBarLabelStyle=Gets or sets the placement of data point labels.
+DescriptionCustomAttributeLabelsRadialLineSize=Gets or sets the radial callout line size. This attribute is only applied if labels are drawn outside of data points.
+DescriptionCustomAttributePointWidth=Gets or sets the relative width of data points.
+DescriptionCustomAttributeReversalAmount=Gets or sets the reversal amount for a Point and Figure chart, measured in box sizes.
+DescriptionCustomAttributePolarAreaDrawingStyle=Gets or sets the shape of a Polar chart's chart area.
+DescriptionCustomAttributeRadarAreaDrawingStyle=Gets or sets the shape of a Radar chart's chart area.
+DescriptionCustomAttributeStackedGroupName=Gets or sets the stacked bar/column group name.
+DescriptionCustomAttributeLineTension=Gets or sets the tension for the drawn curve. A curve with zero tension will have the appearance of a line.
+DescriptionCustomAttributeCandlePriceUpColor=Gets or sets the color for a candle if a data point's Close value is greater than its Open value.
+DescriptionCustomAttributeBarsPriceUpColor=Gets or sets the color for bars if a data point's Close value is greater than its Open value.
+DescriptionCustomAttributePriceDownColor=Gets or sets the color for a candle if a data point's Close value is less than its Open value.
+DescriptionCustomAttributeUsedYValueHigh=Gets or sets the zero-based index of the high Y value of a Point and Figure chart.
+DescriptionCustomAttributeUsedYValueLow=Gets or sets the zero-based index of the low Y value of a Point and Figure chart.
+DescriptionCustomAttributeRenkoUsedYValue=Gets or sets the zero-based index of the Y value used to plot a Renko chart.
+DescriptionCustomAttributeThreeLineBreakUsedYValue=Gets or sets the zero-based index of the Y value used to plot a Three Line Break chart.
+DescriptionCustomAttributePyramidInsideLabelAlignment=Gets or sets the vertical alignment of data point labels placed inside a pyramid.
+DescriptionCustomAttributeFunnelInsideLabelAlignment=Gets or sets the vertical alignment of data point labels placed inside the funnel.
+DescriptionCustomAttributeErrorBarStyle=Gets or sets the visibility of the Upper and Lower Error values of an Error Bar chart.
+DescriptionCustomAttributePixelPointWidth=Gets or sets the width (in pixels) of data points.
+DescriptionCustomAttributeLabelValueType=Gets or sets the Y value that is used as a data label.
+DescriptionCustomAttributeUsedYValue=Gets or sets the zero-based index of the Y value used to plot a Kagi chart.
+DescriptionCustomAttributeKagiReversalAmount=Gets or sets when a new Kagi line should be drawn. This value may either be a percentage or a fixed amount.
+DescriptionCustomAttributeErrorBarType=Defines how the upper and lower errors are calculated for the center values of the error bar series.
+
+DescriptionAttributeChart_ImageStorageMode=Chart image storage mode. 
+
+DescriptionKeyWordAverageYValues=Represents the average of all Y values in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordAxisLabelDataPoint=Represents the data point axis label.\n\nThis keyword will be replaced with the value of the AxisLabel property of the associated data point.
+DescriptionKeyWordIndexDataPoint=Represents the data point index in the series.\n\nThis zero-based data point index can be used to uniquely identify the point in the series.
+DescriptionKeyWordLabelDataPoint=Represents the data point label.\n\nThis keyword will be replaced with the value of the Label property of the associated data point.
+DescriptionKeyWordYValuePercentTotal=Represents the data point Y value as a percentage of all Y values in the series.
+DescriptionKeyWordIndexDataPoint2=Represents the index of the data point in the series.\n\n.
+DescriptionKeyWordLegendText=Represents the legend text.\n\nThis keyword will be replaced with the value of the LegendText property of the associated object.
+DescriptionKeyWordMaximumYValues=Represents the maximum of all Y values in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordMinimumYValues=Represents the minimum of all Y values in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordSeriesName=Represents the name of the series.\n\nThis keyword will be replaced with the associated series Name property.
+DescriptionKeyWordTotalYValues=Represents the total (or sum) of all Y values in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordXValue=Represents the X value of the series data point.\n\nIf a series is populated with Y values only, all X value points are set to zero.
+DescriptionKeyWordFirstPointYValue=Represents the Y value of the first point in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordLastPointYValue=Represents the Y value of the last point in the series.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+DescriptionKeyWordYValue=Represents the Y value of the series data point.\n\nIf a chart type supports more than one Y value, you can specify which Y value should be used.
+
+DescriptionKeyWordNameIndexDataPoint=Index of Data Point
+DescriptionKeyWordNameXValue=X Value
+DescriptionKeyWordNameYValue=Y Value
+DescriptionKeyWordNameTotalYValues=Total of Y Values
+DescriptionKeyWordNameYValuePercentTotal=Y Value as Percent of Total
+DescriptionKeyWordNameIndexTheDataPoint=Index of the Data Point
+DescriptionKeyWordNameLabelDataPoint=Label of Data Point
+DescriptionKeyWordNameAxisLabelDataPoint=Axis Label of Data Point
+DescriptionKeyWordNameLegendText=Legend Text
+DescriptionKeyWordNameSeriesName=Series Name
+DescriptionKeyWordNameAverageYValues=Average of Y Values
+DescriptionKeyWordNameMaximumYValues=Maximum of Y Values
+DescriptionKeyWordNameMinimumYValues=Minimum of Y Values
+DescriptionKeyWordNameLastPointYValue=Last Point Y Value
+DescriptionKeyWordNameFirstPointYValue=First Point Y Value
+
+
+
+#====Keyword Editor start
+DescriptionNumberFormatTypeCurrency=Currency
+DescriptionNumberFormatTypeDecimal=Decimal
+DescriptionNumberFormatTypeScientific=Scientific
+DescriptionNumberFormatTypeFixedPoint=Fixed-point
+DescriptionNumberFormatTypeGeneral=General
+DescriptionNumberFormatTypeNumber=Number
+DescriptionNumberFormatTypePercent=Percent
+
+
+DescriptionTypeNone=None
+DescriptionTypeCustom=Custom
+DescriptionTypeEmpty=Empty
+DescriptionTypePoint=Point
+
+LabelKeyFormat=&Format:
+LabelKeyCustomFormat=&Custom Format:
+LabelStringWithKeywords= &String with Keywords: 
+LabelEditKeyword=&Edit Keyword
+LabelInsertNewKeyword=&Insert New Keyword
+LabelStringKeywordsEditor=String Keywords Editor
+LabelKeywordEditor=Keyword Editor
+LabelDescription= Description: 
+LabelFormatKeySample=Format &Sample:
+LabelKeyYValueIndex=&Y Value Index:
+LabelKeyPrecision=&Precision:
+LabelKeyKeywords= &Keywords: 
+LabelValueFormatting= Value Formatting: 
+
+LabelButtonOk=OK
+LabelButtonCancel=Cancel
+ 
+DescriptionToolTipCustomFormatCharacters=Characters that can be used to create custom numeric format strings:\n\n    '0' - Zero placeholder, \n    '#' - Digit placeholder,\n    '.' - Decimal point,\n    ',' - Thousand separator and number scaling,\n    '%' - Percentage placeholder,\n    'E0' - Scientific notation,\n    '\\' - Escape character,\n    ';' - Section separator.\n\nAll other characters are copied to the output string as literals in the position they appear.
+
+DesciptionCustomLabelEditorTitle=In the text editor below, you can input static text and any number of keywords. A keyword is a special formatted character sequence which is replaced by an associated chart series value or calculated value. Line breaks may be inserted by pressing 'Enter' in the text editor.
+DesciptionCustomLabelFormatInvalid=Invalid custom format string
+
+#====Keyword Editor end
+
+LabelStatisticalSumOfSquaresBetweenGroups=Sum Of Squares Between Groups:
+LabelStatisticalSumOfSquaresWithinGroups=Sum Of Squares Within Groups:
+LabelStatisticalSumOfSquaresTotal=Sum Of Squares Total:
+LabelStatisticalDegreesOfFreedomBetweenGroups=Degrees of Freedom Between Groups:
+LabelStatisticalDegreesOfFreedomWithinGroups=Degrees of Freedom Within Groups:
+LabelStatisticalDegreesOfFreedomTotal=Degrees of Freedom Total:
+LabelStatisticalMeanSquareVarianceBetweenGroups=Mean Square Variance Between Groups:
+LabelStatisticalMeanSquareVarianceWithinGroups=Mean Square Variance Within Groups:
+LabelStatisticalFRatio=F Ratio:
+LabelStatisticalFCriteria=F Criteria:
+
+LabelStatisticalCorrelation=Correlation:
+LabelStatisticalCovariance=Covariance:
+LabelStatisticalProbability=Probability:
+LabelStatisticalAverage=Average:
+LabelStatisticalVariance=Variance:
+LabelStatisticalMedian=Median:
+LabelStatisticalBetaFunction=Beta Function:
+LabelStatisticalGammaFunction=Gamma Function:
+
+LabelStatisticalTheFirstGroupMean=The First Group Mean:
+LabelStatisticalTheSecondGroupMean=The Second Group Mean:
+LabelStatisticalTheFirstGroupVariance=The First Group Variance:
+LabelStatisticalTheSecondGroupVariance=The Second Group Variance:
+LabelStatisticalFValue=F Value:
+LabelStatisticalFCriticalValueOneTail=F Critical value - one-tail:
+
+LabelStatisticalZValue=Z Value:
+LabelStatisticalZCriticalValueOneTail=Z Critical value - one-tail:
+LabelStatisticalZCriticalValueTwoTail=Z Critical value - two-tail:
+
+LabelStatisticalPZLessEqualSmallZOneTail=P(Z<=z) one-tail:
+LabelStatisticalPZLessEqualSmallZTwoTail=P(Z<=z) two-tail
+LabelStatisticalPFLessEqualSmallFOneTail=P(F<=f) one-tail:
+
+LabelStatisticalTValue=T Value:
+LabelStatisticalDegreeOfFreedom=Degree of freedom:
+LabelStatisticalPTLessEqualSmallTOneTail=P(T<=t) one-tail:
+LabelStatisticalSmallTCrititcalOneTail=t Critical one-tail:
+LabelStatisticalPTLessEqualSmallTTwoTail=P(T<=t) two-tail:
+LabelStatisticalSmallTCrititcalTwoTail=t Critical two-tail:
+
+
+EvenLogMessageChartImageFileTimeToLive(minutes)=Chart image file time-to-live was reduced to {0} minutes.
+
+MessageYValueIndexInvalid(maxIndex)=Y value index used must be in range from 0 to {0}
+MessagePrecisionInvalid=Precision can be empty or in range from 0 to 99.
+MessageChangingChartAreaPositionProperty=You are about to change the Chart Area auto positioning property. Changing a single Chart Area auto positioning may cause undesired overlapping of the Chart Areas.
+MessageChangingChartAreaPositionConfirmAutomatic=\n\nDo you wish to set automatic positioning for all Chart Areas?
+MessageChangingChartAreaPositionConfirmCustom=\n\nDo you wish to set a custom position for all Chart Areas?
+MessageChartException=Chart Exception:
+MessageSite=Site:
+MessageStackTrace=Stack Trace:
+
+MessageChartTitle=Chart for .NET
+
+
+
+
+
+
+TitleAxisX=X axis
+TitleAxisY=Y (Value) axis
+TitleAxisX2=Secondary X axis
+TitleAxisY2=Secondary Y (Value) axis
+
+FormulaNamePriceIndicators=Price Indicators
+FormulaNameGeneralTechnicalIndicators=General Technical Indicators
+FormulaNameTechnicalVolumeIndicators=Technical Volume Indicators
+FormulaNameOscillator=Oscillator
+FormulaNameGeneralFormulas=General Formulas
+FormulaNameTimeSeriesAndForecasting=Time Series and Forecasting
+FormulaNameStatisticalAnalysis=Statistical Analysis
+FormulaNameVolumeIndicators=Volume Indicators
+
+LabelTextRow= Row
+
+
+DescriptionAttributeBackImage=Gets or sets background image path or image URL.
+DescriptionAttributeMarkerImage=Gets or sets marker image path or image URL.
+DescriptionAttributeAnnotationBaseY=Gets or sets an annotation position's Y coordinate. Set to Double.NaN ('NotSet') to achieve automatic positioning of anchored annotation.
+DescriptionAttributeAnnotationWidth=Gets or sets an annotation's width. Set to Double.NaN ('NotSet') to achieve automatic size calculation for annotation text. Can also be negative.
+DescriptionAttributeAnnotationHeight=Gets or sets annotation height. Set to Double.NaN ('NotSet') to achieve automatic size calculation for annotation text.
+DescriptionAttributeAnnotationClipToChartArea=Gets or sets the name of the chart area the annotation is clipped to. To disable chart area clipping, set property to 'NotSet' or an empty string.
+DescriptionAttributeAnnotationBaseX=Gets or sets the X coordinate of the annotation. Set to Double.NaN ('NotSet') to achieve automatic positioning of an anchored annotation.
+DescriptionAttributeChartImageType=Image type (JPEG, BMP, PNG).
+DescriptionAttributeMultiValueSeparator=Separator to be used with the multiple value parameters.
+DescriptionAttributeDataSeriesGroupID=Series group ID.
+DescriptionAttributeSuppressCodeExceptions=Use of this property will cause the suppression of user code script exceptions.
+DescriptionAttributeNoDataMessage=Use this property to customize the No Data message on the chart.
+DescriptionAttributeReverseSeriesOrder=Use this property to reverse the series order without affecting the order of the legend items.
+DescriptionAttributeUserDefined=User defined custom attributes specified as: AttributeName1=Value1, AttributeName2=Value2, ...
+DescriptionAttributeChartEvent_GetToolTipText=Called before showing the tooltip to get the tooltip text.
+DescriptionAttributeArrowAnnotation_ArrowSize=Gets or sets annotation arrow size in pixels.
+DescriptionAttributeChartSerializer_Content=Defines the serializable content for the Load, Save, and Reset methods.
+DescriptionAttributeLegend_Enabled=Legend is not visible if set to false.
+DescriptionAttributeEnabled5=Grid or mark enabled flag.
+DescriptionAttributeAxisScaleBreakStyle_Enabled=Gets or sets a flag which determines if axis automatic scale breaks are enabled.
+DescriptionAttributeEnabled7=Enables or disables the axis.
+DescriptionAttributeLabel_Enabled=Indicates that labels are enabled.
+DescriptionAttributeLegendItem_Enabled=Legend item is not visible if set to false.
+DescriptionAttributeAxisScrollBar_Enabled=Determines if the axis scroll bar is enabled.
+DescriptionAttributeEnabled13=Gets or sets SmartLabels algorithm enabled flag.
+DescriptionAttributeSeries_Enabled=Gets or sets series enabled flag.
+DescriptionAttributeLegendCell_CellSpan=Indicates the number of horizontal cells used to draw the content.
+DescriptionAttributeCursor_SelectionColor=Chart area range selection color.
+DescriptionAttributeInterlaced=Indicates that interlaced strip lines will be displayed for the axis.
+DescriptionAttributeMapArea_Coordinates=Coordinates of the area.
+DescriptionAttributeChartEvent_PostPaint=Called when chart element is painted.
+DescriptionAttributeStripLine_Title=Strip Line title.
+DescriptionAttributeLegend_Title=Legend title text.
+DescriptionAttributeTitle5=Chart title.
+DescriptionAttributeTitle6=Axis title.
+DescriptionAttributeAnnotation_Annotation=Abstract base class of all chart annotation classes.
+DescriptionAttributeTitleFont=Sets or gets title font.
+DescriptionAttributeChartArea_Axes=Chart area axes.
+DescriptionAttributeChartSerializer_NonSerializableContent=Comma-separated list of non-serializable (Save/Load/Reset) properties.
+DescriptionAttributeShadowOffset=Gets or sets shadow's offset.
+DescriptionAttributeCalloutLineAnchorCap=Gets or sets callout line anchor cap.
+DescriptionAttributeMapAreaAttributes=Gets or sets elements' map area attributes.
+DescriptionAttributeSubAxis_SubAxis=SubAxis properties.
+DescriptionAttributeMajorGrid=Major grid lines style.
+DescriptionAttributeElementPosition_Y=Element top position. Set 'Auto' property to false if you want to set this property.
+DescriptionAttributeAnnotationPathPoint_Y=Gets or sets annotation path point Y coordinate.
+DescriptionAttributeToolTipEventArgs_Y=Mouse Y coordinate.
+DescriptionAttributePoint3D_Y=Y coordinate of the point.
+DescriptionAttributePoint3D_Z=Z coordinate of the point.
+DescriptionAttributeMajorTickMark=Major tick marks style.
+DescriptionAttributeDrawInfinitive=Gets or sets a flag, which indicates if an infinitive line should be drawn through the two specified points.
+DescriptionAttributeAxisDataView_MinSize=View/scrolling minimum size.
+DescriptionAttributeLegendCellColumnCollection_LegendCellColumnCollection=Legend column collection.
+DescriptionAttributeMarkerOverlapping=Gets or sets the flag that marker overlapping by label is allowed.
+DescriptionAttributeChart_OnCustomizeLegend=Fires when all chart legend data is prepared to be customized before drawing.
+DescriptionAttributeLegendCellColumn_HeaderTextAlignment=Legend column header text horizontal alignment.
+DescriptionAttributeScrollBarEventArgs_MousePositionY=Mouse cursor Y position.
+DescriptionAttributeNamedImage_NamedImage=Image with unique name.
+DescriptionAttributeScrollBar=Axis scroll bar settings.
+DescriptionAttributeMapArea_MapArea=Chart image map area
+DescriptionAttributeLegend_CustomItems=Legend custom items collection.
+DescriptionAttributeAnnotationSmartLabelsStyle_AnnotationSmartLabelsStyle=Annotation SmartLabels style properties.
+DescriptionAttributePolylineAnnotation_PolylineAnnotation=Polyline annotation class.
+DescriptionAttributeChartEvent_AxisViewChanged=Called when axis view position/size is changed.
+DescriptionAttributeCrossing=Point where axis is crossed by another axis.
+DescriptionAttributeMargins_Top=Top margin.
+DescriptionAttributeLegendCellColumn_HeaderFont=Legend column header text font.
+DescriptionAttributeLegend_InterlacedRows=Indicate that legend rows should be drawn with interlaced background color.
+DescriptionAttributeAxisDataView_MinSizeType=View/scrolling minimum size type.
+DescriptionAttributeLineWidth=Gets or sets line width, in pixels.
+DescriptionAttributeDataPoint_XValue=X value of the series data point
+DescriptionAttributeChartArea_AxisY2=Secondary Y axis properties.
+DescriptionAttributeChartArea_AxisX2=Secondary X axis properties.
+DescriptionAttributeChartEvent_AnnotationPositionChanging=Fires when annotation position is changing.
+DescriptionAttributeStripLine_StripLine=Axis strip or line.
+DescriptionAttributeBorderColor=Gets or sets border color.
+DescriptionAttributeMarkerBorderColor=Gets or sets data point marker border color.
+DescriptionAttributeLegendText=Text of the item in the legend.
+DescriptionAttributeCustomLabel_LabelMark=Defines marks for the labels in the second row. Major tick mark line style is used for drawing.
+DescriptionAttributeTextAntiAliasingQuality=Sets or gets quality of text anti-aliasing.
+DescriptionAttributeAllowMoving=Gets or sets a flag, which indicates if an annotation can be moved.
+DescriptionAttributeCalloutAnnotation_CalloutAnnotation=Callout annotation class.
+DescriptionAttributeStripLine_Name=Strip Line name.
+DescriptionAttributeTitle_Name=Title item name.
+DescriptionAttributeName4=Gets or sets annotation's unique name.
+DescriptionAttributeAnnotationPathPoint_Name=Gets or sets annotation path point type.
+DescriptionAttributeLegendCell_Name=Legend cell name.
+DescriptionAttributeMapArea_Name=Map area name.
+DescriptionAttributeSeries_Name=Data series name
+DescriptionAttributeAxis_Name=Axis name. For internal use only.
+DescriptionAttributeNamedImage_Name=Image name.
+DescriptionAttributeSubAxis_Name=SubAxis name.
+DescriptionAttributeDataPoint_Name=Data point name. For internal use only.
+DescriptionAttributeLegendCellColumn_Name=Legend column name.
+DescriptionAttributeLegendItem_Name=Legend item text.
+DescriptionAttributeLegend_Name=Legend name.
+DescriptionAttributeCustomLabel_Name=Custom label item name. For internal use only.
+DescriptionAttributeChartArea_Name=Chart area name.
+DescriptionAttributeCursor_Cursor=Chart area cursor and range selection.
+DescriptionAttributeAnchorX=Gets or sets an annotation anchor position's X coordinate.
+DescriptionAttributeToolTip=Gets or sets element's tooltip.
+DescriptionAttributeLegend_TableStyle=Legend table style.
+DescriptionAttributeDataPoint_Empty=Empty data point flag
+DescriptionAttributeScrollBarEventArgs_Handled=Indicates that event is handled by user and no further processing is required.
+DescriptionAttributeAxisLabel=Data point axis label text.
+DescriptionAttributeAnnotationGroup_AllowPathEditing=Gets or sets a flag, which indicates if a polygon annotation's path can be edited.
+DescriptionAttributeAllowPathEditing3=Gets or sets a flag, which indicates if the polygon annotation's path can be edited.
+DescriptionAttributeChart_OnPaint=Fires when the chart element must be drawn. This event is fired for elements such as ChartPicture, ChartArea, and Legend.
+DescriptionAttributeCalloutAnnotation_AnchorOffsetX=Gets or sets annotation object X offset from the anchor.
+DescriptionAttributeAnchorOffsetX3=Gets or sets an annotation X position's offset from the anchor point.
+DescriptionAttributeCalloutAnnotation_AnchorOffsetY=Gets or sets annotation object Y offset from the anchor.
+DescriptionAttributeAnchorOffsetY3=Gets or sets an annotation Y position's offset from the anchor point.
+DescriptionAttributeChartEvent_CursorPositionChanging=Called when cursor position is about to change.
+DescriptionAttributeScrollBarEventArgs_ButtonType=Type of the scroll button clicked.
+DescriptionAttributeLabelsAutoFitStyle=Labels auto-fit style. LabelsAutoFit must be set to true.
+DescriptionAttributeLabelStyle=Axis labels style.
+DescriptionAttributeStripLine_IntervalOffsetType=Strip or line offset type.
+DescriptionAttributeLabel_IntervalOffsetType=Labels offset type.
+DescriptionAttributeIntervalOffsetType4=Axis interval offset type.
+DescriptionAttributeCursor_IntervalOffsetType=Cursor movement interval offset type.
+DescriptionAttributeIntervalOffsetType6=Grid or mark offset type.
+DescriptionAttributeAxisScaleSegment_IntervalOffsetType=Axis segment interval offset type.
+DescriptionAttributeReverse=The values on the axis are in reverse order.
+DescriptionAttributeSeries_Points=Series Data Points collection.
+DescriptionAttributeBorderSkin_SkinStyle=Skin border style.
+DescriptionAttributeChartArea3DStyle_Clustered=Enables/disables series clustering (same chart types are adjacent, along one row).
+DescriptionAttributeAnchorDataPointName=Gets or sets data point name the annotation is attached to.
+DescriptionAttributeChartEvent_AnnotationPositionChanged=Fires when annotation position was changed.
+DescriptionAttributeChartArea3DStyle_PointGapDepth=All series' points gap depth.  Measured as a percentage (0-1000%).
+DescriptionAttributeLegend_Reversed=Indicates that all legend items are shown in reversed order. This property only affects legend items automatically added for the chart series and has no effect on custom legend items.
+DescriptionAttributeAnnotation_AnnotationType=Gets or sets annotation type name.
+DescriptionAttributeTextAnnotation_AnnotationType=Text annotation type name.
+DescriptionAttributeAnnotationType=Annotation type name.
+DescriptionAttributeBorderSkin_FrameBorderDashStyle=Skin frame border line style.
+DescriptionAttributeLegend_HeaderSeparatorColor=Legend header visual separator color.
+DescriptionAttributeChartEvent_AnnotationSelectionChanged=Fires when selected annotation changes.
+DescriptionAttributeFont=Data point font.
+DescriptionAttributeLegend_Font=Legend item's text font.
+DescriptionAttributeLegendCellColumn_Font=Legend column text font.
+DescriptionAttributeLabel_Font=Label font.
+DescriptionAttributeTitle_Font=Title text font.
+DescriptionAttributeLegendCell_Font=Legend cell text font. Set CellType to Text to use this property.
+DescriptionAttributeSeries_ValueMemberX=Member of the chart data source used to data bind to the X value of the series.
+DescriptionAttributeArrows=Axis arrows type.
+DescriptionAttributeType=Axis Type
+DescriptionAttributeSeries_Type=Chart type used to draw the series.
+DescriptionAttributeBorder3DAnnotation_Border3DAnnotation=Border3D annotation class.
+DescriptionAttributeChart_Images=Chart named images collection.
+DescriptionAttributeLegendToolTip=Tooltip of the item in the legend.
+DescriptionAttributeCustomLabel_CustomLabel=Custom axis label.
+DescriptionAttributeChartEvent_AnnotationPlaced=Fires when annotation is placed by the user on the chart.
+
+
+DescriptionAttributeBackColor=Gets or sets background color.
+DescriptionAttributeCalloutBackColor=Gets or sets callout background color.
+DescriptionAttributeFrameBackColor=Gets or sets frame background color.
+DescriptionAttributeTitleBackColor=Gets or sets title background color.
+DescriptionAttributeLabelBackColor=Gets or sets label background color.
+DescriptionAttributeHeaderBackColor=Gets or sets header background color.
+
+DescriptionAttributeLabel_ShowEndLabels=True if labels are shown at axis ends.
+DescriptionAttributeLabelToolTip=Tooltip of the data point label.
+DescriptionAttributeSeries_MarkerStep=Specify how often the data point markers are displayed.
+DescriptionAttributeTickMark_Style=Tick mark style.
+DescriptionAttribute_TextOrientation=Text orientation.
+DescriptionAttributeLegendItem_Style=Legend item picture style.
+DescriptionAttributeChartArea3DStyle_Rotation=Gets or sets the angle of chart area rotation around the Y axis.
+DescriptionAttributeSizeAlwaysRelative=Gets or sets a flag that determines if an annotation's size is always defined in relative chart coordinates.
+DescriptionAttributeSizeAlwaysRelative3=Gets or sets a flag which determines if the annotation size is always defined in relative chart coordinates.
+DescriptionAttributeAnnotationGroup_SizeAlwaysRelative=Gets or sets a flag that indicates if an annotation's size is always defined in relative chart coordinates.
+DescriptionAttributeChart_BorderlineWidth=Chart border width
+DescriptionAttributeSeries_XValueIndexed=Indicates that a data point index (1,2,...) will be used for the X value.
+DescriptionAttributeEllipseAnnotation_EllipseAnnotation=Ellipse annotation class.
+DescriptionAttributeAnchorAlignment=Gets or sets annotation object alignment relative to the anchor.
+DescriptionAttributeWidth=Chart width.
+DescriptionAttributeElementPosition_Width=Element width. Set 'Auto' property to false if you want to set this property.
+DescriptionAttributeAxisXName=Gets or sets X axis name to which the annotation is attached.
+DescriptionAttributeChartArea3DStyle_Inclination=Gets or sets the angle of inclination, rotation around the X axis.
+DescriptionAttributeLegendCollection_LegendCollection=Legend collection.
+DescriptionAttributeAxisYName=Gets or sets Y axis name the annotation is attached to.
+DescriptionAttributeAxisScaleSegment_Spacing=Axis segment spacing in axis size percentage.
+DescriptionAttributeAxisScaleBreakStyle_Spacing=Axis scale break spacing.
+DescriptionAttributeSelected=Gets or sets a flag that determines if an annotation is selected.
+DescriptionAttributeAnnotationGroup_Selected=Gets or sets a flag, which indicates if an annotation is selected.
+DescriptionAttributeVerticalLineAnnotation_VerticalLineAnnotation=Vertical line annotation class.
+DescriptionAttributeLabelsAutoFitMaxFontSize=Gets or sets the maximum font size that can be used by the labels auto-fitting algorithm.
+DescriptionAttributeFreeDrawPlacement=Gets or sets a flag, which determines if an annotation will be placed using free-draw style.
+DescriptionAttributeStripLinesCollection_StripLinesCollection=Strips and lines collection.
+DescriptionAttributeAxisDataView_IsZoomed=Indicates if axis is zoomed in or not.
+DescriptionAttributeChartArea3DStyle_Perspective=Gets or sets the amount of 3D perspective, which controls the chart depth view.
+DescriptionAttributeChart_OnCustomize=Fires when all chart data is prepared to be customized before drawing.
+DescriptionAttributeLabel=Data point label text
+DescriptionAttributeLabel_Label=Axis labels settings.
+DescriptionAttributeStartCap3=Gets or sets the cap style used at the end of the annotation line.
+DescriptionAttributeFontColor=Gets or sets label color.
+DescriptionAttributeLegendFontColor=Gets or sets legend text color.
+DescriptionAttributeLabel_OffsetLabels=True if labels are shown with offset. Only font angles 0, 90 and -90 can be used if this property is set.
+DescriptionAttributeMargin=If true, a space is added between the first and the last data points and the border of the chart area.
+DescriptionAttributeAnnotationPositionChangingEventArgs_AnnotationPositionChangingEventArgs=Annotation position changing event data.
+DescriptionAttributeCursorEventArgs_NewSelectionStart=New range selection start position.
+DescriptionAttributeSeries_XSubAxisName=Name of the X sub-axis to which this series is attached.
+DescriptionAttributeHideOverlapped=Gets or sets the flag to hide overlapped labels if they cannot be repositioned.
+DescriptionAttributeLegendCellColumn_MaximumWidth=Legend column maximum width (as a percentage of legend font size). Set this property to -1 for automatic calculation.
+DescriptionAttributeLegend_InsideChartArea=Specify name of chart area inside which the legend is drawn.  Legend Position must be set to 'Auto' for this property to work.
+DescriptionAttributeImageTransparentColor=Gets or sets a color drawn as transparent when drawing an image.
+DescriptionAttributeLegend_EquallySpacedItems=Indicates that all legend items are equally spaced.
+DescriptionAttributeChartArea_CursorY=Chart area Y axis cursor and range selection.
+DescriptionAttributeChart_Printing=Chart printing object.
+DescriptionAttributeAxis=Axis of the event.
+DescriptionAttributeAxis_Axis=Axis properties.
+DescriptionAttributeBackImageAlign=Sets or gets background image alignment used by Unscaled wrapping mode.
+DescriptionAttributeShowInLegend=Indicates that item is shown in the legend.
+DescriptionAttributeChartSerializer_ChartSerializer=Chart serializer class.
+DescriptionAttributeChart_Compression=JPEG image compression value (0-100%). 
+DescriptionAttributeChartImage_Compression=Image compression value.
+DescriptionAttributeCursor_AutoScroll=Determines if the data view will scroll automatically if necessary.
+DescriptionAttributeElementPosition_Height=Element height. Set 'Auto' property to false if you want to set this property.
+DescriptionAttributeHeight3=Chart height.
+DescriptionAttributeChart_ViewStateContent=Chart content saved in the view state.
+DescriptionAttributeAxisDataView_SmallScrollSizeType=View small scrolling size type.
+DescriptionAttributeLegend_CellColumns=Legend columns collection.
+DescriptionAttributeAxisScrollBar_Buttons=Determines the buttons displayed by the axis scroll bar.
+DescriptionAttributeLegends=Chart legends.
+DescriptionAttributeElementPosition_X=Element left position. Set 'Auto' property to false if you want to set this property.
+DescriptionAttributeAnnotationPathPoint_X=Gets or sets an annotation path point's X coordinate.
+DescriptionAttributePoint3D_X=X coordinate of the point.
+DescriptionAttributeToolTipEventArgs_X=Mouse X coordinate.
+DescriptionAttributeCustomAttributesExtended=Custom Data Point attributes specified as: AttributeName1=Value1, AttributeName2=Value2, ...  
+DescriptionAttributeMargins_Left=Left margin.
+DescriptionAttributeAxisScrollBar_PositionInside=Indicates that scroll bar is positioned inside or outside of chart area.
+DescriptionAttributeSeries_ValueMembersY=Members of the chart data source used to data bind to the Y values of the series.
+DescriptionAttributeSmartLabelsStyle_SmartLabelsStyle=SmartLabels style properties.
+DescriptionAttributeChartEvent_SelectionRangeChanging=Called when selection start/end position is about to change.
+DescriptionAttributeLabelsAutoFitMinFontSize=Gets or sets the minimum font size that can be used by the labels auto-fitting algorithm.
+DescriptionAttributeMaxMovingDistance=Gets or sets maximum distance the overlapped SmartLabel can be moved from the marker. Distance is measured in pixels.
+DescriptionAttributeTitle_DockToChartArea=Chart area name the title is docked to inside or outside.
+DescriptionAttributeLegend_DockToChartArea=Chart area name the legend is docked to inside or outside.
+DescriptionAttributeChartArea3DStyle_RightAngleAxes=Axes are displayed at a right angle, independent of rotation.
+DescriptionAttributeLegend_LegendStyle=Legend style.
+DescriptionAttributeAxisDataView_AxisDataView=Axis data view used for zooming and scrolling axis data.
+DescriptionAttributeBorderDashStyle=Gets or sets border style.
+DescriptionAttributeLabelBorderDashStyle=Gets or sets label border style.
+DescriptionAttributeBackSecondaryColor=Gets or sets secondary background color used for a gradient and hatching.
+DescriptionAttributeBorderSkin_FrameBackSecondaryColor=Skin frame secondary background color which is used for a gradient and hatching.
+DescriptionAttributeLegend_TitleSeparator=Legend title visual separator type.
+DescriptionAttributeChartArea_InnerPlotPosition=Inner plotting rectangle position in coordinates relative to the chart area.
+DescriptionAttributeChartEvent_CustomizeLegend=Fires just before the chart legend is drawn. Use this event to customize the chart legend items.
+DescriptionAttributeAnnotationPathPoint_AnnotationPathPoint=Polyline annotation path point.
+DescriptionAttributeDataPoint_YValues=Y value(s) of the series data point
+DescriptionAttributeCustomLabel_RowIndex=Custom label row index.
+DescriptionAttributeSeries_YSubAxisName=Name of the Y sub-axis this series is attached to.
+DescriptionAttributeChartArea_AlignType=Chart areas alignment type.
+DescriptionAttributeAllowResizing=Gets or sets a flag, which indicates if an annotation can be resized.
+DescriptionAttributeShowLabelAsValue=If true shows point's value as a label.
+DescriptionAttributeForeColor=Gets or sets text color.
+DescriptionAttributePathPoints=Gets or sets an annotation's path points at design-time.
+DescriptionAttributeViewEventArgs_NewSizeType=New data view size units type.
+DescriptionAttributeChart_BuildNumber=Control build number.
+DescriptionAttributeAxisScaleSegmentCollection_AxisScaleSegmentCollection=Axis scale segment collection.
+DescriptionAttributeMarkerSize=Data point marker size
+DescriptionAttributeLegendItem_MarkerSize=Legend item marker size.
+DescriptionAttributeLegendCell_SeriesSymbolSize=Legend cell image or series symbol size (as a percentage of legend font size). Set CellType to SeriesSymbol to use this property.
+DescriptionAttributeLegendCellColumn_SeriesSymbolSize=Legend column series symbol size (as a percentage of legend font size). This is only applicable to items that are automatically generated for the series.
+DescriptionAttributeDisabled=Grid or mark disabled flag.
+DescriptionAttributeChartSerializer_ResetWhenLoading=Indicates that object properties are reset to default values before loading.
+DescriptionAttributeBackGradientStyle=Gets or sets background gradient style.
+DescriptionAttributeDataSource=The data source used to populate series data. Series ValueMember properties must be also set.
+DescriptionAttributeCustomLabels=Custom labels collection.
+DescriptionAttributeArrowAnnotation_ArrowAnnotation=Arrow annotation class.
+DescriptionAttributeCursor_AxisType=Type of the axes the cursor is attached to.
+DescriptionAttributeLegendItem_Cells=Collection of legend item cells.
+DescriptionAttributeBorderSkin=Chart border skin style.
+DescriptionAttributeBorderSkin_BorderSkin=Drawing attributes for the 3D border skins.
+DescriptionAttributeSubAxisCollection_SubAxisCollection=Chart sub-axes collection.
+DescriptionAttributeAllowSelecting=Gets or sets a flag, which indicates if an annotation can be selected.
+DescriptionAttributeChartEvent_Customize=Fires just before the chart image is drawn. Use this event to customize the chart picture.
+DescriptionAttributeChartEvent_Click=Fires when active image map area defined by PostBackValue is clicked.
+DescriptionAttributeImageAnnotation_ImageAnnotation=Image annotation class.
+DescriptionAttributeAxisDataView_SmallScrollSize=View small scrolling size.
+DescriptionAttributeAxisScaleSegment_Interval=Axis segment interval size.
+DescriptionAttributeCursor_Interval=Cursor movement interval.
+DescriptionAttributeInterval4=Axis interval size.
+DescriptionAttributeStripLine_Interval=Strip or line interval size.
+DescriptionAttributeInterval6=Grid or mark interval size.
+DescriptionAttributeLabel_Interval=Labels interval size.
+DescriptionAttributeStripLine_TitleLineAlignment=Strip Line title lines alignment.
+DescriptionAttributeMaximum=Maximum axis value.
+DescriptionAttributeElementPosition_Auto=Element automatic positioning flag.
+DescriptionAttributeSeries_YAxisType=Type of y axes used for this series.
+DescriptionAttributeLineDashStyle=Gets or sets line dash style.
+DescriptionAttributeLogarithmBase=Base of the logarithm used in logarithmic scale. By default, this value is 10.
+DescriptionAttributeAntiAlias=Specifies whether smoothing (anti-aliasing) is applied while drawing chart.
+DescriptionAttributeImageWrapMode=Gets or sets image wrapping mode.
+DescriptionAttributeChartSerializer_IgnoreUnknownXmlAttributes=Indicates that unknown XML attributes and elements will be ignored without throwing an exception.
+DescriptionAttributeAxisScaleSegment_Tag=Object associated with axis scale segment.
+DescriptionAttributeTag=Gets or sets an object associated with this chart element.
+DescriptionAttributeLegend=Chart default legend.
+DescriptionAttributeLegend_Legend=Legend style, position, custom elements and other properties.
+DescriptionAttributeSeries_Legend=Chart legend name used by the series.
+DescriptionAttributeDataPointComparer_DataPointComparer=Data points comparer class.
+DescriptionAttributeBackHatchStyle=Gets or sets background hatch style.
+DescriptionAttributeFrameBackHatchStyle=Gets or sets frame background hatch style.
+DescriptionAttributeChartAreaCollection_Item=Chart Area collection indexer. Area name or index can be provided as a parameter.
+DescriptionAttributeLegendCollection_Item=Legend collection indexer. Legend name or index can be provided as a parameter.
+DescriptionAttributeAnnotationCollection_Item=Annotation collection indexer. The annotation name or index can be provided as a parameter.
+DescriptionAttributeSubAxisCollection_Item=SubAxis collection indexer. The SubAxis name or index can be provided as a parameter.
+DescriptionAttributeSeriesCollection_Item=Data series collection indexer. Series name or index can be provided as a parameter.
+DescriptionAttributeAnnotationPathPointCollection_Item=Annotation path points collection indexer.
+DescriptionAttributeLegendCellColumnCollection_Item=Legend column collection indexer. The legend column name or integer index can be provided as a parameter.
+DescriptionAttributeAxisScaleSegmentCollection_Item=Axis scale segment collection indexer.
+DescriptionAttributeLegendCellCollection_Item=Legend item cell collection indexer. The legend cell name or integer index can be provided as a parameter.
+DescriptionAttributeNamedImagesCollection_Item=Named Images collection indexer. Image name or index can be provided as a parameter.
+DescriptionAttributeAxisScaleSegment_ScaleMinimum=Axis segment scale minimum value.
+DescriptionAttributeSmartLabels=SmartLabels properties. Note that data point labels must also have smart labels enabled.
+DescriptionAttributeSeries_SmartLabels=SmartLabels properties.
+DescriptionAttributeSmartLabels_SmartLabels=Chart area SmartLabels helper class.
+DescriptionAttributeMinorTickMark=Minor tick marks style.
+DescriptionAttributeMapAreasCollection_MapAreasCollection=Map areas collection.
+DescriptionAttributeMovingDirection=Gets or sets possible moving directions for the overlapped SmartLabel.
+DescriptionAttributeCursor_UserSelection=Enables/Disables chart area range selection user interface.
+DescriptionAttributeChartArea=Chart area of the event.
+DescriptionAttributeSeries_ChartArea=Chart area in which this series is drawn.
+DescriptionAttributeChartArea_ChartArea=Chart area attributes.
+DescriptionAttributeToolTipEventArgs_HitTestResult=Hit Test Result Object.
+DescriptionAttributeAxisScaleSegment_AxisScaleSegment=Represents a scale segment of the axis.
+
+
+DescriptionAttributeLegend_ItemColumnSeparatorColor=Legend table columns visual separator color.
+DescriptionAttributeDataManipulator=Series data manipulator.
+DescriptionAttributeTitle_Color=Title font color.
+DescriptionAttributeLegendItem_Color=Legend item color.
+DescriptionAttributeColor4=Data point color.
+DescriptionAttributeMargins_Right=Right margin.
+DescriptionAttributeRight3=Gets or sets annotation right position.
+DescriptionAttributeChart_OnBackPaint=Fires when chart element background must be drawn. This event is fired for elements such as ChartPicture, ChartArea, and Legend.
+DescriptionAttributeLineColor=Gets or sets line color.
+DescriptionAttributeCalloutLineColor=Gets or sets callout line color.
+DescriptionAttributeArrowAnnotation_ArrowStyle=Gets or sets annotation arrow style.
+DescriptionAttributeArrowStyle_ArrowStyle=Arrow annotation styles.
+DescriptionAttributeSeries_XValueType=Type of values stored on the X axes.
+DescriptionAttributeAnnotationGroup_Annotations=Annotations of the group.
+DescriptionAttributeAnnotations3=Chart annotation collection.
+DescriptionAttributeMinorGrid=Minor grid lines style.
+DescriptionAttributeMapArea_Custom=Indicates that map area is custom.
+DescriptionAttributeChart_EnableViewState=Gets or sets a value indicating whether the control persists its view state.
+DescriptionAttributeChartArea3DStyle_Enable3D=Enables/disables 3D chart areas.
+DescriptionAttributeInterlacedColor=Color used to draw interlaced strip lines for the axis.
+DescriptionAttributeLegendCellColumn_Margins=Legend column margins (as a percentage of legend font size).  This is only applicable to items that are automatically generated for the series.
+DescriptionAttributeMargins_Margins=Chart element margins.
+DescriptionAttributeLegendCell_Margins=Legend cell margins (as a percentage of legend font size).
+DescriptionAttributeLegendItem_MarkerColor=Legend item marker color.
+DescriptionAttributeMarkerColor3=Data point marker color
+DescriptionAttributeChart_Size=The size of the control in pixels.
+DescriptionAttributeTickMark_Size=Tick mark size.
+DescriptionAttributeAxisScaleSegment_Size=Axis segment size in axis size percentage.
+DescriptionAttributeAxisDataView_Size=View size.
+DescriptionAttributeAxisScrollBar_Size=The width of the axis scroll bar, in pixels.
+DescriptionAttributeViewEventArgs_NewSize=New data view size.
+DescriptionAttributeSeries_XAxisType=Type of X axes used for this series.
+DescriptionAttributeAllowOutsidePlotArea=Gets or sets a flag which defines if SmartLabels are allowed to be drawn outside of the plotting area.
+DescriptionAttributeLegendItem_MarkerStyle=Legend item marker style.
+DescriptionAttributeMarkerStyle4=Data point marker style
+DescriptionAttributeLegendCell_ImageSize=Legend cell image size as a percentage of legend font size. If property is set to Size.Empty, the original image size (in pixels) is used.
+DescriptionAttributeView=Axis data view settings.
+DescriptionAttributeSeriesCollection_SeriesCollection=Data series collection.
+DescriptionAttributeCursorEventArgs_NewPosition=New cursor position.
+DescriptionAttributeViewEventArgs_NewPosition=New data view start position.
+DescriptionAttributeLegendCell_Image=Legend cell image name. Set CellType to Image to use this property.
+DescriptionAttributeNamedImage_Image=Image object.
+DescriptionAttributeImageAnnotation_Image=Gets or sets the image file name or name from the named images collection.
+DescriptionAttributeLegendItem_Image=Legend item image.
+DescriptionAttributeCustomLabel_Image=Label image
+DescriptionAttributeAxisScaleSegment_IntervalOffset=Axis segment interval offset.
+DescriptionAttributeIntervalOffset3=Grid or mark interval offset.
+DescriptionAttributeLabel_IntervalOffset=Labels interval offset.
+DescriptionAttributeCursor_IntervalOffset=Cursor movement interval offset.
+DescriptionAttributeIntervalOffset6=Axis interval offset.
+DescriptionAttributeStripLine_IntervalOffset=Strip or line start position offset. If drawing a single line/strip, specifies the absolute coordinate. For the series of lines/strips, sets the offset from the min value.
+DescriptionAttributeLegend_DockInsideChartArea=Indicates that the legend is docked inside the chart area.  This property is only available when DockToChartArea is set.
+DescriptionAttributeTitle_DockInsideChartArea=Indicates that title is docked inside chart area. DockToChartArea property must be set first.
+DescriptionAttributeChart_RenderType=Chart rendering type. Image tag, input tag, binary data streaming and image map are the options.
+DescriptionAttributeAxisScaleBreakStyle_CollapsibleSpaceThreshold=Sets or gets Minimum axis scale region size, in percentage of total axis length, that can be collapsed with the scale break.
+DescriptionAttributeChartEvent_AxisViewChanging=Fires when axis view position/size is about to change.
+DescriptionAttributeLabelCalloutStyle_LabelCalloutStyle=Data point label callout style.
+DescriptionAttributePath=Gets or sets an annotation's path points at run-time.
+DescriptionAttributeLegendItem_SeriesPointIndex=Legend item series data point index.
+DescriptionAttributeMapAreas=Chart map areas collection.
+DescriptionAttributeTickMark_TickMark=Tick marks and grid lines properties and methods.
+DescriptionAttributeLegendCellColumn_LegendCellColumn=Represents a column in the chart legend.
+DescriptionAttributeLegendItem_LegendItem=Chart legend item.
+DescriptionAttributeTitleAlignment=Axis title alignment.
+DescriptionAttributeStripLine_TitleAlignment=Strip Line title alignment.
+DescriptionAttributeLegend_TitleAlignment=Legend title horizontal text alignment.
+DescriptionAttributeElementPosition_ElementPosition=Element position in relative coordinates.
+DescriptionAttributeCustomLabel_To=Custom label right position.
+DescriptionAttributeLabel_FontAngle=Label font angle
+DescriptionAttributeIntervalAutoMode=Determines if fixed number of intervals used on the axis or number of intervals depends on the axis size.
+DescriptionAttributeStripLine_StripWidth=Strip width.
+DescriptionAttributeCursor_UserEnabled=Enables/disables the cursor user interface.
+DescriptionAttributeBorderSkin_FrameBorderWidth=Skin frame border line width.
+DescriptionAttributeAxisScaleSegment_Position=Axis segment position in axis size percentage.
+DescriptionAttributeAxisDataView_Position=View position.
+DescriptionAttributeTitle_Position=Title rectangle position.
+DescriptionAttributeLegend_Position=Legend rectangle position.
+DescriptionAttributeChartArea_Position=Chart area rectangle position.
+DescriptionAttributeCursor_Position=Cursor position.
+DescriptionAttributeSubAxis_ParentAxis=Sub axis parent axis.
+DescriptionAttributeAnnotationCollectionEditor_AnnotationCollectionEditor=Designer editor for the Annotation Collection.
+DescriptionAttributeBottom=Gets or sets annotation bottom position.
+DescriptionAttributeMargins_Bottom=Bottom margin.
+DescriptionAttributeAxisScaleBreakStyle_AxisScaleBreakStyle=Represents an axis automatic scale breaks settings.
+DescriptionAttributeLegend_HeaderSeparator=Legend header visual separator type.
+DescriptionAttributeChartArea3DStyle_PointDepth=Gets or sets all series' points depth. Measured as a percentage (0-1000%).
+DescriptionAttributeAnnotationGroup_AnnotationGroup=Annotation group class.
+DescriptionAttributeAnnotationPathPointCollection_AnnotationPathPointCollection=Polyline annotation path points collection class, used at design-time only.
+DescriptionAttributeStripLine_StripWidthType=Strip width type.
+DescriptionAttributeCustomLabel_From=Custom label left position.
+DescriptionAttributePoint3D_PointF=PointF structure representing the point.
+DescriptionAttributeBorderWidth=Gets or sets border width in pixels.
+DescriptionAttributeMarkerBorderWidth=Gets or sets marker border width in pixels.
+DescriptionAttributeCursor_SelectionEnd=Range selection end position.
+DescriptionAttributeLineAnnotation_LineAnnotation=Line annotation class.
+DescriptionAttributeAnnotationSmartLabels_AnnotationSmartLabels=This class is used for annotation smart labels.
+DescriptionAttributeAnnotationGroup_Visible=Gets or sets a flag, which indicates if an annotation is visible.
+DescriptionAttributeChartArea_Visible=Gets or sets a flag that specifies whether a chart area is visible.
+DescriptionAttributeTitle_Visible=Gets or sets a flag that specifies whether a title is visible.
+DescriptionAttributeVisible=Gets or sets a flag that specifies whether an annotation is visible.
+DescriptionAttributeLegendItem_Separator=Legend item visual separator type.
+DescriptionAttributeLegendCell_CellType=Legend cell type.
+DescriptionAttributeChart_Serializer=Chart serializer object.
+DescriptionAttributeAxisX=Gets or sets the X axis an annotation is attached to.
+DescriptionAttributeChartArea_AxisX=X axis properties.
+DescriptionAttributeImageType=Image type (JPEG, BMP, PNG).
+DescriptionAttributeCursor_SelectionStart=Range selection start position.
+DescriptionAttributeLabelsAutoFit=Automatic labels fitting flag.
+DescriptionAttributeLegendCellColumn_HeaderText=Legend column header text.
+DescriptionAttributeMapEnabled=Indicates that chart image map is enabled.
+DescriptionAttributeAxisDataView_Zoomable=Determines if user-interface zooming is enabled.
+DescriptionAttributeDataManager_PaletteCustomColors=Gets or sets an array of palette colors. This property has a higher priority than the Palette property.
+DescriptionAttributeChart_PaletteCustomColors=Sets or gets an array of custom palette colors. This property has a higher priority than the Palette property.
+DescriptionAttributeLegend_ItemColumnSeparator=Legend table columns visual separator type.
+DescriptionAttributeCursorEventArgs_NewSelectionEnd=New range selection end position.
+DescriptionAttributeLegendItem_SeriesName=Legend item series name.
+DescriptionAttributeChartAreas=Chart areas.
+DescriptionAttributeChartArea_AlignWithChartArea=Sets or gets name of the chart area which is used for alignment.
+DescriptionAttributeLegend_MaxAutoSize=Maximum size of the legend auto position in percent.
+DescriptionAttributeAxis_MaxAutoSize=Maximum size of the axis in percent of the chart area.
+DescriptionAttributeGrid_Grid=Grid lines properties and methods.
+DescriptionAttributeChartArea_EquallySizedAxesFont=Indicates that same auto-fit font size will be used for all axes labels.
+DescriptionAttributeChartEvent_CustomizeMapAreas=Fires just before the chart image map is rendered. Use this event to customize the map areas items.
+DescriptionAttributeChartArea3DStyle_WallWidth=Gets or sets the width of chart area walls, in pixels.
+DescriptionAttributeCustomLabel_Row=Custom label row.
+DescriptionAttributeLegend_TitleSeparatorColor=Legend title visual separator color.
+DescriptionAttributeChartSerializer_TemplateMode=Indicates that serializer works in template creation mode.
+DescriptionAttributeShadowColor=Gets or sets shadow color.
+DescriptionAttributeAxisScaleBreakStyle_MaxNumberOfBreaks=Gets or sets maximum number of scale breaks that can be used.
+DescriptionAttributeChartEvent_AxisScrollBarClicked=Called when axis scroll bar is used by user.
+DescriptionAttributeAnchorY=Gets or sets an annotation anchor position's Y coordinate.
+DescriptionAttributeLegend_AutoFitMinFontSize=Gets or sets the minimum font size that can be used by the legend text auto-fitting algorithm.
+DescriptionAttributeChartEvent_AnnotationTextChanged=Fires when annotation text was changed. 
+DescriptionAttributeChart_Series=Chart series.
+DescriptionAttributeSeries_Series=Stores Data Points and default series attributes.
+DescriptionAttributeMapArea_Shape=Shape of the area.
+DescriptionAttributeLegend_TextWrapThreshold=Defines the preferred number of characters in the legend text after which it will wrap. Set this property to zero to disable text wrapping.
+DescriptionAttributeLabelOutsidePlotAreaStyle_LabelOutsidePlotAreaStyle=Data point label outside of the plotting area style.
+DescriptionAttributeSubAxes=Sub-axes collection.
+DescriptionAttributeAxisScaleBreakStyle_StartFromZero=Indicates if one of the axis segments should start its scale from zero when scale break is used.
+DescriptionAttributeStartFromZero3=If true, this property will set auto minimum value to zero if all data point values are positive. Otherwise, minimum value from data points will be used.
+DescriptionAttributeRectangleAnnotation_RectangleAnnotation=Rectangle annotation class.
+DescriptionAttributeUrl=Gets or sets URL target.
+DescriptionAttributeAxisScaleBreakStyle_BreakLineType=Style of the scale break line.
+DescriptionAttributeChartEvent_CursorPositionChanged=Called when cursor position is changed.
+DescriptionAttributeChartSerializer_SerializableContent=Comma separated list of serializable (Save/Load/Reset) properties.
+DescriptionAttributeCalloutAnnotation_CalloutStyle=Gets or sets annotation callout style.
+DescriptionAttributeCalloutStyle3=Gets or sets the callout style of the repositioned SmartLabels.
+DescriptionAttributeCalloutStyle_CalloutStyle=Annotation callout style.
+DescriptionAttributeTitle_Docking=Title docking.  Title Position must be set to 'Auto' for this property to work.
+DescriptionAttributeLegend_Docking=Legend docking.  Legend Position must be set to 'Auto' for this property to work.
+DescriptionAttributeAnnotationGroup_AllowAnchorMoving=Gets or sets a flag, which indicates if an annotation anchor can be moved.
+DescriptionAttributeAllowAnchorMoving3=Gets or sets a flag, which indicates if an annotation anchor can be moved.
+DescriptionAttributeTitleColor=Axis title color.
+DescriptionAttributeStripLine_TitleColor=Strip Line title color.
+DescriptionAttributeLegend_TitleColor=Legend title text color.
+DescriptionAttributeTitles=Chart titles.
+DescriptionAttributePolygonAnnotation_PolygonAnnotation=Polygon annotation class.
+DescriptionAttributeLabel_IntervalType=Labels interval type.
+DescriptionAttributeIntervalType3=Grid or mark interval type.
+DescriptionAttributeIntervalType4=Axis interval type.
+DescriptionAttributeStripLine_IntervalType=Strip or line step type.
+DescriptionAttributeAxisScaleSegment_IntervalType=Axis segment interval type.
+DescriptionAttributeCursor_IntervalType=Cursor movement interval type.
+DescriptionAttributeLegendItem_SeparatorColor=Legend item visual separator color.
+DescriptionAttributeSeries_YValuesPerPoint=Number of Y values stored for each Data Point.
+DescriptionAttributeChartEvent_PrePaint=Fires after the chart element background was drawn. This event is fired for elements like: ChartPicture, ChartArea and Legend.
+DescriptionAttributeLegendUrl=URL target of the item in the legend.
+DescriptionAttributeCustomLabel_ImageUrl=URL target of the label image.
+DescriptionAttributeLabel_Format=Label text format.
+DescriptionAttributeChartSerializer_Format=Format used to serialize the chart data.
+DescriptionAttributeStripLines=Custom strips and lines.
+DescriptionAttributeChart_ViewStateData=User defined control state data in XML format.
+DescriptionAttributeTitle_DockOffset=Gets or sets the offset of docked title position. Offset can be positive or negative number.
+DescriptionAttributeAnchorDataPoint=Gets or sets the data point an annotation is anchored to.
+DescriptionAttributeLabelFormat=Format string used to convert point value into the label.
+DescriptionAttributeSuppressExceptions=Gets or sets a flag indicating that non-critical chart exceptions will be suppressed.
+DescriptionAttributeSeries_EmptyPointStyle=Default styles of the empty data point.
+DescriptionAttributeCustomAttributes=Custom Data Point attributes specified as: AttributeName1=Value1, AttributeName2=Value2, ...  
+DescriptionAttributeLegendCellCollection_LegendCellCollection=Legend item cell collection.
+DescriptionAttributeCustomLabelsCollection_CustomLabelsCollection=Legend items collection.
+DescriptionAttributeCustomLabel_MarkColor=Custom label's marker line color.
+DescriptionAttributePalette=Colors palette.
+DescriptionAttributeScaleBreakStyle=Axis automatic scale breaks style.
+DescriptionAttributeChart_ImageUrl=Chart image URL. Location where chart image is saved, when image tag is used for rendering.
+DescriptionAttributeLegend_InterlacedRowsColor=Legend interlaced rows background color.
+DescriptionAttributeLegendCellColumn_ColumnType=Legend column type of the items automatically generated for the series.
+DescriptionAttributeChartArea_AlignOrientation=Chart areas alignment orientation.
+DescriptionAttributeChart_SoftShadows=Specifies whether smoothing is applied while drawing shadows.
+DescriptionAttributeSoftShadows3=Indicates that smoothing is applied while drawing shadows.
+DescriptionAttributePrintingManager_PrintDocument=Chart printing document.
+DescriptionAttributeMinimum=Minimum axis value.
+DescriptionAttributeAxisScaleSegment_ScaleMaximum=Axis segment scale maximum value.
+DescriptionAttributeScrollBarEventArgs_MousePositionX=Mouse cursor X position.
+DescriptionAttributeLabel_TruncatedLabels=True if label can be truncated.
+DescriptionAttributeCustomLabel_GridTicks=Defines custom tick marks and/or grid lines to be drawn in the center of the label.
+DescriptionAttributeImageAnnotation_Alignment=Gets or sets an annotation's image alignment.
+DescriptionAttributeLegendCellColumn_Alignment=Legend column content alignment of the items automatically generated for the series.
+DescriptionAttributeTitle_Alignment=Title alignment.
+DescriptionAttributeLegendCell_Alignment=Legend cell content alignment.
+DescriptionAttributeLegend_Alignment=Legend alignment. This property is only available if Legend Position is set to 'Auto'.
+DescriptionAttributeAlignment=Gets or sets an annotation's content alignment.
+DescriptionAttributeChart_OnCustomizeMapAreas=Fires when chart image map data is prepared to be rendered.
+DescriptionAttributeSubAxis_LocationOffset=Sub axis location offset relative to the previous axis.
+DescriptionAttributeLegendCellColumn_MinimumWidth=Legend column minimum width (as a percentage of legend font size). Set this property to -1 for automatic calculation.
+DescriptionAttributeSelectionPointsStyle=Gets or sets annotation selection points style.
+DescriptionAttributeAxisY=Gets or sets the Y axis to which an annotation is attached.
+DescriptionAttributeChartArea_AxisY=Y axis properties.
+DescriptionAttributeTextFont=Gets or sets an annotation's text font.
+DescriptionAttributeTextFont4=Gets or sets annotation text's font.
+DescriptionAttributeAxisDataView_SizeType=View size type.
+DescriptionAttributeMinMovingDistance=Gets or sets minimum distance the overlapped SmartLabel can be moved from the marker. Distance is measured in pixels.
+DescriptionAttributeChartArea_CursorX=Chart area X axis cursor and range selection.
+DescriptionAttributeAxisDataView_SmallScrollMinSize=View small scrolling minimum size.
+DescriptionAttributeAxisDataView_SmallScrollMinSizeType=View small scrolling minimum size type.
+DescriptionAttributeAxisScrollBar_ButtonColor=The color of the axis scroll bar buttons.
+DescriptionAttributeArea3DStyle=The 3D style of a chart area.
+DescriptionAttributeChart=Gets or sets chart reference.
+DescriptionAttributeChart_Chart=Chart windows forms control.
+DescriptionAttributeBorderSkin_PageColor=Border skin page color.
+DescriptionAttributeDataPoint_DataPoint=Stores values and attributes of the Data Point in the Data Series.
+DescriptionAttributeChartArea3DStyle_Light=Gets or sets the 3D chart area lighting style.
+DescriptionAttributeDataPointCustomProperties_DataPointCustomProperties=Stores attributes of one Data Point and Data series.
+DescriptionAttributeLegend_AutoFitText=Legend text automatic fitting flag.
+DescriptionAttributeAllowTextEditing=Gets or sets a flag, which indicates if an annotation's text can be edited.
+DescriptionAttributeCustomLabel_Text=Custom label text.
+DescriptionAttributeLegendCell_Text=Legend cell text. Set CellType to Text to use this property.
+DescriptionAttributeText=Gets or sets the annotation text.
+DescriptionAttributeTitle_Text=Title text.
+DescriptionAttributeLegendCellColumn_Text=Legend column text of the items automatically generated for the series. Set ColumnType to Text to use this property.
+DescriptionAttributeToolTipEventArgs_Text=The text which is going to be displayed as a Tool Tip.
+DescriptionAttributeMultiline=Gets or sets a flag, which indicates if the annotation text is multiline.
+DescriptionAttributeTextAnnotation_TextAnnotation=Text annotation class.
+DescriptionAttributeAnnotationGroup_ClipToChartArea=Gets or sets the name of the chart area the annotation is clipped to.
+DescriptionAttributeSeries_YValueType=Type of values stored on the Y axes.
+DescriptionAttributeInternalIntervalType=Axes interval type.
+DescriptionAttributeCalloutAnnotation_CalloutAnchorCap=Gets or sets callout line anchor cap. It only applies when Simple Line or Border Line callout styles are used.
+DescriptionAttributeLogarithmic=Logarithmic scale recalculates the values shown in the Minimum, Maximum, boxes as powers of LogarithmBase for the value axis, based on the range of data. No zeros or negative data values are permitted on logarithmic charts.
+DescriptionAttributeLegend_ItemColumnSpacing=Legend table column spacing (as a percentage of the legend font).
+DescriptionAttributeMarksNextToAxis=Tick marks and labels move with axis when the crossing value is changed.
+DescriptionAttributeChartEvent_SelectionRangeChanged=Called when selection start or end position is changed.
+DescriptionAttributeDataPointCollection_DataPointCollection=Data points collection.
+DescriptionAttributeHorizontalLineAnnotation_HorizontalLineAnnotation=Horizontal line annotation class.
+DescriptionAttributeLegendCellColumn_HeaderColor=Legend column header text color.
+DescriptionAttributeLegendCell_LegendCell=Represents a cell of the chart legend item.
+DescriptionAttributeChartImageDescriptionUrl=The URL containing a more detailed description of the chart image.
+DescriptionAttributeChartImageAlternateText=The alternate text displayed when the chart image cannot be shown.
+DescriptionAttributePostBackValue=The post back value associated with this item.
+DescriptionAttributeTextStyle=The text drawing style. 
+DescriptionAttributeIsMapAreaAttributesEncoded=Determines if the map area attributes to be encoded to eliminate browser script execution.
+DescriptionAttributeRightToLeft=Indicates whether the control should draw right-to-left for RTL languages
+
+CategoryAttributeCellColumns=CellColumns
+CategoryAttributeAxis=Axis
+CategoryAttributeEditing=Editing
+CategoryAttributeSize=Size
+CategoryAttributePosition=Position
+CategoryAttributeViewState=ViewState
+CategoryAttributeInterval=Interval
+CategoryAttributeAppearance=Appearance
+CategoryAttributeDocking=Docking
+CategoryAttributeDataSource=Data Source
+CategoryAttributeAxisView=AxisView
+CategoryAttributeLayout=Layout
+CategoryAttribute3D=3D
+CategoryAttributeData=Data
+CategoryAttributeTitle=Title
+CategoryAttributeToolTips=ToolTips
+CategoryAttributeLabels=Labels
+CategoryAttributeGridTickMarks=Grid&TickMarks
+CategoryAttributeLabelAppearance=Label Appearance
+CategoryAttributeHeader=Header
+CategoryAttributeAxes=Axes
+CategoryAttributeImage=Image
+CategoryAttributeEmptyPoints=EmptyPoints
+CategoryAttributeAlignment=Alignment
+CategoryAttributeAnnotation=Annotation
+CategoryAttributeMarker=Marker
+CategoryAttributeChart=Chart
+CategoryAttributeLocation=Location
+CategoryAttributeToolTip=ToolTip
+CategoryAttributeMap=Map
+CategoryAttributeMapArea=MapArea
+CategoryAttributeLabel=Label
+CategoryAttributeShape=Shape
+CategoryAttributeMisc=Misc
+CategoryAttributeSerializer=Serializer
+CategoryAttributeSubAxes=Sub-Axes
+CategoryAttributeSeriesItems=Series Items
+CategoryAttributeDataView=DataView
+CategoryAttributeCharttitle=Chart title
+CategoryAttributeLegend=Legend
+CategoryAttributeAction=Action
+CategoryAttributeScale=Scale
+CategoryAttributeAnnotations=Annotations
+CategoryAttributeAnchor=Anchor
+CategoryAttributeBehavior=Behavior
+CategoryAttributeCursor=Cursor
+CategoryAttributeAnchorAxes=Anchor/Axes
+CategoryAttributeAccessibility=Accessibility
+
+; Name of the chart title accessibility object
+AccessibilityTitleName(string name)=Title {0}
+
+; Name of the chart annotation accessibility object
+AccessibilityAnnotationName(string name)=Annotation {0}
+
+; Name of the chart legend accessibility object
+AccessibilityLegendName(string name)=Legend {0}
+
+; Name of the chart series accessibility object
+AccessibilitySeriesName(string name)=Series {0}
+
+; Name of the chart series data point accessibility object
+AccessibilityDataPointName(int index)=Data Point {0}
+
+; Name of the chart series data point label accessibility object
+AccessibilityDataPointLabelName(int index)=Data Point Label {0}
+
+; Name of the chart legend title accessibility object
+AccessibilityLegendTitleName(string name)=Legend {0} Title
+
+; Name of the chart area accessibility object
+AccessibilityChartAreaName(string name)=Chart Area {0}
+
+; Name of the chart axis title accessibility object
+AccessibilityChartAxisTitleName(string name)={0} Title
+
+; Name of the chart axis major gridlines accessibility object
+AccessibilityChartAxisMajorGridlinesName(string name)={0} Major Gridlines
+
+; Name of the chart axis minor gridlines accessibility object
+AccessibilityChartAxisMinorGridlinesName(string name)={0} Minor Gridlines
+
+# Explanation: Custom format exception
+FormatErrorString=#Error
+
+; ChartElement, ChartNamedElement related resources
+ExceptionNameIsEmpty=Chart element name cannot be empty.
+ExceptionNameAlreadyExistsInCollection(name,collection)=A chart element with the name '{0}' already exists in the '{1}'.
+ExceptionNameNotFound(name,collection)=A chart element with the name '{0}' could not be found in the '{1}'.
+
+;Action list items
+ActionListSeriesChartType=Chart Type
+ActionListSeriesDataGroup(name)={0} Data Members
+ActionListSeriesXValueMember=X Value Member
+ActionListSeriesYValueMembers=Y Value Members
+
+;Chart image handler diagnostics
+DiagnosticHeader=Chart Http Handler Trace
+
+DiagnosticSettingsConfig(s)=Application Config Settings : {0}
+DiagnosticSettingsHeader=Active Settings
+DiagnosticSettingsKey=Key
+DiagnosticSettingsValue=Value
+DiagnosticSettingsInfo=Information
+
+DiagnosticQueueStateHeader=Images available
+DiagnosticQueueStateName=Name
+DiagnosticQueueStateAccess=Access Check
+DiagnosticQueueStateAccessOK=OK
+DiagnosticQueueStateAccessFail=Fail
+DiagnosticQueueStateAccessInfo=Error
+
+DiagnosticActivityHeader=Activity
+DiagnosticActivityTime=Time of Activity
+DiagnosticActivityMessage=Message
+DiagnosticActivityError=Error
+
+DiagnosticChartImageSaved(name)={0} is saved.
+DiagnosticChartImageSavedPrivate(name, keyType)={0} is saved using {1} for privacy key.
+DiagnosticChartImageDeleted(name)={0} is deleted.
+DiagnosticChartImageServed(name)={0} is requested and served.
+DiagnosticChartImageServedFail(name, reason)={0} is failed to be loaded for serving. Reason: {1}
+DiagnosticChartImageServedFailNotFound=Not found in the storage.
+DiagnosticChartImageServedFailPrivacyFail(keyType)=Privacy key doesn't match. Target privacy source: {0}.
