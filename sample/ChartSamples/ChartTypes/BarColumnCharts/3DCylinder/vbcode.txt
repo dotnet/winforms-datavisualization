@@ -1,0 +1,12 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Bar chart type
+Chart1.Series("Default").ChartType = SeriesChartType.Bar
+
+' Enable 3D charts
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = true
+
+' Set Cylinder drawing style
+Chart1.Series("Default")("DrawingStyle") = "Cylinder"
+...

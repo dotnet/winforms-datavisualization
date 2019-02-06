@@ -1,0 +1,34 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Printing" Priority="300">
+  <Title>Printer Friendly Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Applying Printer Friendly Colors to the Chart</ShortBlurb> 
+  <SampleControl>PrinterFriendlyCharts</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Printer friendly chart</Keyword>
+    <Keyword>Printing, Printer friendly chart</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Serialization">
+  <Title>Printer Friendly Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Applying Printer Friendly Colors to the Chart</ShortBlurb> 
+  <SampleControl>PrinterFriendlyCharts</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Printer friendly chart</Keyword>
+    <Keyword>Printing, Printer friendly chart</Keyword>
+  </Keywords> 
+</SampleConfig>
+
+</SampleConfigs>

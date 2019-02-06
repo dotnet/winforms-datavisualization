@@ -1,0 +1,112 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub Chart1_PostPaint(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs) Handles Chart1.PostPaint
+   If TypeOf sender Is ChartArea Then
+      
+      Dim area As ChartArea = CType(sender, ChartArea)
+      If area.Name = "Default" Then
+         ' If Connection line is not checked return
+         If Not ConnectionLine.Checked Then
+            Return
+         End If 
+         Dim max As Double
+         Dim min As Double
+         Dim xMax As Double
+         Dim xMin As Double
+         
+         ' Find Minimum and Maximum values
+         FindMaxMin(max, min, xMax, xMin)
+         
+         ' Get Graphics object from chart
+         Dim graph As Graphics = e.ChartGraphics.Graphics
+         
+         ' Convert X and Y values to screen position
+         Dim pixelYMax As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.Y, max))
+         Dim pixelXMax As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.X, xMax))
+         Dim pixelYMin As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.Y, min))
+         Dim pixelXMin As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.X, xMin))
+         
+         Dim point1 As PointF = PointF.Empty
+         Dim point2 As PointF = PointF.Empty
+         
+         ' Set Maximum and minimum points
+         point1.X = pixelXMax
+         point1.Y = pixelYMax
+         point2.X = pixelXMin
+         point2.Y = pixelYMin
+         
+         ' Convert relative coordinates to absolute coordinates.
+         point1 = e.ChartGraphics.GetAbsolutePoint(point1)
+         point2 = e.ChartGraphics.GetAbsolutePoint(point2)
+         
+         ' Draw connection line
+         graph.DrawLine(New Pen(Color.Yellow, 3), point1, point2)
+      End If
+   End If
+End Sub 
+
+
+Private Sub Chart1_PrePaint(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs) Handles Chart1.PrePaint
+   If TypeOf sender Is ChartArea Then
+      
+      Dim area As ChartArea = CType(sender, ChartArea)
+      If area.Name = "Default" Then
+         Dim max As Double
+         Dim min As Double
+         Dim xMax As Double
+         Dim xMin As Double
+         
+         ' Find Minimum and Maximum values
+         FindMaxMin(max, min, xMax, xMin)
+         
+         ' Get Graphics object from chart
+         Dim graph As Graphics = e.ChartGraphics.Graphics
+         
+         ' Convert X and Y values to screen position
+         Dim pixelYMax As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.Y, max))
+         Dim pixelXMax As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.X, xMax))
+         Dim pixelYMin As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.Y, min))
+         Dim pixelXMin As Single = CSng(e.ChartGraphics.GetPositionFromAxis("Default", AxisName.X, xMin))
+         
+         ' Specify width of triangle
+         Dim width As Single = 3
+         
+         ' Set Maximum points
+         Dim points(3) As PointF
+         points(0).X = pixelXMax - width
+         points(0).Y = pixelYMax - width - 2
+         points(1).X = pixelXMax + width
+         points(1).Y = pixelYMax - width - 2
+         points(2).X = pixelXMax
+         points(2).Y = pixelYMax - 1
+         
+         ' Convert relative coordinates to absolute coordinates.
+         points(0) = e.ChartGraphics.GetAbsolutePoint(points(0))
+         points(1) = e.ChartGraphics.GetAbsolutePoint(points(1))
+         points(2) = e.ChartGraphics.GetAbsolutePoint(points(2))
+         
+         ' Draw Maximum trangle
+         graph.FillPolygon(New SolidBrush(Color.Red), points)
+         
+         ' Set Minimum points
+         points = New PointF(3) {}
+         points(0).X = pixelXMin - width
+         points(0).Y = pixelYMin + width + 2
+         points(1).X = pixelXMin + width
+         points(1).Y = pixelYMin + width + 2
+         points(2).X = pixelXMin
+         points(2).Y = pixelYMin + 1
+         
+         ' Convert relative coordinates to absolute coordinates.
+         points(0) = e.ChartGraphics.GetAbsolutePoint(points(0))
+         points(1) = e.ChartGraphics.GetAbsolutePoint(points(1))
+         points(2) = e.ChartGraphics.GetAbsolutePoint(points(2))
+         
+         ' Draw Minimum triangle
+         graph.FillPolygon(New SolidBrush(Color.Blue), points)
+      End If
+   End If
+End Sub 
+
+...

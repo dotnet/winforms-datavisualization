@@ -1,0 +1,110 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Rotation angles
+Chart1.ChartAreas("Default").Area3DStyle.Rotation = 30
+Chart1.ChartAreas("Default").Area3DStyle.Inclination = 10  
+...
+ 
+Private Sub chart1_PostPaint(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs)
+   If TypeOf sender Is ChartArea Then
+      Dim area As ChartArea = CType(sender, ChartArea)
+      If area.Name = "Default" Then
+         Dim pt3d(4) As Point3D
+         pt3d(0) = New Point3D()
+         pt3d(1) = New Point3D()
+         pt3d(2) = New Point3D()
+         pt3d(3) = New Point3D()
+         
+         Dim depth As Single = CSng(area.GetSeriesDepth(chart1.Series(0)))
+         Dim zpos As Single = CSng(area.GetSeriesZPosition(chart1.Series(0)))
+         
+         pt3d(0).Y = CSng(area.AxisX.ValueToPosition(chart1.Series("Estimated").Points(7).XValue))
+         pt3d(0).X = CSng(area.AxisY.ValueToPosition(chart1.Series("Estimated").Points(7).YValues(1)))
+         pt3d(0).Z = depth
+         
+         pt3d(1).Y = CSng(area.AxisX.ValueToPosition(chart1.Series("Estimated").Points(6).XValue))
+         pt3d(1).X = CSng(area.AxisY.ValueToPosition(chart1.Series("Estimated").Points(6).YValues(0)))
+         pt3d(1).Z = depth
+         
+         pt3d(2).Y = CSng(area.AxisX.ValueToPosition(chart1.Series("Estimated").Points(3).XValue))
+         pt3d(2).X = CSng(area.AxisY.ValueToPosition(chart1.Series("Estimated").Points(3).YValues(1)))
+         pt3d(2).Z = depth
+         
+         pt3d(3).Y = CSng(area.AxisX.ValueToPosition(chart1.Series("Estimated").Points(2).XValue))
+         pt3d(3).X = CSng(area.AxisY.ValueToPosition(chart1.Series("Estimated").Points(2).YValues(0)))
+         pt3d(3).Z = depth         
+         
+         area.TransformPoints(pt3d)
+         
+         Dim ptF1 As New PointF()
+         Dim ptF2 As New PointF()
+         Dim ptF3 As New PointF()
+         Dim ptF4 As New PointF()
+         Dim ptF5 As New PointF()
+         Dim ptF6 As New PointF()
+         
+         ptF1 = e.ChartGraphics.GetAbsolutePoint(pt3d(0).PointF)
+         ptF3 = e.ChartGraphics.GetAbsolutePoint(pt3d(1).PointF)
+         ptF4 = e.ChartGraphics.GetAbsolutePoint(pt3d(2).PointF)
+         ptF6 = e.ChartGraphics.GetAbsolutePoint(pt3d(3).PointF)
+         
+         ptF2.X = ptF3.X
+         ptF2.Y = ptF1.Y
+         
+         ptF5.X = ptF6.X
+         ptF5.Y = ptF4.Y
+         
+         ' Take Graphics object from chart
+         Dim graph As Graphics = e.ChartGraphics.Graphics
+         
+         graph.DrawLine(New Pen(Color.Black, 1), ptF1, ptF2)
+         graph.DrawLine(New Pen(Color.Black, 1), ptF2, ptF3)
+         graph.DrawLine(New Pen(Color.Black, 1), ptF4, ptF5)
+         graph.DrawLine(New Pen(Color.Black, 1), ptF5, ptF6)
+         
+         DrawArrow(graph, Color.Black, ptF3, ptF2, 22.5)
+         DrawArrow(graph, Color.Black, ptF6, ptF5, 22.5)
+      End If
+   End If
+   
+End Sub 'chart1_PostPaint
+
+'/ <summary>
+'/ This Method will draw an arrow head on at the end of a line segment
+'/ as defined by two points, p1 and p2
+'/ </summary>
+Private Sub DrawArrow(graph As Graphics, brushcolor As Color, p1 As PointF, p2 As PointF, angle_deg As Double)
+   ' Using the two points, p1 and p2, we must first calculate the two
+   ' other points to use for the triangular arrow.  The provided angle
+   ' must be in degrees and be converted to radians.
+   Dim rad As Double = angle_deg * Math.PI / 180
+   
+   ' To simplify calcuations find dx and dy for points p1 and p2
+   Dim dx As Double = p1.X - p2.X
+   Dim dy As Double = p1.Y - p2.Y
+   
+   Dim c As Double = Math.Sqrt((Math.Pow(dx, 2) + Math.Pow(dy, 2)))
+   
+   ' To create an approximately 7px arrow, we need c to be 70 and a line_legnth of 0.1
+   ' There are instances where c will be less causing the 10% scale to be such that
+   ' the arrow head will be invisible. Similarly, when c is really large the arrow 
+   ' head can be huge.
+   Dim pixels As Double = 12
+   Dim line_length As Double = 1 /(c / pixels)
+   
+   Dim arrow_segment1 As PointF = Point.Empty
+   Dim arrow_segment2 As PointF = Point.Empty
+   
+   arrow_segment1.X = p1.X - CSng((dx * Math.Cos(rad) - dy * Math.Sin(rad)) * line_length)
+   arrow_segment1.Y = p1.Y - CSng((dy * Math.Cos(rad) + dx * Math.Sin(rad)) * line_length)
+   
+   arrow_segment2.X = p1.X - CSng((dx * Math.Cos(- rad) - dy * Math.Sin(- rad)) * line_length)
+   arrow_segment2.Y = p1.Y - CSng((dy * Math.Cos(- rad) + dx * Math.Sin(- rad)) * line_length)
+   
+   Dim arrowhead As PointF() =  {p1, arrow_segment1, arrow_segment2}
+   
+   Dim brush As New SolidBrush(brushcolor)
+   graph.FillPolygon(brush, arrowhead)
+   
+End Sub 'DrawArrow

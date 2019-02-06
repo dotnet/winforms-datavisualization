@@ -1,0 +1,96 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "BarColumnCharts">
+  <Title>3D Bar and Column Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>3D Bar and Column Chart Types</ShortBlurb> 
+  <SampleControl>BarColumn3D</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">3DBarColumn\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">3DBarColumn\vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+    <Keyword>Clustered series</Keyword>
+    <Keyword>3D, Clustered</Keyword>
+    <Keyword>3D, Column chart</Keyword>
+    <Keyword>3D, Bar chart</Keyword>
+    <Keyword>Chart type, Column 3D</Keyword>
+    <Keyword>Chart type, Bar 3D</Keyword>
+    <Keyword>Bar Column Charts, 3D</Keyword>
+  </Keywords>
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "BarColumnCharts">
+  <Title>3D Cylinder Chart</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>3D Cylinder Chart Type</ShortBlurb> 
+  <SampleControl>Cylinder3D</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">3DCylinder\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">3DCylinder\vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Cylinder</Keyword>
+    <Keyword>3D, Cylinder chart</Keyword>
+    <Keyword>Chart type, Cylinder 3D</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "BarColumnCharts">
+  <Title>Bar and Column Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Bar and Column Chart Types</ShortBlurb> 
+  <SampleControl>BarColumnChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">BarColumn\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">BarColumn\vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+    <Keyword>Point width</Keyword>
+    <Keyword>Chart type, Bar</Keyword>
+    <Keyword>Chart type, Column</Keyword>
+    <Keyword>Bar Column Charts</Keyword>
+    <Keyword>Axis, End labels</Keyword>
+  </Keywords>
+  
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "BarColumnCharts">
+  <Title>Stacked Bar and Column Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Stacked Bar and Column Chart Types</ShortBlurb> 
+  <SampleControl>StackedChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">Stacked\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">Stacked\vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+      <Keyword>Chart type, Stacked</Keyword>
+      <Keyword>Stacked charts</Keyword>
+      <Keyword>100% Stacked charts</Keyword>
+    </Keywords>
+      
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "BarColumnCharts" Priority = "1">
+  <Title>Gallery</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Bar and Column Chart Gallery</ShortBlurb> 
+  <SampleControl>None</SampleControl>
+  <InfoPages>    
+    <InfoPage Title="Gallery">Gallery\BarColumnGallery.htm</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+      <Keyword>Gallery, Bar Column Charts</Keyword>
+      <Keyword>Bar Column Charts, Gallery</Keyword>      
+  </Keywords>
+    
+</SampleConfig>
+  
+</SampleConfigs>

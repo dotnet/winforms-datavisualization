@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority="700">
+  <Title>Primary and Secondary Axes</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Primary and Secondary Axes</ShortBlurb> 
+  <SampleControl>PrimarySecondaryAxis</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Primary axis</Keyword>
+	<Keyword>Secondary axis</Keyword>
+	<Keyword>Axis, Primary and secondary</Keyword>
+  </Keywords>
+
+</SampleConfig>
+</SampleConfigs>

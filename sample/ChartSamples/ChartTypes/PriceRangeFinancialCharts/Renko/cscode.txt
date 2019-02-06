@@ -1,0 +1,27 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+chart1.Series["Default"].ChartType = SeriesChartType.Renko;
+
+// Clear attribute, let the default BoxSize to be calculated 
+chart1.Series["Default"].DeleteCustomProperty("BoxSize");
+
+// Set the BoxSize attribute
+chart1.Series["Default"]["BoxSize"] = "1.0";
+			
+// Set the PriceUpColor attribute			
+chart1.Series["Default"]["PriceUpColor"] = "White";
+
+// Set the default color - price-down			
+chart1.Series["Default"].Color = Color.Black;
+...
+
+private void chart1_PrePaint(object sender, System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs e)
+{
+	// Read the calculated Box Size - CurrentBoxSize attribute
+	string calculatedBoxSize = chart1.Series["Default"]["CurrentBoxSize"].ToString();
+
+	// Update chart title
+	chart1.Titles["Default"].Text = "Renko chart, Box Size = " + calculatedBoxSize;
+}
+....

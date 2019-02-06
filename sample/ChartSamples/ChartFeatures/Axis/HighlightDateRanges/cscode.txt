@@ -1,0 +1,35 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// By default highlight weekends
+double offset = -1; // Sunday minus 1 day = Saturday
+double width = 2;
+
+if(HighlightValuesList.SelectedItem.Text == "Mondays")
+{
+	offset = 1; // Sunday plus 1 day = Monday
+	width = 1;
+}
+
+...
+
+// Create a strip line
+StripLine stripLine = new StripLine();
+stripLine.BackColor = Color.FromArgb(120, Color.Gray);
+	
+// Since using column charts, subtract to ensure entire column is highlighted
+stripLine.IntervalOffset = offset - 0.5; 
+stripLine.IntervalOffsetType = DateTimeIntervalType.Days; 
+
+// Repeat this strip line every week	
+stripLine.Interval = 1;
+stripLine.IntervalType = DateTimeIntervalType.Weeks; 
+	
+// Set the width of the strip
+stripLine.StripWidth = width;
+stripLine.StripWidthType =  DateTimeIntervalType.Days; 
+	
+// Add the strip to the chart
+Chart1.ChartAreas["Default"].AxisX.StripLines.Add(stripLine);
+
+...

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "700">
+  <Title>Series and Points</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Series and Points</ShortBlurb> 
+  <SampleControl>Series and Points Overview</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series and Points, Overview</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

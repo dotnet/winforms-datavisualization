@@ -1,0 +1,40 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "CircularCharts">
+	<Title>Polar Chart</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Polar Chart Type</ShortBlurb> 
+	<SampleControl>PolarChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">Polar\cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">Polar\vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Chart type, Polar</Keyword>
+      <Keyword>Polar Charts</Keyword>
+      <Keyword>Data Label, Polar Labels Style</Keyword>
+    </Keywords>
+     
+	</SampleConfig>
+	
+	<SampleConfig ParentNodeID = "CircularCharts">
+	<Title>Radar Chart</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Radar Chart Type</ShortBlurb> 
+	<SampleControl>RadarChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">Radar\cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">Radar\vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Chart type, Radar</Keyword>
+      <Keyword>Radar Charts</Keyword>
+      <Keyword>Data Label, Radar Labels style</Keyword>
+    </Keywords>
+     
+	</SampleConfig>
+	
+</SampleConfigs>

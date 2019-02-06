@@ -1,0 +1,19 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Bar chart type
+Chart1.Series["Default"].ChartType = SeriesChartType.Bar;
+
+// Disable X axis margin
+Chart1.ChartAreas["Default"].AxisX.IsMarginVisible = false;
+
+// Enable 3D charts
+Chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+
+// Set Rotation angles
+Chart1.ChartAreas["Default"].Area3DStyle.Rotation = 30;
+Chart1.ChartAreas["Default"].Area3DStyle.Inclination = 10;
+
+// Disable/enable right angle axis
+Chart1.ChartAreas["Default"].Area3DStyle.IsRightAngleAxes = false;
+...

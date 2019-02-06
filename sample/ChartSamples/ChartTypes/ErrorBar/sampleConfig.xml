@@ -1,0 +1,21 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "ChartTypes">
+	<Title>Error Bar Chart</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Error Bar Chart Type</ShortBlurb> 
+	<SampleControl>ErrorBarChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Chart type, Error bar</Keyword>
+      <Keyword>Error bar chart</Keyword>
+    </Keywords>
+    
+	</SampleConfig>
+
+</SampleConfigs>

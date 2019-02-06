@@ -1,0 +1,67 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "100">
+  <Title>Chart Elements</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overview of all chart elements</ShortBlurb> 
+  <SampleControl>None</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">ChartElements\Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Chart Elements</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "200">
+  <Title>Creating a Basic Chart</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>A short blurb about TestSample1</ShortBlurb> 
+  <SampleControl>DynamicChartCreation</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">DynamicChartCreation\Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">DynamicChartCreation\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">DynamicChartCreation\vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Dynamic chart creation</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "300">
+  <Title>Using the Chart & Data Wizard</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>A short blurb about TestSample1</ShortBlurb> 
+  <SampleControl>Wizard</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">ChartDataWizard\overview.htm</InfoPage>
+    <InfoPage Title="C# Source">ChartDataWizard\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">ChartDataWizard\vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "GettingStarted">
+  <Title>Basics of Adding Data</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>A short blurb about TestSample1</ShortBlurb> 
+  <SampleControl>BasicPopulatingData</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">BasicPopulatingData\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">BasicPopulatingData\vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "GettingStarted">
+  <Title>Coordinate System</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>A short blurb about TestSample1</ShortBlurb> 
+  <SampleControl>None</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">CoordinateSystem\Overview.htm</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+</SampleConfigs>

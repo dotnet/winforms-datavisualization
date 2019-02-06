@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Labels" Priority = "1">
+  <Title>Overview</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overview of Labels</ShortBlurb> 
+  <SampleControl>Overview</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Labels, Overview</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

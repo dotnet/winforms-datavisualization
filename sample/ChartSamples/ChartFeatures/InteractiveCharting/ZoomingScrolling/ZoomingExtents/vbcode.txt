@@ -1,0 +1,8 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set the minimum view size to 2 weeks
+chart1.ChartAreas("Default").AxisX.ScaleView.MinSize = 2
+chart1.ChartAreas("Default").AxisX.ScaleView.MinSizeType = DateTimeIntervalType.Weeks
+
+...

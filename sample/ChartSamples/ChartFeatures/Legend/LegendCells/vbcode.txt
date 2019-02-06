@@ -1,0 +1,49 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Adds one custom legend item and its cells to the legend
+Private Sub AddLegendItem()
+   chart2.Legends("Default").CustomItems.Clear()
+   
+   ' Add new custom legend item
+   chart2.Legends("Default").CustomItems.Add(New LegendItem("LegendItem", Color.Red, ""))
+   
+   ' Add five new cells to the custom legend item
+   chart2.Legends("Default").CustomItems(0).Cells.Add(New LegendCell(LegendCellType.Text, "Central", ContentAlignment.MiddleLeft))
+   chart2.Legends("Default").CustomItems(0).Cells.Add(New LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleRight))
+   chart2.Legends("Default").CustomItems(0).Cells.Add(New LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleRight))
+   chart2.Legends("Default").CustomItems(0).Cells.Add(New LegendCell(LegendCellType.Image, "", ContentAlignment.MiddleLeft))
+   chart2.Legends("Default").CustomItems(0).Cells.Add(New LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleLeft))
+   
+   SetLegendItemValues()
+   
+End Sub AddLegendItem
+
+
+Private Sub SetLegendItemValues()
+   Dim pointCount As Integer = chart2.Series("Central").Points.Count
+   
+   Dim firstPoint As Decimal = CDec(chart2.Series("Central").Points(0).YValues(0))
+   Dim lastPoint As Decimal = Decimal.Round(CDec(chart2.Series("Central").Points((pointCount - 1)).YValues(0)), 2)
+   Dim diff As Decimal = Decimal.Round(lastPoint - firstPoint, 2)
+   Dim percentChange As Decimal = Decimal.Round(diff / firstPoint * CDec(100.0), 2)
+   
+   ' Set appearance of cells based on percent change
+   If percentChange < 0 Then
+      chart2.Legends("Default").CustomItems(0).Cells(2).ForeColor = Color.Red
+      chart2.Legends("Default").CustomItems(0).Cells(3).Image = ""
+      chart2.Legends("Default").CustomItems(0).Cells(4).ForeColor = Color.Red
+   
+   Else
+      chart2.Legends("Default").CustomItems(0).Cells(2).ForeColor = Color.LimeGreen
+      chart2.Legends("Default").CustomItems(0).Cells(3).Image = ""
+      chart2.Legends("Default").CustomItems(0).Cells(4).ForeColor = Color.LimeGreen
+   End If
+   
+   chart2.Legends("Default").CustomItems(0).Cells(0).Text = "Central"
+   chart2.Legends("Default").CustomItems(0).Cells(1).Text = lastPoint.ToString()
+   chart2.Legends("Default").CustomItems(0).Cells(2).Text = diff.ToString()
+   chart2.Legends("Default").CustomItems(0).Cells(4).Text = percentChange.ToString() + "%"
+End Sub SetLegendItemValues
+
+...

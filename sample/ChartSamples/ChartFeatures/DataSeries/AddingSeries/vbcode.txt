@@ -1,0 +1,26 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub AddButton_Click(sender As Object, e As System.EventArgs)
+   Dim rnd As New Random()
+   
+   Dim series As Series = Chart1.Series.Add("Series 1")
+   series.ChartArea = "Default"
+   series.ChartType = SeriesChartType.Spline;
+   series.BorderWidth = 2
+   
+   Dim j As Integer = 0
+   Dim MaxPoints As Integer = 10
+   While j ++ < MaxPoints
+      series.Points.Add(rnd.Next(5, 20))
+   End While
+   ...
+
+End Sub 'AddButton_Click
+
+Private Sub RemoveButton_Click(sender As Object, e As System.EventArgs)
+   ' Remove the last series in the list of the series
+   Chart1.Series.RemoveAt((Chart1.Series.Count - 1))
+End Sub 'RemoveButton_Click
+
+...

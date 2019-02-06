@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Printing" Priority="200">
+  <Title>Programmatic Print Settings</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Programmatic Print Settings</ShortBlurb> 
+  <SampleControl>PrintingSettings</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Printing, Settings</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,40 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+	private void MovingAveragesForm_Load(object sender, System.EventArgs e)
+	{
+		// Set tag property for all custom items to appropriate series
+		chart1.Legends["Default"].CustomItems[1].Tag = chart1.Series["Series1"];
+		chart1.Legends["Default"].CustomItems[2].Tag = chart1.Series["Series2"];
+		chart1.Legends["Default"].CustomItems[3].Tag = chart1.Series["Series3"];
+		chart1.Legends["Default"].CustomItems[4].Tag = chart1.Series["Series4"];			
+	}
+	
+...
+	
+	private void chart1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+	{
+		HitTestResult result = chart1.HitTest(e.X, e.Y);
+		if(result != null && result.Object != null)
+		{					
+			// When user hits the LegendItem
+			if (result.Object is LegendItem) 
+			{
+				// Legend item result
+				LegendItem legendItem = (LegendItem)result.Object;
+				
+				// series item selected
+				Series selectedSeries = (Series)legendItem.Tag;
+
+				if (selectedSeries !=null) 
+				{
+					if (selectedSeries.Enabled) 
+						selectedSeries.Enabled = false;
+
+					else 
+						selectedSeries.Enabled = true;
+				}
+			}
+		}
+	}
+...

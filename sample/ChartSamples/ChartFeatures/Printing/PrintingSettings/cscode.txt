@@ -1,0 +1,23 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Portrait page orientation
+chart1.Printing.PrintDocument.DefaultPageSettings.Landscape = false;
+
+// Set 1 inch page margins (in hundredths of an inch)
+chart1.Printing.PrintDocument.DefaultPageSettings.IsMarginVisibles = 
+	new System.Drawing.Printing.IsMarginVisibles(100, 100, 100, 100);
+
+// Set printer resolution
+foreach(PrinterResolution pr in chart1.Printing.PrintDocument.PrinterSettings.PrinterResolutions)
+{
+	if(pr.Kind.ToString() == "Medium")
+	{
+		chart1.Printing.PrintDocument.DefaultPageSettings.PrinterResolution = pr;
+	}
+}
+
+// Print preview chart
+chart1.Printing.PrintPreview();
+
+...

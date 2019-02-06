@@ -1,0 +1,36 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set legend style
+chart1.Legends["Default"].LegendStyle = LegendStyle.Table;
+
+// Set table style if legend style is Table
+chart1.Legend["Default"].TableStyle = TableStyle.Auto;
+
+// Set legend docking
+chart1.Legends["Default"].Docking = Docking.Right;
+
+// Set legend alignment
+chart1.Legends["Default"].Alignment = StringAlignment.Center;
+
+if(InsideChartArea.Checked)
+// Display legend inside the "Default" chart area
+{
+    chart1.Legends["Default"].InsideChartArea = "Default";
+}
+//do not display legend inside chart area
+else
+{
+    chart1.Legends["Default"].InsideChartArea = "";
+}
+
+// Disable legend
+if(LegendDisabled.Checked)
+{
+    chart1.Legends["Default"].Enabled = false;
+}
+
+// Set legend to always be reversed
+chart1.Legends["Default"].Reversed = AutoBool.True;
+
+...

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Serialization" Priority = "100">
+  <Title>Overview</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overview of Serialization</ShortBlurb> 
+  <SampleControl>Serialization</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Serialization, Overview</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

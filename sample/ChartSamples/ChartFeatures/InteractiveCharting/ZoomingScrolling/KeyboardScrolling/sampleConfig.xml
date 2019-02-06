@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Zooming and Scrolling" Priority="300">
+  <Title>Scrolling Axis with the Keyboard</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Scrolling Axis with Keyboard</ShortBlurb> 
+  <SampleControl>KeyboardScrolling</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Zooming, Using keyboard</Keyword>
+	<Keyword>Scrollbar, Using keyboard</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

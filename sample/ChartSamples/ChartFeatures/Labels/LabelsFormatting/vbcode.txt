@@ -1,0 +1,19 @@
+Imports System.Windows.Forms.DataVisualization.Charting.Chart
+...
+
+' Disable end labels for the X axis
+Chart1.ChartAreas("Default").AxisX.LabelStyle.IsEndLabelVisible = False
+
+' Set X axis labels format
+Chart1.ChartAreas("Default").AxisX.LabelStyle.Format = "D"
+
+' Set Y axis labels format
+Chart1.ChartAreas("Default").AxisY.LabelStyle.Format = "C0"
+
+' Set series point labels format
+Chart1.Series("Series1").LabelFormat = "P3"
+
+' Set series point labels color
+Chart1.Series("Series1").FontColorCombo = Color.Navy
+    
+...

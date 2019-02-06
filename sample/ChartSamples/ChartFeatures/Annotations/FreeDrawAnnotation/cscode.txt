@@ -1,0 +1,61 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+private void DrawingMode_CheckedChanged(object sender, System.EventArgs e)
+{
+	if(DrawingMode.Checked)
+	{
+		DrawAnnotation();
+	}
+	else
+	{
+		Chart1.Annotations[Chart1.Annotations.Count-1].EndPlacement();
+	}
+}
+
+private void Chart1_AnnotationPlaced(object sender, System.EventArgs e)
+{
+	if(DrawingMode.Checked)
+	{
+		DrawAnnotation();
+	}
+}
+
+private void DrawAnnotation()
+{
+	PolylineAnnotation polyline = new PolylineAnnotation();
+	polyline.LineColor = Color.Red;
+	polyline.LineWidth = 2;
+	polyline.ShadowOffset = 2;
+	Chart1.Annotations.Add(polyline);
+	polyline.FreeDrawPlacement = true;
+	polyline.BeginPlacement();
+}
+
+private void UndoButton_Click(object sender, System.EventArgs e)
+{
+	if(Chart1.Annotations.Count > 0)
+	{
+		// If in drawing mode, end the drawing mode...
+		if(DrawingMode.Checked)
+		{
+			// Uncheck the drawing mode button, which will cause
+			// the end placement method to be called for the check changed event
+			DrawingMode.Checked = false;
+
+			// Call self to remove the annotation... as simply removing the 
+			// annotation does not work 
+			UndoButton_Click(sender, e);
+		}
+
+		// Remove the last annotation object that was added
+		Chart1.Annotations.Remove(Chart1.Annotations[Chart1.Annotations.Count-1]);
+	}
+}
+
+private void ClearAll_Click(object sender, System.EventArgs e)
+{
+	// Remove all annotation objects
+	Chart1.Annotations.Clear();
+}		
+...

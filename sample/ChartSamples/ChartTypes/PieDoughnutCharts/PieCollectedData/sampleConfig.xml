@@ -1,0 +1,24 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "PieDoughnutCharts">
+	<Title>Supplemental Pie Charts</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Using Supplemental Pie Charts</ShortBlurb> 
+	<SampleControl>PieCollectedData</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Supplemental Pie Charts</Keyword>
+      <Keyword>Pie Charts, Displaying Small Segments</Keyword>
+      <Keyword>Pie Charts, Supplemental Pie Charts</Keyword>
+      <Keyword>Doughnut Charts, Displaying Small Segments</Keyword>
+      <Keyword>Doughnut Charts, Supplemental Pie Charts</Keyword>
+    </Keywords>
+    
+	</SampleConfig>
+
+</SampleConfigs>

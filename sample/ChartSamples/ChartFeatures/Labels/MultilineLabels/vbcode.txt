@@ -1,0 +1,13 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Show data points values as labels
+Chart1.Series("Series1").IsValueShownAsLabel = True
+
+' Set axis label 
+Chart1.Series("Series1").Points(2).AxisLabel = "My Axis Label" + ControlChars.Lf + "Label Line #2"
+
+' Set data point label
+Chart1.Series("Series1").Points(2).Label = "My Point Label" + ControlChars.Lf + "Label Line #2"
+
+...

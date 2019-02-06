@@ -1,0 +1,16 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+	// Add new custom legend item
+	chart1.Legends["Default"].CustomItems.Add(new LegendItem("LegendItem", Color.Red, ""));
+	
+	// Add first cell to the custom legend item with text "United States"
+	chart1.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "North America", ContentAlignment.MiddleCenter));
+	
+	// Add a second cell which will only be used as a placeholder
+	chart1.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "",ContentAlignment.MiddleCenter));
+	
+	// Set first cell to span across two cells
+	chart1.Legends["Default"].CustomItems[0].Cells[0].CellSpan = 2;
+
+...

@@ -1,0 +1,25 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+   
+' Set chart title
+chart1.Titles(0).Text = "Chart Title" + ControlChars.Lf + "Second Title Line"
+
+' Set chart title font
+chart1.Titles(0).Font = New Font("Times New Roman", 12, FontStyle.Bold)
+
+' Set chart title color
+chart1.Titles(0).Color = Color.Red
+
+' Set border title color
+chart1.Titles(0).BorderColor = Color.Red
+
+' Set background title color
+chart1.Titles(0).BackColor = Color.Red
+
+' Set Title Alignment
+Chart1.Titles(0).Alignment = System.Drawing.ContentAlignment.BottomRight
+
+' Set Title Alignment
+Chart1.Titles(0).ToolTip = "Title"
+
+...

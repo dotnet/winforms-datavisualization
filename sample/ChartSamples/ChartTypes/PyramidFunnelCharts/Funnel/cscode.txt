@@ -1,0 +1,30 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set funnel chart type
+chart1.Series["Default"].ChartType = SeriesChartType.Funnel;
+
+// Set funnel Y values style
+chart1.Series["Default"]["FunnelStyle"] = "YIsHeight";
+
+// Set funnel data point labels style
+chart1.Series["Default"]["FunnelLabelStyle"] = "Outside";
+
+// Place labels on the left side
+chart1.Series["Default"]["FunnelOutsideLabelPlacement"] = "Left";
+
+// Set gap between points
+chart1.Series["Default"]["FunnelPointGap"] = "2";
+
+// Set minimum point height
+chart1.Series["Default"]["FunnelMinPointHeight"] = "1";
+
+// Set 3D mode
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+
+// Set 3D angle
+chart1.Series["Default"]["Funnel3DRotationAngle"] = "7";
+
+// Set 3D drawing style
+chart1.Series["Default"]["Funnel3DDrawingStyle"] = "CircularBase";
+...

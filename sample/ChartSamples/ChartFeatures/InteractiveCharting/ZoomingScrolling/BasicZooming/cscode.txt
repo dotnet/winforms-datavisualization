@@ -1,0 +1,13 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Zoom into the X axis
+chart1.ChartAreas["Default"].AxisX.ScaleView.Zoom(2, 3);
+
+// Enable range selection and zooming end user interface
+chart1.ChartAreas["Default"].CursorX.IsUserEnabled = true;
+chart1.ChartAreas["Default"].CursorX.IsUserSelectionEnabled = true;
+chart1.ChartAreas["Default"].AxisX.ScaleView.Zoomable = true;
+chart1.ChartAreas["Default"].AxisX.ScrollBar.IsPositionedInside = true;
+
+...

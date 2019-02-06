@@ -1,0 +1,22 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Disable axis labels auto fitting of text
+chart1.ChartAreas["Default"].AxisX.IsLabelAutoFit = false;
+
+// Set axis labels font
+chart1.ChartAreas["Default"].AxisX.LabelStyle.Font = new Font("Arial", 10);
+
+// Set axis labels angle
+chart1.ChartAreas["Default"].AxisX.LabelStyle.Angle = 30;
+
+// Disable offset labels style
+chart1.ChartAreas["Default"].AxisX.LabelStyle.IsStaggered = false;
+
+// Enable X axis labels
+chart1.ChartAreas["Default"].AxisX.LabelStyle.Enabled = true;
+
+// Enable AntiAliasing for either Text and Graphics or just Graphics
+chart1.AntiAliasing = AntiAliasing.All; // AntiAliasingStyles.Graphics and AntiAliasing.Text
+
+...

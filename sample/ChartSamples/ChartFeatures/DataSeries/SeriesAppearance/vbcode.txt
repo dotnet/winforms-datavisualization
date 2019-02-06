@@ -1,0 +1,21 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Legend visual attributes
+Chart1.Series("Default").BackColor = Color.MediumSeaGreen
+Chart1.Series("Default").BackSecondaryColor = Color.Green
+Chart1.Series("Default").BackGradientStyle = GradientStyle.DiagonalLeft
+
+Chart1.Series("Default").BorderColor = Color.Black
+Chart1.Series("Default").BorderWidth = 2
+Chart1.Series("Default").BorderDashStyle = ChartDashStyle.Solid
+
+Chart1.Series("Default").ShadowOffset = 2
+
+' for 3D series appearance
+' enable 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = true
+' set the light style
+Chart1.ChartAreas("Default").Area3DStyle.LightStyle = LightStyle.Simplistic
+
+...

@@ -1,0 +1,22 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Disable axis labels auto fitting of text
+Chart1.ChartAreas("Default").AxisX.IsLabelAutoFit = False
+
+' Set axis labels font
+Chart1.ChartAreas("Default").AxisX.LabelStyle.Font = New Font("Arial", 10)
+
+' Set axis labels angle
+Chart1.ChartAreas("Default").AxisX.LabelStyle.Angle = 30
+
+' Disable offset labels style
+Chart1.ChartAreas("Default").AxisX.LabelStyle.IsStaggered = False
+
+' Enable X axis labels
+Chart1.ChartAreas("Default").AxisX.LabelStyle.Enabled = True
+
+' Enable AntiAliasing for either Text and Graphics or just Graphics
+Chart1.AntiAliasing = AntiAliasing.All  ' AntiAliasingStyles.Graphics and AntiAliasing.Text
+
+...

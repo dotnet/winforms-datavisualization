@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "PointCharts" Priority="100">
+  <Title>Bubble Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Bubble Chart Type</ShortBlurb> 
+  <SampleControl>BubbleChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Bubble Charts</Keyword>
+    <Keyword>Scaling, Bubble chart</Keyword>
+    <Keyword>Chart type, Bubble</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

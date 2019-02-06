@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority="400">
+  <Title>Axis Scale</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Axis Value</ShortBlurb> 
+  <SampleControl>AxisScale</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Scale</Keyword>
+	<Keyword>Axis, Scale</Keyword>
+  </Keywords> 
+</SampleConfig>
+</SampleConfigs>

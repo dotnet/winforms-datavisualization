@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Titles" Priority="100">
+  <Title>Chart Title</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Chart Title Appearance</ShortBlurb> 
+  <SampleControl>ChartTitle</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Title, Chart</Keyword>
+	<Keyword>Appearance, Chart title</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

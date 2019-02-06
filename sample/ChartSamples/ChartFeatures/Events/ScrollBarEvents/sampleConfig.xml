@@ -1,0 +1,40 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Customizations" Priority = "400">
+  <Title>Customizing the Scrollbar</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Scrollbar Events</ShortBlurb> 
+  <SampleControl>ScrollBarEvents</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Events, Scrollbar</Keyword>
+	<Keyword>Scrollbar, Events</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Zooming and Scrolling">
+  <Title>AxisScrollBarClicked Event</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Scrollbar Events</ShortBlurb> 
+  <SampleControl>ScrollBarEvents</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Events, Scrollbar</Keyword>
+	<Keyword>Scrollbar, Events</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,22 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series chart type
+chart1.Series["Default"].ChartType = SeriesChartType.Bar;
+
+// Set series point width
+chart1.Series["Default"]["PointWidth"] = "0.6";
+
+// Show data points labels
+chart1.Series["Default"].IsValueShownAsLabel = true;
+
+// Set data points label style
+chart1.Series["Default"]["BarLabelStyle"] = "Center";
+
+// Display chart as 3D
+chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+// Draw the chart as embossed
+chart1.Series["Default"]["DrawingStyle"] = "Emboss";
+
+...

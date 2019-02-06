@@ -1,0 +1,28 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set SplineArea chart type
+chart1.Series["Default"].ChartType = SeriesChartType.SplineArea;
+
+// Set spline line tension 
+chart1.Series["Default"]["LineTension"] = "0.6";
+
+// Enable data points labels
+chart1.Series["Default"].IsValueShownAsLabel = true;
+
+// Enable data points markers
+chart1.Series["Default"].MarkerStyle = MarkerStyle.Circle;
+chart1.Series["Default"].MarkerColor = Color.Magenta;
+
+// Disable X axis margin
+chart1.ChartAreas["Default"].AxisX.IsMarginVisible = false;
+
+// Show transparent color
+chart1.Series["Default"].Color = Color.FromArgb(120, 0, 155, 155);
+
+// Show as 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+chart1.ChartAreas["Default"].Area3DStyle.IsClustered = true;
+chart1.ChartAreas["Default"].Area3DStyle.Rotation = 30;
+chart1.ChartAreas["Default"].Area3DStyle.Inclination = 30;
+...

@@ -1,0 +1,13 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Attach the first series to a chart area.
+chart1.Series["Series1"].ChartArea = "Default";
+    
+// Attach the second series to a chart area.
+chart1.Series["Series2"].ChartArea = "Chart Area 2";
+    
+// Remove series from chart areas.
+chart1.Series["Series3"].ChartArea = "";
+
+...

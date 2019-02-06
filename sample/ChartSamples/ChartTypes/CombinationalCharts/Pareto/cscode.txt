@@ -1,0 +1,65 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Make Pareto Chart
+MakeParetoChart( chart1, "Default", "Pareto" );
+...
+
+void MakeParetoChart(Chart chart, string srcSeriesName, string destSeriesName)
+{
+
+    // Get the name of the ChartArea of the source series
+    string strChartArea = chart.Series[srcSeriesName].ChartArea;
+
+    // Ensure that the source series is a column chart type
+    chart.Series[srcSeriesName].ChartType = SeriesChartType.Column;
+
+    // Sort the data in the series to be in descending order
+    chart.DataManipulator.Sort(PointSortOrder.Descending, srcSeriesName);
+
+    // Find the total of all points in the source series
+    double total = 0.0;
+    foreach (DataPoint pt in chart.Series[srcSeriesName].Points)
+        total += pt.YValues[0];
+
+    // Set the max. value on the primary axis to the total
+    chart.ChartAreas[strChartArea].AxisY.Maximum = total;
+
+    // Create the destination series and add it to the chart
+    Series destSeries = new Series(destSeriesName);
+    chart.Series.Add(destSeries);
+
+    // Ensure the destination series is a Line or Spline chart type
+    destSeries.ChartType = SeriesChartType.Line;
+
+    destSeries.BorderWidth = 3;
+
+    // Assign the series to the same chart area as the column chart
+    destSeries.ChartArea = chart.Series[srcSeriesName].ChartArea;
+
+    // Assign this series to use the secondary axis and set its maximum to be 100%
+    destSeries.YAxisType = AxisType.Secondary;
+    chart.ChartAreas[strChartArea].AxisY2.Maximum = 100; 
+
+    // Locale specific percentage format with no decimals
+    chart.ChartAreas[strChartArea].AxisY2.LabelStyle.Format = "P0";
+
+    // Turn off the end point values of the primary X axis
+    chart.ChartAreas[strChartArea].AxisX.LabelStyle.IsEndLabelVisible = false;
+
+    // For each point in the source series find % of total and assign it to destination series
+    double percentage = 0.0;
+
+    foreach(DataPoint pt in chart.Series[srcSeriesName].Points)
+    {
+
+        int pos = 0;
+        percentage += (pt.YValues[0] / total * 100.0);
+        pos = destSeries.Points.Add(Math.Round(percentage,2));
+
+    }
+    
+    // Set to 3D
+    chart.ChartAreas[strChartArea].Area3DStyle.Enable3D = true;
+}
+...

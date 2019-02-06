@@ -1,0 +1,15 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Fill series data
+Dim yValue As Double = 50.0
+Dim random As New Random()
+Dim pointIndex As Integer
+For pointIndex = 0 To 19999
+   yValue = yValue +(random.NextDouble() * 10.0 - 5.0)
+   chart1.Series("Default").Points.AddY(yValue)
+Next pointIndex
+
+' Set fast line chart type
+chart1.Series("Default").ChartType = SeriesChartType.FastLine
+...

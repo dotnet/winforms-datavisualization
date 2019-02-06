@@ -1,0 +1,18 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Create references to chart areas.
+ChartArea [] areas = new ChartArea[3];
+areas[0] = chart1.ChartAreas["Default"];
+areas[1] = chart1.ChartAreas["Chart Area 2"];
+areas[2] = chart1.ChartAreas["Chart Area 3"];
+
+// Remove all chart areas from the collection
+chart1.ChartAreas.Clear();
+
+// Add chart areas to the collection in selected order
+chart1.ChartAreas.Add(areas[0]);
+chart1.ChartAreas.Add(areas[2]);
+chart1.ChartAreas.Add(areas[1]);
+
+...

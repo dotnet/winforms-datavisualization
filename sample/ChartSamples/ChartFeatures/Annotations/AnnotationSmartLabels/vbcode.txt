@@ -1,0 +1,24 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Enable smart labels for the DataPoint Labels
+Dim series As Series
+For Each series In  chart1.Series
+	series.SmartLabelStyle.Enabled = True
+Next series
+
+
+' Anchor the Annotation object to the 4th point
+chart1.Annotations(0).AnchorDataPoint = chart1.Series(0).Points(3)
+
+' Enable smart labels for all Annotation objects
+' Hide all Annotation objects that cannot be repositioned 
+Dim annotation As Annotation
+For Each annotation In  chart1.Annotations
+	annotation.SmartLabelStyle.Enabled = True
+	annotation.SmartLabelStyle.HideOverlapped = True
+Next annotation
+
+
+
+...

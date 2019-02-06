@@ -1,0 +1,25 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Populate series with random data
+Random	random = new Random();
+for(int pointIndex = 0; pointIndex < 10; pointIndex++)
+{
+    chart1.Series["Series1"].Points.AddY(random.Next(45, 95));
+    chart1.Series["Series2"].Points.AddY(random.Next(5, 75));
+}
+
+// Set series chart type
+chart1.Series["Series1"].ChartType = SeriesChartType.Line;
+chart1.Series["Series2"].ChartType = SeriesChartType.Spline;
+
+// Set point labels
+chart1.Series["Series1"].IsValueShownAsLabel = true;
+chart1.Series["Series2"].IsValueShownAsLabel = true;
+
+// Enable X axis margin
+chart1.ChartAreas["Default"].AxisX.IsMarginVisible = true;
+
+// Show as 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true; 
+...

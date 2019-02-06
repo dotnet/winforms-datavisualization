@@ -1,0 +1,31 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Populate series data
+Dim random As New Random()
+Dim pointIndex As Integer
+For pointIndex = 0 To 9
+    Chart1.Series("LightBlue").Points.AddY(random.Next(45, 95))
+Next pointIndex
+
+' Set chart type
+Chart1.Series("LightBlue").ChartType = SeriesChartType.StackedArea100
+
+' Show point labels
+Chart1.Series("LightBlue").IsValueShownAsLabel = True
+
+' Disable X axis margin
+Chart1.ChartAreas("Default").AxisX.IsMarginVisible = False
+
+' Set the first two series to be grouped into Group1
+chart1.Series("LightBlue")("StackedGroupName") = "Group1";
+chart1.Series("Gold")("StackedGroupName") = "Group1";
+
+' Set the last two series to be grouped into Group2
+chart1.Series("Red")("StackedGroupName") = "Group2";
+chart1.Series("DarkBlue")("StackedGroupName") = "Group2";
+
+' Show the chart in 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = True
+
+...

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartArea" Priority="25">
+  <Title>Chart Area and Plotting Area Positions</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Chart Area and Plotting Area Positions</ShortBlurb>
+  <SampleControl>ChartAreaPosition</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+   <Keywords>
+    <Keyword>Chart area</Keyword>
+    <Keyword>Chart area, Position</Keyword>
+	<Keyword>Plotting area</Keyword>
+	<Keyword>Plotting area, Position</Keyword>
+  </Keywords>
+</SampleConfig>
+</SampleConfigs>

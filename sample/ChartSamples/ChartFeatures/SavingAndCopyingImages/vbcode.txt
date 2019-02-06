@@ -1,0 +1,67 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub Save_Click(sender As Object, e As System.EventArgs)
+   
+   ' Create a new save file dialog
+   Dim saveFileDialog1 As New SaveFileDialog()
+   
+   ' Sets the current file name filter string, which determines 
+   ' the choices that appear in the "Save as file type" or 
+   ' "Files of type" box in the dialog box.
+   saveFileDialog1.Filter = "Bitmap (*.bmp)|*.bmp|JPEG (*.jpg)|*.jpg|EMF (*.emf)|*.emf|PNG (*.png)|*.png|SVG (*.svg)|*.svg|GIF (*.gif)|*.gif|TIFF (*.tif)|*.tif"
+   saveFileDialog1.FilterIndex = 2
+   saveFileDialog1.RestoreDirectory = True
+   
+   ' Set image file format
+   If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+      Dim format As ChartImageFormat = ChartImageFormat.Bmp
+      
+      If saveFileDialog1.FileName.EndsWith("bmp") Then
+         format = ChartImageFormat.Bmp
+      Else
+         If saveFileDialog1.FileName.EndsWith("jpg") Then
+            format = ChartImageFormat.Jpeg
+         Else
+            If saveFileDialog1.FileName.EndsWith("emf") Then
+               format = ChartImageFormat.Emf
+            Else
+               If saveFileDialog1.FileName.EndsWith("gif") Then
+                  format = ChartImageFormat.Gif
+               Else
+                  If saveFileDialog1.FileName.EndsWith("png") Then
+                     format = ChartImageFormat.Png
+                  Else
+                     If saveFileDialog1.FileName.EndsWith("tif") Then
+                        format = ChartImageFormat.Tiff
+                     Else
+                        If saveFileDialog1.FileName.EndsWith("svg") Then
+                           format = ChartImageFormat.Svg
+                        End If
+                     End If 
+                  End If ' Save image
+               End If
+            End If
+         End If
+      End If
+      Chart1.SaveImage(saveFileDialog1.FileName, format)
+   End If
+   
+End Sub 'Save_Click
+
+Private Sub Copy_Click(sender As Object, e As System.EventArgs)
+   
+   ' Create a memory stream to save the chart image    
+   Dim stream As New System.IO.MemoryStream()
+   
+   ' Save the chart image to the stream    
+   Chart1.SaveImage(stream, System.Drawing.Imaging.ImageFormat.Bmp)
+   
+   ' Create a bitmap using the stream    
+   Dim bmp As New Bitmap(stream)
+   
+   ' Save the bitmap to the clipboard    
+   Clipboard.SetDataObject(bmp)
+   
+End Sub 'Copy_Click
+...

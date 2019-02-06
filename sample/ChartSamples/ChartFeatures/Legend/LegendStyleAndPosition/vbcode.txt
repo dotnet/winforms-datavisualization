@@ -1,0 +1,28 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set legend style
+Chart1.Legends("Default").LegendStyle = LegendStyle.Column
+
+' Set legend docking
+Chart1.Legends("Default").Docking = Docking.Right
+
+' Set legend alignment
+Chart1.Legends("Default").Alignment = StringAlignment.Center
+
+If InsideChartArea.Checked Then
+' Display legend inside the "Default" chart area
+    Chart1.Legends("Default").InsideChartArea = "Default"
+Else
+' Do not display legend inside the "Default" chart area
+    Chart1.Legends("Default").InsideChartArea = ""
+End If
+
+' Disable legend
+If LegendDisabled.Checked Then
+    Chart1.Legends("Default").Enabled = False
+End If
+
+Chart1.Legends("Default").IsEquallySpacedItems = False   
+
+...

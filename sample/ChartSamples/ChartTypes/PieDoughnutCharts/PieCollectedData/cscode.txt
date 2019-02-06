@@ -1,0 +1,27 @@
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
+...
+
+	// PieCollectedDataHelper is a helper class found in the samples Utilities folder. 
+	PieCollectedDataHelper pieHelper = new PieCollectedDataHelper();
+
+	// Set the percentage of the total series values. This value determines 
+	// if the data point value is a "small" value and should be shown as collected.
+	pieHelper.CollectedPercentage = 5;
+	
+	// Indicates if small segments should be shown as one "collected" segment in 
+	// the original series.
+	pieHelper.ShowCollectedDataAsOneSlice = false;
+	
+	// Size ratio between the original and supplemental chart areas.
+	// Value of 1.0f indicates that same area size will be used.
+	pieHelper.SupplementedAreaSizeRatio = 0.9f;
+	
+	// Set position in relative coordinates ( 0,0 - top left corner; 100,100 - bottom right corner)
+	// where original and supplemental pie charts should be placed.
+	pieHelper.ChartAreaPosition = new RectangleF(5f, 5f, 90f, 90f);
+
+	// Show supplemental pie for the "Default" series
+	pieHelper.ShowSmallSegmentsAsSupplementalPie("Default");
+
+...

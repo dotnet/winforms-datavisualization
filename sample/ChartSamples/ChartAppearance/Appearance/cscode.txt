@@ -1,0 +1,33 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Back Color
+chart1.BackColor = Color.Red;
+
+// Set Back Gradient End Color
+chart1.BackSecondaryColor = Color.Yellow;
+
+// Set Hatch Style
+chart1.BackHatchStyle = ChartHatchStyle.DashedHorizontal;
+
+// Set Gradient Type
+chart1.BackGradientStyle = GradientStyle.DiagonalRight;
+
+// Set Border Color
+chart1.BorderColor = Color.Blue;
+
+// Set Border Style
+chart1.BorderDashStyle = ChartDashStyle.DashDot;
+
+// Set Border Width
+chart1.BorderWidth = 2;
+
+// Chart Image Mode
+chart1.BackImageWrapMode = ChartImageWrapMode.TileFlipX;
+
+// Chart Image Align
+chart1.BackImageAlignment = ChartImageAlignStyle.BottomLeft;
+
+// Set Image
+chart1.BackImage = "Brain.jpg";		
+...

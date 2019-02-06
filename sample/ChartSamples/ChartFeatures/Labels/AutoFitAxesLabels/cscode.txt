@@ -1,0 +1,11 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Enable X axis labels automatic fitting
+Chart1.ChartAreas["Default"].AxisX.IsLabelAutoFit = true;
+
+// Set X axis automatic fitting style
+Chart1.ChartAreas["Default"].AxisX.LabelAutoFitStyle = 
+	LabelAutoFitStyle.DecreaseFont | LabelAutoFitStyle.IncreaseFont | LabelAutoFitStyle.WordWrap;
+
+...

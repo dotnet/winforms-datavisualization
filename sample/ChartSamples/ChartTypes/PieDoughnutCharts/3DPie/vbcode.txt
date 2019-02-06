@@ -1,0 +1,27 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Populate series data
+Dim yValues As Double() =  {65.62, 75.54, 60.45, 34.73, 85.42}
+Dim xValues As String() =  {"France", "Canada", "Germany", "USA", "Italy"}
+Chart1.Series("Default").Points.DataBindXY(xValues, yValues)
+
+' Set Doughnut chart type
+Chart1.Series("Default").ChartType = SeriesChartType.Doughnut
+
+' Set labels style
+Chart1.Series("Default")("PieLabelStyle") = "Outside"
+
+' Set Doughnut radius percentage
+Chart1.Series("Default")("DoughnutRadius") = "30"
+
+' Explode data point with label "Italy"
+Chart1.Series("Default").Points(4)("Exploded") = "true"
+
+' Enable 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = true
+
+' Set drawing style
+chart1.Series("Default")("PieDrawingStyle") = "SoftEdge"
+
+...

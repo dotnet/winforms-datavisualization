@@ -1,0 +1,10 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+   
+// Enable interlaced strip lines
+Chart1.ChartAreas["Default"].AxisY.IsInterlaced = true;
+    
+// Set Strips Color
+Chart1.ChartAreas["Default"].AxisY.InterlacedColor = Color.FromArgb(120, Color.Red);
+		
+...

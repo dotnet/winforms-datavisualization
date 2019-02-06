@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="it" original="../AnnotationSmartLabels.resx">
+    <body>
+      <trans-unit id="label1.Text">
+        <source>Click on the annotation, and then drag the X of the annotation anchor to move it. To avoid the overlapping of the series data points by the callout annotation, smart labels must be enabled in the Annotation object and all Series objects.</source>
+        <target state="new">Click on the annotation, and then drag the X of the annotation anchor to move it. To avoid the overlapping of the series data points by the callout annotation, smart labels must be enabled in the Annotation object and all Series objects.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

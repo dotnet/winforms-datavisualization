@@ -1,0 +1,60 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Cursors">
+  <Title>Cursor Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Cursor Appearance</ShortBlurb> 
+  <SampleControl>CursorAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Selection</Keyword>
+    <Keyword>Cursor, Appearance</Keyword>
+    <Keyword>Appearance, Cursor</Keyword>
+    <Keyword>Appearance, Selection</Keyword>
+    <Keyword>Axis, Cursor</Keyword>
+    <Keyword>Axis, Selection</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Cursor Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Cursor Appearance</ShortBlurb> 
+  <SampleControl>CursorAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Selection</Keyword>
+    <Keyword>Cursor, Appearance</Keyword>
+    <Keyword>Appearance, Cursor</Keyword>
+    <Keyword>Appearance, Selection</Keyword>
+    <Keyword>Axis, Cursor</Keyword>
+    <Keyword>Axis, Selection</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Cursor Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Cursor Appearance</ShortBlurb> 
+  <SampleControl>CursorAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Selection</Keyword>
+    <Keyword>Cursor, Appearance</Keyword>
+    <Keyword>Appearance, Cursor</Keyword>
+    <Keyword>Appearance, Selection</Keyword>
+    <Keyword>Axis, Cursor</Keyword>
+    <Keyword>Axis, Selection</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

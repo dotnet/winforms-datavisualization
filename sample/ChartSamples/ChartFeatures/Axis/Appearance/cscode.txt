@@ -1,0 +1,16 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+   
+// Set Axis Color
+chart1.ChartAreas["Default"].AxisY2.LineColor = Color.Red;
+
+// Set Axis Line Style
+chart1.ChartAreas["Default"].AxisY2.LineDashStyle = ChartDashStyle.Solid;
+
+// Set Arrow Style
+chart1.ChartAreas["Default"].AxisY2.ArrowStyle = AxisArrowStyle.None;
+
+// Set Line Width
+chart1.ChartAreas["Default"].AxisY2.LineWidth = 1;
+		
+...

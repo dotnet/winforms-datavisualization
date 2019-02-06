@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<TOCNodes>  
+  
+  <TOCNode ID="Cursors" ParentNodeID="InteractiveCharting" Priority="300">
+    <Title>Cursors</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Selection" ParentNodeID="InteractiveCharting" Priority="200">
+    <Title>Selection</Title>
+  </TOCNode>  
+  
+    <TOCNode ID="ToolTips" ParentNodeID="InteractiveCharting" Priority="500">
+    <Title>Tooltips</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Zooming and Scrolling" ParentNodeID="InteractiveCharting" Priority="400">
+    <Title>Zooming and Scrolling</Title>
+  </TOCNode>
+
+</TOCNodes>

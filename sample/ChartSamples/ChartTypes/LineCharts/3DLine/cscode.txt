@@ -1,0 +1,33 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set 3D chart settings
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+chart1.ChartAreas["Default"].Area3DStyle.IsRightAngleAxes = false;
+chart1.ChartAreas["Default"].Area3DStyle.Inclination = 40;
+chart1.ChartAreas["Default"].Area3DStyle.Rotation = 20;
+chart1.ChartAreas["Default"].Area3DStyle.LightStyle = LightStyle.Realistic;
+
+// Populate series with random data
+Random	random = new Random();
+for(int pointIndex = 0; pointIndex < 10; pointIndex++)
+{
+    chart1.Series["Series1"].Points.AddY(random.Next(45, 95));
+    chart1.Series["Series2"].Points.AddY(random.Next(5, 75));
+}
+
+// Set series chart type
+chart1.Series["Series1"].ChartType = SeriesChartType.Line;
+chart1.Series["Series2"].ChartType = SeriesChartType.Spline;
+
+// Set point labels
+chart1.Series["Series1"].IsValueShownAsLabel = true;
+chart1.Series["Series2"].IsValueShownAsLabel = true;
+
+// Enable X axis margin
+chart1.ChartAreas["Default"].AxisX.IsMarginVisible = true;
+
+// Enable the ShowMarkerLines
+chart1.Series["Series1"]["ShowMarkerLines"] = "true";
+chart1.Series["Series2"]["ShowMarkerLines"] = "true";
+...

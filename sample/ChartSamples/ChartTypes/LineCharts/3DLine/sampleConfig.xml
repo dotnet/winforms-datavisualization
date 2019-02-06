@@ -1,0 +1,24 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "LineCharts" Priority = "300">
+  <Title>3D Line and Curve Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>3D Line and Curve Chart Types</ShortBlurb> 
+  <SampleControl>LineCurves3D</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Line Charts, 3D</Keyword>
+    <Keyword>Spline 3D</Keyword>
+    <Keyword>Stepline 3D</Keyword>
+    <Keyword>3D, Line chart</Keyword>
+    <Keyword>3D, Spline chart</Keyword>
+    <Keyword>3D, Stepline chart</Keyword>
+    <Keyword>Chart type, Line 3D</Keyword>
+    <Keyword>Chart type, Spline 3D</Keyword>
+    <Keyword>Chart type, Stepline 3D</Keyword>
+  </Keywords>
+</SampleConfig>
+</SampleConfigs>

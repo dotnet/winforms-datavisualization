@@ -1,0 +1,16 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "LineCharts" Priority = "1">
+  <Title>Gallery</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Line Chart Gallery</ShortBlurb> 
+  <SampleControl>None</SampleControl>
+  <InfoPages>
+    <InfoPage Title="Gallery">LineGallery.htm</InfoPage>
+  </InfoPages>
+
+</SampleConfig>
+
+
+</SampleConfigs>

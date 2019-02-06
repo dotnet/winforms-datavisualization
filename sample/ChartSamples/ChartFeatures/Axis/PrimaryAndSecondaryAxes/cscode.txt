@@ -1,0 +1,20 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Enable secondary Y axis
+chart1.ChartAreas["Default"].AxisY2.Enabled = AxisEnabled.True;
+
+// Set Y values
+chart1.Series["Series1"].Points[0].YValues[0] = 5955;
+chart1.Series["Series1"].Points[1].YValues[0] = 7260;
+chart1.Series["Series1"].Points[2].YValues[0] = 8000;
+
+// Set maximum values for Y axes.
+chart1.ChartAreas["Default"].AxisY.Maximum = 12000;
+chart1.ChartAreas["Default"].AxisY2.Maximum = 22224;
+
+// Set titles for Y axes
+chart1.ChartAreas["Default"].AxisY.Title = "In Nautical miles";
+chart1.ChartAreas["Default"].AxisY2.Title = "In Kilometers";
+		
+...

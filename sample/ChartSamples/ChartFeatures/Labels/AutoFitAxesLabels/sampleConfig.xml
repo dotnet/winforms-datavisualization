@@ -1,0 +1,40 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Labels">
+  <Title>Auto Fit Axes Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Auto-Fitting Axis Labels</ShortBlurb> 
+  <SampleControl>AutoFitAxesLabels</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Labels, Auto fitting</Keyword>
+	<Keyword>Auto fitting axes labels</Keyword>
+	<Keyword>Axis, Labels auto fitting</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Axis">
+  <Title>Auto Fit Axes Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Auto-Fitting Axis Labels</ShortBlurb> 
+  <SampleControl>AutoFitAxesLabels</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Labels, Auto fitting</Keyword>
+	<Keyword>Auto fitting axes labels</Keyword>
+	<Keyword>Axis, Labels auto fitting</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

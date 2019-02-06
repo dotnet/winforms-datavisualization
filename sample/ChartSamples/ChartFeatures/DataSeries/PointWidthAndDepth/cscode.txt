@@ -1,0 +1,18 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series points width to 20 pixels
+chart1.Series["Series 1"]["PixelPointWidth"] = "20";
+
+// Minimum and/or Maximum points width in pixels can be 
+// specified to adjust default width of points.
+chart1.Series["Series 2"]["MinPixelPointWidth"] = "10";
+chart1.Series["Series 2"]["MaxPixelPointWidth"] = "30";
+
+// Set series points depth to 30 pixels
+chart1.Series["Series 1"]["PixelPointDepth"] = "20";
+
+// Set series points gap depth to 10 pixels
+chart1.Series["Series 1"]["PixelPointGapDepth"] = "10";
+
+...

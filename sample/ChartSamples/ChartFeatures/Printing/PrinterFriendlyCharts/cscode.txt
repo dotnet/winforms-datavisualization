@@ -1,0 +1,50 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Create printer friendly chart and print preview it
+Chart chart = CreatePrinterFriendlyChart(chart1);
+chart.Printing.PrintPreview();
+
+...
+
+/// <summary>
+/// Method creates new printer friendly copy of the specified chart
+/// </summary>
+private Chart CreatePrinterFriendlyChart(Chart originalChart)
+{
+	// Save original chart data points values and some additional properties into the stream
+	MemoryStream memoryStream = new MemoryStream();
+	originalChart.Serializer.Content = SerializationContents.Data;
+	originalChart.Serializer.SerializableContent += ",*.ChartType,*.Title,*.TitleFont,Chart.Legend,*.Enabled,Chart.ChartAreas,ChartArea.Name";
+	originalChart.Serializer.Save(memoryStream);
+
+	// Create new chart control and load data from stream
+	Chart	printerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+	memoryStream.Seek(0, SeekOrigin.Begin);
+	printerChart.Serializer.Load(memoryStream);
+	memoryStream.Close();
+
+	// Loop through all series
+	int		hatchingIndex = 1;
+	Array	hatchingValues = Enum.GetValues(typeof(ChartHatchStyle));
+	foreach(Series series in printerChart.Series)
+	{
+		// Loop through all data points
+		foreach(DataPoint point in series.Points)
+		{
+			// Set point colors and hatching
+			point.BorderColor = Color.Black;
+			point.Color = Color.White;
+			point.BackSecondaryColor = Color.Black;
+			point.BackHatchStyle = (ChartHatchStyle)hatchingValues.GetValue(hatchingIndex++);
+			if(hatchingIndex >= hatchingValues.Length)
+			{
+				hatchingIndex = 1;
+			}
+		}
+	}
+
+	return printerChart;
+}
+
+...

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Cursors">
+  <Title>Multi Chart Area Cursor</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Synchronizing Two Chart Areas</ShortBlurb> 
+  <SampleControl>MultiChartAreaCursor</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Cursor, Alignment</Keyword>
+    <Keyword>Financial, Cursor</Keyword>
+  </Keywords>
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Multi Chart Area Cursor</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Synchronizing Two Chart Areas</ShortBlurb> 
+  <SampleControl>MultiChartAreaCursor</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Cursor, Alignment</Keyword>
+    <Keyword>Financial, Cursor</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Zooming and Scrolling">
+  <Title>Multi Chart Area Cursor</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Synchronizing Two Chart Areas</ShortBlurb> 
+  <SampleControl>MultiChartAreaCursor</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Cursor, Alignment</Keyword>
+    <Keyword>Financial, Cursor</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

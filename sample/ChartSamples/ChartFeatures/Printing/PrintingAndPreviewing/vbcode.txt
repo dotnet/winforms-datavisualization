@@ -1,0 +1,13 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Show Page Setup dialog
+chart1.Printing.PageSetup()
+
+' Print preview chart
+chart1.Printing.PrintPreview()
+
+' Print chart (without Printer dialog)
+chart1.Printing.Print(False)
+
+...

@@ -1,0 +1,7 @@
+Imports System.Windows.Forms.DataVisualization.Charting.Chart
+...
+
+' Equally sized auto-fit font for all axes
+Chart1.ChartAreas("Default").IsSameFontSizeForAllAxes = true
+
+...

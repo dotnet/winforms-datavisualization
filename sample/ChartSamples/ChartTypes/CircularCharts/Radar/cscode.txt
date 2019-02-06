@@ -1,0 +1,23 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Populate series data
+double[]	yValues = {65.62, 75.54, 60.45, 34.73, 85.42, 55.9, 63.6, 55.2, 77.1};
+string[]	xValues = {"France", "Canada", "Germany", "USA", "Italy", "Spain", "Russia", "Sweden", "Japan"};
+chart1.Series["Default"].Points.DataBindXY(xValues, yValues);
+
+// Set radar chart type
+chart1.Series["Default"].ChartType = SeriesChartType.Radar;
+
+// Set radar chart style (Area, Line or Marker)
+chart1.Series["Default"]["RadarDrawingStyle"] = "Area";
+
+// Set circular area drawing style (Circle or Polygon)
+chart1.Series["Default"]["AreaDrawingStyle"] = "Polygon";
+
+// Set labels style (Auto, Horizontal, Circular or Radial)
+chart1.Series["Default"]["CircularLabelsStyle"] = "Horizontal";
+
+// Show as 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+...

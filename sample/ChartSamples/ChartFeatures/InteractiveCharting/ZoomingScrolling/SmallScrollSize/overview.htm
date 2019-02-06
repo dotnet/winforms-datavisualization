@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<head>
+		<LINK href="../../../../Styles.css" type="text/css" rel="stylesheet">
+	</head>
+	<BODY>
+		<P><br>
+			"Small scrolling" occurs when the end-user clicks on an up/down buttons or 
+			left/right buttons (Figure 1) on the scrollbar.</P>
+		<P><IMG src="Zoom3.PNG"><br>
+			<EM>Figure 1:&nbsp;Left and Right Buttons</EM></EM></P>
+		<H3>Small Scrolling Size</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>The "small scrolling size" is determined by the&nbsp;SmallScrollSize 
+				property.&nbsp; If&nbsp;this property is not set (or set programmatically to 
+				AxisDataView.SmallScrollSize&nbsp;= Double.NaN), the chart view&nbsp;is 
+				automatically recalculated to a smaller value after each zoom operation.
+			</P>
+			<P>When SmallScrollSize is not set, the SmallScrollMinSize property can be used to 
+				set a minimum value. However, if SmallScrollSize is set to an explicit value 
+				then this value is always used for small scrolling, regardless of how many 
+				times zooming occurs (so setting SmallScrollMinSize therefore has no effect).
+			</P>
+		</BLOCKQUOTE>
+		<H3>What's Happening in this Sample?</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>By default, the small scrolling size is set to Auto.&nbsp; Thus the small 
+				scrolling size decreases every time data is zoomed in on, and cannot be less 
+				than SmallScrollMinSize.
+			</P>
+			<P>The small scrolling size can be set to an explicit value using SmallScrollSize, 
+				in which case the minimum small scrolling size has no effect.</P>
+		</BLOCKQUOTE>
+	</BODY>
+</HTML>

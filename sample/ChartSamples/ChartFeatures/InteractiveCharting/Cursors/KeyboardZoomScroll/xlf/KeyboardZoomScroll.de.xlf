@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="de" original="../KeyboardZoomScroll.resx">
+    <body>
+      <trans-unit id="label1.Text">
+        <source>Click on the chart, and then use the LEFT ARROW or RIGHT ARROW keys to scroll. To select, use SHIFT-LEFT ARROW or SHIFT-RIGHT ARROW. To zoom in on the selection, use the ENTER key. To go to the previous view, use the BACKSPACE key.</source>
+        <target state="new">Click on the chart, and then use the LEFT ARROW or RIGHT ARROW keys to scroll. To select, use SHIFT-LEFT ARROW or SHIFT-RIGHT ARROW. To zoom in on the selection, use the ENTER key. To go to the previous view, use the BACKSPACE key.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

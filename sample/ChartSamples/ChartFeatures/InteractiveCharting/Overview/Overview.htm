@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet">
+        <style type="text/css">
+            #Table1
+            {
+                height: 239px;
+                width: 705px;
+            }
+        </style>
+    </head>
+	<body>
+		<P>
+			<br />
+			Chart Control for .NET Framework enables has the following functionalities 
+            related to interactivity:</P>
+		<UL>
+			<LI>
+			Selection and drill-down<LI>
+			Tooltips
+			<LI>
+			Cursors
+			<LI>
+				Zooming and scrolling</LI></UL>
+		<H3>Selection and Drill-down</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>Selection&nbsp;uses&nbsp;hit-testing to&nbsp;determine which chart element a user 
+                clicks on.For example, if you click on a pie slice, then selection can be used to 
+				explode that pie slice or drill down to a more detailed chart. For example, you 
+                could click on a column in the column chart on the left to drill down to a pie 
+                chart related to that column.</P>
+		</BLOCKQUOTE>
+		<P>
+			<TABLE id="Table1" cellSpacing="1" cellPadding="1" border="0">
+				<TR>
+					<TD><IMG alt="" src="DrilldownInitialChart.PNG"></TD>
+					<TD><IMG alt="" src="DrilldownFinalChart.jpg"></TD>
+				</TR>
+				</TABLE>
+		</P>
+		<H3>Tooltips</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>Standard tooltips can be specified using the Tooltip property of various chart 
+				elements.&nbsp;Series objects also have a LegendToolTip property, used for their 
+				corresponding legend&nbsp;entry tooltips.&nbsp;</P>
+			<P>Note that special keywords can be used to insert various chart values. For 
+                example, "#VALX" is used to display a data point's X value in the tooltip.</P>
+			<P><IMG alt="Tooltip with Keywords" src="TooltipWithKeyword.png"></P>
+			<P>For custom drawing of tooltips, use the GetToolTipText event.</P>
+		</BLOCKQUOTE>
+		<H3>Cursors
+		</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>Cursors are horizontal and vertical lines that indicate where your click.</P>
+			<P><IMG alt="" src="Cursors.PNG"><BR>
+				</P>
+		</BLOCKQUOTE>
+		<H3>Zooming and Scrolling</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>Uing zooming, you can zoom in and out of&nbsp;a chart by dragging the cursor on 
+                the chart.&nbsp;The part of the axis that is then displayed is 
+				referred to as the <i>data view</i>. You can then scroll through the data using 
+                the scrollbar.</P>
+			<P><IMG alt="Zooming, Scrolling and Dataviews" src="../../Axis/Overview/DataView.PNG" border="0"><BR>
+				</P>
+		</BLOCKQUOTE>
+		</body>
+</html>

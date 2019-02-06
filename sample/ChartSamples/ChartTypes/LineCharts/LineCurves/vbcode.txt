@@ -1,0 +1,25 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Populate series with random data
+Dim random As New Random()
+Dim pointIndex As Integer
+For pointIndex = 0 To 9
+    Chart1.Series("Series1").Points.AddY(random.Next(45, 95))
+    Chart1.Series("Series2").Points.AddY(random.Next(5, 75))
+Next pointIndex
+
+' Set series chart type
+Chart1.Series("Series1").ChartType = SeriesChartType.Line;
+Chart1.Series("Series2").ChartType = SeriesChartType.Spline;
+
+' Set point labels
+Chart1.Series("Series1").IsValueShownAsLabel = True
+Chart1.Series("Series2").IsValueShownAsLabel = True
+
+' Enable X axis margin
+Chart1.ChartAreas("Default").AxisX.IsMarginVisible = True
+
+' Show as 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = True
+...

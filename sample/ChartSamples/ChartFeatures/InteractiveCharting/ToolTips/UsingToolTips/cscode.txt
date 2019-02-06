@@ -1,0 +1,16 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set ToolTips for Data Point Series
+chart1.Series[0].ToolTip = "Percent: #PERCENT";
+
+// Set ToolTips for legend items
+chart1.Series[0].LegendToolTip = "Income in #LABEL  is #VAL million";
+
+// Set ToolTips for the Data Point labels
+chart1.Series[0].LabelToolTip = "#PERCENT";
+
+// Set ToolTips for second Data Point
+chart1.Series[0].Points[1].ToolTip = "Unknown";
+
+...

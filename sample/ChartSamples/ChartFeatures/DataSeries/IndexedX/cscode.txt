@@ -1,0 +1,7 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Plot series' points using their index instead of their X values
+chart1.Series["Default"].IsXValueIndexed = true;
+
+...

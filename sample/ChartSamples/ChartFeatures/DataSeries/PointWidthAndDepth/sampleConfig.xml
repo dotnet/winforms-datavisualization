@@ -1,0 +1,42 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Points Width and 3D Depth</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Points Width and 3D Depth</ShortBlurb> 
+  <SampleControl>PointWidthAndDepth</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overvew">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Point Width</Keyword>
+    <Keyword>Series, Point Depth</Keyword>
+    <Keyword>3D, Point Width</Keyword>
+    <Keyword>3D, Point Depth</Keyword>
+  </Keywords>  
+  
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Points Width and 3D Depth</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Points Width and 3D Depth</ShortBlurb> 
+  <SampleControl>PointWidthAndDepth</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overvew">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Point Width</Keyword>
+    <Keyword>Series, Point Depth</Keyword>
+    <Keyword>3D, Point Width</Keyword>
+    <Keyword>3D, Point Depth</Keyword>
+  </Keywords>  
+  
+</SampleConfig>
+
+</SampleConfigs>

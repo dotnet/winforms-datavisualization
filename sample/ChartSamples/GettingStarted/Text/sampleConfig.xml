@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "500">
+  <Title>Text Elements</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Text Elements</ShortBlurb> 
+  <SampleControl>Text Overview</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Text Elements</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

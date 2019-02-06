@@ -1,0 +1,11 @@
+using System.Windows.Forms.DataVisualization.Charting.Chart;
+...
+
+chart1.Series["Default"].SmartLabelStyle.Enabled = true;
+chart1.Series["Default"].SmartLabelStyle.AllowOutsidePlotArea = LabelOutsidePlotAreaStyle.Partial;
+chart1.Series["Default"].SmartLabelStyle.CalloutLineAnchorCap = LineAnchorCapStyle.Diamond;
+chart1.Series["Default"].SmartLabelStyle.CalloutLineColor = Color.Red;
+chart1.Series["Default"].SmartLabelStyle.CalloutLineWidth = 2;
+chart1.Series["Default"].SmartLabelStyle.CalloutStyle = LabelCalloutStyle.Box;
+
+...

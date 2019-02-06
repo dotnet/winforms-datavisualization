@@ -1,0 +1,21 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series visual attributes
+chart1.Series["Default"].BackColor = Color.MediumSeaGreen;
+chart1.Series["Default"].BackSecondaryColor = Color.Green;
+chart1.Series["Default"].BackGradientStyle = GradientStyle.DiagonalLeft;
+
+chart1.Series["Default"].BorderColor = Color.Black;
+chart1.Series["Default"].BorderWidth = 2;
+chart1.Series["Default"].BorderDashStyle = ChartDashStyle.Solid;
+
+chart1.Series["Default"].ShadowOffset = 2;
+
+// for 3D series appearance
+// enable 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+// set the light style
+chart1.ChartAreas["Default"].Area3DStyle.LightStyle = LightStyle.Simplistic;
+
+...

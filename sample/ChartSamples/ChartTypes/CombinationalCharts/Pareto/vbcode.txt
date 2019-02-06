@@ -1,0 +1,65 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Make Pareto Chart
+MakeParetoChart(Chart1, "Default", "Pareto")
+...
+
+Sub MakeParetoChart(chart As Chart, srcSeriesName As String, destSeriesName As String)
+   
+   ' Get the name of the ChartArea of the source series
+   Dim strChartArea As String = chart.Series(srcSeriesName).ChartArea
+   
+   ' Ensure the source series is a column chart type
+   chart.Series(srcSeriesName).ChartType = SeriesChartType.Column
+   
+   ' Sort the data in the series to be in descending order
+   chart.DataManipulator.Sort(PointSortOrder.Descending, srcSeriesName)
+   
+   ' Find the total of all points in the source series
+   Dim total As Double = 0.0
+   Dim pt As DataPoint
+   For Each pt In  chart.Series(srcSeriesName).Points
+      total += pt.YValues(0)
+   Next pt 
+   
+   ' Set the max value on the primary axis to the total
+   chart.ChartAreas(strChartArea).AxisY.Maximum = total
+   
+   ' Create the destination series and add it to the chart
+   Dim destSeries As New Series(destSeriesName)
+   chart.Series.Add(destSeries)
+   
+   ' Ensure the destination series is a Line or Spline chart type
+   destSeries.ChartType = SeriesChartType.Line;
+   
+   destSeries.BorderWidth = 3
+   
+   ' Assign the series to the same chart area as the column chart
+   destSeries.ChartArea = chart.Series(srcSeriesName).ChartArea
+   
+   ' Assign this series to use the secondary axis and set its maximum to be 100%
+   destSeries.YAxisType = AxisType.Secondary
+   chart.ChartAreas(strChartArea).AxisY2.Maximum = 100
+   
+   ' Locale specific percentage format with no decimals
+   chart.ChartAreas(strChartArea).AxisY2.LabelStyle.Format = "P0"
+   
+   ' Turn off the end point values of the primary X axis
+   chart.ChartAreas(strChartArea).AxisX.LabelStyle.IsEndLabelVisible = False
+   
+   ' For each point in the source series find % of total and assign to destination series
+   Dim percentage As Double = 0.0
+   
+   Dim pt As DataPoint
+   For Each pt In  chart.Series(srcSeriesName).Points      
+      Dim pos As Integer = 0
+      percentage += pt.YValues(0) / total * 100.0
+      pos = destSeries.Points.Add(Math.Round(percentage, 2))
+   Next pt 
+   
+   ' Set to 3D
+	chart.ChartAreas(strChartArea).Area3DStyle.Enable3D = True
+   
+End Sub 'MakeParetoChart
+...

@@ -1,0 +1,19 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Windows.Forms.DataVisualization.Charting.Utilities
+...
+   
+Dim bShowTotals As Boolean = false
+bShowTotals = False
+
+' ChartDataTableHelper is a helper class found in the samples
+' in the folder Utilties. 
+Dim TableHelper As ChartDataTableHelper = New ChartDataTableHelper()
+
+' Initialize the TableHelper with the chart object
+TableHelper.Initialize(Chart1, bShowTotals)
+
+' Set the Colors of the Table
+TableHelper.TableColor = Color.White
+TableHelper.BorderColor = Color.Black   
+...
+

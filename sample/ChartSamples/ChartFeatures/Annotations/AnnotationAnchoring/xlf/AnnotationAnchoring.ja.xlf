@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../AnnotationAnchoring.resx">
+    <body>
+      <trans-unit id="label1.Text">
+        <source>The callout and line annotations are anchored to data points within the chart area. The text annotation is anchored to the chart picture. Zoom and scroll the chart to see how these two annotations behave. To zoom in the chart, click and drag horizontally on a section of the chart.</source>
+        <target state="new">The callout and line annotations are anchored to data points within the chart area. The text annotation is anchored to the chart picture. Zoom and scroll the chart to see how these two annotations behave. To zoom in the chart, click and drag horizontally on a section of the chart.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

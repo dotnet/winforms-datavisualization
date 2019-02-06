@@ -1,0 +1,193 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+/// <summary>
+/// Mouse Down Event
+/// </summary>
+private void chart1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = chart1.HitTest( e.X, e.Y );
+
+	if( result.ChartElementType != ChartElementType.DataPoint )
+		return;
+
+	// Remove data points
+	chart1.Series[0].Points.Clear();
+
+	// If Pie chart is selected
+	if( chart1.Series[0].ChartType == SeriesChartType.Pie )
+	{
+		// Set Chart Type
+		chart1.Series[0].ChartType = SeriesChartType.Column;
+
+		// Add data points
+		chart1.Series[0].Points.Add( 5 );
+		chart1.Series[0].Points.Add( 6 );
+		chart1.Series[0].Points.Add( 7 );
+		chart1.Series[0].Points.Add( 2 );
+
+		// Set Axis labels
+		chart1.Series[0].Points[0].AxisLabel = "N America";
+		chart1.Series[0].Points[1].AxisLabel = "S America";
+		chart1.Series[0].Points[2].AxisLabel = "Europe";
+		chart1.Series[0].Points[3].AxisLabel = "Asia";
+
+		// Set Gradient Type
+		chart1.Series[0].BackGradientStyle = GradientStyle.VerticalCenter;
+
+		// Remove custom attributes
+		chart1.Series[0].CustomProperties = "";
+
+		// Recalculate and repaint chart
+		chart1.ChartAreas[0].RecalculateAxesScale();
+		chart1.Invalidate();
+
+		return;
+	}
+
+	// Set Label style for pie chart
+	chart1.Series[0].CustomProperties = "LabelStyle=outside";
+
+	// Remove gradient for data points
+	chart1.Series[0].BackGradientStyle = GradientStyle.None;
+
+
+	switch( result.PointIndex )
+	{
+		// N America
+		case 0:
+			// Add data points
+			chart1.Series[0].ChartType = SeriesChartType.Pie;
+			chart1.Series[0].Points.Add( 3 );
+			chart1.Series[0].Points.Add( 2 );
+			chart1.Series[0].Points.Add( 8 );
+
+			// Set Axis labels
+			chart1.Series[0].Points[0].AxisLabel = "USA";
+			chart1.Series[0].Points[1].AxisLabel = "Canada";
+			chart1.Series[0].Points[2].AxisLabel = "Mexico";
+			
+			break;
+		// S America
+		case 1:
+			// Add data points
+			chart1.Series[0].ChartType = SeriesChartType.Pie;
+			chart1.Series[0].Points.Add( 4 );
+			chart1.Series[0].Points.Add( 6 );
+			chart1.Series[0].Points.Add( 2 );
+
+			// Set Axis labels
+			chart1.Series[0].Points[0].AxisLabel = "Argentina";
+			chart1.Series[0].Points[1].AxisLabel = "Brazil";
+			chart1.Series[0].Points[2].AxisLabel = "Chile";
+			
+			break;
+		// Europe
+		case 2:
+			// Add data points
+			chart1.Series[0].ChartType = SeriesChartType.Pie;
+			chart1.Series[0].Points.Add( 5 );
+			chart1.Series[0].Points.Add( 7 );
+			chart1.Series[0].Points.Add( 2 );
+			chart1.Series[0].Points.Add( 3 );
+
+			// Set Axis labels
+			chart1.Series[0].Points[0].AxisLabel = "UK";
+			chart1.Series[0].Points[1].AxisLabel = "France";
+			chart1.Series[0].Points[2].AxisLabel = "Germany";
+			chart1.Series[0].Points[3].AxisLabel = "Italy";
+			
+			break;
+		// Asia
+		case 3:
+			// Add data points
+			chart1.Series[0].ChartType = SeriesChartType.Pie;
+			chart1.Series[0].Points.Add( 4 );
+			chart1.Series[0].Points.Add( 3 );
+			chart1.Series[0].Points.Add( 6 );
+			chart1.Series[0].Points.Add( 5 );
+			chart1.Series[0].Points.Add( 4 );
+
+			// Set Axis labels
+			chart1.Series[0].Points[0].AxisLabel = "China";
+			chart1.Series[0].Points[1].AxisLabel = "Japan";
+			chart1.Series[0].Points[2].AxisLabel = "India";
+			chart1.Series[0].Points[3].AxisLabel = "Iran";
+			chart1.Series[0].Points[4].AxisLabel = "Iraq";
+			
+			break;
+	}
+			
+	chart1.ChartAreas[0].ReCalculateAxesScale();
+	chart1.Invalidate();
+}
+
+/// <summary>
+/// Mouse Move Event
+/// </summary>
+private void chart1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = chart1.HitTest( e.X, e.Y );
+
+	// Reset Data Point Attributes
+	foreach( DataPoint point in chart1.Series[0].Points )
+	{
+		point.BackSecondaryColor = Color.Black;
+		point.BackHatchStyle = ChartHatchStyle.None;
+		point.BorderWidth = 1;
+	}
+	
+	// If a Data Point or a Legend item is selected.
+	if
+	( 	result.ChartElementType == ChartElementType.DataPoint ||
+		result.ChartElementType == ChartElementType.LegendItem )
+	{				
+		// Set cursor type 
+		this.Cursor = Cursors.Hand;
+
+		// Find selected data point
+		DataPoint point = chart1.Series[0].Points[result.PointIndex];
+
+		// Set End Gradient Color to White
+		point.BackSecondaryColor = Color.White;
+
+		// Set selected hatch style
+		point.BackHatchStyle = ChartHatchStyle.Percent25;
+
+		// Increase border width
+		point.BorderWidth = 2;
+	}
+	else
+	{
+		// Set default cursor
+		this.Cursor = Cursors.Default;
+	}
+
+}
+
+// Load Form
+private void DrillDown_Load(object sender, System.EventArgs e)
+{
+	// Set Chart Type
+	chart1.Series[0].ChartType = SeriesChartType.Column;
+
+	// Add Data Points
+	chart1.Series[0].Points.Add( 5 );
+	chart1.Series[0].Points.Add( 6 );
+	chart1.Series[0].Points.Add( 7 );
+	chart1.Series[0].Points.Add( 2 );
+
+	// Add Axis label
+	chart1.Series[0].Points[0].AxisLabel = "N America";
+	chart1.Series[0].Points[1].AxisLabel = "S America";
+	chart1.Series[0].Points[2].AxisLabel = "Europe";
+	chart1.Series[0].Points[3].AxisLabel = "Asia";
+
+	// Remove custom attributes
+	chart1.Series[0].CustomProperties = "";
+
+}
+
+...

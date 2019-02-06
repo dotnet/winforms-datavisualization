@@ -1,0 +1,52 @@
+using System.Drawing.Text;
+using System.Drawing.Imaging;
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+//IMPORTANT: For this event to work the event handler must be added to the InitializeComponent()
+//  method. We recommend that you add the event using the Properties window in the IDE  
+private void chart1_PostPaint(object sender, System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs e)
+{
+    // Painting series object
+    if(sender is System.Windows.Forms.DataVisualization.Charting.Series)
+    {
+        // Add custom painting only to the series with the name "Series2"
+        Series	series = (Series)sender;
+        if(series.Name == "Series2")
+        {
+            // Find data point with maximum Y value
+            DataPoint	dataPoint = series.Points.FindMaxValue();
+
+            // Load bitmap from file 
+            System.Drawing.Image bitmap = Bitmap.FromFile(this.Page.MapPath("MaxValueMarker.bmp"));
+
+            // Set Red color as transparent
+            ImageAttributes attrib = new ImageAttributes();
+            attrib.SetColorKey(Color.Red, Color.Red, ColorAdjustType.Default);
+
+            // Calculates marker position depending on the data point X and Y values
+            RectangleF	imagePosition = RectangleF.Empty;
+            imagePosition.X = (float)e.ChartGraphics.GetPositionFromAxis(
+                "Default", AxisName.X, dataPoint.XValue);
+            imagePosition.Y = (float)e.ChartGraphics.GetPositionFromAxis(
+                "Default", AxisName.Y, dataPoint.YValues[0]);
+            imagePosition = e.ChartGraphics.GetAbsoluteRectangle(imagePosition);
+            imagePosition.Width = bitmap.Width;
+            imagePosition.Height = bitmap.Height;
+            imagePosition.Y -= 10;
+            imagePosition.X -= 1;
+
+            // Draw image
+            e.ChartGraphics.Graphics.DrawImage(bitmap, 
+                Rectangle.Round(imagePosition),
+                0, 0, bitmap.Width, bitmap.Height,
+                GraphicsUnit.Pixel, 
+                attrib);
+
+            // Dispose image object
+            bitmap.Dispose();
+        }
+    }
+}
+
+...

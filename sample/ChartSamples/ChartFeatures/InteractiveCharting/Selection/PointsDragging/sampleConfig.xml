@@ -1,0 +1,22 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Selection">
+  <Title>Changing Values by Dragging</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Changing Point Values by Dragging with Mouse</ShortBlurb> 
+  <SampleControl>PointsDragging</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Events, Data points dragging</Keyword>
+	<Keyword>Dragging data points</Keyword>
+    <Keyword>Interactive chart, Data points dragging</Keyword>
+    <Keyword>Data, Data points dragging</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

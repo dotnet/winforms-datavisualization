@@ -1,0 +1,14 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set X and Y axis crossing points
+Chart1.ChartAreas("Default").AxisX.Crossing = 0
+Chart1.ChartAreas("Default").AxisY.Crossing = 0
+
+' Position the X axis labels and tick marks to the area border
+Chart1.ChartAreas("Default").AxisX.IsMarksNextToAxis = False
+
+' Position the Y axis labels and tick marks next to the axis
+Chart1.ChartAreas("Default").AxisY.IsMarksNextToAxis = True
+
+...

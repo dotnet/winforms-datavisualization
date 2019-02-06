@@ -1,0 +1,25 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+private void Chart1_AnnotationPositionChanged(object sender, System.EventArgs e)
+{
+	Annotation annotation = (Annotation) sender;
+	
+	AnnotationX.Text = annotation.X.ToString("#.#");
+	AnnotationY.Text = annotation.Y.ToString("#.#");
+}
+
+private void AllowMoving_CheckedChanged(object sender, System.EventArgs e)
+{
+	Chart1.Annotations[0].AllowMoving = AllowMoving.Checked;
+}
+
+private void ClipToChartArea_CheckedChanged(object sender, System.EventArgs e)
+{
+	if(ClipToChartArea.Checked)
+		Chart1.Annotations[0].ClipToChartArea = "Default";
+	else
+		Chart1.Annotations[0].ClipToChartArea = "";
+}
+	
+...

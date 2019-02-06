@@ -1,0 +1,35 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Legend" Priority="50">
+  <Title>Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Legend Appearance</ShortBlurb> 
+  <SampleControl>LegendAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Appearance</Keyword>
+    <Keyword>Appearance, Legend</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Legend Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Legend Appearance</ShortBlurb> 
+  <SampleControl>LegendAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Appearance</Keyword>
+    <Keyword>Appearance, Legend</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

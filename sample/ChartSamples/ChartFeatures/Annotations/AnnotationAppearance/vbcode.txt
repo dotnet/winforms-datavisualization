@@ -1,0 +1,10 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Chart1.Annotations(0).LineWidth = 3
+Chart1.Annotations(0).LineDashStyle = ChartDashStyle.Dash
+Chart1.Annotations(0).LineColor = Color.Gainsboro
+Chart1.Annotations(0).Font = New Font("Tahoma", 10)
+Chart1.Annotations(0).ForeColor = Color.Black
+Chart1.Annotations(0).BackColor = Color.PaleYellow		
+...

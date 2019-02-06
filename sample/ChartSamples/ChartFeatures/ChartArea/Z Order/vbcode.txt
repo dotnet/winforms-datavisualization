@@ -1,0 +1,18 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create references to new chart areas.
+Dim areas() As ChartArea
+areas(0) = Chart1.ChartAreas("Default")
+areas(1) = Chart1.ChartAreas("Chart Area 2")
+areas(2) = Chart1.ChartAreas("Chart Area 3")
+
+' Remove all chart areas from the collection
+Chart1.ChartAreas.Clear()
+
+' Add chart areas to the collection in selected order
+Chart1.ChartAreas.Add(areas(0))
+Chart1.ChartAreas.Add(areas(2))
+Chart1.ChartAreas.Add(areas(1))
+
+...

@@ -1,0 +1,44 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub Chart1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Chart1.Click
+	' Set input focus to the chart control
+	chart1.Focus()
+End Sub
+
+Private Sub Chart1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Chart1.KeyDown
+    ' Process keyboard keys
+    If e.KeyCode = Keys.Right Then
+    chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.SmallIncrement)
+    Else
+    If e.KeyCode = Keys.Left Then
+        chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.SmallDecrement)
+    Else
+        If e.KeyCode = Keys.PageDown Then
+            chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.LargeIncrement)
+        Else
+            If e.KeyCode = Keys.PageUp Then
+                chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.LargeDecrement)
+            Else
+                If e.KeyCode = Keys.Home Then
+                chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.First)
+                Else
+                If e.KeyCode = Keys.End Then
+                    chart1.ChartAreas("Default").AxisX.ScaleView.Scroll(ScrollType.Last)
+                End If
+                End If
+            End If
+        End If
+    End If
+    End If
+End Sub
+
+Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean
+   ' Avoid dialog processing of arrow keys
+   If keyData = Keys.Left Or keyData = Keys.Right Then
+      Return False
+   End If
+   Return MyBase.ProcessDialogKey(keyData)
+End Function 'ProcessDialogKey
+
+...

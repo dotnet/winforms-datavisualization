@@ -1,0 +1,50 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create printer friendly chart and print preview it
+Dim chart As Chart = CreatePrinterFriendlyChart(chart1)
+chart.Printing.PrintPreview()
+
+...
+
+'/ <summary>
+'/ Method creates new printer friendly copy of the specified chart
+'/ </summary>
+Private Function CreatePrinterFriendlyChart(originalChart As Chart) As Chart
+
+   ' Save original chart data points values and some additional properties into the stream
+   Dim memoryStream As New MemoryStream()
+   originalChart.Serializer.Content = SerializationContents.Data
+   originalChart.Serializer.SerializableContent += ",*.ChartType,*.Title,*.TitleFont,Chart.Legend,*.Enabled,Chart.ChartAreas,ChartArea.Name"
+   originalChart.Serializer.Save(memoryStream)
+   
+   ' Create new chart control and load data from stream
+   Dim printerChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
+   memoryStream.Seek(0, SeekOrigin.Begin)
+   printerChart.Serializer.Load(memoryStream)
+   memoryStream.Close();
+   
+   ' Loop through all series
+   Dim pointIndex As Integer = 1
+   Dim hatchingValues As Array = [Enum].GetValues(GetType(ChartHatchStyle))
+   Dim series As Series
+   For Each series In  printerChart.Series
+      ' Loop through all data points
+      Dim point As DataPoint
+      For Each point In  series.Points
+         ' Set point colors and hatching
+         point.BorderColor = Color.Black
+         point.Color = Color.White
+         point.BackSecondaryColor = Color.Black
+         point.BackHatchStyle = CType(hatchingValues.GetValue(pointIndex ++), ChartHatchStyle) 'ToDo: ++ operator not supported within expressions
+         If pointIndex >= hatchingValues.Length Then
+            pointIndex = 1
+         End If
+      Next point
+   Next series
+   
+   Return printerChart
+   
+End Function 'CreatePrinterFriendlyChart
+
+...

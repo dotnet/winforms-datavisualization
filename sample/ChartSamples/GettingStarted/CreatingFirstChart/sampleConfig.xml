@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "GettingStarted" Priority = "200">
+  <Title>Creating a Basic Chart</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Creating a Basic Chart</ShortBlurb> 
+  <SampleControl>None</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Data, Overview</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

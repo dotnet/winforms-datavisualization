@@ -1,0 +1,12 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Make Chart Area 2 align to Chart Area 1
+Chart1.ChartAreas("Chart Area 2").AlignWithChartArea = "Default"
+
+' Set the alignment type
+Chart1.ChartAreas("Chart Area 2").AlignmentStyle = AreaAlignmentStyles.Position |
+												AreaAlignmentStyles.PlotPosition |
+												AreaAlignmentStyles.Cursor |
+												AreaAlignmentStyles.AxesView
+...

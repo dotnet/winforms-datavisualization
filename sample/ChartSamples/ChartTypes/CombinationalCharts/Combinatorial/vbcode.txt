@@ -1,0 +1,11 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set series chart types
+Chart1.Series("Series1").ChartType = SeriesChartType.Column
+Chart1.Series("Series2").ChartType = SeriesChartType.Spline;
+Chart1.Series("Series3").ChartType = SeriesChartType.Point
+
+' Set to 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = True
+...

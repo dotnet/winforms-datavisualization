@@ -1,0 +1,9 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set cursor interval properties
+chart1.ChartAreas["Default"].CursorX.Interval = 1;
+chart1.ChartAreas["Default"].CursorX.IntervalType = DateTimeIntervalType.Days;
+chart1.ChartAreas["Default"].CursorY.Interval = 2;
+
+...

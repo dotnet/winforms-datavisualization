@@ -1,0 +1,24 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub Chart1_AnnotationPositionChanged(sender As Object, e As System.EventArgs)  Handles Chart1.AnnotationPositionChanged
+   Dim annotation As Annotation = CType(sender, Annotation)
+   
+   AnnotationX.Text = annotation.X.ToString("#.#")
+   AnnotationY.Text = annotation.Y.ToString("#.#")
+End Sub 'Chart1_AnnotationPositionChanged
+
+Private Sub AllowMoving_CheckedChanged(sender As Object, e As System.EventArgs)
+   Chart1.Annotations(0).AllowMoving = AllowMoving.Checked
+End Sub 'AllowMoving_CheckedChanged
+
+
+Private Sub ClipToChartArea_CheckedChanged(sender As Object, e As System.EventArgs)
+   If ClipToChartArea.Checked Then
+      Chart1.Annotations(0).ClipToChartArea = "Default"
+   Else
+      Chart1.Annotations(0).ClipToChartArea = ""
+   End If 
+End Sub 'ClipToChartArea_CheckedChanged
+
+...

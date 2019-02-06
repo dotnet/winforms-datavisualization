@@ -1,0 +1,96 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+    
+if(checkBoxUseMultipleYAxis.Checked)
+{
+	// Set custom chart area position
+	Chart1.ChartAreas["Default"].Position = new ElementPosition(25,10,68,85);
+	Chart1.ChartAreas["Default"].InnerPlotPosition = new ElementPosition(10,0,90,90);
+
+	// Create extra Y axis for second and third series
+	CreateYAxis(Chart1, Chart1.ChartAreas["Default"], Chart1.Series["Series2"], 13, 8);
+	CreateYAxis(Chart1, Chart1.ChartAreas["Default"], Chart1.Series["Series3"], 22, 8);
+}
+else
+{
+	// Set default chart areas
+	Chart1.Series["Series2"].ChartArea = "Default";
+	Chart1.Series["Series3"].ChartArea = "Default";
+
+	// Remove newly created series and chart areas
+	while(Chart1.Series.Count > 3)
+	{
+		Chart1.Series.RemoveAt(3);
+	}
+	while(Chart1.ChartAreas.Count > 1)
+	{
+		Chart1.ChartAreas.RemoveAt(1);
+	}
+
+	// Set default chart area position to Auto
+	Chart1.ChartAreas["Default"].Position.Auto = true;
+	Chart1.ChartAreas["Default"].InnerPlotPosition.Auto = true;
+}
+
+...
+
+/// <summary>
+/// Creates Y axis for the specified series.
+/// </summary>
+/// <param name="chart">Chart control.</param>
+/// <param name="area">Original chart area.</param>
+/// <param name="series">Series.</param>
+/// <param name="axisOffset">New Y axis offset in relative coordinates.</param>
+/// <param name="labelsSize">Extra space for new Y axis labels in relative coordinates.</param>
+public void CreateYAxis(Chart chart, ChartArea area, Series series, float axisOffset, float labelsSize)
+{
+	// Create new chart area for original series
+	ChartArea areaSeries = chart.ChartAreas.Add("ChartArea_" + series.Name);
+	areaSeries.BackColor = Color.Transparent;
+	areaSeries.BorderColor = Color.Transparent;
+	areaSeries.Position.FromRectangleF(area.Position.ToRectangleF());
+	areaSeries.InnerPlotPosition.FromRectangleF(area.InnerPlotPosition.ToRectangleF());
+	areaSeries.AxisX.MajorGrid.Enabled = false;
+	areaSeries.AxisX.MajorTickMark.Enabled = false;
+	areaSeries.AxisX.LabelStyle.Enabled = false;
+	areaSeries.AxisY.MajorGrid.Enabled = false;
+	areaSeries.AxisY.MajorTickMark.Enabled = false;
+	areaSeries.AxisY.LabelStyle.Enabled = false;
+	areaSeries.AxisY.IsStartedFromZero = area.AxisY.IsStartedFromZero;
+
+	series.ChartArea = areaSeries.Name;
+
+	// Create new chart area for axis
+	ChartArea areaAxis = chart.ChartAreas.Add("AxisY_" + series.ChartArea);
+	areaAxis.BackColor = Color.Transparent;
+	areaAxis.BorderColor = Color.Transparent;
+	areaAxis.Position.FromRectangleF(chart.ChartAreas[series.ChartArea].Position.ToRectangleF());
+	areaAxis.InnerPlotPosition.FromRectangleF(chart.ChartAreas[series.ChartArea].InnerPlotPosition.ToRectangleF());
+
+	// Create a copy of specified series
+	Series seriesCopy = chart.Series.Add(series.Name + "_Copy");
+	seriesCopy.ChartType = series.ChartType;
+	foreach(DataPoint point in series.Points)
+	{
+		seriesCopy.Points.AddXY(point.XValue, point.YValues[0]);
+	}
+
+	// Hide copied series
+	seriesCopy.IsVisibleInLegend = false;
+	seriesCopy.Color = Color.Transparent;
+	seriesCopy.BorderColor = Color.Transparent;
+	seriesCopy.ChartArea = areaAxis.Name;
+
+	// Disable grid lines & tickmarks
+	areaAxis.AxisX.LineWidth = 0;
+	areaAxis.AxisX.MajorGrid.Enabled = false;
+	areaAxis.AxisX.MajorTickMark.Enabled = false;
+	areaAxis.AxisX.LabelStyle.Enabled = false;
+	areaAxis.AxisY.MajorGrid.Enabled = false;
+	areaAxis.AxisY.IsStartedFromZero = area.AxisY.IsStartedFromZero;
+
+	// Adjust area position
+	areaAxis.Position.X -= axisOffset;
+	areaAxis.InnerPlotPosition.X += labelsSize;
+}
+...

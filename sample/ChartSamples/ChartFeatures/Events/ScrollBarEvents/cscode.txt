@@ -1,0 +1,20 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+chart1.AxisScrollBarClicked += new ScrollBarEventHandler(this.chart1_AxisScrollBarClicked);
+...
+
+private void chart1_AxisScrollBarClicked(object sender, ScrollBarEventArgs e)
+{
+	// Handle zoom reset button
+	if(e.ButtonType == ScrollBarButtonType.ZoomReset)		
+	{
+		// Event is handled, no more processing required
+		e.Handled = true;
+
+		// Reset zoom on X and Y axis
+		chart1.ChartAreas["Default"].AxisX.ScaleView.ZoomReset();
+		chart1.ChartAreas["Default"].AxisY.ScaleView.ZoomReset();
+	}
+}
+...

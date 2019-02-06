@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Legend" Priority="950">
+  <Title>Legend Cell Span</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Legend Cell Span</ShortBlurb> 
+  <SampleControl>LegendCellSpan</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Cell Span</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

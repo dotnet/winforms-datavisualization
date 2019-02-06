@@ -1,0 +1,46 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+CalloutAnnotation calloutAnnotation = new CalloutAnnotation()
+calloutAnnotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+calloutAnnotation.Text = "Select this Annotation Object\nand move the Anchor point"
+Chart1.Annotations.Add(calloutAnnotation)
+...
+
+Private Sub Chart1_AnnotationPositionChanging(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.AnnotationPositionChangingEventArgs)  Handles Chart1.AnnotationPositionChanging
+   If Not SnapToDataPoint.Checked Then
+      Return
+   End If 
+   ' Get the annotation object from the AnnotationPositionChangingEventArgs
+   Dim annotation As Annotation = e.Annotation
+   
+   If Not Single.IsNaN(e.NewAnchorLocationX) Then
+      ' Get the nearest point to the new location
+      Dim point As PointF = FindNearestDataPoint(e.NewAnchorLocationX, e.NewAnchorLocationY)
+      
+      annotation.AnchorDataPoint = Chart1.Series(0).Points((CInt(point.X) - 1))
+      e.NewAnchorLocationX = point.X
+      e.NewAnchorLocationY = point.Y
+   End If
+End Sub 'Chart1_AnnotationPositionChanging
+
+Private Function FindNearestDataPoint(X As Double, Y As Double) As PointF
+   ' Get the int portion of the X value
+   Dim curIndex As Integer = CInt(Math.Round(X))
+   
+   ' If curIndex is less than 1 curIndex is set to 1
+   curIndex = CInt(Math.Max(curIndex, 1))
+   
+   ' If curIndex is greater than 5 curIndex is set to 5 (X Value of max point in series)
+   curIndex = CInt(Math.Min(curIndex, 5))
+   
+   ' Return the point value of the nearest point
+   Return New PointF(curIndex, CSng(Chart1.Series(0).Points((curIndex - 1)).YValues(0)))
+End Function 'FindNearestDataPoint
+
+Private Sub Chart1_AnnotationPositionChanged(sender As Object, e As System.EventArgs)  Handles Chart1.AnnotationPositionChanged
+   Dim annotation As Annotation = CType(sender, Annotation)
+   ' Update the UI for the new positions...
+   UpdateAnnotationPosition(annotation)
+End Sub 'Chart1_AnnotationPositionChanged
+...

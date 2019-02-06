@@ -1,0 +1,51 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+    // Adds one custom legend item and its cells to the legend
+	private void AddLegendItem()
+	{
+		chart2.Legends["Default"].CustomItems.Clear();
+
+		// Add new custom legend item
+		chart2.Legends["Default"].CustomItems.Add(new LegendItem("LegendItem", Color.Red, ""));
+		
+		// Add five new cells to the custom legend item
+		chart2.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "Central",ContentAlignment.MiddleLeft));
+		chart2.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleRight));
+		chart2.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleRight));
+		chart2.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Image, "", ContentAlignment.MiddleLeft));
+		chart2.Legends["Default"].CustomItems[0].Cells.Add(new LegendCell(LegendCellType.Text, "", ContentAlignment.MiddleLeft));
+		
+		SetLegendItemValues();
+	}
+
+	private void SetLegendItemValues()
+	{
+		int pointCount = chart2.Series["Central"].Points.Count;
+
+		decimal firstPoint = (decimal)chart2.Series["Central"].Points[0].YValues[0];
+		decimal lastPoint = decimal.Round((decimal)chart2.Series["Central"].Points[pointCount - 1].YValues[0], 2);
+		decimal diff = decimal.Round((lastPoint - firstPoint), 2);
+		decimal percentChange = decimal.Round(((diff / firstPoint) * (decimal)100.00), 2);
+		
+		// Set appearance of cells based on percent change
+		if (percentChange < 0)
+		{
+			chart2.Legends["Default"].CustomItems[0].Cells[2].ForeColor = Color.Red;
+			chart2.Legends["Default"].CustomItems[0].Cells[3].Image = @"\redarrowsmall.gif";
+			chart2.Legends["Default"].CustomItems[0].Cells[4].ForeColor = Color.Red;
+		}
+
+		else
+		{
+			chart2.Legends["Default"].CustomItems[0].Cells[2].ForeColor = Color.LimeGreen;
+			chart2.Legends["Default"].CustomItems[0].Cells[3].Image = @"\greenarrowsmall.gif";
+			chart2.Legends["Default"].CustomItems[0].Cells[4].ForeColor = Color.LimeGreen;
+		}
+		
+		chart2.Legends["Default"].CustomItems[0].Cells[0].Text = "Central";
+		chart2.Legends["Default"].CustomItems[0].Cells[1].Text = lastPoint.ToString();
+		chart2.Legends["Default"].CustomItems[0].Cells[2].Text = diff.ToString();
+		chart2.Legends["Default"].CustomItems[0].Cells[4].Text = percentChange.ToString() + "%";
+	}
+...

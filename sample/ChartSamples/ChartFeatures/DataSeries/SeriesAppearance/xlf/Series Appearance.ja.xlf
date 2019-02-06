@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../Series Appearance.resx">
+    <body>
+      <trans-unit id="label17.Text">
+        <source>Note that all data points have the same visual attributes as their owning Series objects, and data point attributes take precedence over their related series attributes. To apply the visual properties to a single point, select the Apply to Third Point Only check box.</source>
+        <target state="new">Note that all data points have the same visual attributes as their owning Series objects, and data point attributes take precedence over their related series attributes. To apply the visual properties to a single point, select the Apply to Third Point Only check box.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority="100">
+  <Title>Multiple Y Axes</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Multiple Y Axes</ShortBlurb> 
+  <SampleControl>MultipleYAxis</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Multiple axes</Keyword>
+	<Keyword>Axis, Multiple axes</Keyword>
+  </Keywords>
+
+</SampleConfig>
+</SampleConfigs>

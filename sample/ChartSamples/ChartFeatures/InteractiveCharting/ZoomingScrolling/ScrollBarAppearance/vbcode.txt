@@ -1,0 +1,18 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set scrollbar size
+chart1.ChartAreas("Default").AxisX.ScrollBar.Size = 10
+
+' Show small scroll buttons only
+chart1.ChartAreas("Default").AxisX.ScrollBar.Buttons = ScrollBarButtonStyle.SmallScroll
+
+' Scrollbars position
+chart1.ChartAreas("Default").AxisX.ScrollBar.IsPositionedInside = True
+
+' Change scrollbar colors
+chart1.ChartAreas("Default").AxisX.ScrollBar.BackColor = Color.LightGray
+chart1.ChartAreas("Default").AxisX.ScrollBar.ButtonColor = Color.Gray
+chart1.ChartAreas("Default").AxisX.ScrollBar.LineColor = Color.Black
+
+...

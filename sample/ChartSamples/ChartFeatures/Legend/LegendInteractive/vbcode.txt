@@ -1,0 +1,38 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+
+...
+
+Private Sub MovingAveragesForm_Load(sender As Object, e As System.EventArgs)
+   ' Set tag property for all custom items to appropriate series
+   chart1.Legends("Default").CustomItems(1).Tag = chart1.Series("Series1")
+   chart1.Legends("Default").CustomItems(2).Tag = chart1.Series("Series2")
+   chart1.Legends("Default").CustomItems(3).Tag = chart1.Series("Series3")
+   chart1.Legends("Default").CustomItems(4).Tag = chart1.Series("Series4")
+End Sub MovingAveragesForm_Load
+
+...
+
+Private Sub chart1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs)
+   Dim result As HitTestResult = chart1.HitTest(e.X, e.Y)
+   If Not (result Is Nothing) And Not (result.Object Is Nothing) Then
+      ' When user hits the LegendItem
+      If TypeOf result.Object Is LegendItem Then
+         ' Legend item result
+         Dim legendItem As LegendItem = CType(result.Object, LegendItem)
+         
+         ' series item selected
+         Dim selectedSeries As Series = CType(legendItem.Tag, Series)
+         
+         If Not (selectedSeries Is Nothing) Then
+            If selectedSeries.Enabled Then
+               selectedSeries.Enabled = False
+            
+            Else
+               selectedSeries.Enabled = True
+            End If
+         End If
+      End If
+   End If
+End Sub chart1_MouseDown
+
+...

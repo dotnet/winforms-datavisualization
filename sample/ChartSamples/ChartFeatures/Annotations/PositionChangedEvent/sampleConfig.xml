@@ -1,0 +1,29 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Annotations">
+  <Title>AnnotationPositionChanged Event</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>AnnotationPositionChanged Event</ShortBlurb> 
+  <SampleControl>PositionChangedEvent</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Annotations, PositionChanged Event</Keyword>
+	<Keyword>Position Changed Event</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Customizations" Priority = "700">
+  <Title>AnnotationPositionChanged Event</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>AnnotationPositionChanged Event</ShortBlurb> 
+  <SampleControl>PositionChangedEvent</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+</SampleConfigs>

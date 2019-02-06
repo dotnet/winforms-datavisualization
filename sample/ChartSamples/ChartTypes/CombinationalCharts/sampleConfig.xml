@@ -1,0 +1,35 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+	<SampleConfig ParentNodeID = "CombinationalCharts">
+	<Title>Combination of Chart Types</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Combination of Chart Types</ShortBlurb> 
+	<SampleControl>CombinatorialChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">Combinatorial\cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">Combinatorial\vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Gallery, Combination Chart</Keyword>
+      <Keyword>Combination Chart, Gallery</Keyword>
+    </Keywords>
+	</SampleConfig>
+	
+<SampleConfig ParentNodeID = "CombinationalCharts">
+  <Title>Pareto Chart</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Pareto Chart</ShortBlurb> 
+  <SampleControl>ParetoChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">Pareto\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">Pareto\vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+      <Keyword>Chart type, Pareto</Keyword>
+      <Keyword>Pareto chart</Keyword>
+    </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

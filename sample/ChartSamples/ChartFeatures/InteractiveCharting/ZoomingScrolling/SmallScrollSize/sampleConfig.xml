@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Zooming and Scrolling" Priority="400">
+  <Title>Small Scrolling Size</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Axis Small Scrolling Size</ShortBlurb> 
+  <SampleControl>SmallScrollSize</SampleControl> 
+  <InfoPages>
+  <InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Scrollbar, Scrolling distance</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

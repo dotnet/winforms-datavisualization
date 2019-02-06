@@ -1,0 +1,60 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create a callout annotation
+Dim annotationCallout As New CalloutAnnotation()
+
+' Setup visual attributes
+annotationCallout.AnchorDataPoint = Chart1.Series(0).Points(2)
+annotationCallout.Text = "Attached to Point"
+annotationCallout.BackColor = Color.FromArgb(255, 255, 128)
+annotationCallout.ClipToChartArea = "Default"
+
+' Prevent moving or selecting
+annotationCallout.AllowMoving = False
+annotationCallout.AllowAnchorMoving = False
+annotationCallout.AllowSelecting = False
+
+' Add the annotation to the collection
+Chart1.Annotations.Add(annotationCallout)
+
+' Create a rectangle annotation
+Dim annotationRectangle As New RectangleAnnotation()
+
+' Setup visual attributes
+annotationRectangle.Text = "Attached to" + ControlChars.Lf + "Chart Picture"
+annotationRectangle.BackColor = Color.FromArgb(255, 255, 192)
+annotationRectangle.AnchorX = 30
+annotationRectangle.AnchorY = 25
+
+' Prevent moving or selecting
+annotationRectangle.AllowMoving = False
+annotationRectangle.AllowAnchorMoving = False
+annotationRectangle.AllowSelecting = False
+
+' Add the annotation to the collection
+Chart1.Annotations.Add(annotationRectangle)
+
+' Create a line annotation
+Dim annotationLine As New LineAnnotation()
+
+' Setup visual attributes
+annotationLine.StartCap = LineAnchorCapStyle.Arrow
+annotationLine.EndCap = LineAnchorCapStyle.Arrow
+annotationLine.LineWidth = 3
+annotationLine.LineColor = Color.OrangeRed
+annotationLine.ClipToChartArea = "Default"
+
+' Prevent moving or selecting
+annotationLine.AllowMoving = False
+annotationLine.AllowAnchorMoving = False
+annotationLine.AllowSelecting = False
+
+If Chart1.Series(0).Points.Count > 10 Then
+   ' Use the Anchor Method to anchor to points 8 and 10...
+   annotationLine.SetAnchor(Chart1.Series(0).Points(8), Chart1.Series(0).Points(10))
+End If
+
+' Add the annotation to the collection
+Chart1.Annotations.Add(annotationLine)	
+...

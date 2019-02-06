@@ -1,0 +1,11 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set axis labels
+Chart1.Series["Series1"].AxisLabel = "Month: #VALX{MMM}\nDay: #VALX{dd}";
+
+// Set series point's labels. On the first line we display
+//  the first Y value, and on the second line we display the X value.
+Chart1.Series["Series1"].Label = "Y = #VALY\nX = #VALX";
+
+...

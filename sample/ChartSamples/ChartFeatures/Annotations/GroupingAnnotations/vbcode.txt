@@ -1,0 +1,42 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create annotation group and add it to the chart annotations collection
+Dim star As New AnnotationGroup()
+star.X = 20
+star.Y = 20
+star.Width = 20
+star.Height = 15
+
+Chart1.Annotations.Add(star)
+
+' Add star shaped polygon annotation into the group
+Dim starPolygon() As PointF = {New PointF(1, 6), New PointF(27, 23), New PointF(33, 5), 
+							New PointF(44, 22), New PointF(58, 0), New PointF(57, 19), 
+							New PointF(75, 11), New PointF(70, 28), New PointF(100, 37), 
+							New PointF(81, 53), New PointF(99, 65), New PointF(75, 67), 
+							New PointF(87, 98), New PointF(63, 69), New PointF(60, 94), 
+							New PointF(47, 69), New PointF(34, 100), New PointF(32, 69), 
+							New PointF(23, 74), New PointF(26, 61), New PointF(4, 72), 
+							New PointF(22, 49), New PointF(0, 39), New PointF(23, 32), 
+							New PointF(1, 6)}
+
+Dim starPath As New GraphicsPath()
+
+starPath.AddPolygon(starPolygon)
+star.Annotations.AddPolygon("Star", starPath)
+
+' Set star polygon annotation position and appearance
+star.Annotations("Star").X = 0
+star.Annotations("Star").Y = 0
+star.Annotations("Star").Width = 100
+star.Annotations("Star").Height = 100
+star.Annotations("Star").LineColor = Color.FromArgb(64, 64, 64)
+star.Annotations("Star").BackColor = Color.Yellow
+star.Annotations("Star").ShadowOffset = 2
+
+' Add text in the middle of the star shape
+star.Annotations.AddText("StarText", "New !!!", 20, 20, 60, 60)
+star.Annotations("StarText").Font = New Font("MS Sans Serif", 10, FontStyle.Bold Or FontStyle.Italic)
+star.Annotations("StarText").ForeColor = Color.Brown
+...

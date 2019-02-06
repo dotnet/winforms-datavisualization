@@ -1,0 +1,29 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Doughnut Chart in Doughnut</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overlaying Chart Areas</ShortBlurb> 
+  <SampleControl>ChartInDoughnut</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Doughnut Charts, Stacked</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "PieDoughnutCharts">
+  <Title>Doughnut Chart in Doughnut</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overlaying Chart Areas</ShortBlurb> 
+  <SampleControl>ChartInDoughnut</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+</SampleConfigs>

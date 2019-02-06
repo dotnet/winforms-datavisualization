@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>
+            <br />
+            Series are chart elements that store a 
+			collection of related data points.&nbsp;Series store appearance properties 
+			of&nbsp;their data points, and also have an associated chart type (i.e. chart 
+			types are specified on a&nbsp;series basis). Each of the data points that belong to a series 
+            has an X value and multiple Y values.</p>
+		<p>
+			Microsoft
+			Chart Control for .NET Framework can have an unlimited number&nbsp;of 
+			series, each of which can have an unlimited number of data points.</p>
+		<H3>Data Series Features</H3>
+		<UL dir="ltr" style="MARGIN-RIGHT: 0px">
+			<LI>
+				Unlimited
+			number of series per chart picture.
+			<LI>
+				Unlimited
+			number of data points per series.
+			<LI>
+			Numerous appearance styles and properties.
+			<LI>
+			Appearance customization at both the series and data point level.
+			<LI>
+			    Various chart types.
+			<LI>
+			    DateTime support.
+			<LI>
+			Multiple Y values per data point.
+			<LI>
+				Custom attributes.</LI>
+		</UL>
+		<H3>Appearance Properties</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Series, like many other Chart elements, support a wide variety of appearances 
+				including the following:</p>
+			<UL>
+				<LI>
+				    Gradient colors, with a variety of styles.
+				<LI>
+				    Hatching, with a variety of patterns.
+				<LI>
+				    Background images.
+				<LI>
+					Transparency, set using an alpha value.</LI></UL>
+			<p><IMG alt="Gradient Color" src="SeriesAppearance.PNG" border="0"><BR>
+				</p>
+		</BLOCKQUOTE>
+		<H3>Series and its Data Points</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Series can have an unlimited number of data points, which&nbsp;also have their 
+				own appearance properties, such as gradient colors, hatching, and transparency. The appearance properties of a data point 
+                takes precedence over the same 
+				properties of the data point&#39;s owning series. The figure below demonstrates this 
+                granularity.</p>
+			<p><IMG alt="Series and Points Appearance Properties" src="SeriesAndPointsColor.PNG" border="0"><BR>
+			</p>
+			<H4>Multiple Y Values for Data Points</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>Each data point in a series consists of:</p>
+				<UL>
+					<LI>
+					an X value that may determine where a data point is plotted (the 
+					DataPoint.XValue property);
+					<LI>
+						and one or more Y values, which are the values of the data points (the DataPoint.YValues 
+                        collection property).</LI></UL>
+				<p>Most chart types use one Y value. However, a few chart types require 
+					multiple Y values per point, such as Bubble, Candlestick, and Range chart types. 
+                    The following figure shows the Bubble chart type, which requires two Y values.</p>
+				<p>
+					<EM><IMG alt="Bubble Chart" src="BubbleChart.PNG" border="0"></EM></p>
+			</BLOCKQUOTE></BLOCKQUOTE>
+		<H3>Custom Attributes</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Microsoft Chart Control for .NET Framework has many different chart types, and each chart type 
+                has a unique set of custom attributes associated with it. Furthermore, some custom attributes are specifically used with Series objects, 
+                while others are used with DataPoint objects. Some custom attributes can be used 
+                with both Series and DataPoint objects. See the Custom Attributes List topic in 
+                the product documentation for detailed information on each custom attribute.</p>
+			<p>Custom attributes are implemented via the CustomProperties property.
+			</p>
+			<p><EM><IMG alt="Custom Attributes" src="CustomAttributes.PNG" border="0"></EM><BR>
+				</p>
+		</BLOCKQUOTE>
+		<H3>Data binding to DateTime Values</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Series can be bound to a data source that has DateTime values, which&nbsp;can then be 
+                used for the series&#39; X values. For more information, see the data binding samples.</p>
+		</BLOCKQUOTE>
+		<H3>Data Manipulation</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>There are numerous ways to manipulate&nbsp;data using the Chart control, such as filtering, grouping, merging, and splitting of data. 
+                There are also statistical 
+				and financial formulas. These data manipulations are usually 
+				performed on Series objects, and can result in the creation of new series, 
+				depending on the nature of the operations. </p>
+            <p>For more information, see the data manipulation samples.</p>
+		</BLOCKQUOTE>
+		</body>
+</html>

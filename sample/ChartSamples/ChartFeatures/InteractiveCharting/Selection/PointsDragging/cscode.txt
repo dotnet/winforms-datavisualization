@@ -1,0 +1,95 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+/// <summary>
+/// Currently selected data point
+/// </summary>
+private DataPoint	selectedDataPoint = null;
+
+/// <summary>
+/// Mouse Down Event
+/// </summary>
+private void Chart1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult hitResult = Chart1.HitTest( e.X, e.Y );
+
+	// Initialize currently selected data point
+	selectedDataPoint = null;
+	if( hitResult.ChartElementType == ChartElementType.DataPoint )
+	{
+		selectedDataPoint = (DataPoint)hitResult.Object;
+
+		// Show point value as label
+		selectedDataPoint.IsValueShownAsLabel = true;
+
+		// Set cursor shape
+		Chart1.Cursor = Cursors.SizeNS;
+	}
+}
+
+/// <summary>
+/// Mouse Move Event
+/// </summary>
+private void Chart1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Check if data point selected
+	if(selectedDataPoint != null)
+	{
+		// Mouse coordinates should not be outside of the chart 
+		int coordinate = e.Y;
+		if(coordinate < 0)
+			coordinate = 0;
+		if(coordinate > Chart1.Size.Height - 1)
+			coordinate = Chart1.Size.Height - 1;
+
+		// Calculate new Y value from current cursor position
+		double yValue = Chart1.ChartAreas["Default"].AxisY.PixelPositionToValue(coordinate);
+		yValue = Math.Min(yValue, Chart1.ChartAreas["Default"].AxisY.Maximum);
+		yValue = Math.Max(yValue, Chart1.ChartAreas["Default"].AxisY.Minimum);
+
+		// Update selected point Y value
+		selectedDataPoint.YValues[0] = yValue;
+
+		// Invalidate chart
+		Chart1.Invalidate();
+	}
+	else
+	{
+		// Set different shape of cursor over the data points
+		HitTestResult hitResult = Chart1.HitTest( e.X, e.Y );
+		if( hitResult.ChartElementType == ChartElementType.DataPoint )
+		{
+			Chart1.Cursor = Cursors.Hand;
+		}
+		else
+		{
+			Chart1.Cursor = Cursors.Default;
+		}
+	}
+}
+
+/// <summary>
+/// Mouse Up Event
+/// </summary>
+private void Chart1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Initialize currently selected data point
+	if(selectedDataPoint != null)
+	{
+		// Hide point label
+		selectedDataPoint.IsValueShownAsLabel = false;
+
+		// reset selected object
+		selectedDataPoint = null;
+
+		// Invalidate chart
+		Chart1.Invalidate();
+
+		// Reset cursor style
+		Chart1.Cursor = Cursors.Default;
+	}
+}
+
+
+...

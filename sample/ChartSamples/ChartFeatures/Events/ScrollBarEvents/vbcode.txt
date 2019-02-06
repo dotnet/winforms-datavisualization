@@ -1,0 +1,19 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub Chart1_AxisScrollBarClicked(ByVal sender As Object, ByVal e As ScrollBarEventArgs) Handles Chart1.AxisScrollBarClicked
+
+    ' Handle zoom reset button
+    If e.ButtonType = ScrollBarButtonType.ZoomReset Then
+
+        ' Event is handled, no more processing required
+        e.Handled = True
+           
+        ' Reset zoom on X and Y axis
+        chart1.ChartAreas("Default").AxisX.ScaleView.ZoomReset()
+        chart1.ChartAreas("Default").AxisY.ScaleView.ZoomReset()
+        
+    End If
+
+End Sub
+...

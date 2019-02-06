@@ -1,0 +1,27 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series type
+chart1.Series["Default"].ChartType = SeriesChartType.PointAndFigure;
+
+// Set the PriceUpColor attribute			
+chart1.Series["Default"]["PriceUpColor"] = "Red";
+
+// Set the Color attribute			
+chart1.Series["Default"].Color = Color.Blue;
+
+// Clear attribute, let the default ReversalAmount to be calculated
+chart1.Series["Default"].DeleteCustomProperty("ReversalAmount");
+
+// Set the ReversalAmount attribute
+chart1.Series["Default"]["ReversalAmount"] = "1";
+
+// Clear attribute, let the default BoxSize to be calculated
+chart1.Series["Default"].DeleteCustomProperty("BoxSize");
+
+// Set the BoxSize attribute
+chart1.Series["Default"]["BoxSize"] = "1";
+
+// Set the ProportionalSymbols attribute
+chart1.Series["Default"]["ProportionalSymbols"] = "false";
+....

@@ -1,0 +1,46 @@
+Imports System.Drawing.Text
+Imports System.Drawing.Imaging
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+Sub Chart1_PostPaint(ByVal sender As Object, ByVal e As System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs) Handles Chart1.PostPaint
+   
+   ' Painting series object
+   If TypeOf sender Is System.Windows.Forms.DataVisualization.Charting.Series Then
+      ' Add custom painting only to the series with name "Series2"
+      Dim series As Series = CType(sender, Series)
+      If series.Name = "Series2" Then
+         ' Find data point with maximum Y value
+         Dim dataPoint As DataPoint = series.Points.FindMaxValue()
+         
+         ' Load bitmap from file 
+         Dim bitmap As System.Drawing.Image = Bitmap.FromFile(Me.Page.MapPath("MaxValueMarker.bmp"))
+         
+         ' Set Red color as transparent
+         Dim attrib As New ImageAttributes()
+         attrib.SetColorKey(Color.Red, Color.Red, ColorAdjustType.Default)
+         
+         ' Calculates marker position depending on the data point X and Y values
+         Dim imagePosition As RectangleF = RectangleF.Empty
+         imagePosition.X = CSng(e.ChartGraphics.GetPositionFromAxis( _
+            "Default", AxisName.X, dataPoint.XValue))
+         imagePosition.Y = CSng(e.ChartGraphics.GetPositionFromAxis( _
+            "Default", AxisName.Y, dataPoint.YValues(0)))
+         imagePosition = e.ChartGraphics.GetAbsoluteRectangle(imagePosition)
+         imagePosition.Width = bitmap.Width
+         imagePosition.Height = bitmap.Height
+         imagePosition.Y -= 10
+         imagePosition.X -= 1
+         
+         ' Draw image
+         e.ChartGraphics.Graphics.DrawImage( _
+            bitmap, Rectangle.Round(imagePosition), _
+            0, 0, bitmap.Width, bitmap.Height, _
+            GraphicsUnit.Pixel, attrib)
+            
+         ' Dispose image object
+         bitmap.Dispose()
+      End If
+  End If
+End Sub 'Chart1_Paint
+
+...

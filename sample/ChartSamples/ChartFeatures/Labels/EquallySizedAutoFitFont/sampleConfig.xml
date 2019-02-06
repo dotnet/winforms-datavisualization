@@ -1,0 +1,39 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Axis">
+  <Title>Equally Sized Axes Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Equally Sized Axes Labels</ShortBlurb> 
+  <SampleControl>EquallySizedAutoFont</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Labels, Equally sized</Keyword>
+	<Keyword>Axis, Equally sized labels</Keyword>
+	<Keyword>Equally sized labels</Keyword>
+  </Keywords>    
+  
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Labels">
+  <Title>Equally Sized Axes Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Equally Sized Axes Labels</ShortBlurb> 
+  <SampleControl>EquallySizedAutoFont</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Labels, Equally sized</Keyword>
+	<Keyword>Axis, Equally sized labels</Keyword>
+	<Keyword>Equally sized labels</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

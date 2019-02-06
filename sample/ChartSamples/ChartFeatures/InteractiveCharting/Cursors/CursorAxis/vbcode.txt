@@ -1,0 +1,8 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set cursor axis type    
+Chart1.ChartAreas("Default").CursorX.AxisType = AxisType.Primary
+Chart1.ChartAreas("Default").CursorY.AxisType = AxisType.Secondary
+
+...

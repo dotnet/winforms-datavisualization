@@ -1,0 +1,7 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Hide series "Series 1"
+chart1.Series["Series 1"].Enabled = false;
+
+...

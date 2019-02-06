@@ -1,0 +1,28 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Populate series data
+double[]	yValues = {55.62, 45.54, 73.45, 9.73, 88.42, 45.9, 63.6, 85.1, 67.2, 23.6};
+chart1.Series["DataSeries"].Points.DataBindY(yValues);
+
+// Set Box Plot chart type
+chart1.Series["BoxPlotSeries"].ChartType = SeriesChartType.BoxPlot;
+
+// Specify data series name for the Box Plot
+chart1.Series["BoxPlotSeries"]["BoxPlotSeries"] = "DataSeries";
+
+// Set whiskers percentile
+chart1.Series["BoxPlotSeries"]["BoxPlotWhiskerPercentile"] = "5";
+
+// Set box percentile
+chart1.Series["BoxPlotSeries"]["BoxPlotPercentile"] = "30";
+
+// Hide Average line
+chart1.Series["BoxPlotSeries"]["BoxPlotShowAverage"] = "false";
+
+// Show/Hide Median line
+chart1.Series["BoxPlotSeries"]["BoxPlotShowMedian"] = "true";
+
+// Show Unusual points
+chart1.Series["BoxPlotSeries"]["BoxPlotShowUnusualValues"] = "true";
+...

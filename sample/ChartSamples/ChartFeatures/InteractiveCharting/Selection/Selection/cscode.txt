@@ -1,0 +1,61 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+/// <summary>
+/// Mouse Down Event
+/// </summary>
+private void chart1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = Chart1.HitTest( e.X, e.Y );
+	
+	if( result.ChartElementType == ChartElementType.DataPoint )
+	{
+	
+		//Create Dialog
+		Dialog dlg = new Dialog();
+
+		//Initialize members
+		dlg.ChartRef = Chart1;
+		dlg.pointIndex = result.PointIndex;
+
+		// Show dialog
+		dlg.Show();
+
+	}
+	else if( result.ChartElementType != ChartElementType.Nothing )
+	{
+		string elementType = result.ChartElementType.ToString();
+		MessageBox.Show( this, "Selected Element is: " + elementType );
+	}
+}
+
+/// <summary>
+/// Mouse Move Event
+/// </summary>
+private void chart1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = Chart1.HitTest( e.X, e.Y );
+	
+	// If a Data Point or a Legend item is selected.
+	if( 	result.ChartElementType == ChartElementType.DataPoint ||
+		result.ChartElementType == ChartElementType.LegendItem )
+	{				
+		// Set cursor type 
+		this.Cursor = Cursors.Hand;
+	}
+	else if( result.ChartElementType != ChartElementType.Nothing &&
+		result.ChartElementType != ChartElementType.PlottingArea )
+	{
+		// Set cursor type 
+		this.Cursor = Cursors.Hand;
+	}
+	else
+	{
+		// Set default cursor
+		this.Cursor = Cursors.Default;
+	}
+}
+
+...

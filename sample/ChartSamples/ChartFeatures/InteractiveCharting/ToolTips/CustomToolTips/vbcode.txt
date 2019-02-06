@@ -1,0 +1,42 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Tooltip Event
+Private Sub Chart1_GetToolTipText(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs) Handles Chart1.GetToolTipText
+   
+   ' Check selected chart element and set tooltip text
+   Select Case e.HitTestResult.ChartElementType
+      Case ChartElementType.Axis
+         e.Text = e.HitTestResult.Axis.Name
+      Case ChartElementType.SBLargeDecrement
+         e.Text = "A scrollbar large decrement button"
+      Case ChartElementType.SBLargeIncrement
+         e.Text = "A scrollbar large increment button"
+      Case ChartElementType.SBSmallDecrement
+         e.Text = "A scrollbar small decrement button"
+      Case ChartElementType.SBSmallIncrement
+         e.Text = "A scrollbar small increment button"
+      Case ChartElementType.SBThumbTracker
+         e.Text = "A scrollbar tracking thumb"
+      Case ChartElementType.SBZoomReset
+         e.Text = "The ZoomReset button of a scrollbar"
+      Case ChartElementType.DataPoint
+         e.Text = "Data Point " + e.HitTestResult.PointIndex.ToString()
+      Case ChartElementType.GridLines
+         e.Text = "Grid Lines"
+      Case ChartElementType.LegendArea
+         e.Text = "Legend Area"
+      Case ChartElementType.LegendItem
+         e.Text = "Legend Item"
+      Case ChartElementType.PlottingArea
+         e.Text = "Plotting Area"
+      Case ChartElementType.StripLines
+         e.Text = "Strip Lines"
+      Case ChartElementType.TickMarks
+         e.Text = "Tick Marks"
+      Case ChartElementType.Title
+         e.Text = "Title"
+   End Select
+   
+End Sub 'Chart1_GetToolTipText
+...

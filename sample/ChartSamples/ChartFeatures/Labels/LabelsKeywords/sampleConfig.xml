@@ -1,0 +1,21 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Labels" Priority="500">
+  <Title>Using Keywords in Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Keywords in Labels</ShortBlurb> 
+  <SampleControl>LabelsKeywords</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Keywords</Keyword>
+    <Keyword>Data Label, Keywords</Keyword>
+	<Keyword>Labels, Keywords</Keyword>
+	<Keyword>Formatting, Labels Keywords</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,10 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set interval of X axis to zero, which represents an "Auto" value.
+chart1.ChartAreas["Default"].AxisX.Interval = 0;
+
+// Use variable count algorithm to generate labels.
+chart1.ChartAreas["Default"].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;	
+
+...

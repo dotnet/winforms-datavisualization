@@ -1,0 +1,25 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "RangeCharts" Priority="100">
+	<Title>3D Range and Spline Range Charts</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>3D Range and Spline Range Chart Types</ShortBlurb> 
+	<SampleControl>Range3D</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+    <Keyword>Range Charts, 3D</Keyword>
+    <Keyword>Spline Range 3D</Keyword>
+    <Keyword>3D, Range chart</Keyword>
+    <Keyword>3D, Spline Range chart</Keyword>
+    <Keyword>Chart type, Spline Range 3D</Keyword>
+    <Keyword>Chart type, Range 3D</Keyword>
+    </Keywords>
+  	</SampleConfig>
+
+
+</SampleConfigs>

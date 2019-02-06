@@ -1,0 +1,24 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "DataDistributionCharts">
+	<Title>Box Plot Chart</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Box Plot Chart Type</ShortBlurb> 
+	<SampleControl>BoxPlotChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Data distribution</Keyword>
+      <Keyword>Box plot</Keyword>
+      <Keyword>Whiskers</Keyword>
+      <Keyword>Percentiles</Keyword>
+      <Keyword>Unusual points</Keyword>
+      <Keyword>Chart type, Box</Keyword>
+    </Keywords>
+	</SampleConfig>	
+
+</SampleConfigs>

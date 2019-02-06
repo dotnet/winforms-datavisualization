@@ -1,0 +1,31 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set X axis custom labels
+int element = Chart1.ChartAreas["Default"].AxisY.CustomLabels.Add(0, 30,"Low");
+element = Chart1.ChartAreas["Default"].AxisY.CustomLabels.Add(30, 70, "Medium");
+element = Chart1.ChartAreas["Default"].AxisY.CustomLabels.Add(70,100,"High");
+
+// Set Y axis custom labels
+element = Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(0.5, 1.5, "Jan");
+Chart1.ChartAreas["Default"].AxisX.CustomLabels[element].GridTicks = GridTickTypes.All;
+
+element = Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(1.5, 2.5, "Feb");
+Chart1.ChartAreas["Default"].AxisX.CustomLabels[element].GridTicks = GridTickTypes.TickMark;
+
+element = Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(2.5, 3.5, "Mar");
+Chart1.ChartAreas["Default"].AxisX.CustomLabels[element].GridTicks = GridTickTypes.All;
+
+element = Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(3.5, 4.5, "Apr");
+Chart1.ChartAreas["Default"].AxisX.CustomLabels[element].GridTicks = GridTickTypes.TickMark;
+
+element = Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(4.5, 5.5, "May");
+Chart1.ChartAreas["Default"].AxisX.CustomLabels[element].GridTicks = GridTickTypes.All;
+
+// set second row of labels
+Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(0.5, 3.5, "Q1", 1, LabelMarkStyle.LineSideMark);
+Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(3.5, 5.5, "Q2", 1, LabelMarkStyle.LineSideMark);
+
+// One more row of labels
+Chart1.ChartAreas["Default"].AxisX.CustomLabels.Add(0.5, 5.5, "Year 2006", 2, LabelMarkStyle.LineSideMark);
+...

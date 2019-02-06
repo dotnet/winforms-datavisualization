@@ -1,0 +1,35 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Legend" Priority="200">
+  <Title>Adding a Legend Title</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Adding a Legend Title</ShortBlurb> 
+  <SampleControl>LegendTitle</SampleControl> 
+  <InfoPages>  
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Titles</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Titles" Priority="200">
+  <Title>Legend Title</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Legend Title</ShortBlurb> 
+  <SampleControl>LegendTitle</SampleControl> 
+  <InfoPages>  
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Titles</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

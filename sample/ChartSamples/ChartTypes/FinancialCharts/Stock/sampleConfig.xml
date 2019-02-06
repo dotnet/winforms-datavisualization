@@ -1,0 +1,27 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "AdvancedFinancialCharts" Priority="100">
+	<Title>Stock and Candlestick Charts</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Stock and Candlestick Chart Types</ShortBlurb> 
+	<SampleControl>FinancialChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+	  <Keyword>Open close marks</Keyword>
+      <Keyword>Chart type, Financial</Keyword>
+      <Keyword>Chart type, Stock</Keyword>
+      <Keyword>Chart type, Candlestick</Keyword>
+      <Keyword>Stock chart</Keyword>
+      <Keyword>Candlestick chart</Keyword>
+      <Keyword>Financial, Stock chart</Keyword>
+      <Keyword>Financial, Candlestick chart</Keyword>
+    </Keywords>
+	</SampleConfig>
+	
+
+</SampleConfigs>

@@ -1,0 +1,150 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+Private SelectionStart As Double = Double.NaN
+...
+
+Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean
+   ' Avoid dialog processing of arrow keys
+   If keyData = Keys.Left Or keyData = Keys.Right Then
+      Return False
+   End If
+   Return MyBase.ProcessDialogKey(keyData)
+End Function 'ProcessDialogKey
+
+Private Sub Chart1_Click(sender As Object, e As System.EventArgs) Handles Chart1.Click
+   ' Set input focus to the chart control
+   chart1.Focus()
+   
+   ' Set the selection start variable to that of the current position
+   Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+End Sub 'chart1_Click
+
+Private Sub ProcessSelect(e As System.Windows.Forms.KeyEventArgs)
+   ' Process keyboard keys
+   If e.KeyCode = Keys.Right Then
+      ' Make sure the selection start value is assigned
+      If Me.SelectionStart = Double.NaN Then
+         Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+      End If 
+      ' Set the new cursor position 
+      chart1.ChartAreas("Default").CursorX.Position += chart1.ChartAreas("Default").CursorX.Interval
+   Else
+      If e.KeyCode = Keys.Left Then
+         ' Make sure the selection start value is assigned
+         If Me.SelectionStart = Double.NaN Then
+            Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+         End If 
+         ' Set the new cursor position 
+         chart1.ChartAreas("Default").CursorX.Position -= chart1.ChartAreas("Default").CursorX.Interval
+      End If
+   End If 
+   ' If the cursor is outside the view, set the view
+   ' so that the cursor can be seen
+   SetView()
+   
+   
+   chart1.ChartAreas("Default").CursorX.SelectionStart = Me.SelectionStart
+   chart1.ChartAreas("Default").CursorX.SelectionEnd = chart1.ChartAreas("Default").CursorX.Position
+End Sub 'ProcessSelect
+
+
+Private Sub SetView()
+   ' Keep the cursor from leaving the max and min axis points
+   If chart1.ChartAreas("Default").CursorX.Position < 0 Then
+      chart1.ChartAreas("Default").CursorX.Position = 0
+   
+   Else
+      If chart1.ChartAreas("Default").CursorX.Position > 75 Then
+         chart1.ChartAreas("Default").CursorX.Position = 75
+      End If 
+   End If 
+   ' Move the view to keep the cursor visible
+   If chart1.ChartAreas("Default").CursorX.Position < chart1.ChartAreas("Default").AxisX.ScaleView.Position Then
+      chart1.ChartAreas("Default").AxisX.ScaleView.Position = chart1.ChartAreas("Default").CursorX.Position
+   
+   Else
+      If chart1.ChartAreas("Default").CursorX.Position > chart1.ChartAreas("Default").AxisX.ScaleView.Position + chart1.ChartAreas("Default").AxisX.ScaleView.Size Then
+         chart1.ChartAreas("Default").AxisX.ScaleView.Position = chart1.ChartAreas("Default").CursorX.Position - chart1.ChartAreas("Default").AxisX.ScaleView.Size
+      End If
+   End If
+End Sub 'SetView
+
+
+Private Sub ProcessScroll(e As System.Windows.Forms.KeyEventArgs)
+   ' Process keyboard keys
+   If e.KeyCode = Keys.Right Then
+      ' Set the new cursor position 
+      chart1.ChartAreas("Default").CursorX.Position += chart1.ChartAreas("Default").CursorX.Interval
+   
+   Else
+      If e.KeyCode = Keys.Left Then
+         ' Set the new cursor position 
+         chart1.ChartAreas("Default").CursorX.Position -= chart1.ChartAreas("Default").CursorX.Interval
+      End If 
+   End If
+   
+   ' If the cursor is outside the view, set the view
+   ' so that the cursor can be seen
+   SetView()
+   
+   ' Set the selection start variable in case shift arrows are selected
+   Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+   
+   ' Reset the old selection start and end
+   chart1.ChartAreas("Default").CursorX.SelectionStart = Double.NaN
+   chart1.ChartAreas("Default").CursorX.SelectionEnd = Double.NaN
+End Sub 'ProcessScroll
+
+
+Private Sub Chart1_KeyUp(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Chart1.KeyUp
+   
+   If e.KeyCode = Keys.Right Or e.KeyCode = Keys.Left Then
+      ' If the key event is shifted, process as a selection
+      If e.Shift Then
+         ProcessSelect(e)
+      ' Process as a scroll
+      Else
+         ProcessScroll(e)
+      End If
+   
+   ' on enter, zoom the selection
+   Else
+      If e.KeyCode = Keys.Enter Then
+         Dim start, [end] As Double
+         
+         If chart1.ChartAreas("Default").CursorX.SelectionStart > chart1.ChartAreas("Default").CursorX.SelectionEnd Then
+            start = chart1.ChartAreas("Default").CursorX.SelectionEnd
+            [end] = chart1.ChartAreas("Default").CursorX.SelectionStart
+         Else
+            [end] = chart1.ChartAreas("Default").CursorX.SelectionEnd
+            start = chart1.ChartAreas("Default").CursorX.SelectionStart
+         End If
+         
+         ' Return if no selection actually made
+         If start = [end] Then
+            Return
+         End If 
+         ' Zoom the selection
+         chart1.ChartAreas("Default").AxisX.ScaleView.Zoom(start, [end] - start, DateTimeIntervalType.Number, True)
+         
+         ' Reset selection values
+         Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+         chart1.ChartAreas("Default").CursorX.SelectionStart = Double.NaN
+         chart1.ChartAreas("Default").CursorX.SelectionEnd = Double.NaN
+      
+      
+      Else
+         If e.KeyCode = Keys.Back Then
+            ' Reset zoom back to previous view state
+            chart1.ChartAreas("Default").AxisX.ScaleView.ZoomReset(1)
+            
+            ' Reset selection values
+            Me.SelectionStart = chart1.ChartAreas("Default").CursorX.Position
+            chart1.ChartAreas("Default").CursorX.SelectionStart = Double.NaN
+            chart1.ChartAreas("Default").CursorX.SelectionEnd = Double.NaN
+         End If
+      End If 
+   End If
+End Sub 'chart1_KeyUp
+
+...

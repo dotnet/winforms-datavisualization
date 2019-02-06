@@ -1,0 +1,21 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Logarithmic scale
+chart1.ChartAreas["Default"].AxisY.IsLogarithmic = true;
+
+// Set Auto scale.
+if( AutoScale.Checked )
+{
+    // Set auto minimum and maximum values.
+    chart1.ChartAreas["Default"].AxisY.Minimum = Double.NaN;
+    chart1.ChartAreas["Default"].AxisY.Maximum = Double.NaN;
+}
+else
+{
+    // Set manual minimum and maximum values.
+    chart1.ChartAreas["Default"].AxisY.Minimum = 10;
+    chart1.ChartAreas["Default"].AxisY.Maximum = 1000;
+}	    
+		
+...

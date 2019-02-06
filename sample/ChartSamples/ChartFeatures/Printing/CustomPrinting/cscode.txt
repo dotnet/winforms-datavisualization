@@ -1,0 +1,46 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set new print document with custom page printing event handler
+chart1.Printing.PrintDocument = new PrintDocument();
+chart1.Printing.PrintDocument.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+
+// Print preview chart
+chart1.Printing.PrintPreview();
+
+...
+
+private void pd_PrintPage(object sender, PrintPageEventArgs ev) 
+{
+    // Calculate title string position
+    Rectangle	titlePosition = new Rectangle(ev.MarginBounds.X, ev.MarginBounds.Y, ev.MarginBounds.Width, ev.MarginBounds.Height);
+    Font		fontTitle = new Font("Times New Roman", 16);
+    string		chartTitle = "Two charts on the same page sample.";
+    SizeF		titleSize = ev.Graphics.MeasureString(chartTitle, fontTitle);
+    titlePosition.Height = (int)titleSize.Height;
+
+    // Draw charts title
+    StringFormat	format = new StringFormat();
+    format.Alignment = StringAlignment.Center;
+    ev.Graphics.DrawString(chartTitle, fontTitle, Brushes.Black, titlePosition, format);
+
+    // Calculate first chart position rectangle
+    Rectangle	chartPosition = new Rectangle(ev.MarginBounds.X, titlePosition.Bottom, chart1.Size.Width, chart1.Size.Height);
+
+    // Align first chart position on the page
+    float	chartWidthScale = ((float)ev.MarginBounds.Width/2f) / ((float)chartPosition.Width);
+    float	chartHeightScale = ((float)ev.MarginBounds.Height) / ((float)chartPosition.Height);
+    chartPosition.Width = (int)(chartPosition.Width * Math.Min(chartWidthScale, chartHeightScale));
+    chartPosition.Height = (int)(chartPosition.Height * Math.Min(chartWidthScale, chartHeightScale));
+
+    // Draw first chart on the printer graphics
+    chart1.Printing.PrintPaint(ev.Graphics, chartPosition);
+
+    // Adjust position rectangle for the second chart
+    chartPosition.X += chartPosition.Width;
+
+    // Draw second chart on the printer graphics
+    chart2.Printing.PrintPaint(ev.Graphics, chartPosition);
+}
+
+...

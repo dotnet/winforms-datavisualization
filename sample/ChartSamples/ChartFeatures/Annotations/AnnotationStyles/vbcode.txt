@@ -1,0 +1,213 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+AddLineAnnotation()
+AddVerticalLineAnnotation()
+AddHorizontalLineAnnotation()
+AddPolylineAnnotation()
+AddTextAnnotation()
+AddRectangleAnnotation()
+AddEllipseAnnotation()
+AddBorderAnnotation()
+AddCalloutAnnotation()
+AddPolygonAnnotation()
+AddImageAnnotation()
+
+...
+
+
+Private Sub AddLineAnnotation()
+   Dim annotation As New LineAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Height = - 25
+   annotation.Width = - 25
+   annotation.LineWidth = 2
+   annotation.StartCap = LineAnchorCapStyle.Arrow
+   annotation.EndCap = LineAnchorCapStyle.Arrow
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddLineAnnotation
+
+Private Sub AddVerticalLineAnnotation()
+   Dim annotation As New VerticalLineAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Height = - 25
+   annotation.LineWidth = 2
+   annotation.StartCap = LineAnchorCapStyle.Arrow
+   annotation.EndCap = LineAnchorCapStyle.Arrow
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddVerticalLineAnnotation
+
+Private Sub AddHorizontalLineAnnotation()
+   Dim annotation As New HorizontalLineAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Height = - 25
+   annotation.LineWidth = 2
+   annotation.StartCap = LineAnchorCapStyle.Arrow
+   annotation.EndCap = LineAnchorCapStyle.Arrow
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddHorizontalLineAnnotation
+
+Private Sub AddPolylineAnnotation()
+   Dim annotation As New PolylineAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.StartCap = LineAnchorCapStyle.Arrow
+   
+   ' explicitly set the relative height and width
+   annotation.Height = 50
+   annotation.Width = 30
+   
+   Dim points(5) As PointF
+   points(0).X = 0
+   points(0).Y = 0
+   
+   points(1).X = 100
+   points(1).Y = 0
+   
+   points(2).X = 0
+   points(2).Y = 100
+   
+   points(3).X = 100
+   points(3).Y = 100
+   
+   points(4).X = 0
+   points(4).Y = 50
+   
+   annotation.Path.AddPolygon(points)
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddPolylineAnnotation
+
+Private Sub AddTextAnnotation()
+   Dim annotation As New TextAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Text = "I am a TextAnnotation"
+   annotation.ForeColor = Color.Black
+   annotation.Font = New Font("Arial", 12)
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddTextAnnotation
+
+Private Sub AddRectangleAnnotation()
+   Dim annotation As New RectangleAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Text = "I am a" + ControlChars.Lf + "RectangleAnnotation"
+   annotation.ForeColor = Color.Black
+   annotation.Font = New Font("Arial", 12)
+   annotation.LineWidth = 2
+   annotation.BackColor = Color.PaleYellow
+   annotation.LineDashStyle = ChartDashStyle.Dash
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddRectangleAnnotation
+
+Private Sub AddEllipseAnnotation()
+   Dim annotation As New EllipseAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Text = "I am an EllipseAnnotation"
+   annotation.ForeColor = Color.Black
+   annotation.Font = New Font("Arial", 12)
+   annotation.LineWidth = 2
+   annotation.Height = 35
+   annotation.Width = 60
+   annotation.BackColor = Color.PaleYellow
+   annotation.LineDashStyle = ChartDashStyle.Solid
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddEllipseAnnotation
+
+Private Sub AddArrowAnnotation()
+   Dim annotation As New ArrowAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Height = - 25
+   annotation.Width = - 25
+   annotation.LineWidth = 2
+   annotation.ArrowStyleize = 10
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddArrowAnnotation
+
+Private Sub AddBorderAnnotation()
+   Dim annotation As New Border3DAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Text = "I am a Border3DAnnotation"
+   annotation.ForeColor = Color.Black
+   annotation.Font = New Font("Arial", 12)
+   annotation.Height = 40
+   annotation.Width = 50
+   annotation.BorderSkin.BackColor = Color.FromArgb(128, Color.Red)
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddBorderAnnotation
+
+Private Sub AddCalloutAnnotation()
+   Dim annotation As New CalloutAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(1)
+   annotation.Text = "I am a" + ControlChars.Lf + "CalloutAnnotation"
+   annotation.ForeColor = Color.Black
+   annotation.Font = New Font("Arial", 10)
+   annotation.Height = 35
+   annotation.Width = 50
+   annotation.BackColor = Color.FromArgb(128, Color.PaleYellow)
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddCalloutAnnotation
+
+Private Sub AddPolygonAnnotation()
+   
+   Dim annotation As New PolygonAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   
+   ' explicitly set the relative height and width
+   annotation.Height = 50
+   annotation.Width = 30
+   
+   annotation.BackColor = Color.FromArgb(128, Color.Orange)
+   annotation.LineColor = Color.Black
+   annotation.LineDashStyle = ChartDashStyle.Solid
+   
+   ' define relative value points for a polygon
+   Dim points(5) As PointF
+   points(0).X = 0
+   points(0).Y = 0
+   
+   points(1).X = 100
+   points(1).Y = 0
+   
+   points(2).X = 100
+   points(2).Y = 100
+   
+   points(3).X = 0
+   points(3).Y = 100
+   
+   points(4).X = 50
+   points(4).Y = 50
+   
+   annotation.Path.AddPolygon(points)
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddPolygonAnnotation
+
+Private Sub AddImageAnnotation()
+   If Chart1.Images.GetIndex("MyBmp") < 0 Then
+      Dim Bmp As New Bitmap(200, 75)
+      Dim g As Graphics = Graphics.FromImage(Bmp)
+      g.FillRectangle(New SolidBrush(Color.Transparent), 0, 0, Bmp.Width, Bmp.Height)
+      g.FillRectangle(New SolidBrush(Color.PaleGoldenrod), Bmp.Width / 2, 0, Bmp.Width / 2, Bmp.Height)
+      g.FillRectangle(New SolidBrush(Color.PaleVioletRed), 0, 0, Bmp.Width / 2, Bmp.Height)
+      g.FillRectangle(New SolidBrush(Color.FromArgb(128, Color.DarkOrange)), 0, Bmp.Height / 2, Bmp.Width, Bmp.Height / 2)
+      g.DrawString("I am an ImageAnnotation", New Font("Arial", 12), New SolidBrush(Color.Black), New Rectangle(0, 0, Bmp.Width, Bmp.Height))
+      
+      g.Dispose()
+      
+      Chart1.Images.Add("MyBmp", Bmp)
+   End If
+   
+   Dim annotation As New ImageAnnotation()
+   annotation.AnchorDataPoint = Chart1.Series(0).Points(2)
+   annotation.Image = "MyBmp"
+   
+   Chart1.Annotations.Add(annotation)
+End Sub 'AddImageAnnotation

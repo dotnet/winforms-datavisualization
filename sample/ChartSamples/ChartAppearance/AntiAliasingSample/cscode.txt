@@ -1,0 +1,7 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Antialiasing mode
+Chart1.AntiAliasing = AntiAliasing.All;
+Chart1.TextAntiAliasingQuality = TextAntiAliasingQuality.High;	
+...

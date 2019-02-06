@@ -1,0 +1,85 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+/// <summary>
+/// Mouse Down Event
+/// </summary>
+private void chart1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = chart1.HitTest( e.X, e.Y );
+
+	// Check if data point is already exploded
+	bool exploded = ( chart1.Series[0].Points[result.PointIndex].CustomProperties == "Exploded=true" )? true : false ;
+
+	// Remove all exploded attributes
+	foreach( DataPoint point in chart1.Series[0].Points )
+	{
+		point.CustomProperties = "";
+	}
+
+	// If data point is already exploded get out.
+	if( exploded )
+		return;
+
+	// If data point is selected
+	if( result.ChartElementType == ChartElementType.DataPoint )
+	{
+		// Set Attribute
+		DataPoint point = chart1.Series[0].Points[result.PointIndex];
+		point.CustomProperties = "Exploded = true";
+	}
+
+	// If legend item is selected
+	if( result.ChartElementType == ChartElementType.LegendItem )
+	{
+		// Set Attribute
+		DataPoint point = chart1.Series[0].Points[result.PointIndex];
+		point.CustomProperties = "Exploded = true";
+	}
+}
+
+/// <summary>
+/// Mouse Move Event
+/// </summary>
+private void chart1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// Call Hit Test Method
+	HitTestResult result = chart1.HitTest( e.X, e.Y );
+
+	// Reset Data Point Attributes
+	foreach( DataPoint point in chart1.Series[0].Points )
+	{
+		point.BackSecondaryColor = Color.Black;
+		point.BackHatchStyle = ChartHatchStyle.None;
+		point.BorderWidth = 1;
+	}
+	
+	// If a Data Point or a Legend item is selected.
+	if
+	( 	result.ChartElementType == ChartElementType.DataPoint ||
+		result.ChartElementType == ChartElementType.LegendItem )
+	{				
+		// Set cursor type 
+		this.Cursor = Cursors.Hand;
+
+		// Find selected data point
+		DataPoint point = chart1.Series[0].Points[result.PointIndex];
+
+		// Set End Gradient Color to White
+		point.BackSecondaryColor = Color.White;
+
+		// Set selected hatch style
+		point.BackHatchStyle = ChartHatchStyle.Percent25;
+
+		// Increase border width
+		point.BorderWidth = 2;
+	}
+	else
+	{
+		// Set default cursor
+		this.Cursor = Cursors.Default;
+	}
+
+}
+...

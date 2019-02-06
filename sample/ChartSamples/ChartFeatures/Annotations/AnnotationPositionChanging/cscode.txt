@@ -1,0 +1,50 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+CalloutAnnotation calloutAnnotation = new CalloutAnnotation();
+calloutAnnotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+calloutAnnotation.Text = "Select this Annotation Object\nto move it or the Anchor point";
+Chart1.Annotations.Add(calloutAnnotation);
+...
+
+private void Chart1_AnnotationPositionChanging(object sender, System.Windows.Forms.DataVisualization.Charting.AnnotationPositionChangingEventArgs e)
+{
+	if(!SnapToDataPoint.Checked)
+		return;
+
+	// Get the annotation object from the AnnotationPositionChangingEventArgs
+	Annotation annotation = e.Annotation;
+
+	if(!float.IsNaN(e.NewAnchorLocationX))
+	{
+		// Get the nearest point to the new location
+		PointF point = FindNearestDataPoint(e.NewAnchorLocationX, e.NewAnchorLocationY);
+
+		annotation.AnchorDataPoint = Chart1.Series[0].Points[(int)point.X - 1];
+		e.NewAnchorLocationX = point.X;
+		e.NewAnchorLocationY = point.Y;
+	}
+}
+
+private PointF FindNearestDataPoint(double X, double Y)
+{
+	// Get the int portion of the X value
+    int curIndex = (int)Math.Round(X);
+
+	// If curIndex is less than 1 curIndex is set to 1
+	curIndex = (int)Math.Max(curIndex, 1);
+
+	// If curIndex is greater than 5 curIndex is set to 5 (X Value of max point in series)
+	curIndex = (int)Math.Min(curIndex, 5);
+
+	// Return the point value of the nearest point
+	return new PointF(curIndex, (float)Chart1.Series[0].Points[curIndex-1].YValues[0]);
+}
+
+private void Chart1_AnnotationPositionChanged(object sender, System.EventArgs e)
+{
+	Annotation annotation = (Annotation) sender;
+	// Update the UI for the new positions...
+	UpdateAnnotationPosition(annotation);
+}		
+...

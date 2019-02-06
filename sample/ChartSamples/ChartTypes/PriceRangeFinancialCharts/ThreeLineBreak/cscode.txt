@@ -1,0 +1,18 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series chart type
+chart1.Series["Default"].ChartType = SeriesChartType.ThreeLineBreak;
+
+// Set the PriceUpColor attribute			
+chart1.Series["Default"]["PriceUpColor"] = "White";
+
+// Set the default color - price-down			
+chart1.Series["Default"].Color = Color.Black;
+
+// Clear attribute, let the default NumberOfLinesInBreak to be calculated
+chart1.Series["Default"].DeleteCustomProperty("NumberOfLinesInBreak");
+
+// Set the NumberOfLinesInBreak attribute
+chart1.Series["Default"]["NumberOfLinesInBreak"] = "3";
+....

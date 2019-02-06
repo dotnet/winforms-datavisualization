@@ -1,0 +1,16 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Enable 3D charts
+chart1.ChartAreas("Default").Area3DStyle.Enable3D = true
+
+' Show a 30% perspective
+chart1.ChartAreas("Default").Area3DStyle.Perspective = 30
+
+' Set the X Angle to 30
+chart1.ChartAreas("Default").Area3DStyle.Rotation = 30
+		
+' Set the Y Angle to 40
+chart1.ChartAreas("Default").Area3DStyle.Rotation = 40
+
+...

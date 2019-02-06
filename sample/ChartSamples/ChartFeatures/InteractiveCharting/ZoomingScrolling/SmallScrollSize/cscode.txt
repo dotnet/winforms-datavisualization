@@ -1,0 +1,8 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Use automatic small scrolling size, with minimum of 2
+chart1.ChartAreas["Default"].AxisX.ScaleView.SmallScrollSize = double.NaN;
+chart1.ChartAreas["Default"].AxisX.ScaleView.SmallScrollMinSize = 2;
+
+...

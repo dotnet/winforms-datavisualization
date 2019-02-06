@@ -1,0 +1,16 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Enable 3D charts
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+
+// Set the Y Angle to 90
+chart1.ChartAreas["Default"].Area3DStyle.Rotation = 90;
+
+// Set the Point Depth to 100
+chart1.ChartAreas["Default"].Area3DStyle.PointDepth = 100;
+		
+// Set the Point Gap Width to 0
+chart1.ChartAreas["Default"].Area3DStyle.PointGapDepth = 0;
+		
+...

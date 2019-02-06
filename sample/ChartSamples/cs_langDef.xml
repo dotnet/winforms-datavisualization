@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<block name="">
+	<fragDelimiter>[ \t\r\n\.\-\+{}\(\);:,=|&amp;\[\]]</fragDelimiter>
+	
+	<tokenPreRTF>\cf1 </tokenPreRTF>
+	<tokenPostRTF>\cf0 </tokenPostRTF>
+
+	<token value="bool" regExp="false"/>
+	<token value="break" regExp="false"/>
+	<token value="case" regExp="false"/>
+	<token value="catch" regExp="false"/>
+	<token value="class" regExp="false"/>
+	<token value="const" regExp="false"/>
+	<token value="continue" regExp="false"/>
+	<token value="do" regExp="false"/>
+	<token value="double" regExp="false"/>
+	<token value="else" regExp="false"/>
+	<token value="false" regExp="false"/>
+	<token value="finally" regExp="false"/>
+	<token value="float" regExp="false"/>
+	<token value="for" regExp="false"/>
+	<token value="foreach" regExp="false"/>
+	<token value="if" regExp="false"/>
+	<token value="in" regExp="false"/>
+	<token value="int" regExp="false"/>
+	<token value="long" regExp="false"/>
+	<token value="namespace" regExp="false"/>
+	<token value="new" regExp="false"/>
+	<token value="null" regExp="false"/>
+	<token value="out" regExp="false"/>
+	<token value="private" regExp="false"/>
+	<token value="protected" regExp="false"/>
+	<token value="public" regExp="false"/>
+	<token value="ref" regExp="false"/>
+	<token value="return" regExp="false"/>
+	<token value="static" regExp="false"/>
+	<token value="struct" regExp="false"/>
+	<token value="switch" regExp="false"/>
+	<token value="then" regExp="false"/>
+	<token value="this" regExp="false"/>
+	<token value="true" regExp="false"/>
+	<token value="try" regExp="false"/>
+	<token value="using" regExp="false"/>
+	<token value="void" regExp="false"/>
+	<token value="while" regExp="false"/>
+
+	<token name="" value="///\S*" regExp="true" matchSize="3">
+		
+		<tokenPreRTF>\cf3 </tokenPreRTF>
+		<tokenPostRTF>\cf0 </tokenPostRTF>
+		
+		<block >
+	
+			<preRTF>\cf2 </preRTF>
+			<postRTF>\cf0 </postRTF>
+
+			<tokenPreRTF>\cf2 </tokenPreRTF>
+			<tokenPostRTF>\cf0 </tokenPostRTF>
+			
+			<fragDelimiter pre="" post="">[&lt;&gt;\n\r]</fragDelimiter>
+ 			<endDelimiter pre="" post="">\n</endDelimiter>
+			
+			<token name="" value="\S*" regExp="true" pre="&lt;" matchSize="0">
+				<tokenPreRTF>\cf3 </tokenPreRTF>
+				<tokenPostRTF>\cf0 </tokenPostRTF>
+				<block >				
+					<fragDelimiter pre="" post="">[&gt;]</fragDelimiter>
+ 					<endDelimiter pre="" post="">[&gt;]</endDelimiter>
+ 				</block>				
+			</token>			
+			
+		</block>
+		
+	</token>
+
+	<token name="" value="//\S*" regExp="true">
+		
+		<tokenPreRTF>\cf2 </tokenPreRTF>
+		<tokenPostRTF>\cf0 </tokenPostRTF>
+		
+		<block >
+			<tokenPreRTF></tokenPreRTF>
+			<tokenPostRTF></tokenPostRTF>
+			
+ 			<endDelimiter>[\n]</endDelimiter>
+			<fragDelimiter>[\n]</fragDelimiter>
+		</block>
+		
+	</token>
+
+	<token name="" value="/\*\S*" regExp="true" matchSize="2">
+		
+		<tokenPreRTF>\cf2 </tokenPreRTF>
+		<tokenPostRTF>\cf0 </tokenPostRTF>
+		
+		<block >
+			<preRTF>\cf2 </preRTF>
+			<postRTF>\cf0 </postRTF>
+			<tokenPreRTF></tokenPreRTF>
+			<tokenPostRTF></tokenPostRTF>
+			
+ 			<endDelimiter>\*/</endDelimiter>
+			<fragDelimiter>\*/</fragDelimiter>
+		</block>
+		
+	</token>
+	
+</block>

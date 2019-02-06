@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "AdvancedFinancialCharts" Priority = "1">
+  <Title>Gallery</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Advanced Financial Chart Gallery</ShortBlurb>
+  <SampleControl>None</SampleControl>
+  <InfoPages>
+    <InfoPage Title="Gallery">FinancialGallery.htm</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+    <Keyword>Gallery, Advanced Financial Charts</Keyword>
+    <Keyword>Advanced Financial Charts, Gallery</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

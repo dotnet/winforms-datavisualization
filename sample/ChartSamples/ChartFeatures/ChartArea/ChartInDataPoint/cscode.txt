@@ -1,0 +1,180 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Create charts for each data point
+CreateChartInSeriesPoints(Chart1, Chart1.Series["Default"], "Pie");
+
+...
+
+/// <summary>
+/// Creates a mini-chart in the data points of the original Point or Bubble chart.
+/// </summary>
+/// <param name="chart">Chart object.</param>
+/// <param name="series">Original data series.</param>
+/// <param name="chartType">Mini-chart type.</param>
+public void CreateChartInSeriesPoints(Chart chart, Series series, string chartType)
+{
+	//****************************************************
+	//** Check if series uses X values or they all set
+	//** to zeros (in this case use point index as X value)
+	//****************************************************
+	bool	zeroXValues = true;
+	foreach(DataPoint point in series.Points)
+	{
+		if(point.XValue != 0.0)
+		{
+			zeroXValues = false;
+			break;
+		}
+	}
+
+	//****************************************************
+	//** Calculate bubble scaling variables required to
+	//** for the bubble size calculations.
+	//****************************************************
+	bool	bubbleChart = false;
+
+	// Minimum/Maximum bubble size
+	double	maxPossibleBubbleSize = 15F;
+	double	minPossibleBubbleSize = 3F;
+	float	maxBubleSize = 0f;
+	float	minBubleSize = 0f;
+
+	// Current min/max size of the bubble size
+	double	minAll = double.MaxValue;
+	double	maxAll = double.MinValue;
+
+	// Bubble size difference value
+	double	valueDiff = 0;
+	double	valueScale = 1;
+
+	// Check for the Bubble chart type
+	if( series.ChartType == SeriesChartType.Bubble )
+	{
+		bubbleChart = true;
+
+		// Check if custom attributes are set to specify scale
+		if(series.IsCustomPropertySet("BubbleScaleMin"))
+		{
+			minAll = Math.Min(minAll, Double.Parse(series["BubbleScaleMin"]));
+		}
+		if(series.IsCustomPropertySet("BubbleScaleMax"))
+		{
+			maxAll = Math.Max(maxAll, Double.Parse(series["BubbleScaleMax"]));
+		}
+
+		// Calculate bubble scale
+		double	minSer = double.MaxValue;
+		double	maxSer = double.MinValue;
+		foreach( Series ser in chart.Series )
+		{
+			if( ser.ChartType == SeriesChartType.Bubble && ser.ChartArea == series.ChartArea )
+			{
+				foreach(DataPoint point in ser.Points)
+				{
+					minSer = Math.Min(minSer, point.YValues[1]);
+					maxSer = Math.Max(maxSer, point.YValues[1]);
+				}
+			}
+		}
+		if(minAll == double.MaxValue)
+		{
+			minAll = minSer;
+		}
+		if(maxAll == double.MinValue)
+		{
+			maxAll = maxSer;
+		}
+
+		// Calculate maximum bubble size
+		SizeF areaSize = chart.ChartAreas[series.ChartArea].Position.GetSize();
+
+		// Convert relative coordinates to absolute coordinates
+		areaSize.Width = areaSize.Width * (chart.Width - 1) / 100F; 
+		areaSize.Height = areaSize.Height * (chart.Height - 1) / 100F; 
+		maxBubleSize = (float)(Math.Min(areaSize.Width, areaSize.Height) / (100.0/maxPossibleBubbleSize));
+		minBubleSize = (float)(Math.Min(areaSize.Width, areaSize.Height) / (100.0/minPossibleBubbleSize));
+
+		// Calculate scaling variables depending on the Min/Max values
+		if(maxAll == minAll)
+		{
+			valueScale = 1;
+			valueDiff = minAll - (maxBubleSize - minBubleSize)/2f;
+		}
+		else
+		{
+			valueScale = (maxBubleSize - minBubleSize) / (maxAll - minAll);
+			valueDiff = minAll;
+		}
+	}
+
+
+	//****************************************************
+	//** Create chart area for each data point
+	//****************************************************
+	int	pointIndex = 0;
+	Random	random = new Random();
+	foreach(DataPoint point in series.Points)
+	{
+		//****************************************************
+		//** Create chart area and set visual attributes
+		//****************************************************
+		ChartArea areaPoint = chart.ChartAreas.Add(series.Name + "_" + pointIndex.ToString());
+		areaPoint.BackColor = Color.Transparent;
+		areaPoint.BorderWidth = 0;
+		areaPoint.AxisX.LineWidth = 0;
+		areaPoint.AxisY.LineWidth = 0;
+		areaPoint.AxisX.MajorGrid.Enabled = false;
+		areaPoint.AxisX.MajorTickMark.Enabled = false;
+		areaPoint.AxisX.LabelStyle.Enabled = false;
+		areaPoint.AxisY.MajorGrid.Enabled = false;
+		areaPoint.AxisY.MajorTickMark.Enabled = false;
+		areaPoint.AxisY.LabelStyle.Enabled = false;
+
+		//****************************************************
+		//** Create data series in the chart area
+		//****************************************************
+		Series seriesPoint = chart.Series.Add(series.Name + "_" + pointIndex.ToString());
+		seriesPoint.ChartArea = areaPoint.Name;
+		seriesPoint.ChartType = (SeriesChartType) Enum.Parse( typeof(SeriesChartType), chartType, true );
+		seriesPoint.IsVisibleInLegend = false;
+		seriesPoint.BorderColor = Color.FromArgb(64,64,64);
+		seriesPoint.ShadowOffset = 2;
+		seriesPoint.Palette = ChartColorPalette.Pastel;
+
+		//****************************************************
+		//** Populate data series.
+		//** TODO: For this sample each series is populated
+		//** with random data. Do your own series population
+		//** here.
+		//****************************************************
+		for(int sliceIndex = 0; sliceIndex < 5; sliceIndex++)
+		{
+			seriesPoint.Points.AddY(random.Next(2,20));
+		}
+
+		//****************************************************
+		//** Set chart area position and inner plot position
+		//****************************************************
+
+		// Set chart area inner plot position
+		areaPoint.InnerPlotPosition = new ElementPosition(3, 3, 94, 94);
+		
+		// Position chart area over the data point
+		PointF position = PointF.Empty;
+		position.X = (float)chart.ChartAreas[series.ChartArea].AxisX.GetPosition(zeroXValues ? (pointIndex + 1) : point.XValue);
+		position.Y = (float)chart.ChartAreas[series.ChartArea].AxisY.GetPosition(point.YValues[0]);
+
+		float pieSize = (point.MarkerSize < 15) ? 15 : point.MarkerSize;;
+		if(bubbleChart)
+		{
+			pieSize = (float)((point.YValues[1] - valueDiff) * valueScale) + minBubleSize;
+		}
+		pieSize = pieSize * 100F / ((float)(chart.Width - 1)); 
+		areaPoint.Position = new ElementPosition(position.X - pieSize/2f, position.Y - pieSize/2f, pieSize, pieSize);
+
+		// Increase point index
+		++pointIndex;
+	}
+}
+...

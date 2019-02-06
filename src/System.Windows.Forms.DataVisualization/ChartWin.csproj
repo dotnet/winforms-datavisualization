@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CLSCompliant>false</CLSCompliant>
+    <NoWarn>$(NoWarn);618</NoWarn>
+    <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
+    <!-- <Win32Manifest>Resources\System\Windows\Forms\XPThemes.manifest</Win32Manifest> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Annotation\AnnotationDesign.cs" />
+    <Compile Remove="Common\EditorNames.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Versions are defined in eng\Versions.props -->
+    <PackageReference Include="System.Data.SqlClient" Version="$(SystemDataSQLClientPackageVersion)" />
+    <PackageReference Include="System.Drawing.Common" Version="$(SystemDrawingCommonPackageVersion)" />
+    <PackageReference Include="System.Drawing.Primitives" Version="$(SystemDrawingPrimitivesPackageVersion)" />
+    <PackageReference Include="System.Windows.Extensions" Version="$(SystemWindowsExtensionsPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Update="Common\SR.resx">
+      <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SR.resx">
+      <GenerateSource>true</GenerateSource>
+      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace> <!-- I think you want System here -->
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0-preview.19073.11" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="4.6.0-preview.19073.11" />
+  </ItemGroup>-->
+
+  <!-- <ItemGroup>
+    <EmbeddedResource Update="Resources\SR.resx">
+      <GenerateSource>true</GenerateSource>
+      <Namespace>System</Namespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Common\Resources\ChartControl.ico">
+      <Link>ChartControl.ico</Link>
+    </EmbeddedResource>
+  </ItemGroup> -->
+</Project>

@@ -1,0 +1,12 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set automatic zooming
+chart1.ChartAreas["Default"].AxisX.ScaleView.Zoomable = true;
+chart1.ChartAreas["Default"].AxisY.ScaleView.Zoomable = true;
+
+// Set automatic scrolling 
+chart1.ChartAreas["Default"].CursorX.AutoScroll = true;
+chart1.ChartAreas["Default"].CursorY.AutoScroll = true;
+
+...

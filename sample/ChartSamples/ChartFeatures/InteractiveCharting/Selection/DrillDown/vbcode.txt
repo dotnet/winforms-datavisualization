@@ -1,0 +1,175 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Mouse Down Event
+Private Sub Chart1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseDown
+   ' Call Hit Test Method
+   Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+   
+   If result.ChartElementType <> ChartElementType.DataPoint Then
+      Return
+   End If 
+   ' Remove data points
+   Chart1.Series(0).Points.Clear()
+   
+   ' If Pie chart is selected
+   If Chart1.Series(0).ChartType = SeriesChartType.Pie Then
+      ' Set Chart Type
+      Chart1.Series(0).ChartType = SeriesChartType.Column
+      
+      ' Add data points
+      Chart1.Series(0).Points.Add(5)
+      Chart1.Series(0).Points.Add(6)
+      Chart1.Series(0).Points.Add(7)
+      Chart1.Series(0).Points.Add(2)
+      
+      ' Set Axis labels
+      Chart1.Series(0).Points(0).AxisLabel = "N America"
+      Chart1.Series(0).Points(1).AxisLabel = "S America"
+      Chart1.Series(0).Points(2).AxisLabel = "Europe"
+      Chart1.Series(0).Points(3).AxisLabel = "Asia"
+      
+      ' Set Gradient Type
+      Chart1.Series(0).BackGradientStyle = GradientStyle.VerticalCenter
+      
+      ' Remove custom attributes
+      Chart1.Series(0).CustomProperties = ""
+      
+      ' Recalculate and repaint chart
+      Chart1.ChartAreas(0).ReCalculateAxesScale()
+      Chart1.Invalidate()
+      
+      Return
+   End If
+   
+   ' Set Label style for pie chart
+   Chart1.Series(0).CustomProperties = "LabelStyle=outside"
+   
+   ' Remove gradient for data points
+   Chart1.Series(0).BackGradientStyle = GradientStyle.None
+   
+   
+   Select Case result.PointIndex
+      ' N America
+      Case 0
+         ' Add data points
+         Chart1.Series(0).ChartType = SeriesChartType.Pie
+         Chart1.Series(0).Points.Add(3)
+         Chart1.Series(0).Points.Add(2)
+         Chart1.Series(0).Points.Add(8)
+         
+         ' Set Axis labels
+         Chart1.Series(0).Points(0).AxisLabel = "USA"
+         Chart1.Series(0).Points(1).AxisLabel = "Canada"
+         Chart1.Series(0).Points(2).AxisLabel = "Mexico"
+      
+      ' S America
+      Case 1
+         ' Add data points
+         Chart1.Series(0).ChartType = SeriesChartType.Pie
+         Chart1.Series(0).Points.Add(4)
+         Chart1.Series(0).Points.Add(6)
+         Chart1.Series(0).Points.Add(2)
+         
+         ' Set Axis labels
+         Chart1.Series(0).Points(0).AxisLabel = "Argentina"
+         Chart1.Series(0).Points(1).AxisLabel = "Brazil"
+         Chart1.Series(0).Points(2).AxisLabel = "Chile"
+      
+      ' Europe
+      Case 2
+         ' Add data points
+         Chart1.Series(0).ChartType = SeriesChartType.Pie
+         Chart1.Series(0).Points.Add(5)
+         Chart1.Series(0).Points.Add(7)
+         Chart1.Series(0).Points.Add(2)
+         Chart1.Series(0).Points.Add(3)
+         
+         ' Set Axis labels
+         Chart1.Series(0).Points(0).AxisLabel = "UK"
+         Chart1.Series(0).Points(1).AxisLabel = "France"
+         Chart1.Series(0).Points(2).AxisLabel = "Germany"
+         Chart1.Series(0).Points(3).AxisLabel = "Italy"
+      
+      ' Asia
+      Case 3
+         ' Add data points
+         Chart1.Series(0).ChartType = SeriesChartType.Pie
+         Chart1.Series(0).Points.Add(4)
+         Chart1.Series(0).Points.Add(3)
+         Chart1.Series(0).Points.Add(6)
+         Chart1.Series(0).Points.Add(5)
+         Chart1.Series(0).Points.Add(4)
+         
+         ' Set Axis labels
+         Chart1.Series(0).Points(0).AxisLabel = "China"
+         Chart1.Series(0).Points(1).AxisLabel = "Japan"
+         Chart1.Series(0).Points(2).AxisLabel = "India"
+         Chart1.Series(0).Points(3).AxisLabel = "Iran"
+         Chart1.Series(0).Points(4).AxisLabel = "Iraq"
+   End Select 
+   
+   Chart1.ChartAreas(0).ReCalculateAxesScale()
+   Chart1.Invalidate()
+End Sub 'Chart1_MouseDown
+
+
+
+' Mouse Move Event
+Private Sub Chart1_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseMove
+   ' Call Hit Test Method
+   Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+   
+   ' Reset Data Point Attributes
+   Dim point As DataPoint
+   For Each point In  Chart1.Series(0).Points
+      point.BackSecondaryColor = Color.Black
+      point.BackHatchStyle = ChartHatchStyle.None
+      point.BorderWidth = 1
+   Next point
+   
+   ' If a Data Point or a Legend item is selected.
+   If result.ChartElementType = ChartElementType.DataPoint Or result.ChartElementType = ChartElementType.LegendItem Then
+      ' Set cursor type 
+      Me.Cursor = Cursors.Hand
+      
+      ' Find selected data point
+      Dim point As DataPoint = Chart1.Series(0).Points(result.PointIndex)
+      
+      ' Set End Gradient Color to White
+      point.BackSecondaryColor = Color.White
+      
+      ' Set selected hatch style
+      point.BackHatchStyle = ChartHatchStyle.Percent25
+      
+      ' Increase border width
+      point.BorderWidth = 2
+   Else
+      ' Set default cursor
+      Me.Cursor = Cursors.Default
+   End If
+End Sub 'Chart1_MouseMove
+ 
+
+' Load Form
+Private Sub DrillDown_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
+   ' Set Chart Type
+   Chart1.Series(0).ChartType = SeriesChartType.Column
+   
+   ' Add Data Points
+   Chart1.Series(0).Points.Add(5)
+   Chart1.Series(0).Points.Add(6)
+   Chart1.Series(0).Points.Add(7)
+   Chart1.Series(0).Points.Add(2)
+   
+   ' Add Axis label
+   Chart1.Series(0).Points(0).AxisLabel = "N America"
+   Chart1.Series(0).Points(1).AxisLabel = "S America"
+   Chart1.Series(0).Points(2).AxisLabel = "Europe"
+   Chart1.Series(0).Points(3).AxisLabel = "Asia"
+   
+   ' Remove custom attributes
+   Chart1.Series(0).CustomProperties = ""
+End Sub 'Form1_Load 
+
+...

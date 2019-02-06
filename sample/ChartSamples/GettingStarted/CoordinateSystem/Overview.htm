@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<LINK href="../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>
+            <br />
+            The coordinate system of the Chart control is <i>relative</i>.&nbsp;Using relative 
+            coordinates ensures that chart objects remain relative to one another&nbsp;when the 
+            chart is resized, making positioning and sizing easier.</p>
+        <p>
+            The&nbsp;coordinate system has its origin in the upper-left corner with the X axis 
+            pointing to the right and the Y axis pointing down (see the figure below).&nbsp;For 
+            3D charts the direction of the Z axis is outward (going out of the page).</p>
+        <p>
+            <img alt="Coordinate System" border="0" src="CoordinateSystem.bmp" />
+        </p>
+        <p>
+            Coordinates are always expressed as a percentage of the&nbsp;element they are being 
+            applied to.</p>
+        <p>
+            The coordinate system is applied to two types of objects:</p>
+        <ol>
+            <li>Entire chart&nbsp;picture.</li>
+            <li>All chart areas.</li>
+        </ol>
+        <h3>
+            Chart Picture</h3>
+        <blockquote dir="ltr">
+            <p>
+                Coordinate values are measured as a percentage of the chart picture&#39;s width and 
+                height.&nbsp;The top-left corner has the coordinates (0,0), and the bottom-right 
+                corner has the coordinates (100,100).</p>
+            <p>
+                The chart picture&#39;s coordinate system determines the position of chart area 
+                objects and&nbsp;legend objects (if the legends are not displayed within a chart 
+                area).</p>
+        </blockquote>
+        <h3>
+            Chart Areas</h3>
+        <blockquote dir="ltr">
+            <p>
+                Coordinate values are measured as a percentage of the chart area&#39;s width and 
+                height.&nbsp;The top-left corner has the coordinates (0,0), and the bottom-right 
+                corner has the coordinates (100,100).</p>
+            <p>
+                A&nbsp;chart area&#39;s coordinate system determines the position of all objects 
+                contained within it, such as labels and annotations.</p>
+        </blockquote>
+	</body>
+</html>

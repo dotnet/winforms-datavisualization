@@ -1,0 +1,16 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartOverview" Priority="100">
+	<Title>Overview</Title>
+	<Thumbnail></Thumbnail>
+	<ShortBlurb>Overview of Samples Environment</ShortBlurb> 
+	<SampleControl>None</SampleControl> 
+	
+	<InfoPages>
+		<InfoPage Title="Overview">Overview.htm</InfoPage>
+	</InfoPages>
+</SampleConfig>
+
+
+</SampleConfigs>

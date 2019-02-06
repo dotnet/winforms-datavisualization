@@ -1,0 +1,32 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Annotations">
+  <Title>AnnotationPositionChanging Event</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>AnnotationPositionChanging Event</ShortBlurb> 
+  <SampleControl>AnnotationPositionChanging</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Annotations, Events</Keyword>
+	<Keyword>Annotations, AnchorPositionChanging event</Keyword>
+	<Keyword>Annotations, AnchorPositionChanged event</Keyword>
+	<Keyword>Annotations, Moving Anchor Point</Keyword>
+	<Keyword>Annotations, Snapping Points</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Customizations" Priority="800">
+  <Title>AnnotationPositionChanging Event</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>AnnotationPositionChanging Event</ShortBlurb> 
+  <SampleControl>AnnotationPositionChanging</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+</SampleConfigs>

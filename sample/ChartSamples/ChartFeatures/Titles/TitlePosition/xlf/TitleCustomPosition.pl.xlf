@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="pl" original="../TitleCustomPosition.resx">
+    <body>
+      <trans-unit id="label1.Text">
+        <source>All coordinates are relative and must range from 0 to 100. The Chart control uses the InputTag rendering type and the server-side Click event to make the chart interactive, allowing you to set the top-left corner coordinates of the title by clicking on the chart.</source>
+        <target state="new">All coordinates are relative and must range from 0 to 100. The Chart control uses the InputTag rendering type and the server-side Click event to make the chart interactive, allowing you to set the top-left corner coordinates of the title by clicking on the chart.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

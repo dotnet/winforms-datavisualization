@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority = "1000">
+  <Title>Highlighting Dates Using StripLines</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Highlighting Dates Using StripLines</ShortBlurb> 
+  <SampleControl>HighlightDateRange</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Strip Lines, DateTime</Keyword>
+	<Keyword>Date Time, Strip Lines</Keyword>
+  </Keywords>
+</SampleConfig>
+</SampleConfigs>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="fr" original="../SmallScrollSize.resx">
+    <body>
+      <trans-unit id="label3.Text">
+        <source>By default, the small scrolling size decreases every time you zoom in, until it reaches the value of the SmallScrollMinSize property. You can set the small scrolling size to a fixed value using the SmallScrollSize property.</source>
+        <target state="new">By default, the small scrolling size decreases every time you zoom in, until it reaches the value of the SmallScrollMinSize property. You can set the small scrolling size to a fixed value using the SmallScrollSize property.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

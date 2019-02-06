@@ -1,0 +1,14 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set marker attributes for the whole series            
+chart1.Series["Default"].MarkerStyle = MarkerStyle.Circle;
+chart1.Series["Default"].MarkerSize = 3;
+chart1.Series["Default"].MarkerColor = Color.Magenta;
+chart1.Series["Default"].MarkerBorderColor = Color.Red;
+chart1.Series["Default"].MarkerBorderWidth = 1;
+
+// Set an marker style for the third data point in series
+chart1.Series["Default"].Points[2].MarkerStyle = MarkerStyle.Diamond;
+
+...

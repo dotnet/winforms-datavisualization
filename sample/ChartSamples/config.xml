@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<SamplesEnvironmentConfiguration>
+	<SamplesNamespace>
+		ChartSamples
+	</SamplesNamespace>
+	<FormTitle>
+		Microsoft DataVisualization .NET Core WinForms Samples Environment
+	</FormTitle>
+	<FormIcon>
+		App.ico
+	</FormIcon>
+	<HeaderImageLeft>
+		Images\HeaderLeft.bmp
+	</HeaderImageLeft>
+	<HeaderImageMiddle>
+		Images\HeaderMiddle.bmp
+	</HeaderImageMiddle>
+	<HeaderImageRight>
+		Images\HeaderRight.bmp
+	</HeaderImageRight>
+	<FooterImageMiddle>
+		Images\FooterMiddle.bmp
+	</FooterImageMiddle>
+  <FooterImageRight>
+    Images\FooterMiddle.bmp
+  </FooterImageRight>
+  <FooterLinks>
+  </FooterLinks>
+</SamplesEnvironmentConfiguration>

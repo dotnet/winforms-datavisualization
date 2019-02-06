@@ -1,0 +1,7 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Hide series "Series 1" 
+Chart1.Series("Series 1").Enabled = false
+
+...

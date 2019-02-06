@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="it" original="../PolarChartType.resx">
+    <body>
+      <trans-unit id="label4.Text">
+        <source>By default, the Y-axis radiates outward from the center, and the X-axis goes clockwise from the 12 o'clock position. You can specify a different starting point for the X-axis using its Crossing property. For example, to move the X and Y axis crossing at 3 o'clock, the set the Crossing property to 90 (degrees).</source>
+        <target state="new">By default, the Y-axis radiates outward from the center, and the X-axis goes clockwise from the 12 o'clock position. You can specify a different starting point for the X-axis using its Crossing property. For example, to move the X and Y axis crossing at 3 o'clock, the set the Crossing property to 90 (degrees).</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

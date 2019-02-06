@@ -1,0 +1,16 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "CircularCharts" Priority = "1">
+  <Title>Gallery</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Circular Chart Gallery</ShortBlurb> 
+  <SampleControl>None</SampleControl>
+  <InfoPages>
+    <InfoPage Title="Gallery">CircularGallery.htm</InfoPage>
+  </InfoPages>
+
+</SampleConfig>
+
+
+</SampleConfigs>

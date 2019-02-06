@@ -1,0 +1,19 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create cursor object
+Dim cursor AS System.Windows.Forms.DataVisualization.Charting.Cursor
+
+' Set cursor object
+cursor = Chart1.ChartAreas("Default").CursorY
+
+' Set cursor properties
+cursor.LineWidth = 2
+cursor.LineDashStyle = ChartDashStyle.DashDot
+cursor.LineColor = Color.Red
+cursor.SelectionColor = Color.Yellow
+
+' Set cursor selection color of X axis cursor
+Chart1.ChartAreas("Default").CursorX.SelectionColor = Color.Yellow
+
+...

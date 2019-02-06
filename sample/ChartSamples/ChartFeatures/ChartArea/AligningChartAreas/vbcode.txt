@@ -1,0 +1,29 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set chart area to be visible on the chart
+Chart1.ChartAreas("Default").Visible = true
+
+' Set the chart area alignmnet. This will cause the axes to align vertically.
+Chart1.ChartAreas("Chart Area 2").AlignmentOrientation = AreaAlignmentOrientations.Vertical
+
+' Disable X Axis Labels for the first chart area.
+Chart1.ChartAreas("Default").AxisX.LabelStyle.Enabled = False
+
+' Disable End labels for Y axes.
+Chart1.ChartAreas("Default").AxisY.LabelStyle.IsEndLabelVisible = False
+Chart1.ChartAreas("Chart Area 2").AxisY.LabelStyle.IsEndLabelVisible = False
+
+' Set the chart area position for the first chart area.
+Chart1.ChartAreas("Default").Position.X = 5
+Chart1.ChartAreas("Default").Position.Y = 10
+Chart1.ChartAreas("Default").Position.Width = 90
+Chart1.ChartAreas("Default").Position.Height = 40
+
+' Set the chart area position for the second chart area.
+Chart1.ChartAreas("Chart Area 2").Position.X = 5
+Chart1.ChartAreas("Chart Area 2").Position.Y = 50
+Chart1.ChartAreas("Chart Area 2").Position.Width = 90
+Chart1.ChartAreas("Chart Area 2").Position.Height = 40
+
+...

@@ -1,0 +1,27 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Edit Controls
+Private CursorX As System.Windows.Forms.TextBox
+Private CursorY As System.Windows.Forms.TextBox
+
+Private Sub chart1_CursorPositionChanging(sender As Object, e As System.Windows.Forms.DataVisualization.Charting.CursorEventArgs) Handles Chart1.CursorPositionChanging
+   SetPosition(e.Axis, e.NewPosition)
+End Sub 'chart1_CursorPositionChanging
+
+Private Sub SetPosition(axis As Axis, position As Double)
+   If Double.IsNaN(position) Then
+      Return
+   End If 
+   If axis.AxisName = AxisName.X Then
+      ' Convert Double to DateTime.
+      Dim dateTimeX As DateTime = DateTime.FromOADate(position)
+      
+      ' Set X cursor position to edit Control
+      CursorX.Text = dateTimeX.ToLongDateString()
+   Else
+      ' Set Y cursor position to edit Control
+      CursorY.Text = position.ToString()
+   End If
+End Sub 'SetPosition
+...

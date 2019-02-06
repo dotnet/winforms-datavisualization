@@ -1,0 +1,30 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Dim stripLine As New StripLine()
+
+' Set Strip lines interval
+stripLine.Interval = 1
+
+' Set Strip Width
+stripLine.StripWidth = 1
+
+' Set Strip Border Line Color
+stripLine.BorderColor = Color.Red
+
+' Set Strip Border Line Style
+stripLine.BorderDashStyle = ChartDashStyle.Solid
+
+' Set Strip Border Line Width
+stripLine.BorderWidth = 1
+
+' Set Strip Back Color
+stripLine.BackColor = Color.Black
+
+' Set Strip End Gradient Color
+stripLine.BackSecondaryColor = Color.Blue;
+
+' Add the strip line to the collection.
+Chart1.ChartAreas("Default").AxisX.StripLines.Add(stripLine)
+
+...

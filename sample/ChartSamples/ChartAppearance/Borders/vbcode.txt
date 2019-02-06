@@ -1,0 +1,28 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Border Skin
+Chart1.BorderSkin.SkinStyle = BorderSkinStyle.FrameThin6
+
+' Set Back Color
+Chart1.BorderSkin.BackColor = Color.Red
+
+' Set Back Gradient End Color
+Chart1.BorderSkin.BackSecondaryColor = Color.Blue
+
+' Set Hatch Style
+Chart1.BorderSkin.BackHatchStyle = ChartHatchStyle.DarkVertical
+
+' Set Gradient Type
+Chart1.BorderSkin.BackGradientStyle = GradientStyle.DiagonalRight
+
+' Set Border Color
+Chart1.BorderSkin.BorderColor = Color.Yellow
+
+' Set Border Style
+Chart1.BorderSkin.BorderDashStyle = ChartDashStyle.Solid
+
+' Set Border Width
+Chart1.BorderSkin.BorderWidth = 2   
+
+...

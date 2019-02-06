@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ko" original="../MultilineLabels.resx">
+    <body>
+      <trans-unit id="label7.Text">
+        <source>Set your own labels for the third data point by entering the desired text and clicking the Set Labels for Point # 3 button above. Multiple text lines in the label can be separated with the "\n" string.</source>
+        <target state="new">Set your own labels for the third data point by entering the desired text and clicking the Set Labels for Point # 3 button above. Multiple text lines in the label can be separated with the "\n" string.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

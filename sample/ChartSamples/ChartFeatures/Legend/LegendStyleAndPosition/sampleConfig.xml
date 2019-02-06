@@ -1,0 +1,25 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Legend" Priority="100">
+  <Title>Style and Auto Positioning</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Legend Style and Auto Positioning</ShortBlurb> 
+  <SampleControl>LegendStylePosition</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Style</Keyword>
+    <Keyword>Legend, Docking</Keyword>
+    <Keyword>Legend, Alignment</Keyword>
+    <Keyword>Legend, Disabling</Keyword>
+    <Keyword>Legend, Equally spaced items</Keyword>
+    <Keyword>Equally spaced legend items</Keyword>
+    <Keyword>Chart area, Legend inside</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

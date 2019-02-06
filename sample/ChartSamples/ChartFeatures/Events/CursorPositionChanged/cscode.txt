@@ -1,0 +1,37 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+this.chart1.CursorPositionChanging += new System.Windows.Forms.DataVisualization.Charting.Chart.CursorEventHandler(this.chart1_CursorPositionChanging);
+...
+
+// Edit Controls
+private System.Windows.Forms.TextBox CursorX;
+private System.Windows.Forms.TextBox CursorY;
+		
+// Cursor Position Changing Event
+private void chart1_CursorPositionChanging(object sender, System.Windows.Forms.DataVisualization.Charting.CursorEventArgs e)
+{
+	SetPosition( e.Axis, e.NewPosition );
+}
+
+// Set Cursor Position to Edit control.
+private void SetPosition( Axis axis, double position )
+{
+	if( double.IsNaN( position ) )
+		return;
+
+	if( axis.AxisName == AxisName.X )
+	{
+		// Convert Double to DateTime.
+		DateTime dateTimeX = DateTime.FromOADate( position );
+				
+		// Set X cursor position to edit Control
+		CursorX.Text = dateTimeX.ToLongDateString();
+	}
+	else
+	{
+		// Set Y cursor position to edit Control
+		CursorY.Text = position.ToString();
+	}
+}
+...

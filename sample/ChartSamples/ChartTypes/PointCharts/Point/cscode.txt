@@ -1,0 +1,26 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Populate series data with random data
+Random	random = new Random();
+for(int pointIndex = 0; pointIndex < 10; pointIndex++)
+{
+    chart1.Series["Series1"].Points.AddY(random.Next(5, 60));
+}
+
+// Set point chart type
+chart1.Series["Series1"].ChartType = SeriesChartType.Point;
+
+// Enable data points labels
+chart1.Series["Series1"].IsValueShownAsLabel = true;
+chart1.Series["Series1"]["LabelStyle"] = "Center";
+
+// Set marker size
+chart1.Series["Series1"].MarkerSize = 15;
+
+// Set marker shape
+chart1.Series["Series1"].MarkerStyle = MarkerStyle.Diamond;
+
+// Set to 3D
+chart.ChartAreas[strChartArea].Area3DStyle.Enable3D = true;
+...

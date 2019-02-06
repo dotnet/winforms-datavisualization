@@ -1,0 +1,22 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Zooming and Scrolling" Priority="100">
+  <Title>Basic Zooming</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Basic zooming</ShortBlurb> 
+  <SampleControl>BasicZooming</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Zooming</Keyword>
+	<Keyword>Data view, Zooming</Keyword>
+	<Keyword>Axis, Zooming</Keyword>
+	<Keyword>Scrollbar, Outside chart area</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

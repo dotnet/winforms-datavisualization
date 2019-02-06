@@ -1,0 +1,23 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    ' Set legend position
+    Chart1.Legends[0].Position.Auto = False
+    Chart1.Legends[0].Position.X = 35
+    Chart1.Legends[0].Position.Y = 40
+    Chart1.Legends[0].Position.Width = 35
+    Chart1.Legends[0].Position.Height = 10
+    
+End Sub 'Page_Load
+...
+Private Sub Chart1_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles Chart1.Click
+
+    If e.X <> 0 And e.Y <> 0 Then
+        ' Convert pixels to percentage coordinates and set legend position
+        Chart1.Legends[0].Position.X = e.X * 100F / CSng(Chart1.Width.Value - 1)
+        Chart1.Legends[0].Position.Y = e.Y * 100F / CSng(Chart1.Height.Value - 1)
+    End If
+
+End Sub 'Chart1_Click
+...

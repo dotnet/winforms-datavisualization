@@ -1,0 +1,91 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+If checkBoxUseMultipleYAxis.Checked Then
+   ' Set custom chart area position
+   Chart1.ChartAreas("Default").Position = New ElementPosition(25, 10, 68, 85)
+   Chart1.ChartAreas("Default").InnerPlotPosition = New ElementPosition(10, 0, 90, 90)
+   
+   ' Create extra Y axis for second and third series
+   CreateYAxis(Chart1, Chart1.ChartAreas("Default"), Chart1.Series("Series2"), 13, 8)
+   CreateYAxis(Chart1, Chart1.ChartAreas("Default"), Chart1.Series("Series3"), 22, 8)
+Else
+   ' Set default chart areas
+   Chart1.Series("Series2").ChartArea = "Default"
+   Chart1.Series("Series3").ChartArea = "Default"
+   
+   ' Remove newly created series and chart areas
+   While Chart1.Series.Count > 3
+      Chart1.Series.RemoveAt(3)
+   End While
+   While Chart1.ChartAreas.Count > 1
+      Chart1.ChartAreas.RemoveAt(1)
+   End While
+   
+   ' Set default chart area position to Auto
+   Chart1.ChartAreas("Default").Position.Auto = True
+   Chart1.ChartAreas("Default").InnerPlotPosition.Auto = True
+End If
+
+...
+
+'/ <summary>
+'/ Creates Y axis for the specified series.
+'/ </summary>
+'/ <param name="chart">Chart control.</param>
+'/ <param name="area">Original chart area.</param>
+'/ <param name="series">Series.</param>
+'/ <param name="axisOffset">New Y axis offset in relative coordinates.</param>
+'/ <param name="labelsSize">Extra space for new Y axis labels in relative coordinates.</param>
+Public Sub CreateYAxis(chart As Chart, area As ChartArea, series As Series, axisOffset As Single, labelsSize As Single)
+   ' Create new chart area for original series
+   Dim areaSeries As ChartArea = chart.ChartAreas.Add(("ChartArea_" + series.Name))
+   areaSeries.BackColor = Color.Transparent
+   areaSeries.BorderColor = Color.Transparent
+   areaSeries.Position.FromRectangleF(area.Position.ToRectangleF())
+   areaSeries.InnerPlotPosition.FromRectangleF(area.InnerPlotPosition.ToRectangleF())
+   areaSeries.AxisX.MajorGrid.Enabled = False
+   areaSeries.AxisX.MajorTickMark.Enabled = False
+   areaSeries.AxisX.LabelStyle.Enabled = False
+   areaSeries.AxisY.MajorGrid.Enabled = False
+   areaSeries.AxisY.MajorTickMark.Enabled = False
+   areaSeries.AxisY.LabelStyle.Enabled = False
+   areaSeries.AxisY.IsStartedFromZero = area.AxisY.IsStartedFromZero
+      
+   series.ChartArea = areaSeries.Name
+   
+   ' Create new chart area for axis
+   Dim areaAxis As ChartArea = chart.ChartAreas.Add(("AxisY_" + series.ChartArea))
+   areaAxis.BackColor = Color.Transparent
+   areaAxis.BorderColor = Color.Transparent
+   areaAxis.Position.FromRectangleF(chart.ChartAreas(series.ChartArea).Position.ToRectangleF())
+   areaAxis.InnerPlotPosition.FromRectangleF(chart.ChartAreas(series.ChartArea).InnerPlotPosition.ToRectangleF())
+   
+   ' Create a copy of specified series
+   Dim seriesCopy As Series = chart.Series.Add((series.Name + "_Copy"))
+   seriesCopy.ChartType = series.ChartType
+   Dim point As DataPoint
+   For Each point In  series.Points
+      seriesCopy.Points.AddXY(point.XValue, point.YValues(0))
+   Next point
+   
+   ' Hide copied series
+   seriesCopy.IsVisibleInLegend = False
+   seriesCopy.Color = Color.Transparent
+   seriesCopy.BorderColor = Color.Transparent
+   seriesCopy.ChartArea = areaAxis.Name
+   
+   ' Disable grid lines & tickmarks
+   areaAxis.AxisX.LineWidth = 0
+   areaAxis.AxisX.MajorGrid.Enabled = False
+   areaAxis.AxisX.MajorTickMark.Enabled = False
+   areaAxis.AxisX.LabelStyle.Enabled = False
+   areaAxis.AxisY.MajorGrid.Enabled = False
+   areaAxis.AxisY.IsStartedFromZero = area.AxisY.IsStartedFromZero
+   
+   ' Adjust area position
+   areaAxis.Position.X -= axisOffset
+   areaAxis.InnerPlotPosition.X += labelsSize
+End Sub 'CreateYAxis
+
+...

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "ChartFeatures">
+	<Title>Saving And Copying Images</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Saving And Copying Chart Images</ShortBlurb>
+	<SampleControl>SavingAndCopyingImages</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+		<Keyword>Clipboard</Keyword>
+		<Keyword>Saving chart as image</Keyword>
+	</Keywords> 
+
+	</SampleConfig>
+
+</SampleConfigs>

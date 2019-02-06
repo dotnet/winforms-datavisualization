@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet">
+        <style type="text/css">
+            .style1
+            {
+                text-align: left;
+            }
+        </style>
+    </head>
+	<body>
+		<p>
+            <br />
+            Microsoft Chart Control for .NET Framework supports a large number of 
+            events,&nbsp;giving developers many different ways to customize their charts.&nbsp;</p>
+        <p>
+            All events are made available by the Chart object. The name of the event usually 
+            indicates the nature of the event and the object to which it applies, such as 
+            the AxisScrollBarClicked event.
+        </p>
+        <h3>
+            PrePaint and PostPaint</h3>
+        <p>
+            There are&nbsp;two special events that allow for custom painting:&nbsp;PrePaint and 
+            PostPaint. The PrePaint event is triggered just before the Chart object is 
+            painted, and the PostPaint event is triggered just after the chart is 
+            painted.&nbsp;Use these events for custom painting. The figure below demonstrates 
+            using PostPaint to place an image in the chart picture.</p>
+        <p>
+            <img alt="" 
+                src="CustomImage.jpg" /></p>
+        <p>
+            The following lists chart elements that have one or more&nbsp;associated events:</p>
+		<P>
+			<TABLE id="Table1" cellSpacing="2" cellPadding="2" width="100%" border="1">
+				<TR>
+					<TH vAlign="center" align="middle" width="141">
+						Chart Element</TH>
+					<TH vAlign="center" class="style1">
+						Related Events</TH></TR>
+				<TR>
+					<TD width="141">Annotation</TD>
+					<TD>AnnotationPlaced, AnnotationPositionChanging, AnnotationPositionChanged, 
+                        AnnotationSelectionChanged</TD>
+				</TR>
+				<TR>
+					<TD width="141">Axis</TD>
+					<TD>AxisScrollBarClicked, AxisViewChanging, AxisViewChanged</TD>
+				</TR>
+				<TR>
+					<TD width="141">Chart (root object)</TD>
+					<TD>PrePaint, PostPaint</TD>
+				</TR>
+				<TR>
+					<TD width="141">Cursor</TD>
+					<TD>CursorPositionChanging, CursorPositionChanged, SelectionRangeChanging, 
+						SelectionRangeChanged</TD>
+				</TR>
+				<TR>
+					<TD width="141">multiple elements</TD>
+					<TD>GetTooltipText</TD>
+				</TR>
+			</TABLE>
+		</P>
+	</body>
+</html>

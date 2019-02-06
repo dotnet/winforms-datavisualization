@@ -1,0 +1,30 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Cursors">
+  <Title>Auto Zoom/Scroll Cursors</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Auto Zoom/Scroll Cursors</ShortBlurb> 
+  <SampleControl>CursorAutoZoomScroll</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Scrolling</Keyword>
+    <Keyword>Zooming, Automatically Scroll Cursors</Keyword>
+  </Keywords>
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Auto Zoom/Scroll Cursors</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Auto Zoom/Scroll Cursors</ShortBlurb> 
+  <SampleControl>CursorAutoZoomScroll</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<LINK href="../../../../Styles.css" type="text/css" rel="stylesheet">
+	</HEAD>
+	<BODY>
+		<P><br>
+			The pyramid chart is used to display data that adds up to 100%.
+		</P>
+		<P>Each data point of the funnel chart may have a label. The position of the labels 
+			is controlled by the PyramidLabelStyle custom attribute, which can be set on 
+			the series or on the data point:
+		</P>
+		<UL>
+			<LI>
+			OutsideInColumn: This is the default label style. Labels are outside of the 
+			pyramid and form a column on one side. The callout line connects the label with 
+			the point.&nbsp;
+			<LI>
+			Outside: Labels are placed close to the edge on the outside of the 
+			pyramid.&nbsp;
+			<LI>
+			Inside: Labels are placed inside the pyramid segments.&nbsp;
+			<LI>
+				Disabled: Labels are not shown.
+			</LI>
+		</UL>
+		<P>The PyramidOutsideLabelPlacement custom attribute defines if the outside labels 
+			are drawn on the left or right side. The PyramidInsideLabelAlignment attribute 
+			defines the vertical alignment of the data point labels when the label style is 
+			set to Inside. The CalloutLineColor attribute sets the line color used in 
+			conjunction with the OutsideInColumn label style.
+		</P>
+		<P>The PyramidPointGap attribute allows the developer to separate each segment of 
+			the funnel with a point gap. The size of the gap is in relative coordinates. 
+			The gap size will automatically be restricted so that all points fit into the 
+			plotting area.
+		</P>
+		<P>The PyramidMinPointHeight attribute sets the minimum height of the segment. This 
+			attribute reduces the display of very thin segments.
+		</P>
+		<P>When working with data that contains large discrepancies between values, it is 
+			recommended that the developer use a logarithmic scale. The pyramid chart type 
+			is useful for representing this kind of data. A logarithmic scale can be added 
+			by setting the Logarithmic property of the ChartArea class. Negative Y values 
+			are always treated as being positive.
+		</P>
+		<P>A 3D pyramid can be displayed by setting the Enable3D property of the ChartArea 
+			class. The angle of rotation is controlled by the Pyramid3DRotationAngle custom 
+			attribute and can be in the range of -10 to 10 degrees. The 
+			Pyramid3DDrawingStyle custom attribute can define the shape of the pyramid base 
+			and can be set to CircularBase or SquareBase.
+		</P>
+		<P>The relative size of each pyramid segment is calculated based on the value of 
+			the PyramidValueType property:&nbsp;</P>
+		<UL>
+			<LI>
+			Linear: Each data point value is displayed relative to the height of each 
+			pyramid segment.&nbsp;
+			<LI>
+				Surface: Each data point value is displayed relative to the surface area of 
+				each pyramid segment.</LI></UL>
+	</BODY>
+</HTML>

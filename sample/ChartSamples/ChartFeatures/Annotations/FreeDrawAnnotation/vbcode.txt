@@ -1,0 +1,53 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Private Sub DrawingMode_CheckedChanged(sender As Object, e As System.EventArgs)
+   If DrawingMode.Checked Then
+      DrawAnnotation()
+   Else
+      Chart1.Annotations((Chart1.Annotations.Count - 1)).EndPlacement()
+   End If
+End Sub 'DrawingMode_CheckedChanged
+
+
+Private Sub Chart1_AnnotationPlaced(sender As Object, e As System.EventArgs) Handles Chart1.AnnotationPlaced
+   If DrawingMode.Checked Then
+      DrawAnnotation()
+   End If
+End Sub 'Chart1_AnnotationPlaced
+
+Private Sub DrawAnnotation()
+   Dim polyline As New PolylineAnnotation()
+   polyline.LineColor = Color.Red
+   polyline.LineWidth = 2
+   polyline.ShadowOffset = 2
+   Chart1.Annotations.Add(polyline)
+   polyline.FreeDrawPlacement = True
+   polyline.BeginPlacement()
+End Sub 'DrawAnnotation
+
+Private Sub UndoButton_Click(sender As Object, e As System.EventArgs)
+   If Chart1.Annotations.Count > 0 Then
+      ' If in drawing mode, end the drawing mode...
+      If DrawingMode.Checked Then
+         ' Uncheck the drawing mode button, which will cause
+         ' the end placement method to be called for the check changed event
+         DrawingMode.Checked = False
+         
+         ' Call self to remove the annotation... as simply removing the 
+         ' annotation does not work 
+         UndoButton_Click(sender, e)
+      End If
+      
+      ' Remove the last annotation object that was added
+      Chart1.Annotations.Remove(Chart1.Annotations((Chart1.Annotations.Count - 1)))
+   End If
+End Sub 'UndoButton_Click
+
+
+Private Sub ClearAll_Click(sender As Object, e As System.EventArgs)
+	' Remove all annotation objects
+	Chart1.Annotations.Clear()
+	
+End Sub 'ClearAll_Click
+...

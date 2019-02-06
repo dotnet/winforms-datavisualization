@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>3D Perspective</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using 3D Perspective</ShortBlurb> 
+  <SampleControl>UsingPerspectives</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Perspective</Keyword>
+	<Keyword>3D, Perspective</Keyword>
+  </Keywords> 
+</SampleConfig>
+</SampleConfigs>

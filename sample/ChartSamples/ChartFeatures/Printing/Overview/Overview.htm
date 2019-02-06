@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<P>The Chart control uses the Chart.Printing property (a PrintManager object) for 
+            printing charts. When a chart is printed, all chart elements except for scrollbars will be 
+			printed. The PrintManager object has&nbsp;the following methods that are used for basic 
+				printing operations:</P>
+			<UL>
+				<LI>
+					PageSetup: displays a Page Setup dialog, which allows for paper size 
+				selection, paper source, orientation, etc.
+				<LI>
+					PrintPreview: displays a Print Preview dialog, which allows the 
+				end-user to zoom, print the chart, etc.
+				<LI>
+					Print: prints the 
+    chart, and the Print dialog can optionally be displayed prior to 
+    printing.</LI></UL>
+			<P>Use the PrintingManager property when you need to perform more advanced printing 
+                tasks, such as a setting margins programmatically.</P>
+			<H4>Custom Printing</H4>
+				<P>Use the PrintDocument.PrintPage event to perform custom painting. To embed 
+                    multiple charts in the same printed document, call the Chart.Printing.PrintPaint 
+                    method for each Chart control in the event callback for PrintPage.</P>
+	</body>
+</html>

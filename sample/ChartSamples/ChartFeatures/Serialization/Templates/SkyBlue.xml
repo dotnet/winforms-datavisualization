@@ -1,0 +1,28 @@
+<Chart Palette="BrightPastel" BackColor="211, 223, 240" BackGradientStyle="TopBottom" BackSecondaryColor="White" BorderColor="26, 59, 105" BorderWidth="2" BorderDashStyle="Solid">
+  <series>
+    <series _Template_="All" BorderColor="180, 26, 59, 105">
+    </series>
+  </series>
+  <chartareas>
+    <ChartArea _Template_="All" BackColor="64, 165, 191, 228" BackGradientStyle="TopBottom" BackSecondaryColor="White" ShadowColor="Transparent" BorderColor="64, 64, 64, 64" BorderDashStyle="Solid">
+      <axisy LineColor="64, 64, 64, 64">
+        <MajorGrid LineColor="64, 64, 64, 64" />
+        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+      </axisy>
+      <axisx LineColor="64, 64, 64, 64">
+        <MajorGrid LineColor="64, 64, 64, 64" />
+        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+      </axisx>
+      <area3dstyle IsRightAngleAxes="False" IsClustered="False" Perspective="10" Inclination="15" Rotation="10" WallWidth="0"/>
+    </ChartArea>
+  </chartareas>
+  <legends>
+    <Legend _Template_="All" BackColor="Transparent" Font="Trebuchet MS, 8.25pt, style=Bold">
+    </Legend>
+  </legends>
+  <titles>
+    <Title _Template_="All" Font="Trebuchet MS, 14.25pt, style=Bold" ForeColor="26, 59, 105" ShadowOffset="3" ShadowColor="32, 0, 0, 0">
+    </Title>
+  </titles>
+  <borderskin SkinStyle="Emboss" PageColor="White" />
+</Chart>

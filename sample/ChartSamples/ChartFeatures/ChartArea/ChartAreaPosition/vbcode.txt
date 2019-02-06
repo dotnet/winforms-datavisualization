@@ -1,0 +1,19 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+   
+' Set Chart Area position
+Chart1.ChartAreas("Default").Position.Auto = False
+Chart1.ChartAreas("Default").Position.X = 10
+Chart1.ChartAreas("Default").Position.Y = 10
+Chart1.ChartAreas("Default").Position.Width = 80
+Chart1.ChartAreas("Default").Position.Height = 80
+
+' Set the plotting area position. Coordinates of a plotting 
+' area are relative to a chart area position.
+Chart1.ChartAreas("Default").InnerPlotPosition.Auto = False
+Chart1.ChartAreas("Default").InnerPlotPosition.X = 10
+Chart1.ChartAreas("Default").InnerPlotPosition.Y = 10
+Chart1.ChartAreas("Default").InnerPlotPosition.Width = 80
+Chart1.ChartAreas("Default").InnerPlotPosition.Height = 80
+   
+...

@@ -1,0 +1,47 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Add header separator of type line
+Chart1.Legends["Default"].HeaderSeparator = LegendSeparatorStyle.Line;
+Chart1.Legends["Default"].HeaderSeparatorColor = Color.Gray;
+
+// Add Color column
+LegendCellColumn firstColumn = new LegendCellColumn();
+firstColumn.ColumnType = LegendCellColumnType.SeriesSymbol;
+firstColumn.HeaderText = "Color";
+firstColumn.HeaderBackColor = Color.WhiteSmoke;
+Chart1.Legends["Default"].CellColumns.Add(firstColumn);
+
+// Add Legend Text column
+LegendCellColumn secondColumn = new LegendCellColumn();
+secondColumn.ColumnType = LegendCellColumnType.Text;
+secondColumn.HeaderText = "Name";
+secondColumn.Text = "#LEGENDTEXT";
+secondColumn.HeaderBackColor = Color.WhiteSmoke;
+Chart1.Legends["Default"].CellColumns.Add(secondColumn);
+
+// Add AVG cell column
+LegendCellColumn avgColumn = new LegendCellColumn();
+avgColumn.Text = "#AVG{N2}";
+avgColumn.HeaderText = "Avg";
+avgColumn.Name = "AvgColumn";
+avgColumn.HeaderBackColor = Color.WhiteSmoke;
+Chart1.Legends["Default"].CellColumns.Add(avgColumn);
+
+// Add Total cell column
+LegendCellColumn totalColumn = new LegendCellColumn();
+totalColumn.Text = "#TOTAL{N1}";
+totalColumn.HeaderText = "Total";
+totalColumn.Name = "TotalColumn";
+totalColumn.HeaderBackColor = Color.WhiteSmoke;
+Chart1.Legends["Default"].CellColumns.Add(totalColumn);
+
+// Set Min cell column attributes
+LegendCellColumn minColumn = new LegendCellColumn();
+minColumn.Text = "#MIN{N1}";
+minColumn.HeaderText = "Min";
+minColumn.Name = "MinColumn";
+minColumn.HeaderBackColor = Color.WhiteSmoke;
+Chart1.Legends["Default"].CellColumns.Add(minColumn);
+		
+...

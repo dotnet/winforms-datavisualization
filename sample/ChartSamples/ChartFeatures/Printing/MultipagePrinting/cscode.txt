@@ -1,0 +1,68 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Page index
+private	int printingPageIndex = 0;
+
+// Set new print document with custom page printing event handler
+chart1.Printing.PrintDocument = new PrintDocument();
+chart1.Printing.PrintDocument.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+
+// Print preview chart
+chart1.Printing.PrintPreview();
+
+...
+
+private void pd_PrintPage(object sender, PrintPageEventArgs ev) 
+{
+	// Print more pages
+	ev.HasMorePages = true;
+
+	// Calculate chart position rectangle
+	Rectangle	chartPosition = new Rectangle(ev.MarginBounds.X, ev.MarginBounds.Y, chart1.Size.Width, chart1.Size.Height);
+
+	// Align chart position on the page
+	float	chartWidthScale = ((float)ev.MarginBounds.Width) / ((float)chartPosition.Width);
+	float	chartHeightScale = ((float)ev.MarginBounds.Height) / ((float)chartPosition.Height);
+	chartPosition.Width = (int)(chartPosition.Width * Math.Min(chartWidthScale, chartHeightScale));
+	chartPosition.Height = (int)(chartPosition.Height * Math.Min(chartWidthScale, chartHeightScale));
+
+	// Check if chart view was already set
+	if(double.IsNaN(chart1.ChartAreas["Default"].AxisX.ScaleView.Position))
+	{
+		// Reset page index
+		printingPageIndex = 0;
+
+		// Set view
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Position = chart1.ChartAreas["Default"].AxisX.Minimum;
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Size = 2;
+		chart1.ChartAreas["Default"].AxisX.ScaleView.SizeType = DateTimeIntervalType.Months;
+	}
+
+	// Set chart title
+	++printingPageIndex;
+	chart1.Title = "Chart Page Number " + printingPageIndex.ToString();
+
+	// Draw chart on the printer graphisc
+	chart1.Printing.PrintPaint(ev.Graphics, chartPosition);
+
+	// Scroll to the next view (2 months)
+	double	currentPosition = chart1.ChartAreas["Default"].AxisX.ScaleView.Position;
+	chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.LargeIncrement);
+	
+	// Check if position was scrolled
+	if(currentPosition >= chart1.ChartAreas["Default"].AxisX.ScaleView.Position - 1.0)
+	{
+		// No more pages
+		ev.HasMorePages = false;
+
+		// Restore view state
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Position = double.NaN;
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Size = double.NaN;
+
+		// Remove chart title
+		chart1.Title = "";
+	}
+}
+
+...

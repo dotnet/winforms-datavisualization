@@ -1,0 +1,16 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "PyramidFunnelCharts" Priority = "1">
+  <Title>Gallery</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Pyramid and Funnel Chart Gallery</ShortBlurb> 
+  <SampleControl>None</SampleControl>
+  <InfoPages>
+    <InfoPage Title="Gallery">AccumulationGallery.htm</InfoPage>
+  </InfoPages>
+
+</SampleConfig>
+
+
+</SampleConfigs>

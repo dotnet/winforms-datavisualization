@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority="1200">
+  <Title>Offset Strip Lines</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Strip Lines Offset</ShortBlurb> 
+  <SampleControl>StripIntervals</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Strip Lines, Interval and offset</Keyword>
+	<Keyword>Interval, Strip Lines</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

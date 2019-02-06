@@ -1,0 +1,10 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set interval of X axis to 1 week, with an offset of 1 day
+chart1.ChartAreas["Default"].AxisX.Interval = 1;
+chart1.ChartAreas["Default"].AxisX.IntervalType =  DateTimeIntervalType.Weeks;
+chart1.ChartAreas["Default"].AxisX.IntervalOffset =  1;
+chart1.ChartAreas["Default"].AxisX.IntervalOffsetType =  DateTimeIntervalType.Days;
+
+...

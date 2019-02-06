@@ -1,0 +1,37 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Zooming and Scrolling" Priority="200">
+  <Title>Scrollbar Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Scrollbar Appearance</ShortBlurb> 
+  <SampleControl>ScrollBarAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Scrollbar, Appearance</Keyword>
+	<Keyword>Appearance, Scrollbar</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Scrollbar Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Scrollbar Appearance</ShortBlurb> 
+  <SampleControl>ScrollBarAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+	<Keyword>Scrollbar, Appearance</Keyword>
+	<Keyword>Appearance, Scrollbar</Keyword>
+  </Keywords> 
+</SampleConfig>
+
+</SampleConfigs>

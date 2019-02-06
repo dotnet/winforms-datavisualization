@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../FastLineChartType.resx">
+    <body>
+      <trans-unit id="label2.Text">
+        <source>To optimize performance, these two chart types do not use appearance properties for individual points. They do not display data point markers, data point labels, or line shadows. Use the regular Line or Point chart type if you wish to use these features.</source>
+        <target state="new">To optimize performance, these two chart types do not use appearance properties for individual points. They do not display data point markers, data point labels, or line shadows. Use the regular Line or Point chart type if you wish to use these features.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

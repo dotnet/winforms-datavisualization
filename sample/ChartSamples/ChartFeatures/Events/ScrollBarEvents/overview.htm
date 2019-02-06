@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet">
+	</head>
+	<BODY>
+		<P><br>
+			The AxisScrollBarClicked event 
+provides custom
+			functionality for any of the scrollbar buttons. It is raised when the end-user 
+			clicks on a scrollbar using the left mouse button.
+		</P>
+		<H3>Scrolling Basics</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<H4>Reset and Zoom</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<P>When zooming and resetting is enabled, the chart stores a history of views. When 
+					the Reset button is pressed on the scrollbar, the chart by default displays the last view 
+                    <i>for that axis</i>.</P>
+				<P><IMG src="Zoom2.PNG"><br>
+					</P>
+			</BLOCKQUOTE>
+			<H4>Line Scrolling</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<P>Clicking on the up, down, left, or right arrows results in line scrolling. The 
+                    amount of scroll is specified by the SmallScrollSize property.
+				</P>
+				<P><IMG src="Zoom3.PNG"><br>
+				</P>
+			</BLOCKQUOTE>
+			<H4>Page Scrolling</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<P>
+					Clicking in the scrollbar background (see the figure below) results in page 
+    scrolling. The amount of scroll is specified by the Size property.
+				</P>
+			</BLOCKQUOTE>
+			<P><IMG src="PageScrolling.PNG"></P>
+			</BLOCKQUOTE>
+		<H3>
+			Customizing Scrolling Behavior</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<P>You can use the AxisScrollBarClicked event to customize the default behavior. 
+                    These behaviors include:</P>
+            <UL>
+                <LI>Overriding the default behavior of the scrollbar 
+                    using the Handled 
+				property.
+				<LI>Determining what axis the scrollbar belongs to using the Axis 
+				property.
+				<LI>Determining what button was clicked in the 
+    scrollbar using the ButtonType 
+				property.
+				<LI>Determining the X and Y positions of the mouse cursor at the time the event is raised.</LI>
+            </UL>
+		</BLOCKQUOTE>
+		</BODY>
+</HTML>

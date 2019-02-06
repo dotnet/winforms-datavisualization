@@ -1,0 +1,9 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set cursor axis type    
+chart1.ChartAreas["Default"].CursorX.AxisType = AxisType.Primary;
+chart1.ChartAreas["Default"].CursorY.AxisType = AxisType.Secondary;
+
+
+...

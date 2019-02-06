@@ -1,0 +1,33 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Series Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Series Appearance</ShortBlurb> 
+  <SampleControl>SeriesAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Appearance</Keyword>
+    <Keyword>Appearance, Series</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Series Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Series Appearance</ShortBlurb> 
+  <SampleControl>SeriesAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Appearance</Keyword>
+    <Keyword>Appearance, Series</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

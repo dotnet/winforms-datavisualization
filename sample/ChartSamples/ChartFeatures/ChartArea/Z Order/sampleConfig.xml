@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Z Order</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Chart Areas ZOrder</ShortBlurb> 
+  <SampleControl>ZOrder</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Z order</Keyword>
+	<Keyword>Chart area, Z order</Keyword>
+	<Keyword>Series, Z order</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

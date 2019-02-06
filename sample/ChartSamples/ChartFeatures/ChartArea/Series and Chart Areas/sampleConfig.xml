@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Series and Chart Areas</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Attaching Series to Chart Area</ShortBlurb> 
+  <SampleControl>SeriesAndChartAreas</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">Overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Attaching to chart area</Keyword>
+	<Keyword>Chart area, Attaching series</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

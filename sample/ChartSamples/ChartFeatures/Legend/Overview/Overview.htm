@@ -1,0 +1,198 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>Microsoft Chart Control for .NET Framework supports an unlimited number 
+			of&nbsp;legends, which can automatically be positioned and aligned inside or 
+			outside of chart areas.</p>
+		<H3>Legend Features</H3>
+		<UL>
+			<LI>
+			Numerous appearance styles and properties.
+			<LI>
+				Unlimited
+			number of&nbsp;legends are supported.
+			<LI>
+			Full docking and alignment support, inside or outside of chart areas.
+			<LI>
+			Optional automatic generation of legend items (using series or data point 
+			names).
+			<LI>
+			Custom legends.
+			<LI>
+			    Multiple styles available&nbsp;(row, column or table).<LI>
+			    Keyword support.
+			<LI>
+			Multiple cell columns for easy insertion of keywords.
+			<LI>
+			Ability to add headers to each cell column of the chart.
+			<LI>
+			Optional automatic sizing and fitting&nbsp;of legend item text.
+			<LI>
+			    Customization using the CustomizeLegend event.
+			<LI>
+			    Text, series symbols, or 
+			images in custom legend items.
+			<LI>
+			    Word wrap.
+			</UL>
+		<H3>Appearance Properties</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p dir="ltr">Legends, like many other Chart elements, support a wide variety of 
+				appearances including the following:</p>
+			<UL dir="ltr">
+				<LI>
+					<DIV>Gradient colors, with numerous styles available (see the figure below). These 
+                        are applicable to both legends 
+						and legend items.
+					</DIV>
+				<LI>
+					<DIV>Hatching, with numerous patterns available.</DIV>
+				<LI>
+					<DIV>Background images.</DIV>
+				<LI>
+					<DIV>Transparency, set using a color's&nbsp;alpha value.</DIV>
+				</LI>
+			</UL>
+			<p dir="ltr"><IMG alt="Gradient Color" src="LegendGradients.PNG" border="0"><BR>
+				</p>
+		</BLOCKQUOTE>
+		<H3>Positioning, Docking and Alignment</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Legends can be&nbsp;docked and aligned either inside of outside of chart areas, 
+				making them easy to position on a form (see the figure below).</p>
+			<p><IMG alt="Docking and Alignment of Legends" src="Alignment.PNG" border="0"><BR>
+			</p>
+			<p>As an alternative, they can be explicitly positioned using position-related 
+                properties, such as&nbsp; X, Y, Width and Height.</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Default and Custom Legend Items</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>The Chart by default automatically creates one or more legend entries for all 
+				chart types. The entries that are used for pie and doughnut charts are the 
+				names of the plotted data points, while entries for all other chart types are 
+				the names of the plotted series.</p>
+			<p>These items are referred to as the <i>default </i>legend items, and their&nbsp;text 
+				can be changed using the LegendText property of series and data points.&nbsp;Note that legend items 
+                are not created for series or data points if their 
+				IsVisibleInLegend property is set to <b>False</b>.
+			</p>
+			<p>A <i>custom</i> legend&nbsp;item is is not associated with data, and can be inserted 
+				into a legend via the CustomItems collection property of the Legend object. Custom items are always appended to any existing default legend items. The Name 
+				property defines the legend item's text, and three styles can be used: 
+				Rectangle, Marker, and Line.</p>
+			<p><IMG alt="Docking and Alignment of Legends" src="CustomItems.PNG" border="0"><BR>
+				</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Extending Default Legend Items</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>By default, the legend has two <EM>cell columns</EM>: a series symbol cell 
+				column, which corresponds to the series indicator color, and a text cell column, 
+                which corresponds to the series name.&nbsp;You can use the <STRONG>CellColumn</STRONG> collection 
+				to extend the functionality of the default legend.</p>
+            <p>Note that you can use a line break for multi-line legend text. At design 
+                time, use a &#39;\n&#39; character sequence. At run time, use your respective 
+                programming language's line break or carriage return expression. For example, vbCrLf for Visual Basic.</p>
+			<H3><IMG alt="" src="LegendDiagram3.png"></H3>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Headers</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>You can use a header, positioned at the top of each cell column, to 
+				appropriately name each cell column. Depending on the size of the table, the 
+				header may be repeated at the top of each legend item column.</p>
+			<p>To add a header to a cell column, use the HeaderText property. 
+				After setting the HeaderText property, you can also specify the HeaderBackColor 
+                and HeaderSeparator properties.
+			</p>
+		</BLOCKQUOTE>
+		<H3>Legend Item Columns</H3>
+		<p>When using multiple legend item columns, you have the option of defining the 
+				ItemColumnSeparator type, as well as the spacing between columns 
+			using the ItemColumnSpacing property.</p>
+		<p><IMG alt="" src="LegendDiagram4.png"></p>
+		<H3 dir="ltr">
+			Keyword Support</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p dir="ltr">Text assigned to the DataPoint.Label property can contain&nbsp;special 
+				keywords, which are used to&nbsp;insert data point values into the 
+				point's label. The figure below shows a legend item with its LegenText property 
+                set to <b>&quot;Value = #VAL&quot;</b>.</p>
+			<p dir="ltr" style="MARGIN-RIGHT: 0px"><EM><IMG alt="Using Keywords in Legend Items" src="Keywords.png" border="0"></EM></p>
+			<p dir="ltr">Keywords are case-sensitive, and are specific to the chart element 
+					to which they are applied. For example, #VAL is used for series and data points. Refer to the following table for a listing of all available keywords:</p>
+			<p dir="ltr" style="MARGIN-RIGHT: 0px">
+				<TABLE id="Table1" cellSpacing="2" cellpadding="2" width="440" border="1" height="284">
+					<tr>
+						<TH valign="center" align="middle" width="141">
+							Keyword</TH>
+						<TH valign="center" align="middle">
+							Replaced By</TH></tr>
+					<tr>
+						<TD width="141">#VALX</td>
+						<td>X value of the data point</td>
+					</tr>
+					<tr>
+						<TD width="141">#VAL, #VALY, #VALY2, #VALY3, ...</td>
+						<td>Y values of the data point</td>
+					</tr>
+					<tr>
+						<TD width="141">#SER</td>
+						<td>Series name</td>
+					</tr>
+					<tr>
+						<TD width="141">#LABEL:</td>
+						<td>Data point label</td>
+					</tr>
+					<tr>
+						<TD width="141">#INDEX</td>
+						<td>Data point index</td>
+					</tr>
+					<tr>
+						<TD width="141">#PERCENT</td>
+						<td>Percentage of the data point Y value</td>
+					</tr>
+					<tr>
+						<TD width="141">#TOTAL</td>
+						<td>Total of all Y values in the series</td>
+					</tr>
+					<tr>
+						<TD width="141">#LEGENDTEXT</td>
+						<td>Legend text</td>
+					</tr>
+				</TABLE>
+			</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr" style="MARGIN-RIGHT: 0px">Custom Cells</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>The&nbsp;Cells collection gives you the ability 
+				to&nbsp;modify&nbsp;each individual cell of a custom&nbsp;legend item.&nbsp;Each cell can have its own spacing by setting the Alignment and
+				Margins properties.&nbsp;All&nbsp;values appliable to margins 
+				and cell spans are calculated as a percentage of the legend font size.&nbsp;
+			</p>
+			<p>Three cell types are available: Text, SeriesSymbol, and Image.&nbsp;These 
+				styles determine how each individual cell is displayed, and are determined 
+				by the CellType property.</p>
+			<H4>Text</H4>
+			<p>When Cell.CellType is set to <b>Text</b>,&nbsp;the 
+				text defined by the Cell.Text property is&nbsp;displayed in 
+				the cell.</p>
+			<H4>SeriesSymbol</H4>
+			<p>When&nbsp;Cell.CellType is set to <b>SeriesSymbol</b>, 
+				the series symbol defined by the LegendItem.Style property&nbsp;is displayed for the cell.&nbsp;When Style is set to <STRONG>Marker</STRONG>, 
+				all marker attributes of the custom item apply to the cell.&nbsp;To specify 
+				the size of the marker in a custom cell, use the Cell.SeriesSymbolSize
+				property to define the width and height of the series symbol.&nbsp;All&nbsp;values 
+                appliable to series symbol size are calculated as a percentage of 
+				the legend font size.&nbsp;The following figure shows the available types of 
+                series symbols.</p>
+			<p><EM><IMG alt="" src="SeriesSymbol3.PNG" border="0"></EM></p>
+			<H4>Image</H4>
+			<p>When Cell.CellType is set to <STRONG>Image</STRONG>, the image 
+				defined by the Cell.Image property is displayed in the cell. 
+				Additionally, you can set the size of the image via the ImageSize
+				property. All values applicable to image size are calculated as a percentage of the 
+				legend font size.
+			</p>
+		</BLOCKQUOTE>
+		</body>
+</html>

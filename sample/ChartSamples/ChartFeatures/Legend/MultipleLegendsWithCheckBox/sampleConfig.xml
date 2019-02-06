@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Legend" Priority = "400">
+  <Title>Multiple Legends</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Multiple Legends</ShortBlurb> 
+  <SampleControl>MultipleLegendsWithCheckBox</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Multiple legends</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

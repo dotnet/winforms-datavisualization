@@ -1,0 +1,10 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Title font
+Chart1.Legends("Default").Font = New Font("Times New Roman", 12, FontStyle.Bold)
+
+' Set Title color
+Chart1.Legends("Default").FontColorCombo = Color.Red   
+
+...

@@ -1,0 +1,18 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Create references to series
+Dim series() As Series =  New Series(3) {} 
+series(0) = Chart1.Series("Series1")
+series(1) = Chart1.Series("Series2")
+series(2) = Chart1.Series("Series3")
+
+' Remove all series from the collection
+Chart1.Series.Clear()
+
+' Add chart series to the collection in selected order
+Chart1.Series.Add(series(2))
+Chart1.Series.Add(series(0))
+Chart1.Series.Add(series(1))
+
+...

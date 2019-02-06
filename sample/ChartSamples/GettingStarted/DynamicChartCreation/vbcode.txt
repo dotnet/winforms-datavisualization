@@ -1,0 +1,48 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+Dim Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
+
+Private Sub DynamicChartCreation_Load(sender As Object, e As System.EventArgs)
+   ' Create a Chart
+   Chart1 = New Chart()
+   
+   ' Create Chart Area
+   Dim chartArea1 As New ChartArea()
+   
+   ' Add Chart Area to the Chart
+   Chart1.ChartAreas.Add(chartArea1)
+   
+   ' Create a data series
+   Dim series1 As New Series()
+   Dim series2 As New Series()
+   
+   ' Add data points to the first series
+   series1.Points.Add(34)
+   series1.Points.Add(24)
+   series1.Points.Add(32)
+   series1.Points.Add(28)
+   series1.Points.Add(44)
+   
+   ' Add data points to the second series
+   series2.Points.Add(14)
+   series2.Points.Add(44)
+   series2.Points.Add(24)
+   series2.Points.Add(32)
+   series2.Points.Add(28)
+   
+   ' Add series to the chart
+   Chart1.Series.Add(series1)
+   Chart1.Series.Add(series2)
+   
+   ' Set chart control location
+   Chart1.Location = New System.Drawing.Point(16, 48)
+   
+   ' Set Chart control size
+   Chart1.Size = New System.Drawing.Size(360, 260)
+   
+   ' Add chart control to the form
+   Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.Chart1})
+End Sub 'DynamicChartCreation_Load 
+
+...

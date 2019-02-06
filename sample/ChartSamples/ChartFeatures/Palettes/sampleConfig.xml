@@ -1,0 +1,21 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartFeatures">
+  <Title>Palettes</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Palettes</ShortBlurb> 
+  <SampleControl>Palettes</SampleControl> 
+  <InfoPages>
+	<InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Palettes</Keyword>
+	<Keyword>Custom Palettes</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

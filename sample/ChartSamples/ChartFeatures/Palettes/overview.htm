@@ -1,0 +1,29 @@
+<LINK href="../../Styles.css" type="text/css" rel="stylesheet">
+<br />
+		
+A <em>chart palette</em> is a predefined set of colors that can be used while drawing
+one or more series. There are two types of palettes used with the chart: one palette
+for the root chart object, and one palette for each series. 
+<h3>
+    How is a Chart Series Colored?</h3>
+<p>
+    If no colors are specified for both the data point and its associated series, the
+    Chart control assigns colors to a data point. The control uses colors from
+    the associated series' palette (set by the Series.Palette property) if one is specified,
+    otherwise it uses the first available color from the control's palette (set
+    by the Chart.Palette property). By default, the control retrieves colors 
+    sequentially from a palette.
+</p>
+<h3>
+    How to Use Custom Palettes</h3>
+<p>
+    A custom palette enables you to define your own set of colors to be used when drawing
+    series or data points. If you define color values for the Chart.PaletteCustomColors
+    property and set the Chart.Palette property to ChartColorPalette.None, the Chart uses the 
+    values in Chart.PaletteCustomColors to color series or data points.</p>
+<p>
+    Most pre-defined palettes in the Chart control contain more than 16 colors. When defining
+    a custom palette, you should consider how many series or data points your chart
+    will display and add the appropriate number of colors. If there are more series
+    or data points than custom palette colors in your chart, the control displays 
+    some colors in the palette more than once.</p>

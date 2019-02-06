@@ -1,0 +1,15 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Legend's visual attributes
+Chart1.Legends("Default").BackColor = Color.MediumSeaGreen
+Chart1.Legends("Default").BackSecondaryColor = Color.Green
+Chart1.Legends("Default").BackGradientStyle = GradientStyle.DiagonalLeft
+
+Chart1.Legends("Default").BorderColor = Color.Black
+Chart1.Legends("Default").BorderWidth = 2
+Chart1.Legends("Default").BorderDashStyle = ChartDashStyle.Solid
+
+Chart1.Legends("Default").ShadowOffset = 2
+   
+...

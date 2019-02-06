@@ -1,0 +1,22 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// show the chart in 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+
+// set the Rotation value
+chart1.ChartAreas["Default"].Area3DStyle.Rotation = 30;
+	
+// set the Inclination value
+chart1.ChartAreas["Default"].Area3DStyle.Inclination = 40;
+
+// set the RightAngleAxis Property to true to ensure
+// at least one axis is kept at a right angle
+chart1.ChartAreas["Default"].Area3DStyle.IsRightAngleAxes = true;
+	
+
+// set the wall width for the axis
+chart1.ChartAreas["Default"].Area3DStyle.WallWidth = 7;
+
+
+...

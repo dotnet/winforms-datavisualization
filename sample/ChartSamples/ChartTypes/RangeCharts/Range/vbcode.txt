@@ -1,0 +1,20 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Populate series data with data
+Dim yValue1 As Double() =  {56, 74, 45, 59, 34, 87, 50, 87, 64, 34}
+Dim yValue2 As Double() =  {42, 65, 30, 42, 25, 47, 40, 70, 34, 20}
+Chart1.Series("Default").Points.DataBindY(yValue1, yValue2)
+
+' Set chart type 
+Chart1.Series("Default").ChartType = SeriesChartType.Spline;Range
+
+' Set Spline Range line tension
+Chart1.Series("Default")("LineTension") = "0.5"
+
+' Disable X axis margin
+Chart1.ChartAreas("Default").AxisX.IsMarginVisible = False
+
+' Show as 3D
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = True 
+...

@@ -1,0 +1,41 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+this.chart1.AxisViewChanged += new System.Windows.Forms.DataVisualization.Charting.ViewEventHandler(this.chart1_AxisViewChanged);
+...
+
+private void chart1_AxisViewChanged(object sender, System.Windows.Forms.DataVisualization.Charting.ViewEventArgs e)
+{
+	// Axis View is reseted
+	if( double.IsNaN( e.NewPosition ) && double.IsNaN( e.NewSize ) )
+	{
+		// Set Title
+		SetTitle( 0, 28 );
+	}
+	// Axis view is active
+	else
+	{
+		// Set Title
+		SetTitle( e.NewPosition, e.NewSize );
+	}
+
+}
+
+private void SetTitle( double position, double size )
+{
+
+	// Convert Double to DateTime.
+	DateTime dateTime = DateTime.FromOADate( position );
+
+	// Convert DateTime to string.
+	chart1.Title = "Start Date: ";
+
+	// Set view position to the title
+	chart1.Title += dateTime.ToLongDateString();
+
+	// Set view size to the title
+	chart1.Title += "\n Number of Days: ";
+	chart1.Title += size.ToString();
+
+}
+...

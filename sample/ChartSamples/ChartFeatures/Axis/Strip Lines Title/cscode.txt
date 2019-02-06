@@ -1,0 +1,42 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+StripLine stripLine = new StripLine();
+
+// Set Strip lines interval
+stripLine.Interval = 2;
+
+// Set Strip Border Line Color
+stripLine.BorderColor = Color.Black;
+
+// Set Strip Width
+stripLine.StripWidth = 1.0;
+
+// Set Strip Back Color
+stripLine.BackColor = Color.Gray;
+
+// Set Strip Lines Title Alignment
+stripLine.TitleAlignment = StringAlignment.Center;
+
+// Set Strip Lines Title Alignment
+stripLine.TitleLineAlignment = StringAlignment.Center;
+
+// Set Strip Lines Title text
+stripLine.Title = "Strip lines title";
+
+// Set Strip Lines Title Angle
+stripLine.TitleAngle = 180;
+
+// Set Strip Lines Title Color
+stripLine.TitleForeColor = Color.Red;
+
+// Set Strip Lines Title Font
+stripLine.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold | FontStyle.Italic);
+
+// Add the strip line to the collection.
+chart1.ChartAreas["Default"].AxisX.StripLines.Add( stripLine );
+
+// Turn off anti-aliasing for text
+chart1.AntiAliasing = AntiAliasingStyles.Graphics;
+		
+...

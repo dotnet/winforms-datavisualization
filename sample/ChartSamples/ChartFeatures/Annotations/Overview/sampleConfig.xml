@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Annotations" Priority= "1">
+  <Title>Overview</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Overview of Annotations</ShortBlurb> 
+  <SampleControl>OverviewAnnotations</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">Overview.htm</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Annotations</Keyword>
+	<Keyword>Overview, Annotations</Keyword>
+	<Keyword>Annotations, Overview</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

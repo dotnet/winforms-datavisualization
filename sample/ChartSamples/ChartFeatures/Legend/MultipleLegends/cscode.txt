@@ -1,0 +1,11 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Add the second legend
+Chart1.Legends.Add(new Legend("Second"));
+
+// Associate the last three series to the new legend
+Chart1.Series["Series 3"].Legend = "Second";
+Chart1.Series["Series 4"].Legend = "Second";
+Chart1.Series["Series 5"].Legend = "Second";
+...

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Customizations" Priority = "200">
+  <Title>Custom Painting an Image</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Custom Painting an Image</ShortBlurb> 
+  <SampleControl>CustomDrawnTitles</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Image, Custom drawn</Keyword>
+	<Keyword>Customizations, Adding Images to the Chart</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+
+</SampleConfigs>

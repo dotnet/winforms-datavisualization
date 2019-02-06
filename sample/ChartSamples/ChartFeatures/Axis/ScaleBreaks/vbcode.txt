@@ -1,0 +1,26 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+ ' Enable scale breaks
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.Enabled = True
+
+' Set the scale break type
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.BreakLineStyle = BreakLineStyle.Wave
+
+' Set the spacing gap between the lines of the scale break (as a percentage of y-axis)
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.Spacing = 2 
+
+' Set the line width of the scale break
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.LineWidth = 2
+
+' Set the color of the scale break
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.LineColor = Color.Red 
+
+' Show scale break if more than 25% of the chart is empty space
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.CollapsibleSpaceThreshold = 25 
+
+' If all data points are significantly far from zero, 
+' the Chart will calculate the scale minimum value
+chart1.ChartAreas("Default").AxisY.ScaleBreakStyle.IsStartedFromZero = AutoBool.Auto
+
+...

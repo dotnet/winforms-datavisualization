@@ -1,0 +1,16 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+if(comboBoxTemplate.Text == "None")
+{
+	// Reset chart appearance
+	chart1.Serializer.Content = SerializationContents.Appearance;
+	chart1.Serializer.Reset();
+}
+else
+{
+	// Load appearance template		
+	chart1.Serializer.IsResetWhenLoading = false;
+	chart1.LoadTemplate("MyTemplate.xml");
+}
+...

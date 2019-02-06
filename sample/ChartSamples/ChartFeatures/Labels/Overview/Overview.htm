@@ -1,0 +1,160 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>Chart supports an unlimited number of labels 
+			that&nbsp;can be used to describe a chart and its components.&nbsp;</p>
+		<p>There are two types of labels: axis labels and data point labels.&nbsp;Axis 
+			labels are used along an axis, while data point labels are used to describe 
+			data points.
+		</p>
+		<H3>Axis Label Features</H3>
+		<UL>
+			<LI>
+			Can be created automatically, based on either the axis scale or data point 
+			values.
+			<LI>
+			    Can use automatic sizing to fit label text.
+			<LI>
+			Supports DateTime values, which can be formatted using standard and custom .NET 
+			date/time formatting.
+			<LI>
+			    Supports multiple label rows.
+			<LI>
+			    Supports custom labels.
+			<LI>
+				Allow for easy positioning of 
+				labels (via interval and&nbsp;interval type properties).</LI></UL>
+		<H3>Data Point&nbsp;Label Features</H3>
+		<UL>
+			<LI>
+			    Can use automatic sizing to fit label text.
+			<LI>
+			    Can use smart labels to prevent label collision.<LI>
+				Can use special keywords to insert chart values into the label text.</LI></UL>
+		<H3>Axis Labels<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<H4>Automatic Creation</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>Labels by default are automatically created for an axis.</p>
+				<p>IIf data points do not provide an associated X axis label&nbsp;and custom labels 
+					are not being used, then X axis labels&nbsp;are created using the axis scale 
+					(see the figure below).</p>
+				<p>Data points can optionally specify an associated axis label via 
+					the&nbsp;AxisLabel property, and this label is then displayed along the X axis 
+					for that data point (wee the figure below).</p>
+				<p><IMG alt="Automatic X Axis Labels" src="AutoXAxisLabels.PNG" border="0"><BR>
+					</p>
+				<p>Note that custom labels can also be used along an axis./p>
+			</BLOCKQUOTE>
+			<H4>Automatic Sizing of Label Text</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>You can automatically adjust the size of the axis label text by setting the 
+					Axis.IsLabelAutoFit property to true.&nbsp; The 
+					Axis.LabelAutoFitStyles property then determines how autofitting occurs.</p>
+				<p>Depending on the Axis.LabelAutoFitStyles property, the axis label angle, font size, and offset 
+                    are then automatically adjusted to fit 
+					the label text.</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr"><a name="DateTime Support and Formatting">DateTime Support and Formatting</a></H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>If an axis utilizes a DateTime interval type, then its axis labels are displayed as DateTime values. 
+                    Both custom and standard .NET date/time 
+					formatting can be used.&nbsp;
+				</p>
+			</BLOCKQUOTE>
+            <H4 dir="ltr">Multiple Label Rows</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>Custom axis labels can be specified, and these custom labels are displayed using 
+					label rows (see the figure below):</p>
+				<p><IMG alt="Label Rows and Offsets" src="../../Axis/Overview/LabelRows.png" border="0"><BR>
+					</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr">Easy Positioning&nbsp;Using Interval&nbsp;Properties</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p dir="ltr">In the Axis.LabelStyle property, the interval, interval offset, 
+                    interval type and interval offset type properties determine how often an axis' labels are drawn.</p>
+				<p dir="ltr">Both the interval and offset can be DateTime values.&nbsp; Note 
+					that Sunday is considered the first day of the week. This is assignment is used 
+                    to determine when positioning offsets. The figure below demonstrates an offset 
+                    of one day and an interval of one week.</p>
+				<p dir="ltr"><IMG alt="Label Interval and Offset" src="LabelInterval.bmp" border="0"><BR>
+					</p>
+			</BLOCKQUOTE></BLOCKQUOTE>
+		<H3 dir="ltr">&nbsp; Data Point Labels</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p dir="ltr">Use data point labels to describe specific data points.&nbsp;Specify text 
+                for the label using the DataPoint.Label property. You can also see the 
+                IsValueShownAsLabel property in a Series or DataPoint object to display the data 
+                point values as labels. </p>
+            <p dir="ltr">Note that you can use a line break for multi-line labels. At design 
+                time, use a &#39;\n&#39; character sequence. At run time, use your respective 
+                programming language's line break or carriage return expression. For example, vbCrLf for Visual Basic.</p>
+			<H4 dir="ltr">Keywords</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p dir="ltr">You can use keywords in the DataPoint.Label property. These keywords 
+                    are replaced with dynamically generated values into the 
+					data points&#39; labels. The figure below demonstrates using the #VAL keyword.</p>
+				<p dir="ltr"><EM><IMG alt="Using Keywords in Point Labels" src="Keywords.png" border="0"></EM></p>
+				<p dir="ltr">Keywords are case-sensitive, and are specific to the chart element 
+					to which they are applied. For example, #VAL is used for series and data points. Refer to the following table for a listing of all available keywords:</p>
+				<p dir="ltr">
+					<TABLE id="Table1" cellSpacing="2" cellpadding="2" width="300" border="1">
+						<tr>
+							<Th valign="center" align="middle" width="141">
+								Keyword/Th>
+							<Th valign="center" align="middle">
+								Replaced By</Th></tr>
+						<tr>
+							<TD width="141">#VALX</td>
+							<td>X value of the data point</td>
+						</tr>
+						<tr>
+							<TD width="141">#VAL, #VALY, #VALY2, #VALY3, ...</td>
+							<td>Y values of the data point</td>
+						</tr>
+						<tr>
+							<TD width="141">#SER</td>
+							<td>Series name</td>
+						</tr>
+						<tr>
+							<TD width="141">#LABEL:</td>
+							<td>Data point label</td>
+						</tr>
+						<tr>
+							<TD width="141">#INDEX</td>
+							<td>Data point index</td>
+						</tr>
+						<tr>
+							<TD width="141">#PERCENT</td>
+							<td>Percentage of the data point Y value</td>
+						</tr>
+						<tr>
+							<TD width="141">#TOTAL</td>
+							<td>Total of all Y values in the series</td>
+						</tr>
+						<tr>
+							<TD width="141">#LEGENDTEXT</td>
+							<td>Legend text</td>
+						</tr>
+					</TABLE>
+				</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr">SSmart Labels</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p dir="ltr">When using data point labels for charts with a large data set, data 
+                    point labels often collide. Smart labels helps overcome these issues 
+					by repositioning the labels based on a set of user-defined rules, which are 
+					available via the Series.SmartLabelStyle property. In the figures below, the 
+                    chart on the left does not use smart labels, while the chart on the right uses 
+                    smart labels.</p>
+				<p dir="ltr"><IMG alt="Smart Labels" src="SmartLabels.PNG" border="0"><BR>
+					</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr">DateTime Support and Formatting<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>Data point labels have the same DateTime formatting support as axis 
+					labels.&nbsp; Refer to the <a href="#DateTime Support and Formatting">DateTime 
+						Support and Formatting</a> section for axis labels.
+				</p>
+			</BLOCKQUOTE></BLOCKQUOTE>
+		</body>
+</html>

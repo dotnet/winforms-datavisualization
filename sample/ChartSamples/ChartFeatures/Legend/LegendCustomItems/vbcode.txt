@@ -1,0 +1,44 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Disable legend item for the first series
+Chart1.Series("Default").IsVisibleInLegend = False
+
+' Add simple custom legend item
+Chart1.Legends("Default").CustomItems.Add(Color.FromArgb(120, Color.Red), "Critical Values")
+
+' Add custom legend item with line style
+Dim legendItem As New LegendItem()
+legendItem.Name = "Line Style Item"
+legendItem.Style = LegendImageStyle.Line
+legendItem.ShadowOffset = 1
+legendItem.Color = Color.LightBlue
+legendItem.MarkerStyle = MarkerStyle.Circle
+Chart1.Legends("Default").CustomItems.Add(legendItem)
+
+' Add custom legend item with marker style
+legendItem = New LegendItem()
+legendItem.Name = "Marker Style Item"
+legendItem.Style = LegendImageStyle.Marker
+legendItem.ShadowOffset = 1
+legendItem.Color = Color.Yellow
+legendItem.MarkerStyle = MarkerStyle.Cross
+legendItem.MarkerSize = 10
+legendItem.MarkerBorderColor = Color.Black
+Chart1.Legends("Default").CustomItems.Add(legendItem)
+
+' Add custom legend item with image
+legendItem = New LegendItem()
+legendItem.Name = "Image Style Item"
+legendItem.Image = "FlagGermany.gif"
+legendItem.BackImageTransparentColor = Color.White
+Chart1.Legends("Default").CustomItems.Add(legendItem)
+
+' Add a strip line
+Dim stripLine As New StripLine()
+stripLine.BackColor = Color.FromArgb(120, Color.Red)
+stripLine.IntervalOffset = 60
+stripLine.StripWidth = 40
+Chart1.ChartAreas("Default").AxisY.StripLines.Add(stripLine)
+
+...

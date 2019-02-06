@@ -1,0 +1,23 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "PointCharts" Priority="200">
+	<Title>Point Charts</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Point Chart Type</ShortBlurb> 
+	<SampleControl>PointChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Point Charts</Keyword>
+      <Keyword>Marker, Size</Keyword>
+      <Keyword>Marker, Shape</Keyword>
+      <Keyword>Chart type, Point</Keyword>
+      <Keyword>Data Label, Position</Keyword>
+    </Keywords>
+	</SampleConfig>
+
+</SampleConfigs>

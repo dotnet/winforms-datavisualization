@@ -1,0 +1,28 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+private void AddButton_Click(object sender, System.EventArgs e)
+{
+	Random rnd = new Random();
+
+	Series series = Chart1.Series.Add("Series 1");
+	series.ChartArea = "Default";
+	series.ChartType = SeriesChartType.Spline;
+	series.BorderWidth = 2;
+
+	int j = 0;
+	int MaxPoints = 10;
+	while(j++ < MaxPoints)
+	{
+		series.Points.Add(rnd.Next(5,20));
+	}
+	...
+}
+
+private void RemoveButton_Click(object sender, System.EventArgs e)
+{
+	// Remove the last series in the list of the series
+	Chart1.Series.RemoveAt(Chart1.Series.Count-1);
+}
+ 
+...

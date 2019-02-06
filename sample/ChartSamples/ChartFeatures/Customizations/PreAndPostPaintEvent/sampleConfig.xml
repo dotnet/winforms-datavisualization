@@ -1,0 +1,17 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Customizations" Priority = "100">
+  <Title>PrePaint and PostPaint Events</Title>
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>PrePaint and PostPaint Events</ShortBlurb>
+  <SampleControl>PrePostPaint</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Customizations, Painting Events</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

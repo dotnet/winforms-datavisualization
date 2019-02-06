@@ -1,0 +1,24 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "PieDoughnutCharts">
+	<Title>Collecting Small Pie Segments</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Collecting Small Pie Segments</ShortBlurb> 
+	<SampleControl>PieCollected</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Chart type, Pie Collecting Segments</Keyword>
+      <Keyword>Collected Pie Data</Keyword>
+      <Keyword>Collecting Small Pie Segments</Keyword>
+      <Keyword>Pie Charts, Collecting Small Segments</Keyword>
+      <Keyword>Doughnut Charts, Collecting Small Segments</Keyword>
+    </Keywords>
+    
+	</SampleConfig>
+
+</SampleConfigs>

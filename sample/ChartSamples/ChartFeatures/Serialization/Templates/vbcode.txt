@@ -1,0 +1,13 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+If comboBoxTemplate.Text = "None" Then
+   ' Reset chart appearance
+   chart1.Serializer.Content = SerializationContents.Appearance
+   chart1.Serializer.Reset()
+Else
+   ' Load appearance template
+   chart1.Serializer.IsResetWhenLoading = False
+   chart1.LoadTemplate("MyTemplate.xml")
+End If
+...

@@ -1,0 +1,23 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set chart type
+chart1.Series["Series1"].ChartType = SeriesChartType.Bubble;
+
+// Set bubble shape
+chart1.Series["Default"].MarkerStyle = MarkerStyle.Square;
+
+// Set max bubble size
+chart1.Series["Default"]["BubbleMaxSize"] = "20";
+
+// Show bubble size as point labels
+chart1.Series["Default"].IsValueShownAsLabel = true;
+chart1.Series["Default"]["BubbleUseSizeForLabel"] = "true";
+
+// Set bubble size scale
+chart1.Series["Default"]["BubbleScaleMin"] = "0";
+chart1.Series["Default"]["BubbleScaleMax"] = "100";
+
+/ Show as 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+...

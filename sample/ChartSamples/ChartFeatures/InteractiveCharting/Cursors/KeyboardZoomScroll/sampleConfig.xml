@@ -1,0 +1,32 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Cursors">
+  <Title>Keyboard Zoom/Scroll Cursors</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Keyboard to Zoom and Scroll</ShortBlurb> 
+  <SampleControl>KeyboardZoomScroll</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Scrolling, Using keyboard</Keyword>
+  </Keywords>
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "ChartArea">
+  <Title>Keyboard Zoom/Scroll Cursors</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Keyboard to Zoom and Scroll</ShortBlurb> 
+  <SampleControl>KeyboardZoomScroll</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Scrolling, Using keyboard</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

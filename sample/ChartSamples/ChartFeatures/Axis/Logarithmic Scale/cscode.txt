@@ -1,0 +1,13 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set Logarithmic scale
+chart1.ChartAreas["Default"].AxisY.IsLogarithmic = true;
+
+// Set logarithmic base
+chart1.ChartAreas[0].AxisY.LogarithmBase = Math.E;
+
+// Set Minor interval
+chart1.ChartAreas[0].AxisY.MinorGrid.Interval = 0;
+chart1.ChartAreas[0].AxisY.MinorTickMark.Interval = 0;		
+...

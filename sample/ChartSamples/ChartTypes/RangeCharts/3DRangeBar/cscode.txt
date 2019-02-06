@@ -1,0 +1,119 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+ 
+// Set Rotation angles
+Chart1.ChartAreas["Default"].Area3DStyle.Rotation = 30;
+Chart1.ChartAreas["Default"].Area3DStyle.Inclination = 10; 
+...
+
+private void chart1_PostPaint(object sender, System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs e)
+{
+	if(sender is ChartArea)
+	{
+		ChartArea area = (ChartArea)sender;
+		if(area.Name == "Default")
+		{
+			Point3D [] pt3d = new Point3D[4];
+			pt3d[0] = new Point3D();
+			pt3d[1] = new Point3D();
+			pt3d[2] = new Point3D();
+			pt3d[3] = new Point3D();
+					
+			float depth = (float)area.GetSeriesDepth(chart1.Series[0]);
+			float zpos = (float)area.GetSeriesZPosition(chart1.Series[0]);
+
+			pt3d[0].Y = (float)area.AxisX.ValueToPosition(chart1.Series["Estimated"].Points[7].XValue);
+			pt3d[0].X = (float)area.AxisY.ValueToPosition(chart1.Series["Estimated"].Points[7].YValues[1]);
+			pt3d[0].Z = depth;
+
+			pt3d[1].Y = (float)area.AxisX.ValueToPosition(chart1.Series["Estimated"].Points[6].XValue);
+			pt3d[1].X = (float)area.AxisY.ValueToPosition(chart1.Series["Estimated"].Points[6].YValues[0]);
+			pt3d[1].Z = depth;
+					
+			pt3d[2].Y = (float)area.AxisX.ValueToPosition(chart1.Series["Estimated"].Points[3].XValue);
+			pt3d[2].X = (float)area.AxisY.ValueToPosition(chart1.Series["Estimated"].Points[3].YValues[1]);
+			pt3d[2].Z = depth;
+
+			pt3d[3].Y = (float)area.AxisX.ValueToPosition(chart1.Series["Estimated"].Points[2].XValue);
+			pt3d[3].X = (float)area.AxisY.ValueToPosition(chart1.Series["Estimated"].Points[2].YValues[0]);
+			pt3d[3].Z = depth;
+
+			area.TransformPoints(pt3d);
+					
+			PointF ptF1 = new PointF();
+			PointF ptF2 = new PointF();
+			PointF ptF3 = new PointF();
+			PointF ptF4 = new PointF();
+			PointF ptF5 = new PointF();
+			PointF ptF6 = new PointF();
+
+			ptF1 = e.ChartGraphics.GetAbsolutePoint(pt3d[0].PointF);
+			ptF3 = e.ChartGraphics.GetAbsolutePoint(pt3d[1].PointF);
+			ptF4 = e.ChartGraphics.GetAbsolutePoint(pt3d[2].PointF);
+			ptF6 = e.ChartGraphics.GetAbsolutePoint(pt3d[3].PointF);
+
+			ptF2.X = ptF3.X;
+			ptF2.Y = ptF1.Y;
+
+			ptF5.X = ptF6.X;
+			ptF5.Y = ptF4.Y;
+
+			// Take Graphics object from chart
+			Graphics graph = e.ChartGraphics.Graphics;
+
+			graph.DrawLine(new Pen(Color.Black,1), ptF1,ptF2);
+			graph.DrawLine(new Pen(Color.Black,1), ptF2,ptF3);
+			graph.DrawLine(new Pen(Color.Black,1), ptF4,ptF5);
+			graph.DrawLine(new Pen(Color.Black,1), ptF5,ptF6);
+
+			DrawArrow(graph, Color.Black, ptF3, ptF2, 22.5);
+			DrawArrow(graph, Color.Black, ptF6, ptF5, 22.5);
+		}
+	}
+}		
+		
+/// <summary>
+/// This Method will draw an arrow head on at the end of a line segment
+/// as defined by two points, p1 and p2
+/// </summary>
+private void DrawArrow(Graphics graph, Color brushcolor, PointF p1, PointF p2, double angle_deg)
+{
+	// Using the two points, p1 and p2, we must first calculate the two
+	// other points to use for the triangular arrow.  The provided angle
+	// must be in degrees and be converted to radians.
+
+	double rad = angle_deg * Math.PI / 180;
+
+	// To simplify calcuations find dx and dy for points p1 and p2
+	double dx = p1.X-p2.X;
+	double dy = p1.Y-p2.Y;
+
+	double c = Math.Sqrt((Math.Pow(dx,2) + Math.Pow(dy,2)));
+
+	// To create an approximately 7px arrow, we need c to be 70 and a line_length of 0.1
+	// There are instances where c will be less, causing the 10% scale to be such that
+	// the arrow head will be invisible. Similarly, when c is really large the arrow 
+	// head can be huge.
+	double pixels = 12;
+	double line_length = (1 / ( c / pixels));
+
+	PointF arrow_segment1 = Point.Empty;
+	PointF arrow_segment2 = Point.Empty;
+
+	arrow_segment1.X = p1.X - (float)((dx*Math.Cos(rad) - dy*Math.Sin(rad))* line_length);
+	arrow_segment1.Y = p1.Y - (float)((dy*Math.Cos(rad) + dx*Math.Sin(rad))* line_length);
+
+	arrow_segment2.X = p1.X - (float)((dx*Math.Cos(-rad) - dy*Math.Sin(-rad))* line_length);
+	arrow_segment2.Y = p1.Y - (float)((dy*Math.Cos(-rad) + dx*Math.Sin(-rad))* line_length);
+
+	PointF[] arrowhead =	{
+								p1,
+								arrow_segment1,
+								arrow_segment2
+							};
+
+	SolidBrush brush = new SolidBrush(brushcolor);
+	graph.FillPolygon(brush, arrowhead);
+
+}
+...

@@ -1,0 +1,24 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>3D Rotation and Elevation</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>3D Rotation and Elevation</ShortBlurb> 
+  <SampleControl>ChartArea3D</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+   <Keywords>
+    <Keyword>3D</Keyword>
+    <Keyword>Chart area, 3D</Keyword>
+	<Keyword>Right angle axes</Keyword>
+	<Keyword>3D, Right angle axes</Keyword>
+	<Keyword>Wall width</Keyword>
+	<Keyword>3D, Wall width</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

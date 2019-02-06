@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../AxisVarLabelsInterval.resx">
+    <body>
+      <trans-unit id="label2.Text">
+        <source>The Variable Label Interval check box above toggles the IntervalAutoMode property between FixedCount and VariableCount. When selected, the Chart control automatically adjust the number of labels on the x-axis based on the formatting of the x-axis labels. </source>
+        <target state="new">The Variable Label Interval check box above toggles the IntervalAutoMode property between FixedCount and VariableCount. When selected, the Chart control automatically adjust the number of labels on the x-axis based on the formatting of the x-axis labels. </target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

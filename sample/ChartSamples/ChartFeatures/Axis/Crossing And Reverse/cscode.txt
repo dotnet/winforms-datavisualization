@@ -1,0 +1,21 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+private void Page_Load(object sender, System.EventArgs e)
+{
+    // Set Crossing value for X axis
+    chart1.ChartAreas["Default"].AxisX.Crossing = 5;
+    
+    // Set Crossing value for Y axis. The crossing value could be double value, 
+    // Double.MaxValue (Crossing value is equal to the maximum), Double.MinValue 
+    // (Crossing value is equal to the minimum), Double.NaN (Crossing value is automatic)
+    chart1.ChartAreas["Default"].AxisY.Crossing = Double.MaxValue;
+            
+    // Set Reverse value for X axis
+    chart1.ChartAreas["Default"].AxisX.Reverse = true;
+    
+    // Set Reverse value for Y axis
+    chart1.ChartAreas["Default"].AxisY.Reverse = true;
+}
+		
+...

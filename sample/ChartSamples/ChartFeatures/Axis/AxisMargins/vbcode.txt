@@ -1,0 +1,10 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set Series chart type
+Chart1.Series("Default").ChartType = SeriesChartType.Area;
+
+' Disable X axis margin
+Chart1.ChartAreas("Default").AxisX.IsMarginVisible = false
+
+...

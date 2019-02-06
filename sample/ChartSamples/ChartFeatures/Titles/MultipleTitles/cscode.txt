@@ -1,0 +1,24 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Add Chart Titles
+Chart1.Titles.Add( "Title_1" );
+Chart1.Titles.Add( "Title_2" );
+Chart1.Titles.Add( "Title_3" );
+
+// Set Title Alignment
+Chart1.Titles[0].Alignment = System.Drawing.ContentAlignment.BottomRight;
+
+// Set Title Docking 
+Chart1.Titles[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Right;
+
+// True if Docked inside Chart Area
+Chart1.Titles[0].IsDockedInsideChartArea = true;
+
+// Set Docked Chart area
+Chart1.Titles[0].DockedToChartArea = "Default";
+
+// Set Title Offset 
+Chart1.Titles[0].DockingOffset = 5;
+		
+...

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "AreaCharts">
+  <Title>3D Area and Spline Area Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>3D Area and Spline Area Charts</ShortBlurb> 
+  <SampleControl>AreaChart3D</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">3DArea\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">3DArea\vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Lighting</Keyword>
+    <Keyword>3D, Lighting</Keyword>
+    <Keyword>3D, Area chart</Keyword>
+    <Keyword>3D, Spline Area chart</Keyword>
+    <Keyword>3D, Spline Area chart</Keyword>
+    <Keyword>Marker lines</Keyword>
+    <Keyword>Tension, Spline Area 3D</Keyword>
+    <Keyword>Chart type, Area 3D</Keyword>
+    <Keyword>Chart type, Spline Area 3D</Keyword>
+    <Keyword>Area Charts, 3D</Keyword>
+    <Keyword>Area Charts, Spline Area 3D</Keyword>
+  </Keywords>
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "AreaCharts">
+  <Title>Area and Spline Area Charts</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Area and Spline Area Charts</ShortBlurb> 
+  <SampleControl>AreaChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">Area\cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">Area\vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+    <Keyword>Semi-transparent colors</Keyword>
+    <Keyword>Tension, Spline Area</Keyword>
+    <Keyword>Chart type, Area</Keyword>
+    <Keyword>Chart type, Spline Area</Keyword>
+    <Keyword>Area Charts, 2D</Keyword>
+    <Keyword>Area Charts, Spline Area 2D</Keyword>
+  </Keywords>
+  
+</SampleConfig>
+	
+</SampleConfigs>

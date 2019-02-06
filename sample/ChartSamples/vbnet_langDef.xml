@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<block name="">
+	<fragDelimiter>[ \t\r\n\.\-\+{}\(\);:,=|&amp;\[\]]</fragDelimiter>
+	
+	<tokenPreRTF>\cf1 </tokenPreRTF>
+	<tokenPostRTF>\cf0 </tokenPostRTF>
+
+	<token value="AddHandler" regExp="false"/>
+	<token value="AddressOf" regExp="false"/>
+	<token value="And " regExp="false"/>
+	<token value="AndAlso" regExp="false"/>
+	<token value="Ansi" regExp="false"/>
+	<token value="As" regExp="false"/>
+	<token value="Assembly" regExp="false"/>
+	<token value="Auto" regExp="false"/>
+	<token value="Boolean" regExp="false"/>
+	<token value="ByRef" regExp="false"/>
+	<token value="Byte" regExp="false"/>
+	<token value="ByVal" regExp="false"/>
+	<token value="Call" regExp="false"/>
+	<token value="Case" regExp="false"/>
+	<token value="Catch" regExp="false"/>
+	<token value="CBool" regExp="false"/>
+	<token value="CByte" regExp="false"/>
+	<token value="CChar" regExp="false"/>
+	<token value="CDate" regExp="false"/>
+	<token value="CDec" regExp="false"/>
+	<token value="CDbl" regExp="false"/>
+	<token value="Char" regExp="false"/>
+	<token value="CInt" regExp="false"/>
+	<token value="Class" regExp="false"/>
+	<token value="CLng" regExp="false"/>
+	<token value="CObj" regExp="false"/>
+	<token value="Const" regExp="false"/>
+	<token value="CShort" regExp="false"/>
+	<token value="CSng" regExp="false"/>
+	<token value="CStr" regExp="false"/>
+	<token value="CType" regExp="false"/>
+	<token value="Date" regExp="false"/>
+	<token value="Decimal" regExp="false"/>
+	<token value="Declare" regExp="false"/>
+	<token value="Default" regExp="false"/>
+	<token value="Delegate" regExp="false"/>
+	<token value="Dim" regExp="false"/>
+	<token value="DirectCast" regExp="false"/>
+	<token value="Do" regExp="false"/>
+	<token value="Double" regExp="false"/>
+	<token value="Each" regExp="false"/>
+	<token value="Else" regExp="false"/>
+	<token value="ElseIf" regExp="false"/>
+	<token value="End" regExp="false"/>
+	<token value="Enum" regExp="false"/>
+	<token value="Erase" regExp="false"/>
+	<token value="Error" regExp="false"/>
+	<token value="Event" regExp="false"/>
+	<token value="Exit" regExp="false"/>
+	<token value="#ExternalSource" regExp="false"/>
+	<token value="False" regExp="false"/>
+	<token value="Finally" regExp="false"/>
+	<token value="For" regExp="false"/>
+	<token value="Friend" regExp="false"/>
+	<token value="Function" regExp="false"/>
+	<token value="Get" regExp="false"/>
+	<token value="GetType" regExp="false"/>
+	<token value="Goto" regExp="false"/>
+	<token value="Handles" regExp="false"/>
+	<token value="If" regExp="false"/>
+	<token value="Implements" regExp="false"/>
+	<token value="Imports" regExp="false"/>
+	<token value="In" regExp="false"/>
+	<token value="Inherits" regExp="false"/>
+	<token value="Integer" regExp="false"/>
+	<token value="Interface" regExp="false"/>
+	<token value="Is" regExp="false"/>
+	<token value="Let" regExp="false"/>
+	<token value="Lib" regExp="false"/>
+	<token value="Like" regExp="false"/>
+	<token value="Long" regExp="false"/>
+	<token value="Loop" regExp="false"/>
+	<token value="Me" regExp="false"/>
+	<token value="Mod" regExp="false"/>
+	<token value="Module" regExp="false"/>
+	<token value="MustInherit" regExp="false"/>
+	<token value="MustOverride" regExp="false"/>
+	<token value="MyBase" regExp="false"/>
+	<token value="MyClass" regExp="false"/>
+	<token value="Namespace" regExp="false"/>
+	<token value="New" regExp="false"/>
+	<token value="Next" regExp="false"/>
+	<token value="Not" regExp="false"/>
+	<token value="Nothing" regExp="false"/>
+	<token value="NotInheritable" regExp="false"/>
+	<token value="NotOverridable" regExp="false"/>
+	<token value="Object" regExp="false"/>
+	<token value="On" regExp="false"/>
+	<token value="Option" regExp="false"/>
+	<token value="Optional" regExp="false"/>
+	<token value="Or" regExp="false"/>
+	<token value="OrElse" regExp="false"/>
+	<token value="Overloads" regExp="false"/>
+	<token value="Overridable" regExp="false"/>
+	<token value="Overrids" regExp="false"/>
+	<token value="ParamArray" regExp="false"/>
+	<token value="Preserve" regExp="false"/>
+	<token value="Private" regExp="false"/>
+	<token value="Property" regExp="false"/>
+	<token value="Protected" regExp="false"/>
+	<token value="Public" regExp="false"/>
+	<token value="RaiseEvent" regExp="false"/>
+	<token value="ReadOnly" regExp="false"/>
+	<token value="ReDim" regExp="false"/>
+	<token value="#Region" regExp="false"/>
+	<token value="RemoveHandler" regExp="false"/>
+	<token value="Resume" regExp="false"/>
+	<token value="Return" regExp="false"/>
+	<token value="Select" regExp="false"/>
+	<token value="Set" regExp="false"/>
+	<token value="Shadows" regExp="false"/>
+	<token value="Shared" regExp="false"/>
+	<token value="Short" regExp="false"/>
+	<token value="Single" regExp="false"/>
+	<token value="Static" regExp="false"/>
+	<token value="Step" regExp="false"/>
+	<token value="Stop" regExp="false"/>
+	<token value="String" regExp="false"/>
+	<token value="Structure" regExp="false"/>
+	<token value="Sub" regExp="false"/>
+	<token value="SyncLock" regExp="false"/>
+	<token value="Then" regExp="false"/>
+	<token value="Throw" regExp="false"/>
+	<token value="To" regExp="false"/>
+	<token value="True" regExp="false"/>
+	<token value="Try" regExp="false"/>
+	<token value="TypeOf" regExp="false"/>
+	<token value="Unicode" regExp="false"/>
+	<token value="Until" regExp="false"/>
+	<token value="Variant" regExp="false"/>
+	<token value="When" regExp="false"/>
+	<token value="While" regExp="false"/>
+	<token value="With" regExp="false"/>
+	<token value="WithEvents" regExp="false"/>
+	<token value="WriteOnly" regExp="false"/>
+	<token value="Xor" regExp="false"/>
+	<token value="#Const" regExp="false"/>
+	<token value="#ExternalSource" regExp="false"/>
+
+	<token name="" value="'\S*" regExp="true">
+		
+		<tokenPreRTF>\cf2 </tokenPreRTF>
+		<tokenPostRTF>\cf0 </tokenPostRTF>
+		
+		<block >
+			<tokenPreRTF></tokenPreRTF>
+			<tokenPostRTF></tokenPostRTF>
+
+			<preRTF>\cf2 </preRTF>
+			<postRTF>\cf0 </postRTF>
+			
+ 			<endDelimiter>[\n]</endDelimiter>
+			<fragDelimiter>[\n]</fragDelimiter>
+		</block>
+		
+	</token>
+	
+</block>

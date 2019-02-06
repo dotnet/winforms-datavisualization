@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Secondary Y Axis</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Plotting Series against Secondary Y Axis</ShortBlurb> 
+  <SampleControl>SecondaryAxis</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Using Secondary Axes</Keyword>
+  </Keywords>  
+  
+</SampleConfig>
+
+</SampleConfigs>

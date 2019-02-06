@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>
+			<br />
+			Chart supports several types of titles.&nbsp; The Titles 
+			collection can store an unlimited number of 
+			titles&nbsp;that can be placed anywhere within a chart. There are also axis 
+			and strip line&nbsp;titles.</p>
+		<p>This overview&nbsp;refers to the Title objects stored in the 
+			chart's Titles collection as "chart titles".&nbsp; Chart 
+			titles are more robust than the strip line and axis titles.</p>
+		<H3>Chart Titles</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>The Titles collection of the root Chart object&nbsp;can store an unlimited
+				number of Title objects.</p>
+			<H4>Appearance Properties and Styles</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p dir="ltr">Title objects, like many other Chart elements, support a wide variety 
+					of appearances including the following:</p>
+				<UL dir="ltr">
+					<LI>
+						<DIV>Gradient colors, with numerous styles available. Applicable to both legends 
+							and legend items.
+						</DIV>
+					<LI>
+						<DIV>Hatching,with numerous patterns available.</DIV>
+					<LI>
+						<DIV>Background images.</DIV>
+					<LI>
+						<DIV>Transparency, set using a color's&nbsp;alpha value.</DIV>
+					<LI>
+						<DIV>Shadows.</DIV>
+					</LI>
+				</UL>
+				<p>There are also several styles available (e.g. emboss, frame, etc.), which can be 
+					set using the Title.Style property (see figure below):</p>
+				<p dir="ltr"><IMG alt="Title Appearance and Styles" src="TitleAppearance.PNG" border="0"><BR>
+					</p>
+			</BLOCKQUOTE>
+			<H4>Positioning, Docking and Alignment</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>
+				A Title object may be docked to a chart area or the chart picture, allowing for 
+				easy positioning of the title.&nbsp; When docking to a chart area the Title may 
+				be docked inside or outside of the chart area using the IsDockedInsideChartArea 
+				boolean property.
+				<p><IMG alt="Title Docking and Alignment" src="TitleDocking.PNG" border="0"><BR>
+					<p>
+				The docking mechanism allows for a docking offset via the&nbsp;DockingOffset 
+				property. This is a positive or negative integer value, in pixels, which 
+				determines how much&nbsp;the title region is shifted from the default docking position.
+				<p>
+				The Title object also contains an Alignment property, which&nbsp;defines where 
+				in the title region the text should be drawn.
+				<p>If a Title object has been configured with explicit Position values, the Docking and 
+					Alignment properties are ignored.</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr">Automatic Sizing of Title Text</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p>
+					Title&nbsp;text by default is automatically sized to fit&nbsp;the entire Title 
+					object's bounding rectangle.&nbsp;Automatic fitting of text occurs when the 
+					Position property of the Title object is set to true.</p>
+			</BLOCKQUOTE>
+			<H4 dir="ltr">Multi-Line Titles</H4>
+			<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<p dir="ltr">The Chart control supports multi-line titles. To insert a 
+					line break into a title, use "\n" characters.&nbsp; See the figure above for an example of a multi-line title.</p>
+			</BLOCKQUOTE></BLOCKQUOTE>
+		<H3 dir="ltr">Axis and Strip Line&nbsp;Titles
+		</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p dir="ltr">Titles in the Axis and StripLine objects are similar to chart titles, but 
+				they do have the following differences:</p>
+			<UL dir="ltr">
+				<LI>
+					<DIV>Titles in the Axis and StripLine objects do not have all of the appearance 
+						properties of chart titles.</DIV>
+				<LI>
+					<DIV>Titles in the Axis and StripLine objects are docked inside their owning 
+                        objects; and docking is not customizable.</DIV>
+				<LI>
+					<DIV>Title&nbsp;text is always automatically sized to fit&nbsp;the entire Axis or 
+						StripLine object.</DIV>
+				</LI>
+			</UL>
+            <BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+				<H4 dir="ltr">Multi-Line Titles</H4>
+				<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+					<p dir="ltr">A&nbsp;line break can be inserted into a title via the&nbsp;"\n" 
+						characters. See the figure below for an example.</p>
+					<p dir="ltr"><IMG alt="Mulit-line title" src="MultiLine.PNG" border="0"><BR>
+						</p>
+				</BLOCKQUOTE></BLOCKQUOTE></BLOCKQUOTE>
+		</body>
+</html>

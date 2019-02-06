@@ -1,0 +1,13 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set  axis title
+Chart1.ChartAreas("Default").AxisX.Title = "Chart Axis"
+
+' Set Title font
+Chart1.ChartAreas("Default").AxisX.TitleFont = New Font("Times New Roman", 12, FontStyle.Bold)
+
+' Set Title color
+Chart1.ChartAreas("Default").AxisX.TitleForeColor = Color.Red   
+
+...

@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+		<p>
+            <br />
+            Annotations are explanatory notes that are attached to&nbsp;various chart 
+			elements, the most common being data points.</p>
+		<H3>Benefits of Annotations</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Annotations can:</p>
+		</BLOCKQUOTE>
+		<UL>
+			<LI>
+			    Clarify what a chart's data means to end-users.
+			<LI>
+			    Highlight specific data, drawing end-user attention to it.
+			<LI>
+			    Add a personal touch to charts.
+			<LI>
+				Be used to quickly and easily draw custom shapes.</LI></UL>
+		<H3>Annotation Types and Styles</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>Microsoft Chart Control for .NET&nbsp;Framework comes with&nbsp;numerous annotation types and styles. 
+                These include callout, arrow, line, and text 
+				annotations.&nbsp;See the Annotation Types sample to see an example of each 
+                annotation type.</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Anchoring</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>An annotation can be anchored to either a data point or to&nbsp;a specified&nbsp;point within the chart picture (see 
+                the figure below).</p>
+			<p><IMG alt="Annotation Anchoring" src="Anchoring.PNG" border="0"><BR>
+				</p>
+			<p>The anchor point can be inside or outside of the annotation.</p>
+			<p>If you explicitly set an annotation&#39;s (X,Y) coordinates, the annotation will no longer be glued to its anchor point, 
+                such as a data point in the plot area.</p>
+		</BLOCKQUOTE>
+		<H3>Smart Labels</H3>
+		<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>You can apply smart labels to annotations to make them <i>smart annotations</i>. 
+                Smart annotations automatically reposition themselves to prevent collision 
+				with other labels and annotations. This improves the readability of a chart.&nbsp; In&nbsp;the 
+                figure below, the chart uses smart annotations.The red rectangular boxes 
+                indicate the position of a typical annotation and label (smart label not 
+                enabled). Note that the bigger box covers a data point in the plot area. The 
+                green rectangular boxes indicate the position of smart annotation and label.</p>
+            <p><IMG alt="Smart Labels and Annotations" src="SmartLabel.PNG" border="0"><BR>
+				</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Grouping<BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">AAn annotation group is similar to 
+			other annotations in that it has appearance properties, a bounding rectangle, 
+			position and size properties, and so on. The major difference is that an annotation 
+			group has an Annotations collection property, used to store 
+			its child annotation objects.</BLOCKQUOTE><BLOCKQUOTE dir="ltr" style="MARGIN-RIGHT: 0px">
+			<p>The purpose of annotation groups is two-fold:</p>
+			<OL>
+				<LI>
+				    Grouped annotations can be moved as a single entity.
+				<LI>
+					Common appearance properties can be applied to all grouped annotations.</LI></OL>
+			<p>The appearance properties of an annotation group are not applied to the group's 
+				bounding rectangle, but to its child annotations. However, appearance properties 
+                of child annotations do have precedence over the appearance properties of the 
+                annotation group.
+			</p>
+		</BLOCKQUOTE>
+		<H3 dir="ltr">Interactivity</H3>
+		<BLOCKQUOTE>
+			<p dir="ltr">Annotations offer a high degree of optional interactivity, 
+				including the following:</p>
+			<UL dir="ltr">
+				<LI>
+					<DIV>Movement of&nbsp;the annotation's anchor point by clicking on the anchor and 
+						dragging the mouse.</DIV>
+				<LI>
+					<DIV>Movement of the entire annotation.</DIV>
+				<LI>
+					<DIV>Path editing (polygon annotations only).</DIV>
+				<LI>
+					<DIV>Resizing.</DIV>
+				<LI>
+					<DIV>Text editing.</DIV>
+				</LI>
+			</UL>
+		</BLOCKQUOTE>
+	</body>
+</html>

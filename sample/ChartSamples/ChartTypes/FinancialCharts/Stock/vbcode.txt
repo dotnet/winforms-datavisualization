@@ -1,0 +1,20 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set series chart type
+Chart1.Series("Price").ChartType = SeriesChartType.Stock
+
+' Set the style of the open-close marks
+Chart1.Series("Price")("OpenCloseStyle") = "Triangle"
+
+' Show both open and close marks
+Chart1.Series("Price")("ShowOpenClose") = "Both"
+
+' Set point width
+Chart1.Series("Price")("PointWidth") = "1.0"
+
+' Set a dividend marker
+Chart1.Series("Price").Points(5).MarkerImage = "DividentMarker.bmp"
+Chart1.Series("Price").Points(5).MarkerImageTransparentColor = Color.White
+Chart1.Series("Price").Points(pointIndex).ToolTip = "#VALX{D}\n0.15 - dividend paid per share"
+...

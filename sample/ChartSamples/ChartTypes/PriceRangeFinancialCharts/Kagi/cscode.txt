@@ -1,0 +1,19 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set series chart type
+chart1.Series["Default"].ChartType = SeriesChartType.Kagi;
+
+// Set the PriceUpColor attribute			
+chart1.Series["Default"]["PriceUpColor"] = "SkyBlue";
+
+// Set the default color - price-down			
+chart1.Series["Default"].Color = Color.Tomato;
+
+// Clear attribute, let the default ReversalAmount to be calculated
+chart1.Series["Default"].DeleteCustomProperty("ReversalAmount");
+
+// Set the ReversalAmount attribute
+chart1.Series["Default"]["ReversalAmount"] = "1%";
+...
+

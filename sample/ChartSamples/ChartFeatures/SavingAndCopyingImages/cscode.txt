@@ -1,0 +1,69 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+private void Save_Click(object sender, System.EventArgs e)
+{
+	// Create a new save file dialog
+	SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+	// Sets the current file name filter string, which determines 
+	// the choices that appear in the "Save as file type" or 
+	// "Files of type" box in the dialog box.
+	saveFileDialog1.Filter = "Bitmap (*.bmp)|*.bmp|JPEG (*.jpg)|*.jpg|EMF (*.emf)|*.emf|PNG (*.png)|*.png|SVG (*.svg)|*.svg|GIF (*.gif)|*.gif|TIFF (*.tif)|*.tif";
+	saveFileDialog1.FilterIndex = 2 ;
+	saveFileDialog1.RestoreDirectory = true ;
+
+	// Set image file format
+	if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+	{
+		ChartImageFormat format = ChartImageFormat.Bmp;
+
+		if( saveFileDialog1.FileName.EndsWith( "bmp" ) )
+		{
+			format = ChartImageFormat.Bmp;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "jpg" ) )
+		{
+			format = ChartImageFormat.Jpeg;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "emf" ) )
+		{
+			format = ChartImageFormat.Emf;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "gif" ) )
+		{
+			format = ChartImageFormat.Gif;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "png" ) )
+		{
+			format = ChartImageFormat.Png;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "tif" ) )
+		{
+			format = ChartImageFormat.Tiff;
+		}
+		else if( saveFileDialog1.FileName.EndsWith( "svg" ) )
+		{
+			format = ChartImageFormat.Svg;
+		}
+
+		// Save image
+		Chart1.SaveImage( saveFileDialog1.FileName, format );
+	}
+}
+
+private void Copy_Click(object sender, System.EventArgs e)
+{
+	// create a memory stream to save the chart image    
+	System.IO.MemoryStream stream = new System.IO.MemoryStream();     
+
+	// save the chart image to the stream    
+	Chart1.SaveImage(stream,System.Drawing.Imaging.ImageFormat.Bmp);     
+
+	// create a bitmap using the stream    
+	Bitmap bmp = new Bitmap(stream);     
+
+	// save the bitmap to the clipboard    
+	Clipboard.SetDataObject(bmp); 
+}
+...

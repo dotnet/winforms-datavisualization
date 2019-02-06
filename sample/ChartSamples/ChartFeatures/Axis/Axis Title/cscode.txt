@@ -1,0 +1,13 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set axis title
+chart1.ChartAreas["Default"].AxisX.Title = "Chart Axis";
+
+// Set Title font
+chart1.ChartAreas["Default"].AxisX.TitleFont = new Font("Times New Roman",12, FontStyle.Bold);
+
+// Set Title color
+chart1.ChartAreas["Default"].AxisX.TitleForeColor = Color.Red;
+		
+...

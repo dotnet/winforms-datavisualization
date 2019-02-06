@@ -1,0 +1,229 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+AddLineAnnotation();
+AddVerticalLineAnnotation();
+AddHorizontalLineAnnotation();
+AddPolylineAnnotation();
+AddTextAnnotation();
+AddRectangleAnnotation();
+AddEllipseAnnotation();
+AddBorderAnnotation();
+AddCalloutAnnotation();
+AddPolygonAnnotation();
+AddImageAnnotation();
+
+...
+
+private void AddLineAnnotation()
+{
+	LineAnnotation annotation = new LineAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Height = -25;
+	annotation.Width = -25;
+	annotation.LineWidth = 2;
+	annotation.StartCap = LineAnchorCapStyle.Arrow;
+	annotation.EndCap = LineAnchorCapStyle.Arrow;
+	
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddVerticalLineAnnotation()
+{
+	VerticalLineAnnotation annotation = new VerticalLineAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Height = -25;
+	annotation.LineWidth = 2;
+	annotation.StartCap = LineAnchorCapStyle.Arrow;
+	annotation.EndCap = LineAnchorCapStyle.Arrow;
+		
+	Chart1.Annotations.Add(annotation);
+}
+		
+private void AddHorizontalLineAnnotation()
+{
+	HorizontalLineAnnotation annotation = new HorizontalLineAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Height = -25;
+	annotation.LineWidth = 2;
+	annotation.StartCap = LineAnchorCapStyle.Arrow;
+	annotation.EndCap = LineAnchorCapStyle.Arrow;
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddPolylineAnnotation()
+{
+	PolylineAnnotation annotation = new PolylineAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.StartCap = LineAnchorCapStyle.Arrow;
+
+	// explicitly set the relative height and width
+	annotation.Height = 50;
+	annotation.Width = 30;
+
+	PointF [] points = new PointF[5];
+	points[0].X = 0;
+	points[0].Y = 0;				
+		
+	points[1].X = 100;
+	points[1].Y = 0;
+		
+	points[2].X = 0;
+	points[2].Y = 100;
+		
+	points[3].X = 100;
+	points[3].Y = 100;
+		
+	points[4].X = 0;
+	points[4].Y = 50;
+
+	annotation.Path.AddPolygon(points);
+	
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddTextAnnotation()
+{
+	TextAnnotation annotation = new TextAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Text = "I am a TextAnnotation";
+	annotation.ForeColor = Color.Black;
+	annotation.Font = new Font("Arial", 12);;
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddRectangleAnnotation()
+{
+	RectangleAnnotation annotation = new RectangleAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Text = "I am a\nRectangleAnnotation";
+	annotation.ForeColor = Color.Black;
+	annotation.Font = new Font("Arial", 12);;
+	annotation.LineWidth = 2;
+	annotation.BackColor = Color.PaleYellow;
+	annotation.LineDashStyle = ChartDashStyle.Dash;
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddEllipseAnnotation()
+{
+	EllipseAnnotation annotation = new EllipseAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Text = "I am an EllipseAnnotation";
+	annotation.ForeColor = Color.Black;
+	annotation.Font = new Font("Arial", 12);;
+	annotation.LineWidth = 2;
+	annotation.Height = 35;
+	annotation.Width = 60;
+	annotation.BackColor = Color.PaleYellow;
+	annotation.LineDashStyle = ChartDashStyle.Solid;
+
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddArrowAnnotation()
+{
+	ArrowAnnotation annotation = new ArrowAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Height = -25;
+	annotation.Width = -25;
+	annotation.LineWidth = 2;
+	annotation.ArrowStyleize = 10;
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddBorderAnnotation()
+{
+	Border3DAnnotation annotation = new Border3DAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Text = "I am a Border3DAnnotation";
+	annotation.ForeColor = Color.Black;
+	annotation.Font = new Font("Arial", 12);;
+	annotation.Height = 40;
+	annotation.Width = 50;
+	annotation.BorderSkin.BackColor = Color.FromArgb(128, Color.Red);		
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddCalloutAnnotation()
+{
+	CalloutAnnotation annotation = new CalloutAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[1];
+	annotation.Text = "I am a\nCalloutAnnotation";
+	annotation.ForeColor = Color.Black;
+	annotation.Font = new Font("Arial", 10);;
+	annotation.Height = 35;
+	annotation.Width = 50;
+	annotation.BackColor = Color.FromArgb(128, Color.PaleYellow);
+	
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddPolygonAnnotation()
+{
+
+	PolygonAnnotation annotation = new PolygonAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+		
+	// explicitly set the relative height and width
+	annotation.Height = 50;
+	annotation.Width = 30;
+
+	annotation.BackColor = Color.FromArgb(128, Color.Orange);
+	annotation.LineColor = Color.Black;
+	annotation.LineDashStyle = ChartDashStyle.Solid;
+		
+	// define relative value points for a polygon
+	PointF [] points = new PointF[5];
+	points[0].X = 0;
+	points[0].Y = 0;				
+		
+	points[1].X = 100;
+	points[1].Y = 0;
+		
+	points[2].X = 100;
+	points[2].Y = 100;
+		
+	points[3].X = 0;
+	points[3].Y = 100;
+		
+	points[4].X = 50;
+	points[4].Y = 50;
+
+	annotation.Path.AddPolygon(points);
+		
+	Chart1.Annotations.Add(annotation);
+}
+
+private void AddImageAnnotation()
+{
+	if(Chart1.Images.GetIndex("MyBmp") < 0)
+	{
+		Bitmap Bmp = new Bitmap(200, 75);
+		Graphics g = Graphics.FromImage(Bmp);
+		g.FillRectangle(new SolidBrush(Color.Transparent), 0, 0, Bmp.Width, Bmp.Height);
+		g.FillRectangle(new SolidBrush(Color.PaleGoldenrod), Bmp.Width/2, 0, Bmp.Width/2, Bmp.Height);
+		g.FillRectangle(new SolidBrush(Color.PaleVioletRed), 0, 0, Bmp.Width/2, Bmp.Height);
+		g.FillRectangle(new SolidBrush(Color.FromArgb(128, Color.DarkOrange)), 0, Bmp.Height/2, Bmp.Width, Bmp.Height/2);
+		g.DrawString("I am an ImageAnnotation", new Font("Arial", 12), 
+			new SolidBrush(Color.Black), 
+			new Rectangle( 0, 0, Bmp.Width, Bmp.Height));
+		
+		g.Dispose();
+
+		Chart1.Images.Add("MyBmp", Bmp);
+	}
+
+	ImageAnnotation annotation = new ImageAnnotation();
+	annotation.AnchorDataPoint = Chart1.Series[0].Points[2];
+	annotation.Image = "MyBmp";
+		
+	Chart1.Annotations.Add(annotation);
+}
+	
+...

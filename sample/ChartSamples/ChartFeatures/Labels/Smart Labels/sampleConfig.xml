@@ -1,0 +1,37 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Labels" Priority = "100">
+  <Title>Smart Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Smart Labels</ShortBlurb> 
+  <SampleControl>SmartLabels</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Smart labels, Style</Keyword>
+    <Keyword>Labels, Smart labels</Keyword>
+    <Keyword>Labels Overlapping</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Smart Labels</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Using Smart Data Labels</ShortBlurb> 
+  <SampleControl>SmartLabels</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="Overview">overview.htm</InfoPage>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Smart labels, Style</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

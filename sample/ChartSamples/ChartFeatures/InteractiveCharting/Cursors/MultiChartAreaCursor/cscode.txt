@@ -1,0 +1,12 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// First set the ChartArea.InnerPlotPosition property.
+chart1.ChartAreas["Default"].InnerPlotPosition.Auto = true;
+chart1.ChartAreas["Volume"].InnerPlotPosition.Auto = true;
+
+// Set the alignment properties so the "Volume" chart area will allign to "Default"
+chart1.ChartAreas["Volume"].AlignmentOrientation = AreaAlignmentOrientations.Vertical;
+chart1.ChartAreas["Volume"].AlignmentStyle = AreaAlignmentStyles.All;
+chart1.ChartAreas["Volume"].AlignWithChartArea = "Default";
+...

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SampleConfigs>
+  <SampleConfig ParentNodeID="ToolTips" Priority="100">
+    <Title>Standard ToolTips</Title>
+    <Thumbnail>thumbnail.jpg</Thumbnail>
+    <ShortBlurb>Using ToolTips</ShortBlurb>
+    <SampleControl>UsingToolTips</SampleControl>
+    <InfoPages>
+      <InfoPage Title="C# Source">cscode.txt</InfoPage>
+      <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+    </InfoPages>
+    <Keywords>
+      <Keyword>Tooltips</Keyword>
+      <Keyword>Tooltips, Keywords</Keyword>
+      <Keyword>Tooltips, Point Label</Keyword>
+      <Keyword>Series, Tooltips</Keyword>
+    </Keywords>
+  </SampleConfig>
+</SampleConfigs>

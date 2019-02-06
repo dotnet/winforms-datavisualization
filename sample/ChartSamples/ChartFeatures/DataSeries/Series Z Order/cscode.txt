@@ -1,0 +1,18 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Create references to series
+Series [] series = new Series[3];
+series[0] = chart1.Series["Series1"];
+series[1] = chart1.Series["Series2"];
+series[2] = chart1.Series["Series3"];
+
+// Remove all series from the collection
+chart1.Series.Clear();
+
+// Add chart series to the collection in the specified order
+chart1.Series.Add(series[2]);
+chart1.Series.Add(series[0]);
+chart1.Series.Add(series[1]);
+
+...

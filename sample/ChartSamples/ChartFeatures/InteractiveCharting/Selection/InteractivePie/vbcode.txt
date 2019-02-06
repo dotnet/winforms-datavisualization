@@ -1,0 +1,71 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Mouse Down Event
+Private Sub Chart1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseDown
+   ' Call Hit Test Method
+   Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+   
+   ' Check if data point is already exploded
+   Dim exploded As Boolean = (If Chart1.Series(0).Points(result.PointIndex).CustomProperties = "Exploded=true" Then True Else False)
+   
+   ' Remove all exploded attributes
+   Dim point As DataPoint
+   For Each point In  Chart1.Series(0).Points
+      point.CustomProperties = ""
+   Next point
+   
+   ' If data point is already exploded get out.
+   If exploded Then
+      Return
+   End If 
+   ' If data point is selected
+   If result.ChartElementType = ChartElementType.DataPoint Then
+      ' Set Attribute
+      Dim point As DataPoint = Chart1.Series(0).Points(result.PointIndex)
+      point.CustomProperties = "Exploded = true"
+   End If
+   
+   ' If legend item is selected
+   If result.ChartElementType = ChartElementType.LegendItem Then
+      ' Set Attribute
+      Dim point As DataPoint = Chart1.Series(0).Points(result.PointIndex)
+      point.CustomProperties = "Exploded = true"
+   End If
+End Sub 'Chart1_MouseDown
+
+' Mouse Move Event
+Private Sub Chart1_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseMove
+   ' Call Hit Test Method
+   Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+   
+   ' Reset Data Point Attributes
+   Dim point As DataPoint
+   For Each point In  Chart1.Series(0).Points
+      point.BackSecondaryColor = Color.Black
+      point.BackHatchStyle = ChartHatchStyle.None
+      point.BorderWidth = 1
+   Next point
+   
+   ' If a Data Point or a Legend item is selected.
+   If result.ChartElementType = ChartElementType.DataPoint Or result.ChartElementType = ChartElementType.LegendItem Then
+      ' Set cursor type 
+      Me.Cursor = Cursors.Hand
+      
+      ' Find selected data point
+      Dim point As DataPoint = Chart1.Series(0).Points(result.PointIndex)
+      
+      ' Set End Gradient Color to White
+      point.BackSecondaryColor = Color.White
+      
+      ' Set selected hatch style
+      point.BackHatchStyle = ChartHatchStyle.Percent25
+      
+      ' Increase border width
+      point.BorderWidth = 2
+   Else
+      ' Set default cursor
+      Me.Cursor = Cursors.Default
+   End If
+End Sub 'Chart1_MouseMove 
+...

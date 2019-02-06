@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../AnnotationPositionChanging.resx">
+    <body>
+      <trans-unit id="label2.Text">
+        <source>Click on the annotation to select it, and then drag the X of the anchor point to move the annotation by the anchor. This sample uses the AnnotationPositionChanging event to snap the annotation anchor to data points while moving the annotation.</source>
+        <target state="new">Click on the annotation to select it, and then drag the X of the anchor point to move the annotation by the anchor. This sample uses the AnnotationPositionChanging event to snap the annotation anchor to data points while moving the annotation.</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

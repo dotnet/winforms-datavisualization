@@ -1,0 +1,39 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Labels" Priority="2000">
+  <Title>Labels Next To Axis</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Labels Next To Axis</ShortBlurb> 
+  <SampleControl>LabelsNextToAxis</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+    <Keyword>Axis, Markings next to axis</Keyword>
+    <Keyword>Grid line, Next to axis</Keyword>
+    <Keyword>Tick mark, Next to axis</Keyword>
+	<Keyword>Labels, Next to axis</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+<SampleConfig ParentNodeID = "Axis" Priority="2000">
+  <Title>Labels Next To Axis</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Labels Next To Axis</ShortBlurb> 
+  <SampleControl>LabelsNextToAxis</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Axis, Markings next to axis</Keyword>
+    <Keyword>Grid Lines, Next to axis</Keyword>
+    <Keyword>Tick mark, Next to axis</Keyword>
+	<Keyword>Labels, Next to axis</Keyword>
+  </Keywords>    
+</SampleConfig>
+
+</SampleConfigs>

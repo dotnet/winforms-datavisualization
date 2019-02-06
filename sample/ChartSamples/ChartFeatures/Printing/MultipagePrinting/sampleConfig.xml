@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Printing" Priority="400">
+  <Title>Multipage Printing</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Printing on Multiple Pages</ShortBlurb> 
+  <SampleControl>MultipagePrinting</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Multipage printing</Keyword>
+    <Keyword>Printing, Multipage</Keyword>
+  </Keywords> 
+
+</SampleConfig>
+</SampleConfigs>

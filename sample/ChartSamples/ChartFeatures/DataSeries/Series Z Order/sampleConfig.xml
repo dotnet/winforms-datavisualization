@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "DataSeries">
+  <Title>Series Z Order</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Series Z Order</ShortBlurb> 
+  <SampleControl>SeriesZOrder</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Series, Z order</Keyword>
+    <Keyword>Z order, Series</Keyword>
+  </Keywords>  
+
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,28 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Set 3D chart settings
+Chart1.ChartAreas("Default").Area3DStyle.Enable3D = true
+Chart1.ChartAreas("Default").Area3DStyle.IsRightAngleAxes = false
+Chart1.ChartAreas("Default").Area3DStyle.Inclination = 40
+Chart1.ChartAreas("Default").Area3DStyle.Rotation = 15
+Chart1.ChartAreas("Default").Area3DStyle.LightStyle = LightStyle.Realistic
+Chart1.ChartAreas("Default").Area3DStyle.Perspective = 20
+
+' Set SplineArea chart type
+Chart1.Series("Series1").ChartType = SeriesChartType.Spline;Area
+Chart1.Series("Series2").ChartType = SeriesChartType.Spline;Area
+
+' Set spline line tension 
+Chart1.Series("Series1")("LineTension") = "0.6"
+Chart1.Series("Series2")("LineTension") = "0.6"
+
+' Disable X axis margin
+Chart1.ChartAreas("Series1").AxisX.IsMarginVisible = false
+Chart1.ChartAreas("Series2").AxisX.IsMarginVisible = false
+
+' Enable the Marker Lines
+chart1.Series("Series1").CustomProperties = "ShowMarkerLines=true"
+chart1.Series("Series2").CustomProperties = "ShowMarkerLines=true"
+...
+

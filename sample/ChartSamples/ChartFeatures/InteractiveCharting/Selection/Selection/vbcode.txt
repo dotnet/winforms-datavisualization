@@ -1,0 +1,49 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' Mouse Down Event
+Private Sub Chart1_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseDown
+    ' Call Hit Test Method
+	Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+
+	If result.ChartElementType = ChartElementType.DataPoint Then
+	   
+	'Create Dialog
+	Dim dlg As New Dialog()
+	   
+	'Initialize members
+	dlg.ChartRef = Chart1
+	dlg.pointIndex = result.PointIndex
+	   
+	' Show dialog
+	dlg.Show()
+
+	Else
+	If result.ChartElementType <> ChartElementType.Nothing Then
+		Dim elementType As String = result.ChartElementType.ToString()
+		MessageBox.Show(Me, "Selected Element is: " + elementType)
+	End If
+	End If
+End Sub 'Chart1_MouseDown
+ 
+' Mouse Move Event
+Private Sub Chart1_MouseMove(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles Chart1.MouseMove
+	' Call Hit Test Method
+	Dim result As HitTestResult = Chart1.HitTest(e.X, e.Y)
+
+	' If a Data Point or a Legend item is selected.
+	If result.ChartElementType = ChartElementType.DataPoint Or result.ChartElementType = ChartElementType.LegendItem Then
+		' Set cursor type 
+		Me.Cursor = Cursors.Hand
+	Else
+		If result.ChartElementType <> ChartElementType.Nothing And result.ChartElementType <> ChartElementType.PlottingArea Then
+			' Set cursor type 
+			Me.Cursor = Cursors.Hand
+		Else
+			' Set default cursor
+			Me.Cursor = Cursors.Default
+		End If
+	End If
+End Sub 'Chart1_MouseMove 
+
+...

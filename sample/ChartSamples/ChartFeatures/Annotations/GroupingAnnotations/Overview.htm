@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<LINK href="../../../Styles.css" type="text/css" rel="stylesheet"></head>
+	<body>
+        <p>
+            <br />
+            The appearance properties of an annotation group are not applied to the group's
+            bounding rectangle, but to its child annotations. However,
+            child annotation appearance properties have precedence over the group appearance
+            properties.
+        </p>
+        <p>
+            The position of a child annotation is always relative to the group's location, and
+            not relative to the entire chart image. "0,0" represents the position of the top-left
+            corner of the group, and "100,100" is the position of the bottom-right corner of
+            the group.
+        </p>
+        <p>
+            The following properties have no effect when set in a child annotation:
+            IsSizeAlwaysRelative, AnchorDataPoint, AnchorAlignment, AnchorX,
+                AnchorY, AnchorOffsetX, AnchorOffsetY.
+            </p>
+        </body>
+</html>

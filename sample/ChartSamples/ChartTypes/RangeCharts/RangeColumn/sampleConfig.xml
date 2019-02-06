@@ -1,0 +1,22 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+	<SampleConfig ParentNodeID = "RangeCharts" Priority="400">
+	<Title>Range Column Chart</Title> 
+	<Thumbnail>thumbnail.jpg</Thumbnail>
+	<ShortBlurb>Range Column Chart Type</ShortBlurb> 
+	<SampleControl>RangeColumnChartType</SampleControl> 
+	<InfoPages>
+		<InfoPage Title="C# Source">cscode.txt</InfoPage>
+		<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+	</InfoPages>
+
+	<Keywords>
+      <Keyword>Chart type, Range Column</Keyword>
+      <Keyword>Range Column chart</Keyword>
+      <Keyword>Side by side columns</Keyword>
+    </Keywords>
+    
+	</SampleConfig>
+
+</SampleConfigs>

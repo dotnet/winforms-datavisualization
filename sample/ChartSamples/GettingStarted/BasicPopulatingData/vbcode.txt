@@ -1,0 +1,22 @@
+Imports System.Windows.Forms.DataVisualization.Charting
+...
+
+' initialize an array of doubles for Y values
+Dim yval As Double() =  {5,6,4,6,3}
+    
+' initialize an array of strings for X values
+Dim xval As String() =  { "A", "B", "C", "D", "E"}
+    
+' bind the arrays to the X and Y values of data points in the "ByArray" series
+Chart1.Series("ByArray").Points.DataBindXY(xval, yval)
+
+' now iterate through the arrays to add points to the "ByPoint" series,
+'  setting X and Y values
+Dim i As Integer
+
+For i = 0 To 4
+	Chart1.Series("ByPoint").Points.AddXY(xval(i), yval(i))
+Next
+
+
+...

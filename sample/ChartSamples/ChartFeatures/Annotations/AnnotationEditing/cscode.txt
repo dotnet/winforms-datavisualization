@@ -1,0 +1,10 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Enable the text editing of the annotation object
+Chart1.Annotations["ElipseAnnotation"].AllowTextEditing = true;
+
+// Show or Hide the annotation object
+Chart1.Annotations["ElipseAnnotation"].Visible = true;
+
+...

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "Legend" Priority="300">
+  <Title>Series Legend Assignment</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Series Legend Assignment</ShortBlurb> 
+  <SampleControl>MultipleLegends</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Multiple legends</Keyword>
+    <Keyword>Series, Legend</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

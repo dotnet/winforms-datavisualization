@@ -1,0 +1,25 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+    // Set legend position
+    chart1.Legend.Position.Auto = false;
+    chart1.Legend.Position.X = 35;
+    chart1.Legend.Position.Y = 40;
+    chart1.Legend.Position.Width = 35;
+    chart1.Legend.Position.Height= 10;
+}
+...
+
+//IMPORTANT: For this server-side event to work the event handler must be added to the InitializeComponent()
+//  method. We recommend that you add the event using the Properties window in the IDE 
+private void chart1_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+{
+    if(e.X != 0 && e.Y != 0)
+    {
+        // Convert pixels to percentage coordinates and set the legend position
+        chart1.Legend.Position.X = e.X * 100F / ((float)(chart1.Width.Value - 1));
+        chart1.Legend.Position.Y = e.Y * 100F / ((float)(chart1.Height.Value - 1)); 
+    }
+}
+...

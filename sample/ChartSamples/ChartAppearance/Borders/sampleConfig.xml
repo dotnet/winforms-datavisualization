@@ -1,0 +1,19 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Border Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Border Appearance</ShortBlurb> 
+  <SampleControl>Borders</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Border skin</Keyword>
+	<Keyword>Appearance, Border</Keyword>
+  </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

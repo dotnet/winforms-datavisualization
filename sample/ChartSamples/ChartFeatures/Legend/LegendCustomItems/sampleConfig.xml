@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<SampleConfigs>
+	<SampleConfig ParentNodeID="Legend" Priority="800">
+		<Title>Custom Legend Items</Title>
+		<Thumbnail>thumbnail.jpg</Thumbnail>
+		<ShortBlurb>Adding Custom Legend Items</ShortBlurb>
+		<SampleControl>LegendCustomItems</SampleControl>
+		<InfoPages>
+			<InfoPage Title="Overview">overview.htm</InfoPage>
+			<InfoPage Title="C# Source">cscode.txt</InfoPage>
+			<InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+		</InfoPages>
+		<Keywords>
+			<Keyword>Legend, Custom items</Keyword>
+		</Keywords>
+	</SampleConfig>
+</SampleConfigs>

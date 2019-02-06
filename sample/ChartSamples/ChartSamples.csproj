@@ -1,0 +1,2046 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GettingStarted\CreatingFirstChart\**" />
+    <Compile Remove="Utilities\SampleMain\**" />
+    <EmbeddedResource Remove="GettingStarted\CreatingFirstChart\**" />
+    <EmbeddedResource Remove="Utilities\SampleMain\**" />
+    <None Remove="GettingStarted\CreatingFirstChart\**" />
+    <None Remove="Utilities\SampleMain\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SampleMain\MainForm - Copy.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="SampleMain\MainForm - Copy.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0-preview3.19128.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- These can be found at https://www.nuget.org/packages/System.Windows.Forms.DataVisualization -->
+    <PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.19212.2"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ChartFeatures\Annotations\AnnotationAnchoring\AnnotationAnchoring.resx">
+      <LogicalName>ChartSamples.AnnotationAnchoring.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Annotations\AnnotationPositionChanging\AnnotationPositionChanging.resx">
+      <LogicalName>ChartSamples.AnnotationPositionChanging.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Annotations\AnnotationSmartLabels\AnnotationSmartLabels.resx">
+      <LogicalName>ChartSamples.AnnotationSmartLabels.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Annotations\FreeDrawAnnotation\FreeDrawAnnotation.resx">
+      <LogicalName>ChartSamples.FreeDrawAnnotation.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\ChartArea\InsideDoughnut\ChartInDoughnut.resx">
+      <LogicalName>ChartSamples.ChartInDoughnut.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Customizations\CustomImage\CustomDrawnTitles.resx">
+      <LogicalName>ChartSamples.CustomDrawnTitles.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Customizations\PaintingDataTable\PaintingDataTable.resx">
+      <LogicalName>ChartSamples.PaintingDataTable.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Customizations\PreAndPostPaintEvent\PrePostPaint.resx">
+      <LogicalName>ChartSamples.PrePostPaint.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\DataSeries\IndexedX\IndexedX.resx">
+      <LogicalName>ChartSamples.IndexedX.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\DataSeries\SeriesAppearance\Series Appearance.resx">
+      <LogicalName>ChartSamples.SeriesAppearance.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Events\ScrollBarEvents\ScrollBarEvents.resx">
+      <LogicalName>ChartSamples.ScrollBarEvents.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Events\ViewChangedEvent\ViewChangedEvent.resx">
+      <LogicalName>ChartSamples.ViewChangedEvent.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\Cursors\CursorAppearance\CursorAppearance.resx">
+      <LogicalName>ChartSamples.CursorAppearance.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\Cursors\CursorAxis\CursorAxis.resx">
+      <LogicalName>ChartSamples.CursorAxis.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\Cursors\CursorInterval\CursorInterval.resx">
+      <LogicalName>ChartSamples.CursorInterval.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\Cursors\KeyboardZoomScroll\KeyboardZoomScroll.resx">
+      <LogicalName>ChartSamples.KeyboardZoomScroll.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\KeyboardScrolling\KeyboardScrolling.resx">
+      <LogicalName>ChartSamples.KeyboardScrolling.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ScrollBarAppearance\ScrollBarAppearance.resx">
+      <LogicalName>ChartSamples.ScrollBarAppearance.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\SmallScrollSize.resx">
+      <LogicalName>ChartSamples.SmallScrollSize.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ZoomingExtents\ZoomingExtents.resx">
+      <LogicalName>ChartSamples.ZoomingExtents.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Labels\AxisVarLabelsInterval\AxisVarLabelsInterval.resx">
+      <LogicalName>ChartSamples.AxisVarLabelsInterval.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Labels\LabelsKeywords\LabelsKeywords.resx">
+      <LogicalName>ChartSamples.LabelsKeywords.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Labels\MultilineLabels\MultilineLabels.resx">
+      <LogicalName>ChartSamples.MultilineLabels.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Legend\LegendCustomPosition\LegendCustomPosition.resx">
+      <LogicalName>ChartSamples.LegendCustomPosition.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Legend\LegendInteractive\LegendInteractive.resx">
+      <LogicalName>ChartSamples.LegendInteractive.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Printing\CustomPrinting\CustomPrinting.resx">
+      <LogicalName>ChartSamples.CustomPrinting.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Printing\MultipagePrinting\MultipagePrinting.resx">
+      <LogicalName>ChartSamples.MultipagePrinting.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Printing\PrinterFriendlyCharts\PrinterFriendlyCharts.resx">
+      <LogicalName>ChartSamples.PrinterFriendlyCharts.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Printing\PrintingAndPreviewing\PrintPreview.resx">
+      <LogicalName>ChartSamples.PrintPreview.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartFeatures\Titles\TitlePosition\TitleCustomPosition.resx">
+      <LogicalName>ChartSamples.TitleCustomPosition.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartTypes\CircularCharts\Polar\PolarChartType.resx">
+      <LogicalName>ChartSamples.PolarChartType.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ChartTypes\LineCharts\FastLine\FastLineChartType.resx">
+      <LogicalName>ChartSamples.FastLineChartType.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SampleMain\MainForm.resx">
+      <LogicalName>ChartSamples.MainForm.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\AntiAliasingSample\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\AntiAliasingSample\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\AntiAliasingSample\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Appearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Appearance\Flag.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Appearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Appearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Borders\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Borders\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Borders\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\Borders\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingGaps3D\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingGaps3D\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingGaps3D\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingPerspectives\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingPerspectives\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartAppearance\UsingPerspectives\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAnchoring\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAnchoring\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAnchoring\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAppearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAppearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationAppearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationEditing\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationEditing\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationEditing\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationPositionChanging\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationPositionChanging\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationPositionChanging\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationSmartLabels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationSmartLabels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationSmartLabels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationStyles\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationStyles\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\AnnotationStyles\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\FreeDrawAnnotation\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\FreeDrawAnnotation\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\FreeDrawAnnotation\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\GroupingAnnotations\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\GroupingAnnotations\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\GroupingAnnotations\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\GroupingAnnotations\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\Overview\Anchoring.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\Overview\SmartLabel.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\PositionChangedEvent\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\PositionChangedEvent\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Annotations\PositionChangedEvent\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Appearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Appearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Appearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Axis Title\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Axis Title\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Axis Title\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisMargins\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisMargins\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisMargins\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisScale\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisScale\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\AxisScale\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Crossing And Reverse\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Crossing And Reverse\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Crossing And Reverse\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\GridLinesAndTickMarks\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\GridLinesAndTickMarks\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\GridLinesAndTickMarks\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\HighlightDateRanges\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\HighlightDateRanges\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\HighlightDateRanges\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\InterlacedStrips\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\InterlacedStrips\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\InterlacedStrips\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Logarithmic Scale\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Logarithmic Scale\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Logarithmic Scale\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Logarithmic Scale\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\MultipleYAxis\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\MultipleYAxis\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\MultipleYAxis\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\DataView.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\Interlaced.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\LabelRows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\PrimarySecondaryAxes.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\PrimaryAndSecondaryAxes\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\PrimaryAndSecondaryAxes\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\PrimaryAndSecondaryAxes\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\ScaleBreaks\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\ScaleBreaks\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\ScaleBreaks\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Offset\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Offset\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Offset\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Title\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Title\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\Strip Lines Title\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\StripLines\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\StripLines\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Axis\StripLines\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AligningChartAreas\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\AlignTypeInnerPlotPosition.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\AlignTypePosition.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\AreaAlignTypeAll.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\AreaAlignTypeAxesViews.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\AreaAlignTypeCursor.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\AlignmentTypes\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Appearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Appearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Appearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartArea3D\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartArea3D\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartArea3D\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartAreaPosition\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartAreaPosition\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartAreaPosition\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartInDataPoint\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartInDataPoint\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\ChartInDataPoint\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\InsideDoughnut\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\InsideDoughnut\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\InsideDoughnut\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\2DChart.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\3DChart.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\Alignment.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\GradientColor.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\NoAlignment.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\PieWithinPoint.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Series and Chart Areas\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Series and Chart Areas\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Series and Chart Areas\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Series and Chart Areas\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Z Order\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Z Order\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\ChartArea\Z Order\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\CustomImage\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\CustomImage\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\CustomImage\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\Overview\CustomImage.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PaintingDataTable\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PaintingDataTable\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PaintingDataTable\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PreAndPostPaintEvent\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PreAndPostPaintEvent\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Customizations\PreAndPostPaintEvent\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\AddingSeries\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\AddingSeries\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\AddingSeries\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\HidingSeries\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\HidingSeries\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\HidingSeries\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\IndexedX\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\IndexedX\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\IndexedX\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\BubbleChart.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\CustomAttributes.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\SeriesAndPointsColor.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Overview\SeriesAppearance.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\PointWidthAndDepth\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\PointWidthAndDepth\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\PointWidthAndDepth\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\PointWidthAndDepth\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SecondaryAxis\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SecondaryAxis\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SecondaryAxis\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Series Z Order\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Series Z Order\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\Series Z Order\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SeriesAppearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SeriesAppearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\SeriesAppearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingLabels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingLabels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingLabels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingMarkers\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingMarkers\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\DataSeries\UsingMarkers\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\CursorPositionChanged\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\CursorPositionChanged\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\CursorPositionChanged\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\PageScrolling.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\Zoom2.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ScrollBarEvents\Zoom3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ViewChangedEvent\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ViewChangedEvent\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ViewChangedEvent\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Events\ViewChangedEvent\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAppearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAppearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAppearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAxis\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAxis\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorAxis\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorInterval\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorInterval\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\CursorInterval\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\KeyboardZoomScroll\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\KeyboardZoomScroll\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\KeyboardZoomScroll\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\MultiChartAreaCursor\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\MultiChartAreaCursor\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\MultiChartAreaCursor\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\ZoomScrollAuto\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\ZoomScrollAuto\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Cursors\ZoomScrollAuto\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\Cursors.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\DrilldownFinalChart.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\DrilldownInitialChart.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Overview\TooltipWithKeyword.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\DrillDown\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\DrillDown\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\DrillDown\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\InteractivePie\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\InteractivePie\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\InteractivePie\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\PointsDragging\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\PointsDragging\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\PointsDragging\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\Selection\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\Selection\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\Selection\Selection\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\CustomToolTips\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\CustomToolTips\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\CustomToolTips\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\UsingToolTips\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\UsingToolTips\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ToolTips\UsingToolTips\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\BasicZooming\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\BasicZooming\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\BasicZooming\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\KeyboardScrolling\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\KeyboardScrolling\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\KeyboardScrolling\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ScrollBarAppearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ScrollBarAppearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ScrollBarAppearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\SmallScrollSize\Zoom3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ZoomingExtents\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ZoomingExtents\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\InteractiveCharting\ZoomingScrolling\ZoomingExtents\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AutoFitAxesLabels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AutoFitAxesLabels\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AutoFitAxesLabels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AutoFitAxesLabels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisLabelsInterval\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisLabelsInterval\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisLabelsInterval\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisVarLabelsInterval\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisVarLabelsInterval\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\AxisVarLabelsInterval\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\CustomLabels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\CustomLabels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\CustomLabels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\EquallySizedAutoFitFont\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\EquallySizedAutoFitFont\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\EquallySizedAutoFitFont\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsFormatting\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsFormatting\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsFormatting\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsKeywords\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsKeywords\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsKeywords\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsNextToAxis\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsNextToAxis\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsNextToAxis\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsTextStyle\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsTextStyle\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\LabelsTextStyle\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\MultilineLabels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\MultilineLabels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\MultilineLabels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\AutoXAxisLabels.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\Keywords.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\LabelInterval.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Overview\SmartLabels.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Smart Labels\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Smart Labels\overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Smart Labels\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Labels\Smart Labels\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendAppearance\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendAppearance\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendAppearance\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellColumns\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellColumns\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellColumns\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellSpan\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellSpan\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCellSpan\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\greensmallarrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\redsmallarrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCells\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomItems\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomItems\Flag.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomItems\overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomItems\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomItems\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomPosition\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomPosition\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomPosition\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendCustomPosition\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendFont\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendFont\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendFont\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendInteractive\chk_checked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendInteractive\chk_unchecked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendInteractive\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendInteractive\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendInteractive\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendStyleAndPosition\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendStyleAndPosition\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendStyleAndPosition\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendStyleAndPosition\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendTitle\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendTitle\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendTitle\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\LegendTitle\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegendsWithCheckBox\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegendsWithCheckBox\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegendsWithCheckBox\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegends\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegends\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\MultipleLegends\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\Alignment.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\CustomItems.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\Keywords.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\LegendDiagram3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\LegendDiagram4.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\LegendGradients.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Legend\Overview\SeriesSymbol3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Palettes\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Palettes\overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Palettes\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Palettes\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\CustomPrinting\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\CustomPrinting\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\CustomPrinting\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\MultipagePrinting\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\MultipagePrinting\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\MultipagePrinting\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrinterFriendlyCharts\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrinterFriendlyCharts\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrinterFriendlyCharts\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingAndPreviewing\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingAndPreviewing\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingAndPreviewing\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingSettings\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingSettings\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Printing\PrintingSettings\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\SavingAndCopyingImages\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\SavingAndCopyingImages\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\SavingAndCopyingImages\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\BasicSerialization\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\BasicSerialization\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\BasicSerialization\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\SkyBlue.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\WarmTones.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Serialization\Templates\WhiteSmoke.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\ChartTitle\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\ChartTitle\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\ChartTitle\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\MultipleTitles\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\MultipleTitles\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\MultipleTitles\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\Overview\MultiLine.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\Overview\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\Overview\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\Overview\TitleAppearance.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\Overview\TitleDocking.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\TitlePosition\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\TitlePosition\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\TitlePosition\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\Titles\TitlePosition\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartFeatures\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\3DArea\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\3DArea\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Area\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Area\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\2D100StackedArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\2DArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\2DSplineArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\2DStackedArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\3DArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\3DSplineArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\AreaGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\AreaCharts\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\3DBarColumn\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\3DBarColumn\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\3DCylinder\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\3DCylinder\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\BarColumn\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\BarColumn\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\2DBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\2DColumn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\3D100StackedBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\3DBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\3DColumn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\3DStackedBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Gallery\BarColumnGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Stacked\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\BarColumnCharts\Stacked\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\2DPolar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\2DPolarMarker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\2DRadarArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\2DRadarMarker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\3DPolar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\3DRadarArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\CircularGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Polar\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Polar\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Radar\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\Radar\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CircularCharts\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Combinatorial\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Combinatorial\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\ColumnArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\CombinationGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\LineArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\Pareto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Gallery\StockArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Pareto\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\Pareto\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\CombinationalCharts\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\BoxPlot\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\BoxPlot\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\BoxPlot\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\Histogram\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\Histogram\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\DataDistributionCharts\Histogram\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\ErrorBar\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\ErrorBar\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\ErrorBar\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\Bollinger1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\Bollinger2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\CandleStick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\FinancialGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\Forecasting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\PriceIndicators.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Gallery\Stock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\DividentLegend.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\DividentMarker.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\SplitLegend.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\SplitMarker.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\FinancialCharts\Stock\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\3DLine\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\3DLine\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\3DLine\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\FastLine\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\FastLine\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\FastLine\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\2DFastLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\2DLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\2DLineMarkers.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\2DSpline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\2DStepLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\3DSpline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\LineGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\LineCurves\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\LineCurves\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\LineCharts\LineCurves\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\3DPie\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\3DPie\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\3DPie\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\2DBeltPieChart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\2DDoughnut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\2DDoughnut2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\2DSupplementalPie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\3DPie2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\3DPie3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\3DPieInPie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\3DStepPie.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\PieDoughnutGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollectedData\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollectedData\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollectedData\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollected\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollected\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PieDoughnutCharts\PieCollected\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Bubble\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Bubble\Face.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Bubble\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Bubble\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\2DBubble.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\2DPoint.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\2DPointCustom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\2DPointLabels.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\2DPointShapes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\3DBubble.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\FastPoint.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\PointBubbleGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Point\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Point\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PointCharts\Point\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\2DKagi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\2DPointFigure.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\2DRenko.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\2DThreeLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\3DThreeLine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\AdvancedFinanceGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Kagi\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Kagi\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Kagi\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\PointAndFigure\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\PointAndFigure\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\PointAndFigure\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Renko\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Renko\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\Renko\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\ThreeLineBreak\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\ThreeLineBreak\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PriceRangeFinancialCharts\ThreeLineBreak\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Funnel\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Funnel\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Funnel\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\2DPyramid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\3DFunnel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\3DFunnelGap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\3DFunnelWidth.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\3DPyramid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\3DPyramidGap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\AccumulationGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Pyramid\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Pyramid\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Pyramid\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\PyramidFunnelCharts\Pyramid\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRangeBar\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRangeBar\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRangeBar\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRange\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRange\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\3DRange\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\2DRange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\2DRangeBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\2DRangeColumn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\2DSplineRange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\3DRange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\3DSplineRange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\RangeGallery.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Gallery\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeBar\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeBar\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeBar\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeColumn\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeColumn\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\RangeColumn\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Range\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Range\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\RangeCharts\Range\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="ChartTypes\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="cs_langDef.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\BasicPopulatingData\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\BasicPopulatingData\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\BasicPopulatingData\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\ChartElements\ChartElementsFinished.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\ChartElements\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\ChartElements\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\CoordinateSystem\CoordinateSystem.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\CoordinateSystem\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\CoordinateSystem\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\DynamicChartCreation\cscode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\DynamicChartCreation\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\DynamicChartCreation\vbcode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\SeriesAndPoints\CandleStick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\SeriesAndPoints\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\SeriesAndPoints\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\SeriesAndPoints\Series_Point_BasicHighlight.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\SeriesAndPoints\Series_Point_BasicSplineChart.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\Text\Overview.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\Text\sampleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\Text\text_elements.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="GettingStarted\TOCNodes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\doc.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\face.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\FDist.GIF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\FooterMiddle.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\GradientChartArea.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\HeaderLeft.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\HeaderMiddle.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\HeaderRight.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\MaxValueMarker.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\money.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Normal.GIF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\TDist.GIF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Thumbs.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="vbnet_langDef.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

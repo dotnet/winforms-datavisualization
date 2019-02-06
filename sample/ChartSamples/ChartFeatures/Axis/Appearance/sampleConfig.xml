@@ -1,0 +1,33 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Axis" Priority="50">
+  <Title>Axis Line Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Axis Line Appearance</ShortBlurb> 
+  <SampleControl>AxisAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Appearance, Axis Line</Keyword>
+	<Keyword>Axis, Line Appearance</Keyword>
+  </Keywords> 
+</SampleConfig>
+
+
+<SampleConfig ParentNodeID = "ChartAppearance">
+  <Title>Axis Line Appearance</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Setting Axis Line Appearance</ShortBlurb> 
+  <SampleControl>AxisAppearance</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+	<Keyword>Axis, Line Appearance</Keyword>
+  </Keywords> 
+</SampleConfig>
+
+</SampleConfigs>

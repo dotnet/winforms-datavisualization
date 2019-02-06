@@ -1,0 +1,12 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Set range column chart type
+chart1.Series["Series1"].ChartType = SeriesChartType.RangeColumn;
+
+// Set the side-by-side drawing style
+chart1.Series["Series1"]["DrawSideBySide"] = "false";
+
+// Set Cylinder drawing style
+chart1.Series["Series1"]["DrawingStyle"] = "Cylinder";
+...

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+<SampleConfig ParentNodeID = "Legend" Priority="100">
+  <Title>Interactive Legend</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Interactive Legend</ShortBlurb> 
+  <SampleControl>LegendInteractive</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+  <Keywords>
+    <Keyword>Legend, Interactive</Keyword>
+  </Keywords>    
+
+</SampleConfig>
+
+</SampleConfigs>

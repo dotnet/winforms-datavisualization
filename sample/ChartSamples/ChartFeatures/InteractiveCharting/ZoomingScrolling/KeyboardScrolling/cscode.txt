@@ -1,0 +1,54 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+this.chart1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chart1_KeyDown);
+this.chart1.Click += new System.EventHandler(this.chart1_Click);
+...
+
+private void chart1_Click(object sender, System.EventArgs e)
+{
+	// Set input focus to the chart control
+	chart1.Focus();
+}
+
+private void chart1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+{
+	// Process keyboard keys
+	if(e.KeyCode == Keys.Right)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.SmallIncrement);
+	}
+	else if(e.KeyCode == Keys.Left)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.SmallDecrement);
+	}
+	else if(e.KeyCode == Keys.PageDown)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.LargeIncrement);
+	}
+	else if(e.KeyCode == Keys.PageUp)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.LargeDecrement);
+	}
+	else if(e.KeyCode == Keys.Home)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.First);
+	}
+	else if(e.KeyCode == Keys.End)
+	{
+		chart1.ChartAreas["Default"].AxisX.ScaleView.Scroll(ScrollType.Last);
+	}
+}
+
+protected override bool ProcessDialogKey(Keys keyData)
+{
+	// Avoid dialog processing of arrow keys
+	if(keyData == Keys.Left || keyData == Keys.Right)
+	{
+		return false;
+	}
+	return base.ProcessDialogKey(keyData);
+}
+
+...
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" ?> 
+<TOCNodes>
+
+  <TOCNode ID="ChartFeatures" Priority="900">
+    <Title>Chart Features</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Annotations" ParentNodeID="ChartFeatures" Priority="600">
+    <Title>Annotations</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Axis" ParentNodeID="ChartFeatures" Priority="200">
+    <Title>Axes</Title>
+  </TOCNode>
+  
+  <TOCNode ID="ChartArea" ParentNodeID="ChartFeatures" Priority="100">
+    <Title>Chart Areas</Title>
+  </TOCNode>
+  
+    <TOCNode ID="DataSeries" ParentNodeID="ChartFeatures" Priority="50">
+    <Title>Data Series</Title>
+  </TOCNode>
+  
+      <TOCNode ID="Labels" ParentNodeID="ChartFeatures" Priority="400">
+    <Title>Labels</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Legend" ParentNodeID="ChartFeatures" Priority="300">
+    <Title>Legends</Title>
+  </TOCNode>
+  
+    <TOCNode ID="Titles" ParentNodeID="ChartFeatures" Priority="500">
+    <Title>Titles</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Customizations" ParentNodeID="ChartFeatures" Priority="1100">
+    <Title>Customization and Events</Title>
+  </TOCNode>
+  
+  <TOCNode ID="Events" ParentNodeID="ChartFeatures" Priority="1100">
+    <Title>Events</Title>
+  </TOCNode>
+  
+  <TOCNode ID="InteractiveCharting" ParentNodeID="ChartFeatures" Priority="1100">
+    <Title>Interactive Charting</Title>
+  </TOCNode>
+  
+        <TOCNode ID="UserInterface" ParentNodeID="ChartFeatures" Priority="1000">
+    <Title>User Interface</Title>
+  </TOCNode>
+  
+    <TOCNode ID="Printing" ParentNodeID="ChartFeatures" Priority="1100">
+    <Title>Printing</Title>
+  </TOCNode>  
+ 
+  <TOCNode ID="Serialization" ParentNodeID="ChartFeatures" Priority="1100">
+    <Title>Serialization</Title>
+  </TOCNode>
+
+</TOCNodes>

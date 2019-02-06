@@ -1,0 +1,64 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+this.chart1.GetToolTipText += new System.Windows.Forms.DataVisualization.Charting.Chart.ToolTipEventHandler(this.chart1_GetToolTipText);
+...
+
+/// <summary>
+/// Tooltip Event
+/// </summary>
+private void chart1_GetToolTipText(object sender, System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs e)
+{
+
+	// Check selected chart element and set tooltip text
+	switch(	e.HitTestResult.ChartElementType )
+	{
+		case ChartElementType.Axis:
+			e.Text = e.HitTestResult.Axis.Name;
+			break;
+		case ChartElementType.SBLargeDecrement:
+			e.Text = "A scrollbar large decrement button";
+			break;
+		case ChartElementType.SBLargeIncrement:
+			e.Text = "A scrollbar large increment button";
+			break;
+		case ChartElementType.SBSmallDecrement:
+			e.Text = "A scrollbar small decrement button";
+			break;
+		case ChartElementType.SBSmallIncrement:
+			e.Text = "A scrollbar small increment button";
+			break;
+		case ChartElementType.SBThumbTracker:
+			e.Text = "A scrollbar tracking thumb";
+			break;
+		case ChartElementType.SBZoomReset:
+			e.Text = "The ZoomReset button of a scrollbar";
+			break;
+		case ChartElementType.DataPoint:
+			e.Text = "Data Point " + e.HitTestResult.PointIndex.ToString();
+			break;
+		case ChartElementType.GridLines:
+			e.Text = "Grid Lines";
+			break;
+		case ChartElementType.LegendArea:
+			e.Text = "Legend Area";
+			break;
+		case ChartElementType.LegendItem:
+			e.Text = "Legend Item";
+			break;
+		case ChartElementType.PlottingArea:
+			e.Text = "Plotting Area";
+			break;
+		case ChartElementType.StripLines:
+			e.Text = "Strip Lines";
+			break;
+		case ChartElementType.TickMarks:
+			e.Text = "Tick Marks";
+			break;
+		case ChartElementType.Title:
+			e.Text = "Title";
+			break;
+	}
+	
+}
+...

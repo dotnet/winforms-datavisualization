@@ -1,0 +1,20 @@
+<?xml version="1.0" ?> 
+<SampleConfigs>
+
+<SampleConfig ParentNodeID = "PriceRangeFinanceCharts" Priority="400">
+  <Title>Point and Figure Chart</Title> 
+  <Thumbnail>thumbnail.jpg</Thumbnail>
+  <ShortBlurb>Point and Figure Chart Type</ShortBlurb> 
+  <SampleControl>PointAndFigureChartType</SampleControl> 
+  <InfoPages>
+    <InfoPage Title="C# Source">cscode.txt</InfoPage>
+    <InfoPage Title="Visual Basic Source">vbcode.txt</InfoPage>
+  </InfoPages>
+
+  <Keywords>
+      <Keyword>Chart type, Point and Figure</Keyword>
+      <Keyword>Reversal Amount, Point and Figure</Keyword>
+    </Keywords>
+</SampleConfig>
+
+</SampleConfigs>

@@ -1,0 +1,41 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Populate series data
+DateTime	currentData = DateTime.Now.Date;
+chart1.Series["Tasks"].Points.AddXY(1, currentData, currentData.AddDays(5));
+chart1.Series["Tasks"].Points.AddXY(2, currentData.AddDays(5), currentData.AddDays(7));
+chart1.Series["Tasks"].Points.AddXY(3, currentData.AddDays(7), currentData.AddDays(10));
+chart1.Series["Tasks"].Points.AddXY(1, currentData.AddDays(10), currentData.AddDays(15));
+chart1.Series["Tasks"].Points.AddXY(4, currentData.AddDays(15), currentData.AddDays(20));
+chart1.Series["Tasks"].Points.AddXY(2, currentData.AddDays(20), currentData.AddDays(27));
+
+chart1.Series["Progress"].Points.AddXY(1, currentData, currentData.AddDays(5));
+chart1.Series["Progress"].Points.AddXY(2, currentData.AddDays(5), currentData.AddDays(7));
+chart1.Series["Progress"].Points.AddXY(3, currentData.AddDays(7), currentData.AddDays(10));
+chart1.Series["Progress"].Points.AddXY(1, currentData.AddDays(10), currentData.AddDays(13));
+
+// Set axis labels
+chart1.Series["Tasks"].Points[0].AxisLabel = "Task 1";
+chart1.Series["Tasks"].Points[1].AxisLabel = "Task 2";
+chart1.Series["Tasks"].Points[2].AxisLabel = "Task 3";
+chart1.Series["Tasks"].Points[4].AxisLabel = "Task 4";
+
+// Set Range Bar chart type
+chart1.Series["Tasks"].ChartType = SeriesChartType.RangeBar;
+chart1.Series["Progress"].ChartType = SeriesChartType.RangeBar;
+
+// Set point width
+chart1.Series["Tasks"]["PointWidth"] = "0.7";
+chart1.Series["Progress"]["PointWidth"] = "0.2";
+
+// Draw series side-by-side
+chart1.Series["Progress"]["DrawSideBySide"] = "true";
+
+// Set Y axis Minimum and Maximum
+chart1.ChartAreas["Default"].AxisY.Minimum = currentData.AddDays(-1).ToOADate();
+chart1.ChartAreas["Default"].AxisY.Maximum = currentData.AddDays(28).ToOADate();
+
+// Show as 3D
+chart1.ChartAreas["Default"].Area3DStyle.Enable3D = true;
+...

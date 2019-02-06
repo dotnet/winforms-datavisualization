@@ -1,0 +1,23 @@
+using System.Windows.Forms.DataVisualization.Charting;
+...
+
+// Enable all elements
+chart1.ChartAreas["Default"].AxisX.MinorGrid.Enabled = true;
+chart1.ChartAreas["Default"].AxisX.MinorTickMark.Enabled = true;
+
+// Set Grid lines and tick marks interval
+chart1.ChartAreas["Default"].AxisX.MajorGrid.Interval = 1;
+chart1.ChartAreas["Default"].AxisX.MajorTickMark.Interval = 1;
+chart1.ChartAreas["Default"].AxisX.MinorGrid.Interval = 0.5;
+chart1.ChartAreas["Default"].AxisX.MinorTickMark.Interval = 0.5;
+
+// Set Line Color
+chart1.ChartAreas["Default"].AxisX.MinorGrid.LineColor = Color.Blue;
+
+// Set Line Style
+    chart1.ChartAreas["Default"].AxisX.MajorTickMark.LineDashStyle = ChartDashStyle.Solid;
+
+// Set Line Width
+chart1.ChartAreas["Default"].AxisX.MajorGrid.LineWidth = 1;    
+		
+...
