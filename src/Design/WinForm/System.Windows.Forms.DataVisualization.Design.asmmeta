@@ -1,0 +1,866 @@
+#include "versions.h"
+#include "ndp40.versions.h"
+
+.assembly extern System
+{
+	.publickeytoken = SYSTEM_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Design
+{
+	.publickeytoken = SYSTEM_DESIGN_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DESIGN_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Drawing
+{
+	.publickeytoken = SYSTEM_DRAWING_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DRAWING_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Drawing.Design
+{
+	.publickeytoken = SYSTEM_DRAWING_DESIGN_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DRAWING_DESIGN_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Windows.Forms
+{
+	.publickeytoken = SYSTEM_WINDOWS_FORMS_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_WINDOWS_FORMS_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Windows.Forms.DataVisualization
+{
+	.publickeytoken = SYSTEM_WINDOWS_FORMS_DATAVISUALIZATION_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_WINDOWS_FORMS_DATAVISUALIZATION_ASSEMBLY_VERSION_IL
+}
+.assembly extern mscorlib
+{
+	.publickeytoken = MSCORLIB_40_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver MSCORLIB_40_ASSEMBLY_VERSION_IL
+}
+.assembly System.Windows.Forms.DataVisualization.Design
+{
+	.custom instance void [mscorlib]System.CLSCompliantAttribute::.ctor(bool) = { bool(true) }
+	.custom instance void [mscorlib]System.Runtime.CompilerServices.InternalsVisibleToAttribute::.ctor(string) = { string('System.Windows.Forms.DataVisualization.Design, PublicKey=0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9') }
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = { bool(false) }
+	.publickey = SYSTEM_WINDOWS_FORMS_DATAVISUALIZATION_DESIGN_ASSEMBLY_PUBLIC_KEY_IL
+	.hash algorithm 0x00008004
+	.ver SYSTEM_WINDOWS_FORMS_DATAVISUALIZATION_DESIGN_ASSEMBLY_VERSION_IL
+}
+.class private abstract sealed AssemblyRef
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string ASPBrowserCapsFactory = "ASP.BrowserCapsFactory, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b7bd7678b977bd8f"
+	.field static assembly literal string ASPBrowserCapsPublicKey = "b7bd7678b977bd8f"
+	.field static assembly literal string EcmaPublicKey = "b77a5c561934e089"
+	.field static assembly literal string EcmaPublicKeyFull = "00000000000000000400000000000000"
+	.field static assembly literal string EcmaPublicKeyToken = "b77a5c561934e089"
+	.field static assembly literal string MicrosoftJScript = "Microsoft.JScript, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftPublicKey = "b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftPublicKeyFull = "002400000480000094000000060200000024000052534131000400000100010007D1FA57C4AED9F0A32E84AA0FAEFD0DE9E8FD6AEC8F87FB03766C834C99921EB23BE79AD9D5DCC1DD9AD236132102900B723CF980957FC4E177108FC607774F29E8320E92EA05ECE4E821C0A5EFE8F1645C4C0C93C1AB99285D622CAA652C1DFAD63D745D6F2DE5F17E5EAF0FC4963D261C8A12436518206DC093344D5AD293"
+	.field static assembly literal string MicrosoftPublicKeyToken = "b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVSDesigner = "Microsoft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVSDesignerMobile = "Microsoft.VSDesigner.Mobile, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudio = "Microsoft.VisualStudio, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudioWeb = "Microsoft.VisualStudio.Web, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudioWindowsForms = "Microsoft.VisualStudio.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftWebDesign = "Microsoft.Web.Design.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string Mscorlib = "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string PlatformPublicKey = "b77a5c561934e089"
+	.field static assembly literal string PlatformPublicKeyFull = "00000000000000000400000000000000"
+	.field static assembly literal string PlatformPublicKeyToken = "b77a5c561934e089"
+	.field static assembly literal string SharedLibPublicKey = "31bf3856ad364e35"
+	.field static assembly literal string SharedLibPublicKeyFull = "0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9"
+	.field static assembly literal string SharedLibPublicKeyToken = "31bf3856ad364e35"
+	.field static assembly literal string SilverlightPlatformPublicKey = "7cec85d7bea7798e"
+	.field static assembly literal string SilverlightPlatformPublicKeyFull = "00240000048000009400000006020000002400005253413100040000010001008D56C76F9E8649383049F383C44BE0EC204181822A6C31CF5EB7EF486944D032188EA1D3920763712CCB12D75FB77E9811149E6148E5D32FBAAB37611C1878DDC19E20EF135D0CB2CFF2BFEC3D115810C3D9069638FE4BE215DBF795861920E5AB6F7DB2E2CEEF136AC23D5DD2BF031700AEC232F6C6B1C785B4305C123B37AB"
+	.field static assembly literal string SilverlightPlatformPublicKeyToken = "7cec85d7bea7798e"
+	.field static assembly literal string SilverlightPublicKey = "31bf3856ad364e35"
+	.field static assembly literal string SilverlightPublicKeyFull = "0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9"
+	.field static assembly literal string SilverlightPublicKeyToken = "31bf3856ad364e35"
+	.field static assembly literal string System = "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemComponentModelDataAnnotations = "System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemConfiguration = "System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemConfigurationInstall = "System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemCore = "System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemData = "System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemDataOracleClient = "System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemDeployment = "System.Deployment, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDesign = "System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDirectoryServices = "System.DirectoryServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDrawing = "System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDrawingDesign = "System.Drawing.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemEnterpriseServices = "System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemManagement = "System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemMessaging = "System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNetHttp = "System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNetHttpWebRequest = "System.Net.Http.WebRequest, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNumerics = "System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeRemoting = "System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeSerializationFormattersSoap = "System.Runtime.Serialization.Formatters.Soap, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemRuntimeWindowsRuntime = "System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeWindowsRuntimeUIXaml = "System.Runtime.WindowsRuntimeUIXaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemSecurity = "System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemServiceModelWeb = "System.ServiceModel.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemServiceProcess = "System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemThreadingTasksDataflow = "System.Threading.Tasks.Dataflow, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemWeb = "System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebAbstractions = "System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebDynamicData = "System.Web.DynamicData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebDynamicDataDesign = "System.Web.DynamicData.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebEntityDesign = "System.Web.Entity.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemWebExtensions = "System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebExtensionsDesign = "System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebMobile = "System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebRegularExpressions = "System.Web.RegularExpressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebRouting = "System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebServices = "System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWindowsForms = "System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemXml = "System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string VJSharpCodeProvider = "VJSharpCodeProvider, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string WindowsBase = "WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+}
+.class private abstract sealed FXAssembly
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string Version = "4.0.0.0"
+}
+.class private abstract sealed ThisAssembly
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string BuildRevisionStr = "0"
+	.field static assembly literal string Copyright = bytearray(A9 00 20 00 4D 00 69 00 63 00 72 00 6F 00 73 00 6F 00 66 00 74 00 20 00 43 00 6F 00 72 00 70 00 6F 00 72 00 61 00 74 00 69 00 6F 00 6E 00 2E 00 20 00 20 00 41 00 6C 00 6C 00 20 00 72 00 69 00 67 00 68 00 74 00 73 00 20 00 72 00 65 00 73 00 65 00 72 00 76 00 65 00 64 00 2E 00)
+	.field static assembly literal int32 DailyBuildNumber = int32(0x0000766F)
+	.field static assembly literal string DailyBuildNumberStr = "30319"
+	.field static assembly literal string DefaultAlias = "System.Windows.Forms.DataVisualization.Design.dll"
+	.field static assembly literal string Description = "System.Windows.Forms.DataVisualization.Design.dll"
+	.field static assembly literal string InformationalVersion = "4.0.30319.0"
+	.field static assembly literal string Title = "System.Windows.Forms.DataVisualization.Design.dll"
+	.field static assembly literal string Version = "4.0.0.0"
+}
+.namespace System.Windows.Forms.Design.DataVisualization.Charting
+{
+	.class private AnchorPointNameTreeView
+		extends [System.Windows.Forms]System.Windows.Forms.TreeView
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService edSvc, class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Annotation annotation, class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.DataPoint GetNewValue()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnDoubleClick(class [mscorlib]System.EventArgs e)
+		{
+			ret
+		}
+	}
+	.class private AnchorPointUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private AnnotationAxisNameTreeView
+		extends [System.Windows.Forms]System.Windows.Forms.TreeView
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService edSvc, class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Annotation annotation, class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Axis axis, bool showXAxes)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Axis GetNewValue()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnDoubleClick(class [mscorlib]System.EventArgs e)
+		{
+			ret
+		}
+	}
+	.class private AnnotationAxisUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private AnnotationCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [mscorlib]System.Type[] CreateNewItemTypes()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private AreaCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private AxesArrayEditor
+		extends [System.Design]System.ComponentModel.Design.ArrayEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance bool CanRemoveInstance(object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig specialname 
+			instance string get_HelpTopic()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void ShowHelp()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [System.Design]System.ComponentModel.Design.CollectionEditor/CollectionForm CreateCollectionForm()
+		{
+			ret
+		}
+		.property instance string HelpTopic()
+		{
+			.get instance string System.Windows.Forms.Design.DataVisualization.Charting.AxesArrayEditor::get_HelpTopic()
+		}
+	}
+	.class private ChartCollectionEditor
+		extends [System.Design]System.ComponentModel.Design.CollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [mscorlib]System.Type 'type')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object SetItems(object editValue, object[] 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig specialname 
+			instance string get_HelpTopic()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void ShowHelp()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [System.Design]System.ComponentModel.Design.CollectionEditor/CollectionForm CreateCollectionForm()
+		{
+			ret
+		}
+		.method public static hidebysig 
+			object GetChartReference(object 'instance')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void DestroyInstance(object 'instance')
+		{
+			ret
+		}
+		.property instance string HelpTopic()
+		{
+			.get instance string System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor::get_HelpTopic()
+		}
+	}
+	.class private ChartColorEditor
+		extends [System.Drawing.Design]System.Drawing.Design.ColorEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartTypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartWinDesigner
+		extends [System.Design]System.Windows.Forms.Design.ControlDesigner
+	{
+		.method public virtual hidebysig 
+			instance void Initialize(class [System]System.ComponentModel.IComponent component)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnMouseDragBegin(int32 x, int32 y)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void InitializeNewComponent(class [mscorlib]System.Collections.IDictionary defaultValues)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method assembly static hidebysig 
+			void OnDataSourceChanged(class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Chart chartControl)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance object GetControlDataSource()
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance object GetControlDataSource(class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Chart chart)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.field static assembly class System.Windows.Forms.Design.DataVisualization.Charting.ChartWinDesigner controlDesigner
+	}
+	.class private ChartWinDesignerSerializer
+		extends [System.Design]System.ComponentModel.Design.Serialization.CodeDomSerializer
+	{
+		.method public virtual hidebysig 
+			instance object Serialize(class [System]System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object Deserialize(class [System]System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object codeObject)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ColorPaletteEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private DataPointCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private DataPointConverter
+		extends System.Windows.Forms.Design.DataVisualization.Charting.DataPointCustomPropertiesConverter
+	{
+		.method public virtual hidebysig 
+			instance bool CanConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object ConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Globalization.CultureInfo culture, object 'value', class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private DataPointCustomPropertiesConverter
+		extends [System]System.ComponentModel.TypeConverter
+	{
+		.method public virtual hidebysig 
+			instance bool GetPropertiesSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance class [System]System.ComponentModel.PropertyDescriptorCollection GetProperties(class [System]System.ComponentModel.ITypeDescriptorContext context, object 'value', class [mscorlib]System.Attribute[] attributes)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object ConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Globalization.CultureInfo culture, object 'value', class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private DesignerMessageBoxDialog
+		extends [mscorlib]System.Object
+		implements [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.IDesignerMessageBoxDialog
+	{
+		.method private final virtual hidebysig newslot 
+			instance bool System.Windows.Forms.DataVisualization.Charting.IDesignerMessageBoxDialog.ShowQuestion(string message)
+		{
+			.override [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.IDesignerMessageBoxDialog::ShowQuestion
+			ret
+		}
+		.method assembly static hidebysig 
+			valuetype [System.Windows.Forms]System.Windows.Forms.MessageBoxOptions GetMessageBoxOptions()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private FlagsEnumCheckedListBox
+		extends [System.Windows.Forms]System.Windows.Forms.CheckedListBox
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(object editValue, class [mscorlib]System.Type editType)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance object GetNewValue()
+		{
+			ret
+		}
+	}
+	.class private FlagsEnumUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private GradientEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private HatchStyleEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ImageValueEditor
+		extends [System.Design]System.Windows.Forms.Design.FileNameEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private KeywordEditor
+		extends [System.Windows.Forms]System.Windows.Forms.Form
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(class [mscorlib]System.Collections.ArrayList applicableKeywords, string keyword, int32 maxYValueIndex)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.field assembly string Keyword
+	}
+	.class private KeywordsStringEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private KeywordsStringEditorForm
+		extends [System.Windows.Forms]System.Windows.Forms.Form
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(string initialString, string classTypeName, string propertyName, int32 maxYValueIndex)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.field assembly class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Utilities.KeywordsRegistry KeywordsRegistry
+		.field public string ResultString
+		.field assembly class [mscorlib]System.Collections.ArrayList applicableKeywords
+	}
+	.class private LegendCellCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendCellColumnCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendItemCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+	}
+	.class private MarkerStyleEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private SeriesCollectionEditor
+		extends System.Windows.Forms.Design.DataVisualization.Charting.ChartCollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method assembly static hidebysig 
+			class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Series CreateNewSeries(class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Chart control, string suggestedChartArea)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private SeriesDataSourceMemberValueAxisUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method assembly virtual hidebysig newslot strict 
+			instance class System.Windows.Forms.Design.DataVisualization.Charting.SeriesDataSourceMemberYCheckedListBox GetDropDownControl(class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Chart chart, class [System]System.ComponentModel.ITypeDescriptorContext context, object 'value', bool flag)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private SeriesDataSourceMemberYCheckedListBox
+		extends [System.Windows.Forms]System.Windows.Forms.CheckedListBox
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Windows.Forms.DataVisualization]System.Windows.Forms.DataVisualization.Charting.Chart chart, object editValue, bool usedForYValue)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnCreateControl()
+		{
+			ret
+		}
+		.method assembly virtual hidebysig newslot strict 
+			instance class [mscorlib]System.Collections.ArrayList GetMemberNames()
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance string GetNewValue()
+		{
+			ret
+		}
+		.field family object editValue
+		.field family bool usedForYValue
+	}
+}

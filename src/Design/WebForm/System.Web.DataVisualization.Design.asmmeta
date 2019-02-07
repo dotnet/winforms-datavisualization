@@ -1,0 +1,1623 @@
+#include "versions.h"
+#include "ndp40.versions.h"
+
+.assembly extern System
+{
+	.publickeytoken = SYSTEM_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Design
+{
+	.publickeytoken = SYSTEM_DESIGN_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DESIGN_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Drawing
+{
+	.publickeytoken = SYSTEM_DRAWING_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DRAWING_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Drawing.Design
+{
+	.publickeytoken = SYSTEM_DRAWING_DESIGN_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_DRAWING_DESIGN_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Web
+{
+	.publickeytoken = SYSTEM_WEB_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_WEB_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Web.DataVisualization
+{
+	.publickeytoken = SYSTEM_WEB_DATAVISUALIZATION_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_WEB_DATAVISUALIZATION_ASSEMBLY_VERSION_IL
+}
+.assembly extern System.Windows.Forms
+{
+	.publickeytoken = SYSTEM_WINDOWS_FORMS_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver SYSTEM_WINDOWS_FORMS_ASSEMBLY_VERSION_IL
+}
+.assembly extern mscorlib
+{
+	.publickeytoken = MSCORLIB_40_ASSEMBLY_PUBLIC_KEY_TOKEN_IL
+	.ver MSCORLIB_40_ASSEMBLY_VERSION_IL
+}
+.assembly System.Web.DataVisualization.Design
+{
+	.custom instance void [mscorlib]System.CLSCompliantAttribute::.ctor(bool) = { bool(true) }
+	.custom instance void [mscorlib]System.Runtime.CompilerServices.InternalsVisibleToAttribute::.ctor(string) = { string('System.Web.DataVisualization.Design, PublicKey=0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9') }
+	.custom instance void [mscorlib]System.Runtime.InteropServices.ComVisibleAttribute::.ctor(bool) = { bool(false) }
+	.publickey = SYSTEM_WEB_DATAVISUALIZATION_DESIGN_ASSEMBLY_PUBLIC_KEY_IL
+	.hash algorithm 0x00008004
+	.ver SYSTEM_WEB_DATAVISUALIZATION_DESIGN_ASSEMBLY_VERSION_IL
+}
+.class private abstract sealed AssemblyRef
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string ASPBrowserCapsFactory = "ASP.BrowserCapsFactory, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b7bd7678b977bd8f"
+	.field static assembly literal string ASPBrowserCapsPublicKey = "b7bd7678b977bd8f"
+	.field static assembly literal string EcmaPublicKey = "b77a5c561934e089"
+	.field static assembly literal string EcmaPublicKeyFull = "00000000000000000400000000000000"
+	.field static assembly literal string EcmaPublicKeyToken = "b77a5c561934e089"
+	.field static assembly literal string MicrosoftJScript = "Microsoft.JScript, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftPublicKey = "b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftPublicKeyFull = "002400000480000094000000060200000024000052534131000400000100010007D1FA57C4AED9F0A32E84AA0FAEFD0DE9E8FD6AEC8F87FB03766C834C99921EB23BE79AD9D5DCC1DD9AD236132102900B723CF980957FC4E177108FC607774F29E8320E92EA05ECE4E821C0A5EFE8F1645C4C0C93C1AB99285D622CAA652C1DFAD63D745D6F2DE5F17E5EAF0FC4963D261C8A12436518206DC093344D5AD293"
+	.field static assembly literal string MicrosoftPublicKeyToken = "b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVSDesigner = "Microsoft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVSDesignerMobile = "Microsoft.VSDesigner.Mobile, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudio = "Microsoft.VisualStudio, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudioWeb = "Microsoft.VisualStudio.Web, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftVisualStudioWindowsForms = "Microsoft.VisualStudio.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string MicrosoftWebDesign = "Microsoft.Web.Design.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string Mscorlib = "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string PlatformPublicKey = "b77a5c561934e089"
+	.field static assembly literal string PlatformPublicKeyFull = "00000000000000000400000000000000"
+	.field static assembly literal string PlatformPublicKeyToken = "b77a5c561934e089"
+	.field static assembly literal string SharedLibPublicKey = "31bf3856ad364e35"
+	.field static assembly literal string SharedLibPublicKeyFull = "0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9"
+	.field static assembly literal string SharedLibPublicKeyToken = "31bf3856ad364e35"
+	.field static assembly literal string SilverlightPlatformPublicKey = "7cec85d7bea7798e"
+	.field static assembly literal string SilverlightPlatformPublicKeyFull = "00240000048000009400000006020000002400005253413100040000010001008D56C76F9E8649383049F383C44BE0EC204181822A6C31CF5EB7EF486944D032188EA1D3920763712CCB12D75FB77E9811149E6148E5D32FBAAB37611C1878DDC19E20EF135D0CB2CFF2BFEC3D115810C3D9069638FE4BE215DBF795861920E5AB6F7DB2E2CEEF136AC23D5DD2BF031700AEC232F6C6B1C785B4305C123B37AB"
+	.field static assembly literal string SilverlightPlatformPublicKeyToken = "7cec85d7bea7798e"
+	.field static assembly literal string SilverlightPublicKey = "31bf3856ad364e35"
+	.field static assembly literal string SilverlightPublicKeyFull = "0024000004800000940000000602000000240000525341310004000001000100B5FC90E7027F67871E773A8FDE8938C81DD402BA65B9201D60593E96C492651E889CC13F1415EBB53FAC1131AE0BD333C5EE6021672D9718EA31A8AEBD0DA0072F25D87DBA6FC90FFD598ED4DA35E44C398C454307E8E33B8426143DAEC9F596836F97C8F74750E5975C64E2189F45DEF46B2A2B1247ADC3652BF5C308055DA9"
+	.field static assembly literal string SilverlightPublicKeyToken = "31bf3856ad364e35"
+	.field static assembly literal string System = "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemComponentModelDataAnnotations = "System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemConfiguration = "System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemConfigurationInstall = "System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemCore = "System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemData = "System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemDataOracleClient = "System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemDeployment = "System.Deployment, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDesign = "System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDirectoryServices = "System.DirectoryServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDrawing = "System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemDrawingDesign = "System.Drawing.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemEnterpriseServices = "System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemManagement = "System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemMessaging = "System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNetHttp = "System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNetHttpWebRequest = "System.Net.Http.WebRequest, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemNumerics = "System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeRemoting = "System.Runtime.Remoting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeSerializationFormattersSoap = "System.Runtime.Serialization.Formatters.Soap, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemRuntimeWindowsRuntime = "System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemRuntimeWindowsRuntimeUIXaml = "System.Runtime.WindowsRuntimeUIXaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemSecurity = "System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemServiceModelWeb = "System.ServiceModel.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemServiceProcess = "System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemThreadingTasksDataflow = "System.Threading.Tasks.Dataflow, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemWeb = "System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebAbstractions = "System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebDynamicData = "System.Web.DynamicData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebDynamicDataDesign = "System.Web.DynamicData.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebEntityDesign = "System.Web.Entity.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemWebExtensions = "System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebExtensionsDesign = "System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebMobile = "System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebRegularExpressions = "System.Web.RegularExpressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWebRouting = "System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+	.field static assembly literal string SystemWebServices = "System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string SystemWindowsForms = "System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string SystemXml = "System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+	.field static assembly literal string VJSharpCodeProvider = "VJSharpCodeProvider, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	.field static assembly literal string WindowsBase = "WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+}
+.class private abstract sealed FXAssembly
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string Version = "4.0.0.0"
+}
+.class private abstract sealed ThisAssembly
+	extends [mscorlib]System.Object
+{
+	.field static assembly literal string BuildRevisionStr = "0"
+	.field static assembly literal string Copyright = bytearray(A9 00 20 00 4D 00 69 00 63 00 72 00 6F 00 73 00 6F 00 66 00 74 00 20 00 43 00 6F 00 72 00 70 00 6F 00 72 00 61 00 74 00 69 00 6F 00 6E 00 2E 00 20 00 20 00 41 00 6C 00 6C 00 20 00 72 00 69 00 67 00 68 00 74 00 73 00 20 00 72 00 65 00 73 00 65 00 72 00 76 00 65 00 64 00 2E 00)
+	.field static assembly literal int32 DailyBuildNumber = int32(0x0000766F)
+	.field static assembly literal string DailyBuildNumberStr = "30319"
+	.field static assembly literal string DefaultAlias = "System.Web.DataVisualization.Design.dll"
+	.field static assembly literal string Description = "System.Web.DataVisualization.Design.dll"
+	.field static assembly literal string InformationalVersion = "4.0.30319.0"
+	.field static assembly literal string Title = "System.Web.DataVisualization.Design.dll"
+	.field static assembly literal string Version = "4.0.0.0"
+}
+.namespace 'System.Web.UI.Design.DataVisualization.Charting'
+{
+	.class private ActionPropertyDescriptor
+		extends [System]System.ComponentModel.PropertyDescriptor
+	{
+		.method assembly hidebysig specialname 
+			instance void .ctor(object target, class [System]System.ComponentModel.PropertyDescriptor basePropertyDescriptor, class 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList' actionList)
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance class [mscorlib]System.Type get_ComponentType()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance string get_DisplayName()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance bool get_IsBrowsable()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance bool get_IsReadOnly()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance class [mscorlib]System.Type get_PropertyType()
+		{
+			ret
+		}
+		.method assembly hidebysig specialname 
+			instance object get_Instance()
+		{
+			ret
+		}
+		.method assembly hidebysig specialname 
+			instance class 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList' get_ActionList()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object GetEditor(class [mscorlib]System.Type editorBaseType)
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance object GetPropertyOwner()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool CanResetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object GetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void ResetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool ShouldSerializeValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void SetValue(object component, object 'value')
+		{
+			ret
+		}
+		.property instance class 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList' ActionList()
+		{
+			.get instance class 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList' 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_ActionList()
+		}
+		.property instance class [mscorlib]System.Type ComponentType()
+		{
+			.get instance class [mscorlib]System.Type 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_ComponentType()
+		}
+		.property instance string DisplayName()
+		{
+			.get instance string 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_DisplayName()
+		}
+		.property instance object Instance()
+		{
+			.get instance object 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_Instance()
+		}
+		.property instance bool IsBrowsable()
+		{
+			.get instance bool 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_IsBrowsable()
+		}
+		.property instance bool IsReadOnly()
+		{
+			.get instance bool 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_IsReadOnly()
+		}
+		.property instance class [mscorlib]System.Type PropertyType()
+		{
+			.get instance class [mscorlib]System.Type 'System.Web.UI.Design.DataVisualization.Charting.ActionPropertyDescriptor'::get_PropertyType()
+		}
+	}
+	.class private AnchorPointNameTreeView
+		extends [System.Windows.Forms]System.Windows.Forms.TreeView
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService edSvc, class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Annotation' annotation, class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.DataPoint' dataPoint)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.DataPoint' GetNewValue()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnDoubleClick(class [mscorlib]System.EventArgs e)
+		{
+			ret
+		}
+	}
+	.class private AnchorPointUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private AnnotationAxisNameTreeView
+		extends [System.Windows.Forms]System.Windows.Forms.TreeView
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService edSvc, class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Annotation' annotation, class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Axis' axis, bool showXAxes)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Axis' GetNewValue()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnDoubleClick(class [mscorlib]System.EventArgs e)
+		{
+			ret
+		}
+	}
+	.class private AnnotationAxisUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private AnnotationCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [mscorlib]System.Type[] CreateNewItemTypes()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private AreaCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+	}
+	.class private AxesArrayEditor
+		extends [System.Design]System.ComponentModel.Design.ArrayEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance bool CanRemoveInstance(object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig specialname 
+			instance string get_HelpTopic()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void ShowHelp()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [System.Design]System.ComponentModel.Design.CollectionEditor/CollectionForm CreateCollectionForm()
+		{
+			ret
+		}
+		.property instance string HelpTopic()
+		{
+			.get instance string 'System.Web.UI.Design.DataVisualization.Charting.AxesArrayEditor'::get_HelpTopic()
+		}
+	}
+	.class private ChartActionList
+		extends [System.Design]System.ComponentModel.Design.DesignerActionList
+		implements [mscorlib]System.IServiceProvider, [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService, [System]System.ComponentModel.ICustomTypeDescriptor, [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement'
+	{
+		.class nested assembly TypeDescriptorContextImpl
+			extends [mscorlib]System.Object
+			implements [System]System.ComponentModel.ITypeDescriptorContext, [mscorlib]System.IServiceProvider
+		{
+			.method public hidebysig specialname 
+				instance void .ctor(class 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList' designer, class [System]System.ComponentModel.PropertyDescriptor propDescriptor)
+			{
+				ret
+			}
+			.method public final virtual hidebysig newslot 
+				instance object GetService(class [mscorlib]System.Type serviceType)
+			{
+				ret
+			}
+			.method private final virtual hidebysig newslot specialname 
+				instance class [System]System.ComponentModel.IContainer System.ComponentModel.ITypeDescriptorContext.get_Container()
+			{
+				.override [System]System.ComponentModel.ITypeDescriptorContext::get_Container
+				ret
+			}
+			.method public final virtual hidebysig newslot specialname 
+				instance object get_Instance()
+			{
+				ret
+			}
+			.method public final virtual hidebysig newslot specialname 
+				instance class [System]System.ComponentModel.PropertyDescriptor get_PropertyDescriptor()
+			{
+				ret
+			}
+			.method private final virtual hidebysig newslot 
+				instance void System.ComponentModel.ITypeDescriptorContext.OnComponentChanged()
+			{
+				.override [System]System.ComponentModel.ITypeDescriptorContext::OnComponentChanged
+				ret
+			}
+			.method private final virtual hidebysig newslot 
+				instance bool System.ComponentModel.ITypeDescriptorContext.OnComponentChanging()
+			{
+				.override [System]System.ComponentModel.ITypeDescriptorContext::OnComponentChanging
+				ret
+			}
+			.property instance object Instance()
+			{
+				.get instance object 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'/TypeDescriptorContextImpl::get_Instance()
+			}
+			.property instance class [System]System.ComponentModel.PropertyDescriptor PropertyDescriptor()
+			{
+				.get instance class [System]System.ComponentModel.PropertyDescriptor 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'/TypeDescriptorContextImpl::get_PropertyDescriptor()
+			}
+			.property instance class [System]System.ComponentModel.IContainer System.ComponentModel.ITypeDescriptorContext.Container()
+			{
+				.get instance class [System]System.ComponentModel.IContainer 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'/TypeDescriptorContextImpl::System.ComponentModel.ITypeDescriptorContext.get_Container()
+			}
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(class 'System.Web.UI.Design.DataVisualization.Charting.ChartWebDesigner' chartDesigner)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance class [System.Design]System.ComponentModel.Design.DesignerActionItemCollection GetSortedActionItems()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance valuetype [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.SeriesChartType' get_ChartTypeImpl()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void set_ChartTypeImpl(valuetype [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.SeriesChartType' 'value')
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance bool IsBrowsableChartType()
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance class 'System.Web.UI.Design.DataVisualization.Charting.ChartWebDesigner' GetDesigner()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance bool get_AutoShow()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance void set_AutoShow(bool 'value')
+		{
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement' 'System.Web.UI.DataVisualization.Charting.IChartElement.get_Parent'()
+		{
+			.override [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement'::get_Parent
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance void 'System.Web.UI.DataVisualization.Charting.IChartElement.set_Parent'(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement' 'value')
+		{
+			.override [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement'::set_Parent
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.CommonElements' 'System.Web.UI.DataVisualization.Charting.IChartElement.get_Common'()
+		{
+			.override [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement'::get_Common
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance void 'System.Web.UI.DataVisualization.Charting.IChartElement.Invalidate'()
+		{
+			.override [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement'::Invalidate
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance object System.IServiceProvider.GetService(class [mscorlib]System.Type serviceType)
+		{
+			.override [mscorlib]System.IServiceProvider::GetService
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance void System.Windows.Forms.Design.IWindowsFormsEditorService.CloseDropDown()
+		{
+			.override [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService::CloseDropDown
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance void System.Windows.Forms.Design.IWindowsFormsEditorService.DropDownControl(class [System.Windows.Forms]System.Windows.Forms.Control control)
+		{
+			.override [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService::DropDownControl
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance valuetype [System.Windows.Forms]System.Windows.Forms.DialogResult System.Windows.Forms.Design.IWindowsFormsEditorService.ShowDialog(class [System.Windows.Forms]System.Windows.Forms.Form dialog)
+		{
+			.override [System.Windows.Forms]System.Windows.Forms.Design.IWindowsFormsEditorService::ShowDialog
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.PropertyDescriptorCollection System.ComponentModel.ICustomTypeDescriptor.GetProperties()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetProperties
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.PropertyDescriptorCollection System.ComponentModel.ICustomTypeDescriptor.GetProperties(class [mscorlib]System.Attribute[] attributes)
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetProperties
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance string System.ComponentModel.ICustomTypeDescriptor.GetClassName()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetClassName
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.AttributeCollection System.ComponentModel.ICustomTypeDescriptor.GetAttributes()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetAttributes
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance string System.ComponentModel.ICustomTypeDescriptor.GetComponentName()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetComponentName
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.TypeConverter System.ComponentModel.ICustomTypeDescriptor.GetConverter()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetConverter
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.EventDescriptor System.ComponentModel.ICustomTypeDescriptor.GetDefaultEvent()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetDefaultEvent
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.PropertyDescriptor System.ComponentModel.ICustomTypeDescriptor.GetDefaultProperty()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetDefaultProperty
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance object System.ComponentModel.ICustomTypeDescriptor.GetEditor(class [mscorlib]System.Type editorBaseType)
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetEditor
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.EventDescriptorCollection System.ComponentModel.ICustomTypeDescriptor.GetEvents(class [mscorlib]System.Attribute[] attributes)
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetEvents
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance class [System]System.ComponentModel.EventDescriptorCollection System.ComponentModel.ICustomTypeDescriptor.GetEvents()
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetEvents
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance object System.ComponentModel.ICustomTypeDescriptor.GetPropertyOwner(class [System]System.ComponentModel.PropertyDescriptor pd)
+		{
+			.custom instance void [System]System.ComponentModel.EditorBrowsableAttribute::.ctor(valuetype [System]System.ComponentModel.EditorBrowsableState) = { int32(1) }
+			.override [System]System.ComponentModel.ICustomTypeDescriptor::GetPropertyOwner
+			ret
+		}
+		.method assembly hidebysig specialname 
+			instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' get_Chart()
+		{
+			ret
+		}
+		.property instance bool AutoShow()
+		{
+			.get instance bool 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::get_AutoShow()
+			.set instance void 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::set_AutoShow(bool)
+		}
+		.property instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' Chart()
+		{
+			.get instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::get_Chart()
+		}
+		.property instance valuetype [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.SeriesChartType' ChartTypeImpl()
+		{
+			.custom instance void [System]System.ComponentModel.DefaultValueAttribute::.ctor(object) = (01 00 55 80 99 53 79 73 74 65 6D 2E 57 65 62 2E 55 49 2E 44 61 74 61 56 69 73 75 61 6C 69 7A 61 74 69 6F 6E 2E 43 68 61 72 74 69 6E 67 2E 53 65 72 69 65 73 43 68 61 72 74 54 79 70 65 2C 20 53 79 73 74 65 6D 2E 57 65 62 2E 44 61 74 61 56 69 73 75 61 6C 69 7A 61 74 69 6F 6E 2C 20 56 65 72 73 69 6F 6E 3D 34 2E 30 2E 30 2E 30 2C 20 43 75 6C 74 75 72 65 3D 6E 65 75 74 72 61 6C 2C 20 50 75 62 6C 69 63 4B 65 79 54 6F 6B 65 6E 3D 33 31 62 66 33 38 35 36 61 64 33 36 34 65 33 35 0A 00 00 00 00 00)
+			.get instance valuetype [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.SeriesChartType' 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::get_ChartTypeImpl()
+			.set instance void 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::set_ChartTypeImpl(valuetype [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.SeriesChartType')
+		}
+		.property instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.CommonElements' 'System.Web.UI.DataVisualization.Charting.IChartElement.Common'()
+		{
+			.get instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.CommonElements' 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::'System.Web.UI.DataVisualization.Charting.IChartElement.get_Common'()
+		}
+		.property instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement' 'System.Web.UI.DataVisualization.Charting.IChartElement.Parent'()
+		{
+			.get instance class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement' 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::'System.Web.UI.DataVisualization.Charting.IChartElement.get_Parent'()
+			.set instance void 'System.Web.UI.Design.DataVisualization.Charting.ChartActionList'::'System.Web.UI.DataVisualization.Charting.IChartElement.set_Parent'(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IChartElement')
+		}
+	}
+	.class private ChartBuilder
+		extends [System.Web]'System.Web.UI.ControlBuilder'
+	{
+		.method public virtual hidebysig 
+			instance class [mscorlib]System.Type GetChildControlType(string tagName, class [mscorlib]System.Collections.IDictionary attributes)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void AppendLiteralString(string s)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartCollectionEditor
+		extends [System.Design]System.ComponentModel.Design.CollectionEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [mscorlib]System.Type 'type')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object SetItems(object editValue, object[] 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig specialname 
+			instance string get_HelpTopic()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void ShowHelp()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance class [System.Design]System.ComponentModel.Design.CollectionEditor/CollectionForm CreateCollectionForm()
+		{
+			ret
+		}
+		.method public static hidebysig 
+			object GetChartReference(object 'instance')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void DestroyInstance(object 'instance')
+		{
+			ret
+		}
+		.property instance string HelpTopic()
+		{
+			.get instance string 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'::get_HelpTopic()
+		}
+	}
+	.class private ChartColorEditor
+		extends [System.Drawing.Design]System.Drawing.Design.ColorEditor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartTypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartUrlEditor
+		extends [System.Design]'System.Web.UI.Design.UrlEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ChartWebDesigner
+		extends [System.Design]'System.Web.UI.Design.WebControls.DataBoundControlDesigner'
+	{
+		.method public virtual hidebysig 
+			instance void Initialize(class [System]System.ComponentModel.IComponent component)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void PostFilterProperties(class [mscorlib]System.Collections.IDictionary properties)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance string GetPersistenceContent()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance string GetPersistInnerHtml()
+		{
+			.custom instance void [mscorlib]System.ObsoleteAttribute::.ctor() = { }
+			ret
+		}
+		.method family virtual hidebysig 
+			instance string GetErrorDesignTimeHtml(class [mscorlib]System.Exception e)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance string GetDesignTimeHtml()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnPaint(class [System.Windows.Forms]System.Windows.Forms.PaintEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnDataSourceChanged(bool forceUpdateView)
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance void SetDirtyFlag()
+		{
+			ret
+		}
+		.method assembly hidebysig 
+			instance void SetDirtyFlag(bool raiseComponentChanged)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance object GetDataSource()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance class [System.Design]System.ComponentModel.Design.DesignerActionListCollection get_ActionLists()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.field static assembly class 'System.Web.UI.Design.DataVisualization.Charting.ChartWebDesigner' controlDesigner
+		.property instance class [System.Design]System.ComponentModel.Design.DesignerActionListCollection ActionLists()
+		{
+			.get instance class [System.Design]System.ComponentModel.Design.DesignerActionListCollection 'System.Web.UI.Design.DataVisualization.Charting.ChartWebDesigner'::get_ActionLists()
+		}
+	}
+	.class private ColorExtended
+		extends [mscorlib]System.Object
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(valuetype [System.Drawing]System.Drawing.Color color)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance valuetype [System.Drawing]System.Drawing.Color get_Value()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void set_Value(valuetype [System.Drawing]System.Drawing.Color 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance string ToString()
+		{
+			ret
+		}
+		.property instance valuetype [System.Drawing]System.Drawing.Color Value()
+		{
+			.get instance valuetype [System.Drawing]System.Drawing.Color 'System.Web.UI.Design.DataVisualization.Charting.ColorExtended'::get_Value()
+			.set instance void 'System.Web.UI.Design.DataVisualization.Charting.ColorExtended'::set_Value(valuetype [System.Drawing]System.Drawing.Color)
+		}
+	}
+	.class private ColorExtendedArrayConverter
+		extends [System]System.ComponentModel.TypeConverter
+	{
+		.method public virtual hidebysig 
+			instance bool CanConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool CanConvertFrom(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Type sourceType)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object ConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Globalization.CultureInfo culture, object 'value', class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object ConvertFrom(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Globalization.CultureInfo culture, object 'value')
+		{
+			ret
+		}
+		.method public static hidebysig 
+			string ColorArrayToString(class 'System.Web.UI.Design.DataVisualization.Charting.ColorExtended'[] colors)
+		{
+			ret
+		}
+		.method public static hidebysig 
+			class 'System.Web.UI.Design.DataVisualization.Charting.ColorExtended'[] StringToColorArray(string colorNames)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ColorExtendedArrayPropertyDescriptor
+		extends [System]System.ComponentModel.PropertyDescriptor
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System]System.ComponentModel.PropertyDescriptor basePropertyDescriptor)
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance class [mscorlib]System.Type get_ComponentType()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance bool get_IsReadOnly()
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance class [mscorlib]System.Type get_PropertyType()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool CanResetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object GetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void ResetValue(object component)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void SetValue(object component, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool ShouldSerializeValue(object component)
+		{
+			ret
+		}
+		.property instance class [mscorlib]System.Type ComponentType()
+		{
+			.get instance class [mscorlib]System.Type 'System.Web.UI.Design.DataVisualization.Charting.ColorExtendedArrayPropertyDescriptor'::get_ComponentType()
+		}
+		.property instance bool IsReadOnly()
+		{
+			.get instance bool 'System.Web.UI.Design.DataVisualization.Charting.ColorExtendedArrayPropertyDescriptor'::get_IsReadOnly()
+		}
+		.property instance class [mscorlib]System.Type PropertyType()
+		{
+			.get instance class [mscorlib]System.Type 'System.Web.UI.Design.DataVisualization.Charting.ColorExtendedArrayPropertyDescriptor'::get_PropertyType()
+		}
+	}
+	.class private ColorExtendedEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ColorPaletteEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private DataPointCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private DataPointCustomPropertiesConverter
+		extends [System]System.ComponentModel.TypeConverter
+	{
+		.method public virtual hidebysig 
+			instance bool GetPropertiesSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance class [System]System.ComponentModel.PropertyDescriptorCollection GetProperties(class [System]System.ComponentModel.ITypeDescriptorContext context, object 'value', class [mscorlib]System.Attribute[] attributes)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object ConvertTo(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.Globalization.CultureInfo culture, object 'value', class [mscorlib]System.Type destinationType)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private DesignerActionVerbItem
+		extends [System.Design]System.ComponentModel.Design.DesignerActionMethodItem
+	{
+		.method assembly hidebysig specialname 
+			instance void .ctor(class [System.Design]System.ComponentModel.Design.DesignerActionList list, class [System]System.ComponentModel.Design.DesignerVerb verb, string category)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void Invoke()
+		{
+			ret
+		}
+	}
+	.class private DesignerMessageBoxDialog
+		extends [mscorlib]System.Object
+		implements [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IDesignerMessageBoxDialog'
+	{
+		.method private final virtual hidebysig newslot 
+			instance bool 'System.Web.UI.DataVisualization.Charting.IDesignerMessageBoxDialog.ShowQuestion'(string message)
+		{
+			.override [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.IDesignerMessageBoxDialog'::ShowQuestion
+			ret
+		}
+		.method assembly static hidebysig 
+			valuetype [System.Windows.Forms]System.Windows.Forms.MessageBoxOptions GetMessageBoxOptions()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private FlagsEnumCheckedListBox
+		extends [System.Windows.Forms]System.Windows.Forms.CheckedListBox
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(object editValue, class [mscorlib]System.Type editType)
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance object GetNewValue()
+		{
+			ret
+		}
+	}
+	.class private FlagsEnumUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private GradientEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private HatchStyleEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private ImageValueEditor
+		extends [System.Design]'System.Web.UI.Design.ImageUrlEditor'
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private KeywordEditor
+		extends [System.Windows.Forms]System.Windows.Forms.Form
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(class [mscorlib]System.Collections.ArrayList applicableKeywords, string keyword, int32 maxYValueIndex)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.field assembly string Keyword
+	}
+	.class private KeywordsStringEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private KeywordsStringEditorForm
+		extends [System.Windows.Forms]System.Windows.Forms.Form
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(string initialString, string classTypeName, string propertyName, int32 maxYValueIndex)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.field assembly class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Utilities.KeywordsRegistry' KeywordsRegistry
+		.field public string ResultString
+		.field assembly class [mscorlib]System.Collections.ArrayList applicableKeywords
+	}
+	.class private LegendCellCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendCellColumnCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private LegendItemCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+	}
+	.class private MarkerStyleEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [mscorlib]System.IDisposable
+	{
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void Finalize()
+		{
+			.override [mscorlib]System.Object::Finalize
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance void Dispose(bool disposing)
+		{
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private SeriesCollectionEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.ChartCollectionEditor'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method assembly static hidebysig 
+			class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Series' CreateNewSeries(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' control, string suggestedChartArea)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance object CreateInstance(class [mscorlib]System.Type itemType)
+		{
+			ret
+		}
+	}
+	.class private SeriesDataFieldValueAxisUITypeEditor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.SeriesDataSourceMemberValueAxisUITypeEditor'
+	{
+		.method assembly virtual hidebysig strict 
+			instance class 'System.Web.UI.Design.DataVisualization.Charting.SeriesDataSourceMemberYCheckedListBox' GetDropDownControl(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' chart, class [System]System.ComponentModel.ITypeDescriptorContext context, object 'value', bool flag)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private SeriesDataFieldXConvertor
+		extends [System.Design]'System.Web.UI.Design.DataFieldConverter'
+	{
+		.method assembly hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance bool IsApplicable(class [System.Design]'System.Web.UI.Design.IDataSourceFieldSchema' shema)
+		{
+			ret
+		}
+		.method family virtual hidebysig newslot 
+			instance bool IsApplicable(class [System]System.ComponentModel.PropertyDescriptor descriptor)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance class [System]System.ComponentModel.TypeConverter/StandardValuesCollection GetStandardValues(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool GetStandardValuesSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+	}
+	.class private SeriesDataFieldYCheckedListBox
+		extends 'System.Web.UI.Design.DataVisualization.Charting.SeriesDataSourceMemberYCheckedListBox'
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' chart, class [System]System.ComponentModel.ITypeDescriptorContext context, object editValue, bool usedForYValue)
+		{
+			ret
+		}
+		.method assembly virtual hidebysig strict 
+			instance class [mscorlib]System.Collections.ArrayList GetMemberNames()
+		{
+			ret
+		}
+	}
+	.class private SeriesDataFieldYConvertor
+		extends 'System.Web.UI.Design.DataVisualization.Charting.SeriesDataFieldXConvertor'
+	{
+		.method assembly hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance bool IsApplicable(class [System]System.ComponentModel.PropertyDescriptor descriptor)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance bool IsApplicable(class [System.Design]'System.Web.UI.Design.IDataSourceFieldSchema' shema)
+		{
+			ret
+		}
+	}
+	.class private SeriesDataSourceMemberValueAxisUITypeEditor
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+	{
+		.method assembly virtual hidebysig newslot strict 
+			instance class 'System.Web.UI.Design.DataVisualization.Charting.SeriesDataSourceMemberYCheckedListBox' GetDropDownControl(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' chart, class [System]System.ComponentModel.ITypeDescriptorContext context, object 'value', bool flag)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+	.class private SeriesDataSourceMemberYCheckedListBox
+		extends [System.Windows.Forms]System.Windows.Forms.CheckedListBox
+	{
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Web.DataVisualization]'System.Web.UI.DataVisualization.Charting.Chart' chart, object editValue, bool usedForYValue)
+		{
+			ret
+		}
+		.method family virtual hidebysig 
+			instance void OnCreateControl()
+		{
+			ret
+		}
+		.method assembly virtual hidebysig newslot strict 
+			instance class [mscorlib]System.Collections.ArrayList GetMemberNames()
+		{
+			ret
+		}
+		.method public hidebysig 
+			instance string GetNewValue()
+		{
+			ret
+		}
+		.field family object editValue
+		.field family bool usedForYValue
+	}
+	.class private UITypeEditorProxy
+		extends [System.Drawing]System.Drawing.Design.UITypeEditor
+		implements [System]System.ComponentModel.ITypeDescriptorContext, [mscorlib]System.IServiceProvider, [mscorlib]System.IDisposable
+	{
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor(class [System.Drawing]System.Drawing.Design.UITypeEditor targetEditor, class [System]System.ComponentModel.PropertyDescriptor actionPropDesc, object 'instance')
+		{
+			ret
+		}
+		.method public virtual hidebysig specialname 
+			instance bool get_IsDropDownResizable()
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance valuetype [System.Drawing]System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance bool GetPaintValueSupported(class [System]System.ComponentModel.ITypeDescriptorContext context)
+		{
+			ret
+		}
+		.method public virtual hidebysig 
+			instance void PaintValue(class [System.Drawing]System.Drawing.Design.PaintValueEventArgs e)
+		{
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance class [System]System.ComponentModel.IContainer System.ComponentModel.ITypeDescriptorContext.get_Container()
+		{
+			.override [System]System.ComponentModel.ITypeDescriptorContext::get_Container
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance object System.ComponentModel.ITypeDescriptorContext.get_Instance()
+		{
+			.override [System]System.ComponentModel.ITypeDescriptorContext::get_Instance
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance void System.ComponentModel.ITypeDescriptorContext.OnComponentChanged()
+		{
+			.override [System]System.ComponentModel.ITypeDescriptorContext::OnComponentChanged
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance bool System.ComponentModel.ITypeDescriptorContext.OnComponentChanging()
+		{
+			.override [System]System.ComponentModel.ITypeDescriptorContext::OnComponentChanging
+			ret
+		}
+		.method private final virtual hidebysig newslot specialname 
+			instance class [System]System.ComponentModel.PropertyDescriptor System.ComponentModel.ITypeDescriptorContext.get_PropertyDescriptor()
+		{
+			.override [System]System.ComponentModel.ITypeDescriptorContext::get_PropertyDescriptor
+			ret
+		}
+		.method private final virtual hidebysig newslot 
+			instance object System.IServiceProvider.GetService(class [mscorlib]System.Type serviceType)
+		{
+			.override [mscorlib]System.IServiceProvider::GetService
+			ret
+		}
+		.method public final virtual hidebysig newslot 
+			instance void Dispose()
+		{
+			ret
+		}
+		.property instance bool IsDropDownResizable()
+		{
+			.get instance bool 'System.Web.UI.Design.DataVisualization.Charting.UITypeEditorProxy'::get_IsDropDownResizable()
+		}
+		.property instance class [System]System.ComponentModel.IContainer System.ComponentModel.ITypeDescriptorContext.Container()
+		{
+			.get instance class [System]System.ComponentModel.IContainer 'System.Web.UI.Design.DataVisualization.Charting.UITypeEditorProxy'::System.ComponentModel.ITypeDescriptorContext.get_Container()
+		}
+		.property instance object System.ComponentModel.ITypeDescriptorContext.Instance()
+		{
+			.get instance object 'System.Web.UI.Design.DataVisualization.Charting.UITypeEditorProxy'::System.ComponentModel.ITypeDescriptorContext.get_Instance()
+		}
+		.property instance class [System]System.ComponentModel.PropertyDescriptor System.ComponentModel.ITypeDescriptorContext.PropertyDescriptor()
+		{
+			.get instance class [System]System.ComponentModel.PropertyDescriptor 'System.Web.UI.Design.DataVisualization.Charting.UITypeEditorProxy'::System.ComponentModel.ITypeDescriptorContext.get_PropertyDescriptor()
+		}
+	}
+	.class private UrlValueEditor
+		extends [System.Design]'System.Web.UI.Design.UrlEditor'
+	{
+		.method public virtual hidebysig 
+			instance object EditValue(class [System]System.ComponentModel.ITypeDescriptorContext context, class [mscorlib]System.IServiceProvider provider, object 'value')
+		{
+			ret
+		}
+		.method public hidebysig specialname 
+			instance void .ctor()
+		{
+			ret
+		}
+	}
+}

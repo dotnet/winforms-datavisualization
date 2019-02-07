@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Target Name="Build">
+    <!-- TargetPath cannot be underneath PhysicalPath :( -->
+    <AspNetCompiler Debug="false" PhysicalPath="$(MSBuildProjectDirectory)" TargetPath="$(TempDirectory)" Updateable="false" Force="true" VirtualPath="$(MSBuildProjectName)" />
+    <CreateItem Include="$(TempDirectory)\bin\*.dll">
+      <Output ItemName="PrecompiledAssemblies" TaskParameter="Include" />
+    </CreateItem>
+    <Exec Command="$(ILMergeEXE) /out:$(MSBuildProjectName).dll &#xD;&#xA;                   /targetplatform:v2 @(PrecompiledAssemblies, ' ')" />
+  </Target>
+  <PropertyGroup>
+    <ILMergeEXE>"$(ProgramFiles)\Microsoft\ILMerge\ILMerge.exe"</ILMergeEXE>
+    <TempDirectory>D:\Temp\MSBuildTemp</TempDirectory>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>%24/DevDiv/PU/BPD/ndp/fx/src/DataVisualization/WebForm</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://vstfdevdiv:8080/devdiv2</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Target Name="PrecompiledAssemblies" Inputs="@(Compile)" Outputs="$(TempDirectory)\PrecompiledApp.config">
+    <AspNetCompiler Debug="false" PhysicalPath="$(MSBuildProjectDirectory)" TargetPath="$(TempDirectory)" Updateable="false" Force="true" VirtualPath="$(MSBuildProjectName)" />
+  </Target>
+  <Target Name="SingleDll" DependsOnTargets="PrecompiledAssemblies" Outputs="$(OutputPath)\$(MSBuildProjectName).dll" Inputs="$(TempDirectory)\PrecompiledApp.config">
+    <CreateItem Include="$(TempDirectory)\bin\*.dll">
+      <Output ItemName="PrecompiledAssemblies" TaskParameter="Include" />
+    </CreateItem>
+    <Exec Command="$(ILMergeEXE) /out:$(OutputPath)\$(MSBuildProjectName).dll /targetplatform:v2 $(TargetPath) @(PrecompiledAssemblies, '')" />
+  </Target>
+  <Target Name="AfterClean">
+    <RemoveDir Directories="$(TempDirectory)" />
+  </Target>
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{879C6FB1-BB83-47EE-98BF-760D987B1ECD}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>System.Web.DataVisualization</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\..\..\..\tools\devdiv\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>true</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>System.Web.UI.DataVisualization.Charting</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;ENTERPRISE_VERSION;VERSION_360;VERSION_400;VERSION_410;VERSION_450;VERSION_451;VS2005;VERSION_500;VERSION_550;_DEBUG_;VERSION_551;MS_ROSETTA;MS_ROSETTA2;SQLRS_CONTROL;CODE_ANALYSIS;VS_DESIGN_TIME;VS_BUILD;</DefineConstants>
+    <DocumentationFile>bin\Debug\System.Web.DataVisualization.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>1703</NoWarn>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;ENTERPRISE_VERSION;VERSION_360;VERSION_400;ANIMATION_VERSION;FLASH_VERSION;VERSION_410;VERSION_450;UI;VERSION_451;VS2005;VERSION_500;AJAX;VERSION_550;ZOOMING;VERSION_551;MS_ROSETTA;MS_ROSETTA2;SQLRS_CONTROL;CODE_ANALYSIS;</DefineConstants>
+    <DocumentationFile>bin\Release\System.Web.DataVisualization.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Common\Annotation\AnnotationBase.cs">
+      <Link>Annotation\AnnotationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\AnnotationCollection.cs">
+      <Link>Annotation\AnnotationCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\ArrowAnnotation.cs">
+      <Link>Annotation\ArrowAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\CalloutAnnotation.cs">
+      <Link>Annotation\CalloutAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\GroupAnnotation.cs">
+      <Link>Annotation\GroupAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\ImageAnnotation.cs">
+      <Link>Annotation\ImageAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\LineAnnotation.cs">
+      <Link>Annotation\LineAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\PolygonAnnotation.cs">
+      <Link>Annotation\PolygonAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\RectangleAnnotation.cs">
+      <Link>Annotation\RectangleAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Annotation\TextAnnotation.cs">
+      <Link>Annotation\TextAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Borders3D\Borders3D.cs">
+      <Link>Borders3D\Borders3D.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Borders3D\EmbedBorder.cs">
+      <Link>Borders3D\EmbedBorder.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Borders3D\EmbossBorder.cs">
+      <Link>Borders3D\EmbossBorder.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\AreaChart.cs">
+      <Link>ChartTypes\AreaChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\BarChart.cs">
+      <Link>ChartTypes\BarChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\BoxPlotChart.cs">
+      <Link>ChartTypes\BoxPlotChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\BubbleChart.cs">
+      <Link>ChartTypes\BubbleChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\ChartTypeRegistry.cs">
+      <Link>ChartTypes\ChartTypeRegistry.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\ColumnChart.cs">
+      <Link>ChartTypes\ColumnChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\DoughnutChart.cs">
+      <Link>ChartTypes\DoughnutChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\ErrorBarChart.cs">
+      <Link>ChartTypes\ErrorBarChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\FastLineChart.cs">
+      <Link>ChartTypes\FastLineChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\FastPointChart.cs">
+      <Link>ChartTypes\FastPointChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\FunnelChart.cs">
+      <Link>ChartTypes\FunnelChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\KagiChart.cs">
+      <Link>ChartTypes\KagiChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\LineChart.cs">
+      <Link>ChartTypes\LineChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\PieChart.cs">
+      <Link>ChartTypes\PieChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\PointAndFigureChart.cs">
+      <Link>ChartTypes\PointAndFigureChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\PointChart.cs">
+      <Link>ChartTypes\PointChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\PolarChart.cs">
+      <Link>ChartTypes\PolarChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\RadarChart.cs">
+      <Link>ChartTypes\RadarChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\RangeChart.cs">
+      <Link>ChartTypes\RangeChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\RenkoChart.cs">
+      <Link>ChartTypes\RenkoChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\StackedAreaChart.cs">
+      <Link>ChartTypes\StackedAreaChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\StackedBarChart.cs">
+      <Link>ChartTypes\StackedBarChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\StackedColumnChart.cs">
+      <Link>ChartTypes\StackedColumnChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\StepLineChart.cs">
+      <Link>ChartTypes\StepLineChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\StockChart.cs">
+      <Link>ChartTypes\StockChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\ChartTypes\ThreeLineBreakChart.cs">
+      <Link>ChartTypes\ThreeLineBreakChart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\AnnotationConverters.cs">
+      <Link>Converters\AnnotationConverters.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\AxesArrayConverter.cs">
+      <Link>Converters\AxesArrayConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\AxisConverters.cs">
+      <Link>Converters\AxisConverters.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\CustomAttributesConverters.cs">
+      <Link>Converters\CustomAttributesConverters.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\DataManagerConverters.cs">
+      <Link>Converters\DataManagerConverters.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\ElementPositionConverter.cs">
+      <Link>Converters\ElementPositionConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Converters\LegendConverters.cs">
+      <Link>Converters\LegendConverters.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\DataManager\DataManager.cs">
+      <Link>DataManager\DataManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\DataManager\DataPoint.cs">
+      <Link>DataManager\DataPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\DataManager\DataSeries.cs">
+      <Link>DataManager\DataSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\EditorNames.cs">
+      <Link>EditorNames.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\FormulaHelpers.cs">
+      <Link>Formulas\FormulaHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\FormulaRegistry.cs">
+      <Link>Formulas\FormulaRegistry.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\GeneralFormulas.cs">
+      <Link>Formulas\GeneralFormulas.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\Oscillator.cs">
+      <Link>Formulas\Oscillator.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\PriceIndicators.cs">
+      <Link>Formulas\PriceIndicators.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\StatisticalAnalysis.cs">
+      <Link>Formulas\StatisticalAnalysis.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\TechGeneralIndicators.cs">
+      <Link>Formulas\TechGeneralIndicators.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\TimeSeriesAndForecasting.cs">
+      <Link>Formulas\TimeSeriesAndForecasting.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Formulas\VolumeIndicator.cs">
+      <Link>Formulas\VolumeIndicator.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Axis.cs">
+      <Link>General\Axis.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisLabels.cs">
+      <Link>General\AxisLabels.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisScale.cs">
+      <Link>General\AxisScale.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisScaleBreaks.cs">
+      <Link>General\AxisScaleBreaks.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisScaleSegments.cs">
+      <Link>General\AxisScaleSegments.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisScrollBar.cs">
+      <Link>General\AxisScrollBar.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\AxisScrollZoom.cs">
+      <Link>General\AxisScrollZoom.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\BaseClasses.cs">
+      <Link>General\BaseClasses.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\BaseCollections.cs">
+      <Link>General\BaseCollections.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\BaseInterfaces.cs">
+      <Link>General\BaseInterfaces.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Chart.cs">
+      <Link>General\Chart.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartArea.cs">
+      <Link>General\ChartArea.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartArea3D.cs">
+      <Link>General\ChartArea3D.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartAreaAxes.cs">
+      <Link>General\ChartAreaAxes.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartAreaCircular.cs">
+      <Link>General\ChartAreaCircular.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartAreaCollection.cs">
+      <Link>General\ChartAreaCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartAreaCursor.cs">
+      <Link>General\ChartAreaCursor.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartElement.cs">
+      <Link>General\ChartElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartGraphics.cs">
+      <Link>General\ChartGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartGraphics3D.cs">
+      <Link>General\ChartGraphics3D.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartRenderingEngine.cs">
+      <Link>General\ChartRenderingEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ChartSerializer.cs">
+      <Link>General\ChartSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\CommonElements.cs">
+      <Link>General\CommonElements.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Constants.cs">
+      <Link>General\Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\DataManipulator.cs">
+      <Link>General\DataManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\FormulaData.cs">
+      <Link>General\FormulaData.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\GdiGraphics.cs">
+      <Link>General\GdiGraphics.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\GridTickMarks.cs">
+      <Link>General\GridTickMarks.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\IChartRenderingEngine.cs">
+      <Link>General\IChartRenderingEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\ImageMap.cs">
+      <Link>General\ImageMap.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Label.cs">
+      <Link>General\Label.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Legend.cs">
+      <Link>General\Legend.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\LegendColumns.cs">
+      <Link>General\LegendColumns.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Matrix3D.cs">
+      <Link>General\Matrix3D.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\NamedImageCollection.cs">
+      <Link>General\NamedImageCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Selection.cs">
+      <Link>General\Selection.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\SmartLabels.cs">
+      <Link>General\SmartLabels.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Statistics.cs">
+      <Link>General\Statistics.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\StripLine.cs">
+      <Link>General\StripLine.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\SubAxis.cs">
+      <Link>General\SubAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\General\Title.cs">
+      <Link>General\Title.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\SR.cs">
+      <Link>SR.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.strings</DependentUpon>
+    </Compile>
+    <Compile Include="..\Common\SRCategoryAttribute.cs">
+      <Link>SRCategoryAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\SRDescriptionAttribute.cs">
+      <Link>SRDescriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\ColorPalette.cs">
+      <Link>Utilities\ColorPalette.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\CustomAttributesRegistry.cs">
+      <Link>Utilities\CustomAttributesRegistry.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\ElementPosition.cs">
+      <Link>Utilities\ElementPosition.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\ImageLoader.cs">
+      <Link>Utilities\ImageLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\KeywordsRegistry.cs">
+      <Link>Utilities\KeywordsRegistry.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\ValueConverter.cs">
+      <Link>Utilities\ValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Utilities\XmlSerializer.cs">
+      <Link>Utilities\XmlSerializer.cs</Link>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChartWebControl.cs" />
+    <Compile Include="Converters\MapAreaCoordinatesConverter.cs" />
+    <Compile Include="FxCopExclusionsByDesign.cs" />
+    <Compile Include="General\ChartHttpHandler.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="obj2c\i386\AssemblyRefs.cs" />
+    <EmbeddedResource Include="..\Common\Resources\Design.resx">
+      <Link>Design.resx</Link>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Common\SR.resx">
+      <Link>SR.resx</Link>
+      <DependentUpon>SR.strings</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="..\..\..\..\..\tools\devdiv\35MSSharedLib1024.snk">
+      <Link>35MSSharedLib1024.snk</Link>
+    </None>
+    <None Include="..\Common\SR.strings">
+      <Link>SR.strings</Link>
+      <Generator>StringResourceTool</Generator>
+      <LastGenOutput>SR.cs</LastGenOutput>
+      <CustomToolNamespace>Requires.Manual.Overriding</CustomToolNamespace>
+    </None>
+    <EmbeddedResource Include="..\Common\Resources\ChartControl.ico">
+      <Link>ChartControl.ico</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Common\sr.strings.backup.txt">
+      <Link>sr.strings.backup.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>gacutil /i $(TargetPath) /f
+copy "$(TargetPath)" "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

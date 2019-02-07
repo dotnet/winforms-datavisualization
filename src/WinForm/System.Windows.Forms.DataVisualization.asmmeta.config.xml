@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<root>
+    <assembly publish="$(NDP_FX_REF_PATH)\System.Windows.Forms.DataVisualization.dll"/>
+    <customAttribute name="System.ComponentModel.ToolboxItemFilterAttribute"/>
+    <customAttribute name="System.ComponentModel.DesignerAttribute"/>
+    <customAttribute name="System.ComponentModel.Design.Serialization.DesignerSerializerAttribute"/>
+    <customAttribute name="System.ComponentModel.DefaultPropertyAttribute"/>
+</root>
