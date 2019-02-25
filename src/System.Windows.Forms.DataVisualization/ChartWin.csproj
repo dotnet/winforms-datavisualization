@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CLSCompliant>false</CLSCompliant>
+    <NoWarn>$(NoWarn);618</NoWarn>
+    <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
+    <!-- <Win32Manifest>Resources\System\Windows\Forms\XPThemes.manifest</Win32Manifest> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Annotation\AnnotationDesign.cs" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0-preview.19073.11" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="4.6.0-preview.19073.11" />
+  </ItemGroup>-->
+
+  <!-- <ItemGroup>
+    <EmbeddedResource Update="Resources\SR.resx">
+      <GenerateSource>true</GenerateSource>
+      <Namespace>System</Namespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Common\Resources\ChartControl.ico">
+      <Link>ChartControl.ico</Link>
+    </EmbeddedResource>
+  </ItemGroup> -->
+</Project>
