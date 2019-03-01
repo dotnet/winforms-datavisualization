@@ -11,8 +11,7 @@ using System.Resources;
 // set of properties. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: InternalsVisibleTo("System.Windows.Forms.DataVisualization.Design, PublicKey=" + AssemblyRef.SharedLibPublicKeyFull)]
-
+[assembly: InternalsVisibleTo("System.Web.DataVisualization.Design, PublicKey=00000000000000000400000000000000")]
 // Permissions required
 [assembly: SecurityCritical]
 

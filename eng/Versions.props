@@ -4,4 +4,10 @@
     <VersionPrefix>1.0.0</VersionPrefix>
     <PreReleaseVersionLabel>prerelease</PreReleaseVersionLabel>
   </PropertyGroup>
+  <!-- Additional dependencies -->
+  <PropertyGroup>
+    <SystemDrawingCommonPackageVersion>4.6.0-preview.19073.11</SystemDrawingCommonPackageVersion>
+    <SystemDrawingPrimitivesPackageVersion>4.3.0</SystemDrawingPrimitivesPackageVersion>
+    <SystemWindowsExtensionsPackageVersion>4.6.0-preview.19073.11</SystemWindowsExtensionsPackageVersion>
+  </PropertyGroup>
 </Project>
