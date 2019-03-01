@@ -17,19 +17,16 @@
 //
 //===================================================================
 
-#region Used Namespaces
-using System;
 using System.ComponentModel.Design.Serialization;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#endregion
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-	/// <summary>
-	/// Windows forms chart control designer class.
-	/// </summary>
-	internal class ChartWinDesignerSerializer : CodeDomSerializer
+    /// <summary>
+    /// Windows forms chart control designer class.
+    /// </summary>
+    internal class ChartWinDesignerSerializer : CodeDomSerializer
 	{
 		#region Methods
 

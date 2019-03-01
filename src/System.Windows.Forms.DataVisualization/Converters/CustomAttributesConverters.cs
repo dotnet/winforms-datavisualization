@@ -20,8 +20,6 @@
 //
 //===================================================================
 
-#region Used Namespaces
-
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -29,21 +27,11 @@ using System.Drawing;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
 
-#if WINFORMS_CONTROL
 	using System.Windows.Forms.DataVisualization.Charting.Utilities;
     using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-	using System.Web.UI.DataVisualization.Charting;
-#endif
 
-#endregion
 
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
 	/// <summary>
 	/// Custom properties object type converter.

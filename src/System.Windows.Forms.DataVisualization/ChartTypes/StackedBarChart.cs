@@ -25,41 +25,21 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-
-#else
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// HundredPercentStackedBarChart class extends StackedBarChart class
     /// by providing its own algorithm for calculating series data point
     /// Y values. It makes sure that total Y value of all data points in a
     /// single cluster from all series adds up to 100%.
     /// </summary>
-	internal class HundredPercentStackedBarChart : StackedBarChart
+    internal class HundredPercentStackedBarChart : StackedBarChart
 	{
 		#region Constructor
 

@@ -32,36 +32,20 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel.Design;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-    using System.Web.UI.DataVisualization.Charting;
-    using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
 {
-	/// <summary>
+    /// <summary>
     /// BoxPlotChart class provides 2D and 3D drawing and hit testing of
     /// the Box Plot chart.
-	/// </summary>
-	internal class BoxPlotChart : IChartType
+    /// </summary>
+    internal class BoxPlotChart : IChartType
 	{
 		#region Fields
 

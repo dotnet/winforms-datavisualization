@@ -17,38 +17,21 @@
 //
 //===================================================================
 
-#region Used Namespaces
-
-using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
 using System.Reflection;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting;
 
-
-#else
-using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
 
 
-	/// <summary>
-	/// AxisName editor for the gradient type.
-	/// Paints a rectangle with gradient sample.
-	/// </summary>
-	internal class GradientEditor : UITypeEditor, IDisposable
+    /// <summary>
+    /// AxisName editor for the gradient type.
+    /// Paints a rectangle with gradient sample.
+    /// </summary>
+    internal class GradientEditor : UITypeEditor, IDisposable
 	{
 		#region Editor method and properties
 

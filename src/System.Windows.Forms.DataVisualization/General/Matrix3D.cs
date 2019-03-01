@@ -21,49 +21,23 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.ComponentModel;
-using System.Collections;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-
-#else
-	//using System.Web.UI.DataVisualization.Charting.Utilities;
-	//using System.Web.UI.DataVisualization.Charting.Borders3D;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
-	/// This class is responsible for all 3D coordinates transformations: Translation, 
-	/// Rotation, Scale, Perspective and RightAngle Projection. Translation 
-	/// and rotation are stored in composite matrix (mainMatrix), and scaling, 
-	/// projection and non-composite translation are stored in private fields. 
-	/// Matrix is initialized with Chart Area 3D cube, which is invisible boundary 
-	/// cube of 3D Chart area. The matrix has to be initialized every time 
-	/// when angles, position or perspective parameters are changed. Method 
-	/// TransformPoints will apply 3D Transformation on points using 
-	/// Initialization values: Main matrix and other initialization values.
-	/// </summary>
-	internal class Matrix3D
+    /// <summary>
+    /// This class is responsible for all 3D coordinates transformations: Translation, 
+    /// Rotation, Scale, Perspective and RightAngle Projection. Translation 
+    /// and rotation are stored in composite matrix (mainMatrix), and scaling, 
+    /// projection and non-composite translation are stored in private fields. 
+    /// Matrix is initialized with Chart Area 3D cube, which is invisible boundary 
+    /// cube of 3D Chart area. The matrix has to be initialized every time 
+    /// when angles, position or perspective parameters are changed. Method 
+    /// TransformPoints will apply 3D Transformation on points using 
+    /// Initialization values: Main matrix and other initialization values.
+    /// </summary>
+    internal class Matrix3D
 	{
 		#region Enumerations
 

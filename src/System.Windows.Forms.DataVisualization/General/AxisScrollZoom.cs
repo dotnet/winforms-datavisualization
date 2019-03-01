@@ -33,37 +33,13 @@
 //
 //===================================================================
 
-#region Used namespace
-
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
 using System.Collections;
-using System.Globalization;
-
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-
-#else
-	using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
 
     #region Scrolling  enumerations
@@ -1454,11 +1430,11 @@ namespace System.Web.UI.DataVisualization.Charting
 	namespace System.Web.UI.DataVisualization.Charting
 #endif
 {
-	/// <summary>
-	/// Designer converter class
-	/// Converts Double.NaN values to/from "Not set".
-	/// </summary>
-	internal class DoubleNanValueConverter : DoubleConverter
+    /// <summary>
+    /// Designer converter class
+    /// Converts Double.NaN values to/from "Not set".
+    /// </summary>
+    internal class DoubleNanValueConverter : DoubleConverter
 	{
 		#region Converter methods
 

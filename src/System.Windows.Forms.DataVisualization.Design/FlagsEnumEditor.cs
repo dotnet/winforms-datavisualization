@@ -18,38 +18,16 @@
 //
 //===================================================================
 
-
-#region Used Namespaces
-
-using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Drawing;
 using System.Drawing.Design;
-using System.Collections;
-using System.Windows.Forms.Design;
-
-#if WINFORMS_CONTROL
 using System.Windows.Forms.DataVisualization.Charting;
-#else
-using System.Web.UI.DataVisualization.Charting;
-#endif
 
-#endregion
-
-#if WINFORMS_CONTROL
-
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-	/// <summary>
-	/// UI type editor for the enumerations with Flags attribute
-	/// </summary>
-	internal class FlagsEnumUITypeEditor : System.Drawing.Design.UITypeEditor 
+    /// <summary>
+    /// UI type editor for the enumerations with Flags attribute
+    /// </summary>
+    internal class FlagsEnumUITypeEditor : System.Drawing.Design.UITypeEditor 
 	{
 		#region Constructor
 

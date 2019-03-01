@@ -21,30 +21,15 @@
 //===================================================================
 
 
-#region Used Namespaces
-
-using System;
 using System.Globalization;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web.UI.DataVisualization.Charting;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Utilities
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Utilities
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
-	/// <summary>
+    /// <summary>
     /// ValueConverter class is used when numeric or DateTime 
     /// value needs to be converted to a string using specified format.
-	/// </summary>
-	internal static class ValueConverter
+    /// </summary>
+    internal static class ValueConverter
 	{
 		#region Methods
 

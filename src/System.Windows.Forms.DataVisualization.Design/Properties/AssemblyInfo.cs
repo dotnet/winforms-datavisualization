@@ -9,7 +9,7 @@ using System;
 // TODO: This is attribute is temporary added until the build engine starts to support RefAsmGenKeepOption in csproj 
 // in order to generate asmmeta file with all internals.
 // See bug 741422 for details.
-[assembly: InternalsVisibleTo("System.Windows.Forms.DataVisualization.Design, PublicKey=" + AssemblyRef.SharedLibPublicKeyFull)]
+[assembly: InternalsVisibleTo("System.Windows.Forms.DataVisualization.Design")]
 #pragma warning restore 0436
 
 [module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes",

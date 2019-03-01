@@ -20,53 +20,19 @@
 //
 //===================================================================
 
-
-
-using System.ComponentModel.Design.Serialization;
-#region Used Namespaces
-
-using System;
-using System.Resources;
 using System.Collections;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
-using System.Drawing.Text;
-using System.IO;
 using System.Globalization;
-using System.Data;
 using System.Reflection;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-    using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using System.Windows.Forms.DataVisualization.Charting.Data;
 
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.WebControls;
-    using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.DataVisualization.Charting
-#else
-	namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
-	/// Chart area name converter. Displays list of available areas names
-	/// </summary>
+    /// <summary>
+    /// Chart area name converter. Displays list of available areas names
+    /// </summary>
     internal class SeriesAreaNameConverter : StringConverter
 	{
 		#region Converter methods

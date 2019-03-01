@@ -24,42 +24,18 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
-using System.Collections.Specialized;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing;
 using System.Data;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.DataVisualization.Charting;
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region Data manipulation enumerations
+    #region Data manipulation enumerations
 
-	/// <summary>
-	/// Grouping functions types
-	/// </summary>
-	internal enum GroupingFunction
+    /// <summary>
+    /// Grouping functions types
+    /// </summary>
+    internal enum GroupingFunction
 	{
 		/// <summary>
 		/// Not defined

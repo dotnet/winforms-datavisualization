@@ -35,27 +35,13 @@
 //
 //===================================================================
 
-using System;
-using System.Collections;
-using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Drawing.Drawing2D;
-using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
-
-using System.Windows.Forms.DataVisualization.Charting.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.ComponentModel.Design.Serialization;
-using System.Reflection;
-using System.Windows.Forms.Design;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {

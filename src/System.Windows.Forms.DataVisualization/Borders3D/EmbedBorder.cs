@@ -22,40 +22,15 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
-using System.Resources;
-using System.Reflection;
-using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel.Design;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-
-#else
-	using System.Web.UI.DataVisualization.Charting;	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Borders3D
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
 {
-	/// <summary>
-	/// Implements frame border.
-	/// </summary>
-	internal class FrameTitle1Border : FrameThin1Border
+    /// <summary>
+    /// Implements frame border.
+    /// </summary>
+    internal class FrameTitle1Border : FrameThin1Border
 	{
 		#region Border properties and methods
 

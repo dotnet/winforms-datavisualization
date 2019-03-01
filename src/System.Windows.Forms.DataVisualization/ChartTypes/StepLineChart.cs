@@ -20,44 +20,19 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
-using System.Resources;
-using System.Reflection;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-using System.Web.UI.DataVisualization.Charting;
-
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// StepLine class extends its base class LineChart by changing how two 
     /// neighbouring data points are connected with a line. Step Line chart 
     /// uses two line segments (horizontal and vertical) to connect data 
     /// points. Markers and labels drawing code is inherited from the Line chart.
-	/// </summary>
-	internal class StepLineChart : LineChart
+    /// </summary>
+    internal class StepLineChart : LineChart
 	{
 		#region Constructor
 

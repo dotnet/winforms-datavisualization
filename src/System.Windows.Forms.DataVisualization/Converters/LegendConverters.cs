@@ -19,32 +19,15 @@
 //
 //===================================================================
 
-#region Used Namespaces
-
-using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Reflection;
 using System.Globalization;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web.UI.WebControls;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-	namespace System.Web.UI.DataVisualization.Charting
-#endif
-
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
-	/// Chart area name converter. Displays list of available areas names
-	/// </summary>
+    /// <summary>
+    /// Chart area name converter. Displays list of available areas names
+    /// </summary>
     internal class LegendAreaNameConverter : StringConverter
 	{
 		#region Converter methods

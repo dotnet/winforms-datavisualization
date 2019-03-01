@@ -20,41 +20,21 @@
 //
 //===================================================================
 
-
-
-#region Used Namespaces
-
-using System;
+using System.Collections;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Collections;
-using System.Windows.Forms.Design;
 using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-using  System.Windows.Forms.DataVisualization.Charting;
-using  System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else // WINFORMS_CONTROL
-using System.Web.UI.DataVisualization.Charting;
-using  System.Web.UI.DataVisualization.Charting.Utilities;
-#endif // WINFORMS_CONTROL
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
 {
-	/// <summary>
-	/// Stirng editor form that is used to edit properties that support keywords.
-	/// </summary>
-	internal class KeywordsStringEditorForm : System.Windows.Forms.Form
+    /// <summary>
+    /// Stirng editor form that is used to edit properties that support keywords.
+    /// </summary>
+    internal class KeywordsStringEditorForm : System.Windows.Forms.Form
 	{
 		#region Fields
 

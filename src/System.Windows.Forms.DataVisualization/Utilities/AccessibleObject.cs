@@ -18,7 +18,6 @@
 //
 //===================================================================
 
-
 using System.Collections.Generic;
 
 namespace System.Windows.Forms.DataVisualization.Charting.Utilities

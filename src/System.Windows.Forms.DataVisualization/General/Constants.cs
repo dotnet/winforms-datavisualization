@@ -9,11 +9,7 @@ using System.Text;
 //-------------------------------------------------------------
 // @owner=alexgor,deliant
 
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
 
     internal static class Constants

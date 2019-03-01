@@ -121,15 +121,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeAxis_Axis"),
         DefaultProperty("Enabled"),
     ]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-#if WINFORMS_CONTROL
     public partial class Axis :  ChartNamedElement
-#else
-	public partial class Axis :  ChartNamedElement, IChartMapArea
-#endif
     {
         #region Axis fields
 
@@ -378,7 +370,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			{
 				this.subAxes = new SubAxisCollection(this);
 			}
-#endif // SUBAXES
+#endif 
 
 #if WINFORMS_CONTROL
 
@@ -503,11 +495,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeSubAxes"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeSubAxes"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
         Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
 		]
 		virtual public SubAxisCollection SubAxes
@@ -528,10 +516,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(false),
         SRDescription("DescriptionAttributeInterlaced"),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
- NotifyParentPropertyAttribute(true),
+        NotifyParentPropertyAttribute(true),
         ]
         public bool IsInterlaced
         {
@@ -557,10 +542,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
         Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public Color InterlacedColor
         {
             get
@@ -583,10 +565,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Browsable(false),
         DefaultValue(""),
         SRDescription("DescriptionAttributeAxis_Name"),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
- DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
+        DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden)
         ]
         public override string Name
@@ -610,10 +589,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Browsable(false),
         DefaultValue(""),
         SRDescription("DescriptionAttributeType"),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
- DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
+        DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden)
         ]
         virtual public AxisName AxisName
@@ -633,10 +609,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(AxisArrowStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeArrows"),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public AxisArrowStyle ArrowStyle
         {
             get
@@ -658,12 +631,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMajorGrid"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
- PersistenceMode(PersistenceMode.InnerProperty),
-#endif
- TypeConverter(typeof(NoNameExpandableObjectConverter))
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Grid MajorGrid
         {
@@ -698,12 +667,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMinorGrid"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
- PersistenceMode(PersistenceMode.InnerProperty),
-#endif
- TypeConverter(typeof(NoNameExpandableObjectConverter))
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Grid MinorGrid
         {
@@ -727,12 +692,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMajorTickMark"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
- PersistenceMode(PersistenceMode.InnerProperty),
-#endif
- TypeConverter(typeof(NoNameExpandableObjectConverter))
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public TickMark MajorTickMark
         {
@@ -767,12 +728,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMinorTickMark"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
- PersistenceMode(PersistenceMode.InnerProperty),
-#endif
- TypeConverter(typeof(NoNameExpandableObjectConverter))
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public TickMark MinorTickMark
         {
@@ -797,10 +754,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(true),
         SRDescription("DescriptionAttributeLabelsAutoFit"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
- RefreshPropertiesAttribute(RefreshProperties.All)
+        RefreshPropertiesAttribute(RefreshProperties.All)
         ]
         public bool IsLabelAutoFit
         {
@@ -827,9 +781,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(6),
 		SRDescription("DescriptionAttributeLabelsAutoFitMinFontSize"),
 		NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public int LabelAutoFitMinFontSize
@@ -861,9 +812,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(10),
 		SRDescription("DescriptionAttributeLabelsAutoFitMaxFontSize"),
 		NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public int LabelAutoFitMaxFontSize
@@ -898,10 +846,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeLabelsAutoFitStyle"),
         NotifyParentPropertyAttribute(true),
         Editor(Editors.FlagsEnumUITypeEditor.Editor, Editors.FlagsEnumUITypeEditor.Base),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
-]
+        ]
         public LabelAutoFitStyles LabelAutoFitStyle
         {
             get
@@ -926,10 +871,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(true),
         SRDescription("DescriptionAttributeMarksNextToAxis"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         virtual public bool IsMarksNextToAxis
         {
             get
@@ -952,10 +894,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(""),
         SRDescription("DescriptionAttributeTitle6"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public string Title
         {
             get
@@ -980,10 +919,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
         Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public Color TitleForeColor
         {
             get
@@ -1006,10 +942,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(StringAlignment), "Center"),
         SRDescription("DescriptionAttributeTitleAlignment"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public StringAlignment TitleAlignment
         {
             get
@@ -1032,10 +965,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Font), "Microsoft Sans Serif, 8pt"),
         SRDescription("DescriptionAttributeTitleFont"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public Font TitleFont
         {
             get
@@ -1060,10 +990,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
         Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public Color LineColor
         {
             get
@@ -1086,10 +1013,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(1),
         SRDescription("DescriptionAttributeLineWidth"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public int LineWidth
         {
             get
@@ -1116,10 +1040,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartDashStyle.Solid),
         SRDescription("DescriptionAttributeLineDashStyle"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public ChartDashStyle LineDashStyle
         {
             get
@@ -1140,11 +1061,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         Bindable(true),
         SRDescription("DescriptionAttributeStripLines"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
- PersistenceMode(PersistenceMode.InnerProperty),
-#endif
         Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
         ]
         public StripLinesCollection StripLines
@@ -1617,16 +1534,12 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // Paint Labels
                 labelStyle.Paint(graph, false);
 
-#if WINFORMS_CONTROL
-
                 // Scroll bar is supoorted only in 2D charts
                 if (ChartArea != null && ChartArea.Area3DStyle.Enable3D == false)
                 {
                     // Draw axis scroll bar
                     ScrollBar.Paint(graph);
                 }
-#endif // WINFORMS_CONTROL
-
             }
 
             // Draw axis title
@@ -1675,7 +1588,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				}
 			}
 #endif // SUBAXES
-
         }
 
 		/// <summary>
@@ -2407,7 +2319,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     }
                 }
 
-
                 // Always align text in the center
                 format.LineAlignment = StringAlignment.Center;
                 format.Alignment = StringAlignment.Center;
@@ -2439,7 +2350,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     }
                 }
             }
-
         }
 
         /// <summary>
@@ -2698,8 +2608,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // Add the points to the path
                 path.AddPolygon(points);
 
-
-#if WINFORMS_CONTROL
 				Common.HotRegionsList.AddHotRegion( 
 					graph, 
 					path, 
@@ -2710,19 +2618,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					string.Empty,
 					this,
 					ChartElementType.Axis);
-#else
-                Common.HotRegionsList.AddHotRegion(
-                    graph,
-                    path,
-                    false,
-                    this._toolTip,
-                    this._url,
-                    this._mapAreaAttributes,
-                    this.PostBackValue,
-                    this,
-                    ChartElementType.Axis);
-#endif 
-            
             }
         }
 
@@ -3229,7 +3124,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // Paint mode is finished
             paintMode = false;
 
-#if WINFORMS_CONTROL
 			if(Common.Chart == null)
 			{
 #if SUBAXES
@@ -3247,9 +3141,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			{
 				ResetAutoValues();
 			}
-#else
-            ResetAutoValues();
-#endif
 
             // Reset back original custom labels
             if (tempLabels != null)

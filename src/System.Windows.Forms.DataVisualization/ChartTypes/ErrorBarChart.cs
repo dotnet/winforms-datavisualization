@@ -34,37 +34,20 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.ComponentModel.Design;
-using System.Globalization;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-    using System.Web.UI.DataVisualization.Charting;
-    using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-    namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	#region Enumerations
+    #region Enumerations
 
-	/// <summary>
-	/// Defines the way error amount is calculated.
-	/// </summary>
-	internal enum ErrorBarType
+    /// <summary>
+    /// Defines the way error amount is calculated.
+    /// </summary>
+    internal enum ErrorBarType
 	{
 		/// <summary>
 		/// Error is a fixed value.

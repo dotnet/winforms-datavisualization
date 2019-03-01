@@ -25,28 +25,14 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
-using System.Collections;
-using System.Drawing;
 using System.ComponentModel;
-using System.Globalization;
-using System.Reflection;
-using System.ComponentModel.Design.Serialization;
 
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-    namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
+    /// <summary>
     /// The NamedImagesCollection class is a strongly typed collection of NamedImage
     /// objects.
-	/// </summary>
+    /// </summary>
 #if ASPPERM_35
 	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
         [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]

@@ -17,61 +17,21 @@
 //
 //===================================================================
 
-#region Used namespace
-using System;
-using System.Collections;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Design;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
 using System.Diagnostics.CodeAnalysis;
-#if WINFORMS_CONTROL
-using System.Windows.Forms;
-using System.Globalization;
-using System.Reflection;
-using System.ComponentModel.Design.Serialization;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Collections.ObjectModel;
 
-#else
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.DataVisualization.Charting.Data;
-using System.Web.UI.DataVisualization.Charting.Utilities;
-using System.Web.UI.DataVisualization.Charting.Borders3D;
-using System.Collections.ObjectModel;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
 {
-	/// <summary>
-	/// <b>PolylineAnnotation</b> is a class that represents a polyline annotation.
-	/// </summary>
-	[
+    /// <summary>
+    /// <b>PolylineAnnotation</b> is a class that represents a polyline annotation.
+    /// </summary>
+    [
 		SRDescription("DescriptionAttributePolylineAnnotation_PolylineAnnotation"),
 	]
     [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Polyline")]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class PolylineAnnotation : Annotation
 	{
 		#region Fields

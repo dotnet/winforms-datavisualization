@@ -30,34 +30,20 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	#region Open/close marks style enumeration
+    #region Open/close marks style enumeration
 
-	/// <summary>
-	/// Style of the Open-Close marks in the stock chart
-	/// </summary>
-	internal enum StockOpenCloseMarkStyle
+    /// <summary>
+    /// Style of the Open-Close marks in the stock chart
+    /// </summary>
+    internal enum StockOpenCloseMarkStyle
 	{
 		/// <summary>
 		/// Line

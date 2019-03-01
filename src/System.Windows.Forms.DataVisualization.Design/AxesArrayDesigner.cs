@@ -18,51 +18,20 @@
 //
 //===================================================================
 
-
-
-#region Used Namespaces
-
-using System;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
-using System.IO;
-using System.Globalization;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
-using System.Data;
-using System.Reflection;
 using System.ComponentModel.Design.Serialization;
+using System.Globalization;
+using System.Reflection;
+using System.Windows.Forms.DataVisualization.Charting;
 
-#if WINFORMS_CONTROL
-    using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.WebControls;
-    using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-	/// <summary>
-	/// Designer editor for the chart areas collection.
-	/// </summary>
-		internal class AxesArrayEditor : ArrayEditor
+    /// <summary>
+    /// Designer editor for the chart areas collection.
+    /// </summary>
+    internal class AxesArrayEditor : ArrayEditor
 		{
     #region Fields and Constructor
 

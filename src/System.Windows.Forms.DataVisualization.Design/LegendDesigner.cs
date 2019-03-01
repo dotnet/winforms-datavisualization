@@ -18,37 +18,15 @@
 //
 //===================================================================
 
-
-
-#region Used Namespaces
-
-using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Reflection;
-using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-using System.Web.UI.DataVisualization.Charting;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
-
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-	/// <summary>
-	/// Designer editor for the custom legend items collection.
-	/// </summary>
-	internal class LegendItemCollectionEditor : ChartCollectionEditor
+    /// <summary>
+    /// Designer editor for the custom legend items collection.
+    /// </summary>
+    internal class LegendItemCollectionEditor : ChartCollectionEditor
 	{
 		#region Editor methods
 

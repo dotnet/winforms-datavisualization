@@ -18,41 +18,17 @@
 //
 //===================================================================
 
-
-
-
-#region Used Namespaces
-
-using System;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Design;
 using System.Collections;
-using System.Windows.Forms.Design;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-    using  System.Windows.Forms.DataVisualization.Charting.Utilities;
-    using System.Windows.Forms.DataVisualization.Charting;
-#else // WINFORMS_CONTROL
-    using  System.Web.UI.DataVisualization.Charting.Utilities;
-    using System.Web.UI.DataVisualization.Charting;
-#endif // WINFORMS_CONTROL
-
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-	/// <summary>
-	/// Summary description for KeywordEditor.
-	/// </summary>
-	internal class KeywordEditor : System.Windows.Forms.Form
+    /// <summary>
+    /// Summary description for KeywordEditor.
+    /// </summary>
+    internal class KeywordEditor : System.Windows.Forms.Form
 	{
 		#region Fields
 

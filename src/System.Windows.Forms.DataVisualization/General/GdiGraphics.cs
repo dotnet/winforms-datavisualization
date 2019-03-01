@@ -21,38 +21,17 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Drawing.Imaging;
-using System.ComponentModel;
-using System.Collections;
-using System.Diagnostics.CodeAnalysis;
+using System.Drawing.Text;
 
-#if WINFORMS_CONTROL
-
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-#else
-	//using System.Web.UI.DataVisualization.Charting.Utilities;
-	//using System.Web.UI.DataVisualization.Charting.Borders3D;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
+    /// <summary>
     /// GdiGraphics class is chart GDI+ rendering engine.
-	/// </summary>
+    /// </summary>
     [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Gdi")]
     internal class GdiGraphics : IChartRenderingEngine
 	{

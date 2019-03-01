@@ -18,28 +18,13 @@
 //===================================================================
 
 
-#region Used Namespaces
-
-using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-using System.Web.UI.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
     /// <summary>
     /// AxisName editor for the palette properties.

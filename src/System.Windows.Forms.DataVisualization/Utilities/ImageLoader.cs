@@ -22,30 +22,28 @@
 //
 //===================================================================
 
-using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Reflection;
-using System.Net;
+using System.Drawing;
 using System.IO;
-using System.Security;
+using System.Net;
+using System.Reflection;
 using System.Resources;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.Security;
 
 namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
     using Size = System.Drawing.Size;
 
-	/// <summary>
+    /// <summary>
     /// ImageLoader utility class loads and returns specified image 
     /// form the File, URI, Web Request or Chart Resources. 
     /// Loaded images are stored in the internal hashtable which 
     /// allows to improve performance if image need to be used 
     /// several times.
-	/// </summary>
-	internal class ImageLoader : IDisposable, IServiceProvider
+    /// </summary>
+    internal class ImageLoader : IDisposable, IServiceProvider
 	{
 		#region Fields
 

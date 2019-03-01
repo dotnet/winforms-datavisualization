@@ -19,45 +19,21 @@
 //
 //===================================================================
 
-#region Used namespaces
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Collections;
-using System.Globalization;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-#else
-	using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-    using System.Web.UI.DataVisualization.Charting.Utilities;
-	using System.Web.UI;
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region 3D lightStyle style enumerations
+    #region 3D lightStyle style enumerations
 
-		/// <summary>
-		/// A lighting style for a 3D chart area.
-		/// </summary>
-		public enum LightStyle
+    /// <summary>
+    /// A lighting style for a 3D chart area.
+    /// </summary>
+    public enum LightStyle
 		{
 			/// <summary>
 			/// No lighting.

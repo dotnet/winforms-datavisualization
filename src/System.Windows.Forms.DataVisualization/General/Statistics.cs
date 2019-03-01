@@ -46,12 +46,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
     /// <summary>
     /// The StatisticFormula class provides helper methods for statistical calculations.
@@ -59,10 +54,6 @@ namespace System.Web.UI.DataVisualization.Charting
     /// class provide a simplified API which automatically prepares parameters and 
     /// deals with input and output series. 
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class StatisticFormula
 	{
 		#region Fields

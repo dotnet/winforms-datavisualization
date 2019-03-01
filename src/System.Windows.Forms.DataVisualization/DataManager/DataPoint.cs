@@ -22,61 +22,26 @@
 //
 //===================================================================
 
-
-#region Used namespaces
-
-using System;
 using System.Collections;
-using System.Collections.Specialized;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
+namespace System.Windows.Forms.DataVisualization.Charting
+{
+    #region CustomProperties enumeration
 
-
-	using System.ComponentModel.Design.Serialization;
-	using System.Reflection;
-	using System.CodeDom;
-	using System.Windows.Forms.Design;
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-    using System.IO;
-
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
-    {
-        #region CustomProperties enumeration
-
-        /// <summary>
-		/// Enumeration of common properties names.
-		/// </summary>
-		internal enum	CommonCustomProperties
+    /// <summary>
+    /// Enumeration of common properties names.
+    /// </summary>
+    internal enum	CommonCustomProperties
 		{
 			PointName,
 			Label,

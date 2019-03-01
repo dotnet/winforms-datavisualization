@@ -17,35 +17,15 @@
 //
 //===================================================================
 
-
-#region Used Namespaces
-
-using System;
-using System.ComponentModel;
 using System.Globalization;
-using System.Windows.Forms;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-using System.Web.UI.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting;
 
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-
-
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
-	{
-	/// <summary>
-	/// Designer editor for the chart areas collection.
-	/// </summary>
-	internal class AreaCollectionEditor : ChartCollectionEditor
+namespace System.Windows.Forms.Design.DataVisualization.Charting
+{
+    /// <summary>
+    /// Designer editor for the chart areas collection.
+    /// </summary>
+    internal class AreaCollectionEditor : ChartCollectionEditor
 	{
 		/// <summary>
 		/// Default constructor

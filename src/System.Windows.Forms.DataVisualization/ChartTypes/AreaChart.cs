@@ -23,40 +23,17 @@
 //===================================================================
 
 
-#region Used namespaces
-using System;
-using System.Resources;
-using System.Reflection;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// SplineAreaChart class extends the AreaChart class by 
     /// providing a different initial tension for the line.
-	/// </summary>
-	internal class SplineAreaChart : AreaChart
+    /// </summary>
+    internal class SplineAreaChart : AreaChart
 	{
 		#region Constructor
 

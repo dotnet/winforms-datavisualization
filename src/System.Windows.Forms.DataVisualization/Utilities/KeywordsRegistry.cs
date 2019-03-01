@@ -46,36 +46,16 @@
 //
 //===================================================================
 
-
-#region Used Namespaces
-
-using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 
-#if WINFORMS_CONTROL
-    using System.Windows.Forms.DataVisualization.Charting;
-    using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-#else
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.DataVisualization.Charting.Utilities
-#else // WINFORMS_CONTROL
-	namespace System.Web.UI.DataVisualization.Charting.Utilities
-#endif // WINFORMS_CONTROL
+namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
     /// <summary>
     /// KeywordName class contains constant strings defining
     /// names of all keywords used in the data point and series classes.
     /// </summary>
-        internal static class KeywordName
+    internal static class KeywordName
         {
             #region Keyword Names
 

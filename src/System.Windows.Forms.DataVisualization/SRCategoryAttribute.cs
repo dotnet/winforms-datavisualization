@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
     [AttributeUsage(AttributeTargets.All)]
     internal sealed class SRCategoryAttribute : CategoryAttribute

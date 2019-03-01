@@ -18,40 +18,21 @@
 //===================================================================
 
 
-#region Used Namespaces
-
-using System;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.Reflection;
-using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms.DataVisualization.Charting;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-
-
-#else
-using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
 
 
-	/// <summary>
-	/// AxisName editor for the marker style.
-	/// Paints a rectangle with marker sample.
-	/// </summary>
-	internal class MarkerStyleEditor : UITypeEditor, IDisposable
+    /// <summary>
+    /// AxisName editor for the marker style.
+    /// Paints a rectangle with marker sample.
+    /// </summary>
+    internal class MarkerStyleEditor : UITypeEditor, IDisposable
 	{
 		#region Editor method and properties
 

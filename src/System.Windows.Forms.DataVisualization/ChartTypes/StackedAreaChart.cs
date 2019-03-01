@@ -18,45 +18,20 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
-using System.Resources;
-using System.Reflection;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-
-#else
-using System.Web.UI.DataVisualization.Charting;
-
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// HundredPercentStackedAreaChart class extends StackedAreaChart class
     /// by providing its own algorithm for calculating series data point
     /// Y values. It makes sure that total Y value of all data points in a
     /// single cluster from all series adds up to 100%.
-	/// </summary>
-	internal class HundredPercentStackedAreaChart : StackedAreaChart
+    /// </summary>
+    internal class HundredPercentStackedAreaChart : StackedAreaChart
 	{
 		#region Constructor
 

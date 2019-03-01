@@ -26,37 +26,18 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-#else
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
-	/// <summary>
+    /// <summary>
     /// ChartAreaAxes class represents axes (X, Y, X2 and Y2) in the chart area. 
     /// It contains methods that collect statistical information on the series data and 
     /// other axes related methods.
-	/// </summary>
-	public partial class ChartArea
+    /// </summary>
+    public partial class ChartArea
 	{
 		#region Fields
 

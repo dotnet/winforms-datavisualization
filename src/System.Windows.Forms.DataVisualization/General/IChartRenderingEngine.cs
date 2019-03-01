@@ -22,31 +22,19 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Drawing.Imaging;
-using System.ComponentModel;
-using System.Collections;
+using System.Drawing.Text;
 
-#endregion
-
-#if WINFORMS_CONTROL
-    namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
+    /// <summary>
     /// IChartRenderingEngine interface defines a set of methods and properties 
     /// which must be implemented by any chart rendering engine. It contains 
     /// methods for drawing basic shapes.
-	/// </summary>
-	internal interface IChartRenderingEngine
+    /// </summary>
+    internal interface IChartRenderingEngine
 	{
 		#region Drawing Methods
 

@@ -24,40 +24,21 @@
 //
 //===================================================================
 
-
-
-using System.ComponentModel.Design.Serialization;
-using System;
-using System.Resources;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Design;
-using System.Drawing.Text;
-using System.IO;
-using System.Globalization;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
-using System.Data;
-using System.Reflection;
 using System.Diagnostics.CodeAnalysis;
-
+using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Data;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
 
-	/// <summary>
-	/// UI type editor for the Y data source members of the series.
-	/// </summary>
-	internal class SeriesDataSourceMemberValueAxisUITypeEditor : System.Drawing.Design.UITypeEditor 
+    /// <summary>
+    /// UI type editor for the Y data source members of the series.
+    /// </summary>
+    internal class SeriesDataSourceMemberValueAxisUITypeEditor : System.Drawing.Design.UITypeEditor 
 	{
 		#region Editor methods and properties
 

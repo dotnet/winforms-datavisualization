@@ -17,29 +17,12 @@
 //
 //===================================================================
 
-
-#region Used Namespaces
-
-using System;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Windows.Forms.Design;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-    using System.Web.UI.DataVisualization.Charting;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.Design.DataVisualization.Charting
-#else
-    namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Designer editor for the Annotation Collection.

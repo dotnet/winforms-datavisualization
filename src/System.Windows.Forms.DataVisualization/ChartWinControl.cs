@@ -17,46 +17,30 @@
 //
 //===================================================================
 
-
-#region Used namespaces
-
-using System.Resources;
-using System;
 using System.Collections;
 using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.ComponentModel.Design.Serialization;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Drawing.Design;
-using System.Drawing.Text;
-using System.Data;
-using System.Windows.Forms;
-using System.ComponentModel.Design;
-using System.IO;
-using System.Xml;
-using System.Reflection;
-using System.ComponentModel.Design.Serialization;
-using System.Runtime.InteropServices;
 using System.Globalization;
-
-
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using System.Windows.Forms.DataVisualization.Charting.Data;
 using System.Windows.Forms.DataVisualization.Charting.Formulas;
-using System.Net;
-using System.Diagnostics.CodeAnalysis;
-#endregion
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region Enumerations
+    #region Enumerations
 
-	/// <summary>
-	/// Specifies the format of the image
-	/// </summary>
-	public enum ChartImageFormat
+    /// <summary>
+    /// Specifies the format of the image
+    /// </summary>
+    public enum ChartImageFormat
 	{
 		/// <summary>
 		/// Gets the Joint Photographic Experts Group (JPEG) image format.

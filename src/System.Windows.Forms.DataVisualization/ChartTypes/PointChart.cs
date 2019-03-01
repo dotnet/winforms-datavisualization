@@ -19,42 +19,19 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
-using System.Resources;
-using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Data;
-	using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-	using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-#else
-    using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// PointChart class provides 2D/3D drawing and hit testing 
     /// functionality for the Point chart.
-	/// </summary>
+    /// </summary>
     internal class PointChart : IChartType
 	{
 		#region Fields

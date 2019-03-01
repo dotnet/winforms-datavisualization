@@ -17,16 +17,10 @@
 //
 //===================================================================
 
-
 using System;
 using System.Collections;
 
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Formulas
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Formulas
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Formulas
 {
 	/// <summary>
 	/// 

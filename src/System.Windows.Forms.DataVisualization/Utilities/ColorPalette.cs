@@ -28,31 +28,16 @@
 //
 //===================================================================
 
-#region Used Namespaces
-
-using System;
 using System.Drawing;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-	using System.Web.UI.DataVisualization.Charting;
-#endif
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region Color palettes enumeration
+    #region Color palettes enumeration
 
-	/// <summary>
-	/// Chart color palettes enumeration
-	/// </summary>
-	public enum ChartColorPalette
+    /// <summary>
+    /// Chart color palettes enumeration
+    /// </summary>
+    public enum ChartColorPalette
 	{ 
 		/// <summary>
 		/// Palette not set.
@@ -129,8 +114,8 @@ namespace System.Web.UI.DataVisualization.Charting
 	namespace System.Web.UI.DataVisualization.Charting.Utilities
 #endif
 {
-	/// <summary>
-	/// ChartPaletteColors is a utility class which provides access 
+    /// <summary>
+    /// ChartPaletteColors is a utility class which provides access 
     /// to the predefined chart color palettes. These palettes are 
     /// used to assign unique colors to different chart series. 
     /// For some chart types, like Pie, different colors are applied 
@@ -140,8 +125,8 @@ namespace System.Web.UI.DataVisualization.Charting
     /// as a parameter and returns back an array of Colors. Each 
     /// palette contains different number of colors but it is a 
     /// good practice to keep this number around 15.
-	/// </summary>
-	internal static class ChartPaletteColors
+    /// </summary>
+    internal static class ChartPaletteColors
 	{
 		#region Fields
 

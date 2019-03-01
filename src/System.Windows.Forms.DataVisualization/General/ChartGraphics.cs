@@ -24,25 +24,22 @@
 //
 //===================================================================
 
-using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Drawing.Imaging;
-using System.Diagnostics.CodeAnalysis;
-
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
 using System.Windows.Forms.DataVisualization.Charting.Borders3D;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
     using Size = System.Drawing.Size;
 
-	#region Enumerations
+    #region Enumerations
 
-	/// <summary>
-	/// Defines the style how the bars/columns are drawn.
-	/// </summary>
+    /// <summary>
+    /// Defines the style how the bars/columns are drawn.
+    /// </summary>
     internal enum BarDrawingStyle
 	{
 		/// <summary>

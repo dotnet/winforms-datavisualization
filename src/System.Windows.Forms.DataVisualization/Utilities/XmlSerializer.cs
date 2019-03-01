@@ -50,45 +50,27 @@
 //
 //===================================================================
 
-
-#region Used Namespaces
-
-using System;
-using System.Xml;
-using System.Reflection;
 using System.Collections;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.ComponentModel;
-using System.IO;
-using System.Text;
-using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
 using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
 using System.Security;
+using System.Text;
+using System.Xml;
 
-#if WINFORMS_CONTROL
-    using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-#else
-    using System.Web.UI.WebControls;
-    using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Utilities
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Utilities
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
-	#region Serialization enumerations
+    #region Serialization enumerations
 
-	/// <summary>
-	/// Enumeration which describes how to persist property during the serialization
-	/// </summary>
-	internal enum SerializationVisibility
+    /// <summary>
+    /// Enumeration which describes how to persist property during the serialization
+    /// </summary>
+    internal enum SerializationVisibility
 	{
 		/// <summary>
 		/// Do not serialize

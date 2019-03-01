@@ -24,36 +24,22 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
-	/// <summary>
+    /// <summary>
     /// HundredPercentStackedColumnChart class extends StackedColumnChart class
     /// by providing its own algorithm for calculating series data point
     /// Y values. It makes sure that total Y value of all data points in a
     /// single cluster from all series adds up to 100%.
     /// </summary>
-	internal class HundredPercentStackedColumnChart : StackedColumnChart
+    internal class HundredPercentStackedColumnChart : StackedColumnChart
 	{
 		#region Constructor
 

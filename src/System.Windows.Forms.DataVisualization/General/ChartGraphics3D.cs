@@ -22,32 +22,20 @@
 //
 //===================================================================
 
-#region Used namespaces
-
-using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.ComponentModel;
-using System.Collections;
-using System.Diagnostics.CodeAnalysis;
 
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region 3D enumerations
+    #region 3D enumerations
 
-	/// <summary>
-	/// 3D cube surfaces names.
-	/// </summary>
-	[Flags]
+    /// <summary>
+    /// 3D cube surfaces names.
+    /// </summary>
+    [Flags]
     internal enum SurfaceNames
 	{
 		/// <summary>

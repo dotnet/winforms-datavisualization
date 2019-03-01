@@ -22,23 +22,10 @@
 //
 //===================================================================
 
-#region Used Namespace
-using System;
-using System.Drawing;
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Collections.Generic;
-#endregion
-
-#if WINFORMS_CONTROL
 using System.Windows.Forms.DataVisualization.Charting.Formulas;
 
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-using System.Web.UI.DataVisualization.Charting.Formulas;
-    
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
     #region Financial Formula Name enumeration
 

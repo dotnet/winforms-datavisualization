@@ -19,25 +19,18 @@
 //===================================================================
 
 
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
-using System.Windows.Forms;
-
-
-
-#if WINFORMS_CONTROL
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
-	/// Chart printing class.
-	/// </summary>
-	public class PrintingManager : IDisposable
+    /// <summary>
+    /// Chart printing class.
+    /// </summary>
+    public class PrintingManager : IDisposable
 	{
 		#region Private fields
 
@@ -314,5 +307,3 @@ namespace System.Windows.Forms.DataVisualization.Charting
         #endregion
 	}
 }
-
-#endif	//#if WINFORMS_CONTROL

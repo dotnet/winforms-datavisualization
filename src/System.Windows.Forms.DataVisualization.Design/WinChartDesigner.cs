@@ -17,27 +17,11 @@
 //
 //===================================================================
 
-#region Used Namespaces
-
-using System;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
-using System.ComponentModel.Design;
-using System.ComponentModel;
-using System.Reflection;
-using System.Collections;
-using System.IO;
-using System.Data;
-using System.Drawing;
 using Microsoft.Win32;
-
-#if VS2005
-using System.ComponentModel.Design.Data;
-#endif //VS2005
+using System.Collections;
+using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#endregion
-
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
@@ -68,13 +52,13 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             // should be called before initialization.
             IServiceContainer svc = component.Site as IServiceContainer;
             if (svc != null) 
-            {
-                if (this.GetService(typeof(DesignerCommandSet)) == null)
-                {
-                    svc.AddService(typeof(DesignerCommandSet), new DesignerCommandSet());
-                }
-                svc.AddService(typeof(IDesignerMessageBoxDialog), new DesignerMessageBoxDialog());
-            }
+            //{
+            //    if (this.GetService(typeof(DesignerCommandSet)) == null)
+            //    {
+            //        svc.AddService(typeof(DesignerCommandSet), new DesignerCommandSet());
+            //    }
+            //    svc.AddService(typeof(IDesignerMessageBoxDialog), new DesignerMessageBoxDialog());
+            //}
             base.Initialize(component);
 
             // Set reference to the designer

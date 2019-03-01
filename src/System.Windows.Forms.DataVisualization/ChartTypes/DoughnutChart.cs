@@ -21,18 +21,10 @@
 //
 //===================================================================
 
-#region Used namespaces
-
 using System;
 using System.Drawing;
 
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
-#else
-	namespace System.Web.UI.DataVisualization.Charting.ChartTypes
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 {
 	/// <summary>
     /// DoughnutChart class provide only the behaviour information for the 
@@ -53,7 +45,7 @@ using System.Drawing;
 		/// </summary>
 		/// <param name="registry">Chart types registry object.</param>
 		/// <returns>Chart type image.</returns>
-		override public System.Drawing.Image GetImage(ChartTypeRegistry registry)
+		override public Image GetImage(ChartTypeRegistry registry)
 		{
 			return (System.Drawing.Image)registry.ResourceManager.GetObject(this.Name + "ChartType");
 		}

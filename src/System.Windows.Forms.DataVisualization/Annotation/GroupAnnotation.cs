@@ -17,58 +17,22 @@
 //
 //===================================================================
 
-#region Used namespace
-using System;
-using System.Collections;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-#if WINFORMS_CONTROL
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
 
-#else
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.DataVisualization.Charting.Data;
-using System.Web.UI.DataVisualization.Charting.Utilities;
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
 {
-	/// <summary>
-	/// <b>AnnotationGroup</b> is a class that represents an annotation group.
-	/// </summary>
-	/// <remarks>
-	/// This class is a collection of annotations, and can be used 
-	/// to manipulate annotations relative to each other.
-	/// </remarks>
-	[
+    /// <summary>
+    /// <b>AnnotationGroup</b> is a class that represents an annotation group.
+    /// </summary>
+    /// <remarks>
+    /// This class is a collection of annotations, and can be used 
+    /// to manipulate annotations relative to each other.
+    /// </remarks>
+    [
 		SRDescription("DescriptionAttributeAnnotationGroup_AnnotationGroup"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AnnotationGroup : Annotation
 	{
 		#region Fields

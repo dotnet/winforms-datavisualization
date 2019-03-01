@@ -5,27 +5,15 @@
 //-------------------------------------------------------------
 // @owner=alexgor, deliant, victark
 
-using System;
-using System.Text;
-using System.Globalization;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-#endif
 {
 
     /// <summary>
     /// ChartElement is the most basic element of the chart element hierarchy. 
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public abstract class ChartElement : IChartElement, IDisposable
     {
         #region Member variables

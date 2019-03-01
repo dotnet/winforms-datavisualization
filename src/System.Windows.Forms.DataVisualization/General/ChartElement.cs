@@ -20,32 +20,17 @@
 //
 //===================================================================
 
-
-#region Used namespaces
-
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Drawing.Drawing2D;
 
-#endregion
-
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	#region Enumerations
+    #region Enumerations
 
-		/// <summary>
-		/// An enumeration that specifies a label alignment.
-		/// </summary>
-		[
+    /// <summary>
+    /// An enumeration that specifies a label alignment.
+    /// </summary>
+    [
 		Flags
 		]
 		public enum LabelAlignmentStyles

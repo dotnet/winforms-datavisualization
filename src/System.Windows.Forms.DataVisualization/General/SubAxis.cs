@@ -16,7 +16,7 @@
 //              positioned on each side of the plotting area. Most of 
 //              the charts use only two axes; X and Y, but for some 
 //              charts even 4 axes is not sufficient. Sub-axes were 
-//              introduced to provide unlimited number of axes in 
+//              introduced to proSUBACESvide unlimited number of axes in 
 //              the chart.
 //  
 //              Each main axis has a collection of SubAxis which is 
@@ -34,7 +34,6 @@
 
 #if SUBAXES
 
-#region Used namespace
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -48,7 +47,6 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
-#if WINFORMS_CONTROL
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.DataVisualization.Charting.Data;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
@@ -56,25 +54,7 @@ using System.Windows.Forms.DataVisualization.Charting.Utilities;
 using System.Windows.Forms.DataVisualization.Charting.Borders3D;
 using System.Windows.Forms.DataVisualization.Charting;
 
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.DataVisualization.Charting;
-	using System.Web.UI.DataVisualization.Charting.Data;
-	using System.Web.UI.DataVisualization.Charting.Utilities;
-	using System.Web.UI.DataVisualization.Charting.ChartTypes;
-#endif
-
-
-#endregion
-
-#if WINFORMS_CONTROL
 namespace System.Windows.Forms.DataVisualization.Charting
-
-#else
-namespace System.Web.UI.DataVisualization.Charting
-
-#endif
 {
 	/// <summary>
 	/// SubAxis class is derived from the main Axis class and provides
@@ -83,15 +63,8 @@ namespace System.Web.UI.DataVisualization.Charting
 	[
 	SRDescription("DescriptionAttributeSubAxis_SubAxis"),
 	DefaultProperty("Enabled"),
-#if WINFORMS_CONTROL
 	TypeConverter(typeof(SubAxis.SubAxisConverter)),
-#endif
-
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
 	public class SubAxis : Axis
 	{
 #region Fields
@@ -146,11 +119,7 @@ namespace System.Web.UI.DataVisualization.Charting
 		SRDescription("DescriptionAttributeScaleBreakStyle"),
 		TypeConverter(typeof(NoNameExpandableObjectConverter)),
 		NotifyParentPropertyAttribute(true),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		]
 		override public AxisScaleBreakStyle ScaleBreakStyle
 		{
@@ -174,9 +143,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		DefaultValue(null),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeSubAxis_ParentAxis"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
 		]
@@ -198,9 +164,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		DefaultValue(0.0),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeSubAxis_LocationOffset"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		]
 		public double LocationOffset
 		{
@@ -224,9 +187,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		DefaultValue(AxisPosition.Left),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeReverse"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
 		]
@@ -254,9 +214,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		Browsable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeSubAxis_Name"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Visible),
 		SerializationVisibilityAttribute(SerializationVisibility.Attribute)
 		]
@@ -284,9 +241,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeMarksNextToAxis"),
 		NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
 		]
@@ -313,9 +267,6 @@ namespace System.Web.UI.DataVisualization.Charting
 		DefaultValue(Double.NaN),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeCrossing"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		TypeConverter(typeof(AxisCrossingValueConverter)),
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
@@ -475,10 +426,6 @@ namespace System.Web.UI.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeSubAxisCollection_SubAxisCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
 	public class SubAxisCollection : CollectionBase
 	{
 #region Fields

@@ -17,44 +17,12 @@
 //
 //===================================================================
 
-
-
-#region Used Namespaces
-
-using System;
-using System.Collections;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Design;
-using System.Drawing.Text;
-using System.Globalization;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
-using System.Data;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-#else
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.WebControls;
-    using System.Web.UI.Design;
-    using System.Web.UI.DataVisualization.Charting;
-    using System.Web.UI.DataVisualization.Charting.Utilities;
-	using System.Web.UI.DataVisualization.Charting.Data;	
-#endif
-
-#endregion
-
-#if WINFORMS_CONTROL
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
-
-#else
-	namespace System.Web.UI.Design.DataVisualization.Charting
-#endif
 {
 
 #if WINFORMS_CONTROL

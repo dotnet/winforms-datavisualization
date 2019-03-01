@@ -37,34 +37,20 @@
 //
 //===================================================================
 
-#if WINFORMS_CONTROL
-
-#region Used Namespaces
-
-using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using System.Collections;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Drawing.Design;
-using System.Collections.Generic;
-
-#endregion
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
+    /// <summary>
     /// The Cursor class is responsible for chart axes cursor and selection 
     /// functionality. It contains properties which define visual appearance, 
     /// position and behavior settings. It also contains methods for 
     /// drawing cursor and selection in the plotting area.
-	/// </summary>
-	[
+    /// </summary>
+    [
 		DefaultProperty("Enabled"),	
 		SRDescription("DescriptionAttributeCursor_Cursor"),
 	]
@@ -1678,5 +1664,3 @@ namespace System.Windows.Forms.DataVisualization.Charting
         #endregion
 	}
 }
-
-#endif	// #if WINFORMS_CONTROL

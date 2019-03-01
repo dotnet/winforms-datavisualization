@@ -18,31 +18,14 @@
 //===================================================================
 
 
-#region Used Namespaces
-
-using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Globalization;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.DataVisualization.Charting;
-#else
-    using System.Web.UI.DataVisualization.Charting;
-#endif
 
-#endregion
-
-#if WINFORMS_CONTROL
-
-	namespace System.Windows.Forms.DataVisualization.Charting
-
-#else
-	namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
-	/// <summary>
-	/// Element position converter.
-	/// </summary>
+    /// <summary>
+    /// Element position converter.
+    /// </summary>
     internal class ElementPositionConverter : ExpandableObjectConverter
 	{
 		#region Converter methods
