@@ -20,6 +20,26 @@
     <PackageReference Include="System.Drawing.Primitives" Version="$(SystemDrawingPrimitivesPackageVersion)" />
     <PackageReference Include="System.Windows.Extensions" Version="$(SystemWindowsExtensionsPackageVersion)" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Common\SR.resx.Backup" />
+  </ItemGroup>
+
+  <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Update="Common\SR.resx">
+      <CustomToolNamespace>System.Windows.Forms.DataVisualization.Charting</CustomToolNamespace>
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SR.resx">
+      <GenerateSource>true</GenerateSource>
+      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0-preview.19073.11" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="4.6.0-preview.19073.11" />
+  </ItemGroup>-->
 
   <!-- <ItemGroup>
     <EmbeddedResource Update="Resources\SR.resx">
