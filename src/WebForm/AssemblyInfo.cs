@@ -12,7 +12,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: InternalsVisibleTo("System.Web.DataVisualization.Design, PublicKey=" + AssemblyRef.SharedLibPublicKeyFull)]
+[assembly: InternalsVisibleTo("System.Web.DataVisualization.Design, PublicKey=00000000000000000400000000000000")]
 [assembly: TagPrefix("System.Web.UI.DataVisualization.Charting", "asp")] 
 
 #if VS_BUILD
