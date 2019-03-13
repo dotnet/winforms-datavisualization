@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=íMicrosoft Corporationí>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+Ôªø//-------------------------------------------------------------
+// <copyright company=‚ÄôMicrosoft Corporation‚Äô>
+//   Copyright ¬© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -23,7 +23,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -804,9 +806,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		EditorBrowsable(EditorBrowsableState.Never),
 		SRDescription("DescriptionAttributeAxisScaleSegmentCollection_AxisScaleSegmentCollection"),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), 
-        Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
-		]
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden),
+        Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+        ]
         internal AxisScaleSegmentCollection ScaleSegments
 		{
 			get
@@ -1930,7 +1932,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 			else
 			{
-				// This code checks if all series in the chart area have ìinteger typeî 
+				// This code checks if all series in the chart area have ‚Äúinteger type‚Äù 
                 // for specified axes, which means int, uint, long and ulong and rounds interval.
 #if SUBAXES
 				if( ChartArea.SeriesIntegerType( this.axisType, ((Axis)this).SubAxisName ) )

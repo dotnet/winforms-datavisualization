@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -22,8 +22,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -78,14 +80,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeLabels"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeCustomLabels"),
-#if WINFORMS_CONTROL
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-        Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
-		]
-		public CustomLabelsCollection CustomLabels
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+        ]
+        public CustomLabelsCollection CustomLabels
 		{
 			get
 			{

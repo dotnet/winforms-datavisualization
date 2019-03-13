@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -24,10 +24,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Data;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -1668,9 +1670,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_Name"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public override string Name
 		{
@@ -1693,11 +1692,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_ValueMemberX"),
 		DefaultValue(""),
-        #if !WINFORMS_CONTROL
-        TypeConverter(Editors.SeriesDataFieldXConvertor.Convertor)
-        #else
         TypeConverter(typeof(SeriesDataSourceMemberConverter))
-        #endif
 		]
 		public string XValueMember
 		{
@@ -1734,15 +1729,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_ValueMembersY"),
 		DefaultValue(""),
-        #if !WINFORMS_CONTROL
-        TypeConverter(Editors.SeriesDataFieldYConvertor.Convertor),
-        Editor(Editors.SeriesDataFieldValueAxisUITypeEditor.Editor, Editors.SeriesDataFieldValueAxisUITypeEditor.Base)
-        #else
         TypeConverter(typeof(SeriesDataSourceMemberConverter)),
-        Editor(Editors.SeriesDataSourceMemberValueAxisUITypeEditor.Editor, Editors.SeriesDataSourceMemberValueAxisUITypeEditor.Base)
-        #endif
+        Editor(typeof(SeriesDataSourceMemberValueAxisUITypeEditor), typeof(UITypeEditor))
         ]
-		public string YValueMembers
+        public string YValueMembers
 		{
 			get
 			{
@@ -1950,10 +1940,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_Points"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-        Editor(Editors.DataPointCollectionEditor.Editor, Editors.DataPointCollectionEditor.Base)
-		]
-		public DataPointCollection Points
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        Editor(typeof(DataPointCollectionEditor), typeof(UITypeEditor))
+        ]
+        public DataPointCollection Points
 		{
 			get
 			{
@@ -1999,9 +1989,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributePalette"),
 		DefaultValue(ChartColorPalette.None),
-       Editor(Editors.ColorPaletteEditor.Editor, Editors.ColorPaletteEditor.Base)
-		]
-		public ChartColorPalette Palette
+        Editor(typeof(ColorPaletteEditor), typeof(UITypeEditor))
+        ]
+        public ChartColorPalette Palette
 		{
 			get
 			{
@@ -2254,9 +2244,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeSeries_Type"),
 		DefaultValue(SeriesChartType.Column),
 		RefreshProperties(RefreshProperties.All),
-        Editor(Editors.ChartTypeEditor.Editor, Editors.ChartTypeEditor.Base)
-		]
-		public SeriesChartType ChartType
+        Editor(typeof(ChartTypeEditor), typeof(UITypeEditor))
+        ]
+        public SeriesChartType ChartType
 		{
 			get
 			{
@@ -2303,8 +2293,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeSeries_Type"),
 		DefaultValue(ChartTypeNames.Column),
         TypeConverter(typeof(ChartTypeConverter)),
-        Editor(Editors.ChartTypeEditor.Editor, Editors.ChartTypeEditor.Base),
-		RefreshProperties(RefreshProperties.All),
+        Editor(typeof(ChartTypeEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)
 		]

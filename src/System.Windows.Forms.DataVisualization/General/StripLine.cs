@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -40,8 +40,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -970,12 +972,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackColor
 		{
 			get
 			{
@@ -997,12 +996,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -1073,11 +1069,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		NotifyParentPropertyAttribute(true)
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        NotifyParentPropertyAttribute(true)
 		]
 		public string BackImage
 		{
@@ -1128,12 +1121,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -1189,12 +1179,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GradientStyle.None),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -1227,12 +1214,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -1262,12 +1246,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartHatchStyle.None),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -1339,12 +1320,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeStripLine_TitleColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ForeColor
 		{
 			get
 			{

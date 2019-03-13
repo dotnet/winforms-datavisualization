@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -20,8 +20,10 @@
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting.Data
 {
@@ -1061,11 +1063,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Data
 		/// </summary>
 		[
 		SRCategory("CategoryAttributeData"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-		Editor(Editors.SeriesCollectionEditor.Editor, Editors.SeriesCollectionEditor.Base),
-		Bindable(true)
+        Editor(typeof(SeriesCollectionEditor), typeof(UITypeEditor)),
+        Bindable(true)
 		]
 		public SeriesCollection Series
 		{
@@ -1082,13 +1081,10 @@ namespace System.Windows.Forms.DataVisualization.Charting.Data
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		SRDescription("DescriptionAttributePalette"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
         DefaultValue(ChartColorPalette.BrightPastel),
-        Editor(Editors.ColorPaletteEditor.Editor, Editors.ColorPaletteEditor.Base)
-		]
-		public ChartColorPalette Palette
+        Editor(typeof(ColorPaletteEditor), typeof(UITypeEditor))
+        ]
+        public ChartColorPalette Palette
 		{
 			get
 			{

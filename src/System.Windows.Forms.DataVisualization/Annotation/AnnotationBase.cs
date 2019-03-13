@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -23,9 +23,11 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -825,7 +827,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
         ]
         virtual public Color ForeColor
         {
@@ -904,7 +906,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
         ]
         virtual public Color LineColor
         {
@@ -990,7 +992,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
         ]
         virtual public Color BackColor
         {
@@ -1022,7 +1024,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartHatchStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
         ]
         virtual public ChartHatchStyle BackHatchStyle
         {
@@ -1052,8 +1054,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         DefaultValue(GradientStyle.None),
         NotifyParentPropertyAttribute(true),
-           SRDescription("DescriptionAttributeBackGradientStyle"),
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
+        SRDescription("DescriptionAttributeBackGradientStyle"),
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
         ]
         virtual public GradientStyle BackGradientStyle
         {
@@ -1088,7 +1090,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
         ]
         virtual public Color BackSecondaryColor
         {
@@ -1115,7 +1117,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "128,0,0,0"),
         SRDescription("DescriptionAttributeShadowColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
         ]
         virtual public Color ShadowColor
         {
@@ -1291,7 +1293,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAxisX"),
-        Editor(Editors.AnnotationAxisUITypeEditor.Editor, Editors.AnnotationAxisUITypeEditor.Base),
+        Editor(typeof(AnnotationAxisUITypeEditor), typeof(UITypeEditor)),
         TypeConverter(typeof(AnnotationAxisValueConverter)),
         ]
         virtual public Axis AxisX
@@ -1335,7 +1337,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAxisY"),
-        Editor(Editors.AnnotationAxisUITypeEditor.Editor, Editors.AnnotationAxisUITypeEditor.Base),
+        Editor(typeof(AnnotationAxisUITypeEditor), typeof(UITypeEditor)),
         TypeConverter(typeof(AnnotationAxisValueConverter)),
         ]
         virtual public Axis AxisY
@@ -1435,7 +1437,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAnchorDataPoint"),
-        Editor(Editors.AnchorPointUITypeEditor.Editor, Editors.AnchorPointUITypeEditor.Base),
+        Editor(typeof(AnchorPointUITypeEditor), typeof(UITypeEditor)),
         TypeConverter(typeof(AnchorPointValueConverter)),
         ]
         virtual public DataPoint AnchorDataPoint

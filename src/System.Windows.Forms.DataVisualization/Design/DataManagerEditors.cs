@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -41,8 +41,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     internal class SeriesDataSourceMemberValueAxisUITypeEditor : System.Drawing.Design.UITypeEditor 
 	{
 		#region Editor methods and properties
-
-
 
         internal virtual SeriesDataSourceMemberYCheckedListBox GetDropDownControl(Chart chart, ITypeDescriptorContext context, object value, bool flag)
         {
@@ -121,11 +119,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
     internal class SeriesDataSourceMemberYCheckedListBox : CheckedListBox
     {
-        #region Control fields
-
         // Chart object 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields",
-            Justification = "the chart field is used when this is compiled for WinForms")]
         private Chart _chart = null;
 
         // Object to edit
@@ -133,8 +127,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 
         // Indicates that editor was used for the Y values members
         protected bool usedForYValue = false;
-
-        #endregion
 
         #region Control constructor
 
@@ -174,17 +166,10 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         internal virtual ArrayList GetMemberNames()
         {
             object dataSource = null;
-#if WINFORMS_CONTROL
-				if(ChartWinDesigner.controlDesigner != null)
-				{
-					dataSource = ChartWinDesigner.controlDesigner.GetControlDataSource(_chart);
-				}
-#else
-            if (ChartWebDesigner.controlDesigner != null)
+            if (ChartWinDesigner.controlDesigner != null)
             {
-                dataSource = ChartWebDesigner.controlDesigner.GetDataSource();
+                dataSource = ChartWinDesigner.controlDesigner.GetControlDataSource(_chart);
             }
-#endif	//#if WINFORMS_CONTROL
 
             // Get list of members
             if (dataSource != null)
@@ -327,42 +312,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         #endregion
 	}
 
-	
-#if !WINFORMS_CONTROL
-
-
-	/// <summary>
-	/// Url editor class
-	/// </summary>
-	internal class UrlValueEditor : UrlEditor
-	{
-		#region Editor methods
-
-		/// <summary>
-		/// Edit Url value. 
-		/// Makes a base class call with a chart control descriptor context.
-		/// </summary>
-		/// <param name="context">Descriptor context.</param>
-		/// <param name="provider">Service provider.</param>
-		/// <param name="value">Value to edit.</param>
-		/// <returns>The new value of the object.</returns>
-		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value) 
-		{
-			// Use current control type descriptor context
-			// This allows to use ImageUrlEditor class
-			if(Chart.controlCurrentContext != null)
-			{
-				return base.EditValue(Chart.controlCurrentContext, provider, value);
-			}
-
-			return base.EditValue(context, provider, value);
-		}
-
-		#endregion
-	}
-
-
-#endif
 	/// <summary>
 	/// Designer editor for the data points collection.
 	/// </summary>
@@ -901,7 +850,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	
 		#endregion
 	}
-
 }
 
 

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -20,8 +20,10 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -189,9 +191,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
-		]
-		override public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        override public Color ForeColor
 		{
 			get
 			{
@@ -236,9 +238,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
-		]
-		override public Color BackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        override public Color BackColor
 		{
 			get
 			{
@@ -258,9 +260,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
-		Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		override public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        override public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -280,9 +282,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
-		Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]		
-		override public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        override public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -303,9 +305,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
-		] 
-		override public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        override public Color BackSecondaryColor
 		{
 			get
 			{
@@ -462,11 +464,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributePosition"),
 		SRDescription("DescriptionAttributePathPoints"),
 		EditorBrowsableAttribute(EditorBrowsableState.Never),
-		Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty)
-#endif
+        Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor)),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
 		]
 		public AnnotationPathPointCollection GraphicsPathPoints
 		{
@@ -1234,9 +1233,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
-		]
-		override public Color BackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        override public Color BackColor
 		{
 			get
 			{
@@ -1266,9 +1265,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeBackHatchStyle"),
-		Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		override public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        override public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -1297,10 +1296,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(true),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
-                SRDescription("DescriptionAttributeBackGradientStyle"),
-		Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]		
-		override public GradientStyle BackGradientStyle
+        SRDescription("DescriptionAttributeBackGradientStyle"),
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        override public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -1333,9 +1332,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base)
-		] 
-		override public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        override public Color BackSecondaryColor
 		{
 			get
 			{

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=íMicrosoft Corporationí>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+Ôªø//-------------------------------------------------------------
+// <copyright company=‚ÄôMicrosoft Corporation‚Äô>
+//   Copyright ¬© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -13,7 +13,7 @@
 //
 //  Purpose:	LabelStyle and CustomLabel classes are used to determine 
 //              chart axis labels. Labels can be automatically 
-//              generated based on the series data or be ìmanuallyî 
+//              generated based on the series data or be ‚Äúmanually‚Äù 
 //              set by the user.
 //
 //	Reviewed:	AG - Jul 31, 2002
@@ -25,9 +25,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -733,11 +735,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeCustomLabel_Image"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		NotifyParentPropertyAttribute(true)
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        NotifyParentPropertyAttribute(true)
 		]
 		public string Image
 		{
@@ -762,12 +761,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        ]
+        public Color ImageTransparentColor
 		{
 			get
 			{
@@ -814,9 +810,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GridTickTypes.None),
 		SRDescription("DescriptionAttributeCustomLabel_GridTicks"),
-        Editor(Editors.FlagsEnumUITypeEditor.Editor, Editors.FlagsEnumUITypeEditor.Base)
-		]
-		public GridTickTypes GridTicks
+        Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+        ]
+        public GridTickTypes GridTicks
 		{
 			get
 			{
@@ -916,12 +912,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeForeColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        ]
+        public Color ForeColor
 		{
 			get
 			{
@@ -944,12 +937,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeCustomLabel_MarkColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color MarkColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color MarkColor
 		{
 			get
 			{
@@ -2740,12 +2730,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeFontColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ForeColor
 		{
 			get
 			{

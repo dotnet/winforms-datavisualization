@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -19,7 +19,9 @@
 
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -270,7 +272,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]
 		override public Color ForeColor
@@ -331,7 +333,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]
 		override public Color LineColor
@@ -425,7 +427,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]
 		override public Color BackColor
@@ -461,7 +463,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeBackHatchStyle"),
-		Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base),
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]
 		override public ChartHatchStyle BackHatchStyle
@@ -496,8 +498,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
-        	SRDescription("DescriptionAttributeBackGradientStyle"),
-		Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base),
+        SRDescription("DescriptionAttributeBackGradientStyle"),
+        Editor(typeof(GradientEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]		
 		override public GradientStyle BackGradientStyle
@@ -536,7 +538,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         Browsable(false),
 		] 
 		override public Color BackSecondaryColor
@@ -567,7 +569,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "128,0,0,0"),
         SRDescription("DescriptionAttributeShadowColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         Browsable(false),
 		]
 		override public Color ShadowColor
@@ -783,12 +785,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAnnotations"),
 		SRDescription("DescriptionAttributeAnnotationGroup_Annotations"),
-		Editor(Editors.AnnotationCollectionEditor.Editor, Editors.AnnotationCollectionEditor.Base),
-#if WINFORMS_CONTROL
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else	// WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif	// WINFORMS_CONTROL
+        Editor(typeof(AnnotationCollectionEditor), typeof(UITypeEditor)),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
 		]
 		public AnnotationCollection Annotations
 		{

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Compile Remove="Annotation\AnnotationDesign.cs" />
+    <Compile Remove="Common\EditorNames.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,14 +21,10 @@
     <PackageReference Include="System.Drawing.Primitives" Version="$(SystemDrawingPrimitivesPackageVersion)" />
     <PackageReference Include="System.Windows.Extensions" Version="$(SystemWindowsExtensionsPackageVersion)" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Common\SR.resx.Backup" />
-  </ItemGroup>
 
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
-      <CustomToolNamespace>System.Windows.Forms.DataVisualization.Charting</CustomToolNamespace>
-      <Generator></Generator>
+      <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="SR.resx">
       <GenerateSource>true</GenerateSource>

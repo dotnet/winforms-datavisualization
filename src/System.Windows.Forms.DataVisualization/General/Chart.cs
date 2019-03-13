@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -28,6 +28,7 @@ using System.ComponentModel.Design;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
@@ -38,45 +39,11 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows.Forms.DataVisualization.Charting.Borders3D;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
     using FontStyle = System.Drawing.FontStyle;
-
-    #region Enumerations
-
-#if !WINFORMS_CONTROL
-
-	/// <summary>
-	/// An enumeration of supported image types
-	/// </summary>
-	public enum ChartImageType
-	{
-		/// <summary>
-		/// BMP image format
-		/// </summary>
-		Bmp,
-		/// <summary>
-		/// Jpeg image format
-		/// </summary>
-		Jpeg, 
-
-		/// <summary>
-		/// Png image format
-		/// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Png")]
-        Png,
-    		
-		/// <summary>
-		/// Enhanced Meta File (Emf) image format.
-		/// </summary>
-		Emf,
-
-    };
-#endif
-
-
-    #endregion
 
     /// <summary>
     /// ChartImage class adds image type and data binding functionality to 
@@ -1396,10 +1363,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			private	DataManipulator			_dataManipulator = new DataManipulator();
 			internal HotRegionsList			hotRegionsList = null;
 			private BorderSkin	            _borderSkin = null;
-#if !WINFORMS_CONTROL
-			private	bool					_isMapEnabled = true;
-			private	MapAreasCollection		_mapAreas = null;
-#endif
             // Chart areas collection
             private ChartAreaCollection     _chartAreas = null;
 
@@ -1439,8 +1402,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// Position of the chart 3D border
 			private RectangleF				_chartBorderPosition = RectangleF.Empty;
 
-#if WINFORMS_CONTROL
-
    			// Saving As Image indicator
 			internal bool					isSavingAsImage = false;
 
@@ -1450,8 +1411,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
             // Buffered image of non-top level chart elements
 		    internal		Bitmap				nonTopLevelChartBuffer = null;
-
-#endif // WINFORMS_CONTROL
 
         #endregion
 
@@ -1490,11 +1449,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			// Set Common elements for data manipulator
 			_dataManipulator.Common = Common;
-
-#if !WINFORMS_CONTROL
-			// Create map areas collection
-			_mapAreas = new MapAreasCollection();
-#endif
         }
 
 		/// <summary>
@@ -1530,9 +1484,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             
             // Set process Mode to hot regions
             this.Common.HotRegionsList.ProcessChartMode |= ProcessMode.HotRegions;
-#if WINFORMS_CONTROL
             this.Common.HotRegionsList.hitTestCalled = true;
-#endif // WINFORMS_CONTROL
 
             // Enable selection mode
             this.isSelectionMode = true;
@@ -1552,9 +1504,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             ChartGraph.Graphics = offScreen;
 
             // Remember the previous dirty flag
-#if WINFORMS_CONTROL			
 			bool oldDirtyFlag = this.Common.Chart.dirtyFlag;
-#endif //WINFORMS_CONTROL
 
 
             Paint(ChartGraph.Graphics, false);
@@ -1562,9 +1512,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             image.Dispose();
 
             // Restore the previous dirty flag
-#if WINFORMS_CONTROL			
 			this.Common.Chart.dirtyFlag = oldDirtyFlag;
-#endif //WINFORMS_CONTROL
 
             // Disable selection mode
             this.isSelectionMode = false;
@@ -1617,12 +1565,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			bool paintTopLevelElementOnly )
 		{
 
-#if WINFORMS_CONTROL
-
 			// Reset restored and saved backgound flags
 			this.backgroundRestored = false;
-
-#endif // WINFORMS_CONTROL
 
 			// Reset Annotation Smart Labels 
 			this.annotationSmartLabel.Reset();
@@ -1632,8 +1576,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             {
                 return;
             }
-
-#if WINFORMS_CONTROL
 
 			bool	resetHotRegionList = false;
             
@@ -1681,26 +1623,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				this.Common.HotRegionsList.Clear();
 			}
 			
-#else
-			if( this.IsMapEnabled )
-			{
-				Common.HotRegionsList.ProcessChartMode |= ProcessMode.ImageMaps | ProcessMode.Paint;
-				
-				// Clear any existing non-custom image map areas
-				for(int index = 0; index < this.MapAreas.Count; index++)
-				{
-					MapArea mapArea = this.MapAreas[index];
-					if(!mapArea.IsCustom)
-					{
-						this.MapAreas.RemoveAt(index);
-						--index;
-					}
-				}
-			}
-
-
-#endif	//#if WINFORMS_CONTROL
-
 			// Check if control was data bound
 			ChartImage chartImage = this as ChartImage;
 			if(chartImage != null && !chartImage.boundToDataSource)
@@ -1946,13 +1868,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						area.GetTempValues();
 					}
 				}
-
-#if !WINFORMS_CONTROL
-                if (this.Chart.IsDesignMode())
-                {
-                    this.Chart.MapAreas.RemoveNonCustom();
-                }
-#endif //!WINFORMS_CONTROL
             }
 		}
 
@@ -1986,10 +1901,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
             base.Invalidate();
 
-#if WINFORMS_CONTROL
             if (Chart!=null)
                 Chart.Invalidate();
-#endif
         }
 		#endregion
 
@@ -2241,9 +2154,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		#region Chart picture properties
 
         // VSTS 96787-Text Direction (RTL/LTR)	
-#if !WINFORMS_CONTROL
-        private RightToLeft rightToLeft = RightToLeft.No;
-#endif //!WINFORMS_CONTROL
         /// <summary>
         /// Gets or sets the RightToLeft type.
         /// </summary>
@@ -2254,19 +2164,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
             get
             {
-#if WINFORMS_CONTROL
                 return this.Common.Chart.RightToLeft;
-#else // !WIN_CONTROL
-                return this.rightToLeft;
-#endif // WIN_CONTROL
             }
             set
             {
-#if WINFORMS_CONTROL
                 this.Common.Chart.RightToLeft = value;
-#else // !WINFORMS_CONTROL
-                this.rightToLeft = value;
-#endif // WINFORMS_CONTROL
             }
         }
 
@@ -2298,9 +2200,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(BorderSkinStyle.None),
 		SRDescription("DescriptionAttributeBorderSkin"),
-#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		]
 		public BorderSkin BorderSkin
 		{
@@ -2314,48 +2213,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if ! WINFORMS_CONTROL
-
-		/// <summary>
-		/// Indicates that chart image map is enabled.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMap"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapEnabled"),
-		PersistenceMode(PersistenceMode.InnerProperty),
-		DefaultValue(true)
-		]
-		public bool IsMapEnabled
-		{
-			get
-			{
-				return _isMapEnabled;
-			}
-			set
-			{
-				_isMapEnabled = value;
-			}
-		}
-
-		/// <summary>
-		/// Chart map areas collection.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMap"),
-		SRDescription("DescriptionAttributeMapAreas"),
-		PersistenceMode(PersistenceMode.InnerProperty),
-        Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
-		]
-		public MapAreasCollection MapAreas
-		{
-			get
-			{
-                return _mapAreas;
-			}
-		}
-#endif
-
 		/// <summary>
 		/// Reference to chart area collection
 		/// </summary>
@@ -2363,12 +2220,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeChartAreas"),
-#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-        Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base)
-		]
-		public ChartAreaCollection ChartAreas
+        Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+        ]
+        public ChartAreaCollection ChartAreas
 		{
 			get
 			{
@@ -2382,12 +2236,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeChart"),
 		SRDescription("DescriptionAttributeLegends"),
-        Editor(Editors.LegendCollectionEditor.Editor, Editors.LegendCollectionEditor.Base),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-		]
-		public LegendCollection Legends
+        Editor(typeof(LegendCellCollectionEditor), typeof(UITypeEditor))
+        ]
+        public LegendCollection Legends
 		{
 			get
 			{
@@ -2401,12 +2252,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeCharttitle"),
 		SRDescription("DescriptionAttributeTitles"),
-        Editor(Editors.ChartCollectionEditor.Editor, Editors.ChartCollectionEditor.Base),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-		]
-		public TitleCollection Titles
+        Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+        ]
+        public TitleCollection Titles
 		{
 			get
 			{
@@ -2422,10 +2270,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeChart"),
 		SRDescription("DescriptionAttributeAnnotations3"),
-        Editor(Editors.AnnotationCollectionEditor.Editor, Editors.AnnotationCollectionEditor.Base),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
+        Editor(typeof(AnnotationCollectionEditor), (typeof(UITypeEditor)))
 		]
 		public AnnotationCollection Annotations
 		{
@@ -2435,24 +2280,18 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-
-
 		/// <summary>
 		/// Background color for the Chart
 		/// </summary>
 		[
-
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(typeof(Color), "White"),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
-		]
-		public Color BackColor
+        Editor(typeof(ChartColorEditor), (typeof(UITypeEditor)))
+        ]
+        public Color BackColor
 		{
 			get
 			{
@@ -2460,12 +2299,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 			set
 			{
-#if !WINFORMS_CONTROL
-			if(value == Color.Empty  || value.A != 255 || value == Color.Transparent)
-			{
-				// NOTE: Transparent colors are valid
-			}
-#endif
                 _backColor = value;
 			}
 		}
@@ -2480,12 +2313,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "White"),
 		SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), (typeof(UITypeEditor)))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -2505,9 +2335,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(300),
 		SRDescription("DescriptionAttributeWidth"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public int Width
 		{
@@ -2541,9 +2368,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-
-
-
 		/// <summary>
 		/// Chart height
 		/// </summary>
@@ -2552,9 +2376,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(300),
 		SRDescription("DescriptionAttributeHeight3"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public int Height
 		{
@@ -2579,12 +2400,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartHatchStyle.None),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute),
-	#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -2604,11 +2422,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-	    #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-	    #endif
-		NotifyParentPropertyAttribute(true)
+        Editor(typeof(ImageValueEditor), (typeof(UITypeEditor))),
+        NotifyParentPropertyAttribute(true)
 		]
 		public string BackImage
 		{
@@ -2631,9 +2446,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartImageWrapMode.Tile),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageWrapMode"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -2657,12 +2469,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -2683,9 +2492,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartImageAlignmentStyle.TopLeft),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackImageAlign"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -2707,9 +2513,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeSoftShadows3"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public bool IsSoftShadows
 		{
@@ -2731,9 +2534,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(AntiAliasingStyles), "All"),
 		SRDescription("DescriptionAttributeAntiAlias"),
-	#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public AntiAliasingStyles AntiAliasing
 		{
@@ -2755,9 +2555,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(TextAntiAliasingQuality), "High"),
 		SRDescription("DescriptionAttributeTextAntiAliasingQuality"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
 		]
 		public TextAntiAliasingQuality TextAntiAliasingQuality
 		{
@@ -2780,12 +2577,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GradientStyle.None),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute),
-	#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -2807,12 +2601,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
-		]
-		public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -2820,12 +2611,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 			set
 			{
-#if !WINFORMS_CONTROL
-			if(value != Color.Empty && (value.A != 255 || value == Color.Transparent))
-			{
-				throw (new ArgumentException( SR.ExceptionBackSecondaryColorIsTransparent));
-			}
-#endif
                 _backSecondaryColor = value;
 			}
 		}
@@ -2839,9 +2624,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(1),
 		SRDescription("DescriptionAttributeChart_BorderlineWidth"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public int BorderWidth
 		{
@@ -2868,9 +2650,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartDashStyle.NotSet),
         SRDescription("DescriptionAttributeBorderDashStyle"),
-	#if !WINFORMS_CONTROL
-	PersistenceMode(PersistenceMode.Attribute)
-	#endif
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -3804,10 +3583,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// <summary>
 	/// Event arguments of Chart paint event.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class ChartPaintEventArgs : EventArgs
 	{
 		#region Fields
@@ -3918,10 +3693,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <summary>
     /// Event arguments of localized numbers formatting event.
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class FormatNumberEventArgs : EventArgs
     {
         #region Fields

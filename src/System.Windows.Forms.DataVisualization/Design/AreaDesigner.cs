@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -33,29 +33,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		public AreaCollectionEditor() : base(typeof(ChartAreaCollection))
 		{
 		}
-
-#if !WINFORMS_CONTROL
-		/// <summary>
-		/// Edit area value. 
-		/// Saves a referense to the chart descriptor context.
-		/// </summary>
-		/// <param name="context">Editing context.</param>
-		/// <param name="provider">Provider.</param>
-		/// <param name="value">Value to edit.</param>
-		/// <returns>Result</returns>
-		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value) 
-		{
-			if (context != null && context.Instance != null)
-			{
-				// Save current control type descriptor context
-				if(context.Instance is Chart)
-				{
-					Chart.controlCurrentContext = context;
-				}
-			}
-			return base.EditValue(context, provider, value);
-		}
-#endif // !WINFORMS_CONTROL
 	}
 
     /// <summary>

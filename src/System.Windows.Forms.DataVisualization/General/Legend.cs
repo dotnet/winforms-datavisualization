@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -39,9 +39,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -2891,14 +2893,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeCellColumns"),
 		SRDescription("DescriptionAttributeLegend_CellColumns"),
-#if WINFORMS_CONTROL
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-        Editor(Editors.LegendCellColumnCollectionEditor.Editor, Editors.LegendCellColumnCollectionEditor.Base),
-		]
-		public LegendCellColumnCollection CellColumns
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        Editor(typeof(LegendCellColumnCollectionEditor), typeof(UITypeEditor)),
+        ]
+        public LegendCellColumnCollection CellColumns
 		{
 			get
 			{
@@ -2965,9 +2963,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLegend_HeaderSeparatorColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color HeaderSeparatorColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color HeaderSeparatorColor
 		{
 			get
 			{
@@ -3015,9 +3013,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLegend_ItemColumnSeparatorColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color ItemColumnSeparatorColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ItemColumnSeparatorColor
 		{
 			get
 			{
@@ -3074,12 +3072,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackColor
 		{
 			get
 			{
@@ -3102,12 +3097,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBorderColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -3186,11 +3178,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		NotifyParentPropertyAttribute(true),
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        NotifyParentPropertyAttribute(true),
 		]
 		public string BackImage
 		{
@@ -3241,12 +3230,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -3295,13 +3281,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -3336,12 +3318,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -3373,12 +3352,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -3431,12 +3407,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeLegendFontColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ForeColor
 		{
 			get
 			{
@@ -3545,12 +3518,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeShadowColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ShadowColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ShadowColor
 		{
 			get
 			{
@@ -3613,14 +3583,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeLegend_CustomItems"),
-#if WINFORMS_CONTROL
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-        Editor(Editors.LegendItemCollectionEditor.Editor, Editors.LegendItemCollectionEditor.Base),
-		]
-		public LegendItemsCollection CustomItems
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        Editor(typeof(LegendItemCollectionEditor), typeof(UITypeEditor))
+        ]
+        public LegendItemsCollection CustomItems
 		{
 			get
 			{
@@ -3725,9 +3691,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		SRDescription("DescriptionAttributeLegend_InterlacedRowsColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color InterlacedRowsColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color InterlacedRowsColor
 		{
 			get
 			{
@@ -3779,9 +3745,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLegend_TitleColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color TitleForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color TitleForeColor
 		{
 			get
 			{
@@ -3805,9 +3771,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeTitleBackColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color TitleBackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color TitleBackColor
 		{
 			get
 			{
@@ -3903,9 +3869,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLegend_TitleSeparatorColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color TitleSeparatorColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color TitleSeparatorColor
 		{
 			get
 			{
@@ -5291,12 +5257,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public	Color Color
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public	Color Color
 		{
 			get
 			{
@@ -5317,11 +5280,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegendItem_Image"),
 		DefaultValue(""),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		NotifyParentPropertyAttribute(true)
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        NotifyParentPropertyAttribute(true)
 		]
 		public	string Image
 		{
@@ -5372,12 +5332,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -5398,12 +5355,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartHatchStyle.None),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -5426,12 +5380,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -5452,12 +5403,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GradientStyle.None),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -5490,12 +5438,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -5664,12 +5609,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "128,0,0,0"),
         SRDescription("DescriptionAttributeShadowColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ShadowColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ShadowColor
 		{
 			get
 			{
@@ -5690,11 +5632,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(MarkerStyle.None),
 		SRDescription("DescriptionAttributeLegendItem_MarkerStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.MarkerStyleEditor.Editor, Editors.MarkerStyleEditor.Base),
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(MarkerStyleEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public MarkerStyle MarkerStyle
 		{
@@ -5743,11 +5682,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeMarkerImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public string MarkerImage
 		{
@@ -5771,11 +5707,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerImageTransparentColor
 		{
@@ -5799,11 +5732,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		SRDescription("DescriptionAttributeLegendItem_MarkerColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerColor
 		{
@@ -5827,11 +5757,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeMarkerBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerBorderColor
 		{
@@ -5926,9 +5853,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLegendItem_SeparatorColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		]
-		public Color SeparatorColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color SeparatorColor
 		{
 			get
 			{
@@ -5951,14 +5878,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAppearance"),
 		SRDescription("DescriptionAttributeLegendItem_Cells"),
-#if WINFORMS_CONTROL
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-        Editor(Editors.LegendCellCollectionEditor.Editor, Editors.LegendCellCollectionEditor.Base),
-		]
-		public LegendCellCollection Cells
+		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        Editor(typeof(LegendCollectionEditor), typeof(UITypeEditor))
+        ]
+        public LegendCellCollection Cells
 		{
 			get
 			{

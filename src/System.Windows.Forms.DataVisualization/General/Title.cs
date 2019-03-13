@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -37,9 +37,11 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -590,12 +592,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackColor
 		{
 			get
 			{
@@ -618,12 +617,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBorderColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -700,11 +696,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		NotifyParentPropertyAttribute(true),
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        NotifyParentPropertyAttribute(true),
 		]
 		public string BackImage
 		{
@@ -755,12 +748,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -817,12 +807,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -856,12 +843,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackSecondaryColor
+         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -892,12 +876,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -943,12 +924,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeTitle_Color"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ForeColor
 		{
 			get
 			{
@@ -1049,12 +1027,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeShadowColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color ShadowColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color ShadowColor
 		{
 			get
 			{
@@ -1071,11 +1046,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// Gets or sets the tooltip.
 		/// </summary>
 		[
-#if !WINFORMS_CONTROL
-		SRCategory("CategoryAttributeMapArea"),
-#else
 		SRCategory("CategoryAttributeToolTip"),
-#endif
 		Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
 		DefaultValue(""),
@@ -1094,77 +1065,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				return _toolTip;
 			}
 		}
-
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Gets or sets the URL target of the title.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-#endif
-		]
-		public string Url
-		{
-			set
-			{
-				_url = value;
-			}
-			get
-			{
-				return _url;
-			}
-		}
-		/// <summary>
-		/// Gets or sets the other attributes of the title map area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-				_mapAreaAttributes = value;
-			}
-			get
-			{
-				return _mapAreaAttributes;
-			}
-        }
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on a click event.
-        /// </summary>
-        /// <value>The value which is passed to a click event as an argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string PostBackValue 
-        {
-            get
-            {
-                return this._postbackValue;
-            }
-            set
-            {
-                this._postbackValue = value;
-            } 
-        }
-
-
-#endif
 
         /// <summary>
 		/// True if title background or border is visible
@@ -1974,10 +1874,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeTitles"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class TitleCollection : ChartNamedElementCollection<Title>
 	{
 

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -51,7 +51,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             // remove default verbs from the action list. 
             // should be called before initialization.
             IServiceContainer svc = component.Site as IServiceContainer;
-            if (svc != null) 
+            //if (svc != null)
             //{
             //    if (this.GetService(typeof(DesignerCommandSet)) == null)
             //    {

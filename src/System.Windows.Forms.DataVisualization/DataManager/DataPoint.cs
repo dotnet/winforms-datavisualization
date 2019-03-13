@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -33,6 +33,7 @@ using System.Drawing.Design;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -218,13 +219,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeDataPointCollection_DataPointCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-#if !WINFORMS_CONTROL
-        [Themeable(false)]
-#endif 
     public class DataPointCollection : ChartElementCollection<DataPoint>
 	{
 		#region Fields
@@ -1756,15 +1750,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 	SRDescription("DescriptionAttributeDataPoint_DataPoint"),
 	DefaultProperty("YValues"),
-    TypeConverter(Editors.DataPointConverter.Convertor)
+    TypeConverter(typeof(DataPointConverter))
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-#if !WINFORMS_CONTROL
-    [Themeable(false)]
-#endif
     public class DataPoint : DataPointCustomProperties
 	{
 		#region Fields
@@ -2774,17 +2761,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 	SRDescription("DescriptionAttributeDataPointCustomProperties_DataPointCustomProperties"),
 	DefaultProperty("LabelStyle"),
-    TypeConverter(Editors.DataPointCustomPropertiesConverter.Convertor)
+    TypeConverter(typeof(DataPointCustomPropertiesConverter))
     ]
-#if WINFORMS_CONTROL
 	public class DataPointCustomProperties : ChartNamedElement
-#else
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-    public class DataPointCustomProperties : ChartNamedElement, IChartMapArea
-#endif
     {
         #region Fields and enumerations
 
@@ -3209,10 +3188,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// The text of the data point label.
 		/// </summary>
 		[
-        Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
         SRCategory("CategoryAttributeLabel"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLabel"),
@@ -3270,12 +3246,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMisc"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeAxisLabel"),
-		Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		virtual public string AxisLabel
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+        ]
+        virtual public string AxisLabel
 		{
 			get
 			{
@@ -3445,12 +3418,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeColor4"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color Color
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color Color
 		{
 			get
 			{
@@ -3507,12 +3477,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
         SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BorderColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BorderColor
 		{
 			get
 			{
@@ -3664,12 +3631,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
         SRDescription("DescriptionAttributeBackImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		]
-		public string BackImage
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        ]
+        public string BackImage
 		{
 			get
 			{
@@ -3781,12 +3745,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackImageTransparentColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackImageTransparentColor
 		{
 			get
 			{
@@ -3885,12 +3846,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.GradientEditor.Editor, Editors.GradientEditor.Base)
-		]
-		public GradientStyle BackGradientStyle
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+        ]
+        public GradientStyle BackGradientStyle
 		{
 			get
 			{
@@ -3938,12 +3896,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color BackSecondaryColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color BackSecondaryColor
 		{
 			get
 			{
@@ -3990,12 +3945,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.HatchStyleEditor.Editor, Editors.HatchStyleEditor.Base)
-		]
-		public ChartHatchStyle BackHatchStyle
+        Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+        ]
+        public ChartHatchStyle BackHatchStyle
 		{
 			get
 			{
@@ -4094,12 +4046,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeFontColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public Color LabelForeColor
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+        ]
+        public Color LabelForeColor
 		{
 			get
 			{
@@ -4202,11 +4151,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMarker"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeMarkerStyle4"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        Editor(Editors.MarkerStyleEditor.Editor, Editors.MarkerStyleEditor.Base),
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(MarkerStyleEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public MarkerStyle MarkerStyle
 		{
@@ -4313,11 +4259,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMarker"),
 		Bindable(true),
         SRDescription("DescriptionAttributeMarkerImage"),
-        Editor(Editors.ImageValueEditor.Editor, Editors.ImageValueEditor.Base),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public string MarkerImage
 		{
@@ -4373,11 +4316,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerImageTransparentColor
 		{
@@ -4427,11 +4367,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeMarkerColor3"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerColor
 		{
@@ -4481,11 +4418,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeMarkerBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
-        #if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+        RefreshProperties(RefreshProperties.All)
 		]
 		public Color MarkerBorderColor
 		{
@@ -4752,13 +4686,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMapArea"),
 		Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
-        Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-#if !WINFORMS_CONTROL
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-		]
-		public string ToolTip
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+        ]
+        public string ToolTip
 		{
 			set
 			{
@@ -5030,13 +4960,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeLegend"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegendText"),
-		Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-		#if !WINFORMS_CONTROL
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public string LegendText
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+        ]
+        public string LegendText
 		{
 			set
 			{
@@ -5082,13 +5008,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeLegend"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegendToolTip"),
-        Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-		#if !WINFORMS_CONTROL
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public string LegendToolTip
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+        ]
+        public string LegendToolTip
 		{
 			set
 			{
@@ -5097,12 +5019,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				else 
 					series.legendToolTip = value;
 				
-#if WINFORMS_CONTROL
 				if(Chart != null && Chart.selection != null)
 				{
 					Chart.selection.enabledChecked = false;
 				}
-#endif
 			}
 			get
 			{
@@ -5144,11 +5064,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
         SRDescription("DescriptionAttributeLabelBackColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         DefaultValue(typeof(Color), ""),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public Color LabelBackColor
 		{
@@ -5197,11 +5114,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
         SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(Editors.ChartColorEditor.Editor, Editors.ChartColorEditor.Base),
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
         DefaultValue(typeof(Color), ""),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public Color LabelBorderColor
 		{
@@ -5357,13 +5271,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeLabel"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLabelToolTip"),
-        Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base),
-		#if !WINFORMS_CONTROL
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-		public string LabelToolTip
+        Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+        ]
+        public string LabelToolTip
 		{
 			set
 			{
@@ -5372,12 +5282,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				else 
 					series.labelToolTip = value;
 				
-#if WINFORMS_CONTROL
 				if(Chart != null && Chart.selection != null)
 				{
 					Chart.selection.enabledChecked = false;
 				}
-#endif
 			}
 			get
 			{
