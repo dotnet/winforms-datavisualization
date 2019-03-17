@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -93,9 +93,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         AxisTitle,
 
-
-#if WINFORMS_CONTROL
-
 		/// <summary>
 		/// A scrollbar tracking thumb.
 		/// </summary>
@@ -137,8 +134,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// The zoom reset button of a scrollbar.
 		/// </summary>
         ScrollBarZoomReset,
-
-#endif // WINFORMS_CONTROL
 
         /// <summary>
         /// A DataPoint object.
@@ -427,15 +422,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		private CommonElements _common = null;
 
-#if WINFORMS_CONTROL
-		
         /// <summary>
 		/// True if hit test function is called
 		/// </summary>
-		internal bool					hitTestCalled = false;
+		internal bool hitTestCalled = false;
 
-#endif // WINFORMS_CONTROL
-        
         #endregion // Fields
 
         #region Properties
@@ -503,31 +494,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			int pointIndex 
 			)
 		{
-			
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(point.ToolTip.Length > 0 || 
-						point.Url.Length > 0 ||
-                        point.MapAreaAttributes.Length > 0 ||
-                        point.PostBackValue.Length > 0 
-                        )
-					{
-                        MapArea area = new MapArea(
-							    point.ReplaceKeywords(point.ToolTip), 
-							    point.ReplaceKeywords(point.Url), 
-							    point.ReplaceKeywords(point.MapAreaAttributes),
-                                point.ReplaceKeywords(point.PostBackValue),
-							    rectSize,
-                                point.Tag);
-                        area.IsCustom = false;
-                        _common.ChartPicture.MapAreas.Insert(0, area);
-                    }
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -577,37 +543,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			{
 				return;
 			}
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(point.ToolTip.Length > 0 || 
-						point.Url.Length > 0 ||
-                        point.MapAreaAttributes.Length > 0 ||
-                        point.PostBackValue.Length > 0
-                        )
-					{
-                        int prevMapAreaCount = _common.ChartPicture.MapAreas.Count;
-                        _common.ChartPicture.MapAreas.InsertPath(
-							0,
-							point.ReplaceKeywords(point.ToolTip), 
-							point.ReplaceKeywords(point.Url), 
-							point.ReplaceKeywords(point.MapAreaAttributes),
-                            point.ReplaceKeywords(point.PostBackValue),
-							path,
-							!relativePath,
-							graph
-							);
-
-
-                        // Set map area type
-                        for (int i = 0; i < _common.ChartPicture.MapAreas.Count - prevMapAreaCount; i++)
-                            ((IChartMapArea)_common.ChartPicture.MapAreas[i]).Tag = ((IChartMapArea)point).Tag;
-                    }
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -660,37 +595,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			int pointIndex 
 			) 
 		{
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(point.ToolTip.Length > 0 || 
-						point.Url.Length > 0 ||
-                        point.MapAreaAttributes.Length > 0 ||
-                        point.PostBackValue.Length > 0)
-
-					{
-                        int prevMapAreaCount = _common.ChartPicture.MapAreas.Count;
-
-                        _common.ChartPicture.MapAreas.InsertPath(
-							insertIndex,
-							point.ReplaceKeywords(point.ToolTip), 
-							point.ReplaceKeywords(point.Url), 
-							point.ReplaceKeywords(point.MapAreaAttributes),
-                            point.ReplaceKeywords(point.PostBackValue),
-							path,
-							!relativePath,
-							graph
-							);
-
-                        // Set map area type
-                        for (int i = insertIndex; i < _common.ChartPicture.MapAreas.Count - prevMapAreaCount; i++)
-                            ((IChartMapArea)_common.ChartPicture.MapAreas[i]).Tag = ((IChartMapArea)point).Tag;
-                    }
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -731,32 +635,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "coord")]
         internal void AddHotRegion( GraphicsPath path, bool relativePath, float [] coord, DataPoint point, string seriesName, int pointIndex )
 		{
-
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(point.ToolTip.Length > 0 || 
-						point.Url.Length > 0 ||
-                        point.MapAreaAttributes.Length > 0 ||
-                        point.PostBackValue.Length > 0)
-					{
-                        MapArea area = new MapArea(
-                                MapAreaShape.Polygon,
-                                point.ReplaceKeywords(point.ToolTip),
-                                point.ReplaceKeywords(point.Url),
-                                point.ReplaceKeywords(point.MapAreaAttributes),
-                                point.ReplaceKeywords(point.PostBackValue),
-                                coord,
-                                point.Tag);
-                        area.IsCustom = false;
-                        _common.ChartPicture.MapAreas.Insert(0,area);
-
-                    }
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -801,39 +679,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         internal void AddHotRegion( int insertIndex, ChartGraphics graph, float x, float y, float radius, DataPoint point, string seriesName, int pointIndex )
 		{
 
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(point.ToolTip.Length > 0 || 
-						point.Url.Length > 0 ||
-                        point.MapAreaAttributes.Length > 0 ||
-                        point.PostBackValue.Length > 0 )
-					{
-
-					float[]	circCoord = new float[3];
-					circCoord[0] = x;
-					circCoord[1] = y;
-					circCoord[2] = radius;
-
-        			MapArea area = new MapArea(
-                			MapAreaShape.Circle,
-                			point.ReplaceKeywords(point.ToolTip),
-                			point.ReplaceKeywords(point.Url),
-                			point.ReplaceKeywords(point.MapAreaAttributes),
-                			point.ReplaceKeywords(point.PostBackValue),
-                			circCoord,
-                			point.Tag);
-        			area.IsCustom = false;
-					// Insert area
-					_common.ChartPicture.MapAreas.Insert(insertIndex,area);
-
-					}
-				}
-			}
-#endif // !WINFORMS_CONTROL
-
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
 				HotRegion region = new HotRegion();
@@ -862,10 +707,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				{
 					region.PointIndex = int.Parse(point["OriginalPointIndex"], CultureInfo.InvariantCulture);
 				}
-				
 
-
-				_regionList.Add( region );
+                _regionList.Add( region );
 			}
 		}
 
@@ -889,32 +732,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         ]
         internal void AddHotRegion( RectangleF rectArea, string toolTip, string hRef, string mapAreaAttributes, string postBackValue, object selectedObject, ChartElementType type, string series )
 		{
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-				// Add items to the image map collection
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(toolTip.Length > 0 || 
-						hRef.Length > 0 ||
-                        mapAreaAttributes.Length > 0 ||
-                        postBackValue.Length > 0)
-					{
-                        		MapArea area = new MapArea(
-                                                    toolTip,
-                                                    hRef,
-                                                    mapAreaAttributes,
-                                                    postBackValue,
-                                                    rectArea,
-                                                    ((IChartMapArea)selectedObject).Tag);
-                        		area.IsCustom = false;
-                        		_common.ChartPicture.MapAreas.Add( area);
-					}
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
-			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
+            if ( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
 				HotRegion region = new HotRegion();
 				
@@ -961,30 +780,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			ChartElementType type, 
 			string series )
 		{
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-				// Add items to the image map collection
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-					if(toolTip.Length > 0 || 
-						hRef.Length > 0 ||
-                        mapAreaAttributes.Length > 0 ||
-                        postBackValue.Length > 0)
-					{
-                        MapArea area = new MapArea(
-                                                    toolTip,
-                                                    hRef,
-                                                    mapAreaAttributes,
-                                                    postBackValue,
-                                                    rectArea,
-                                                    ((IChartMapArea)selectedObject).Tag);
-                        area.IsCustom = false;
-                        _common.ChartPicture.MapAreas.Add( area);
-					}
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -1002,8 +797,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				_regionList.Add( region );
 			}
 		}
-
-
 
         /// <summary>
         /// Add Hot region to the collection.
@@ -1026,31 +819,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         ]
         internal void AddHotRegion( ChartGraphics graph, GraphicsPath path, bool relativePath, string toolTip, string hRef, string mapAreaAttributes, string postBackValue, object selectedObject, ChartElementType type )
 		{
-#if !WINFORMS_CONTROL
-			if( ( ProcessChartMode & ProcessMode.ImageMaps ) == ProcessMode.ImageMaps )
-			{
-                if (_common.ChartPicture.IsMapEnabled == true)
-				{
-
-                    if(toolTip.Length > 0 || 
-						hRef.Length > 0 || 
-						mapAreaAttributes.Length > 0 ||
-                        postBackValue.Length > 0)
-					{
-                        _common.ChartPicture.MapAreas.InsertPath(
-							0,
-							toolTip, 
-							hRef, 
-							mapAreaAttributes,
-                            postBackValue,
-							path,
-							!relativePath,
-							graph
-							);
-					}
-				}
-			}
-#endif // !WINFORMS_CONTROL
 
 			if( ( ProcessChartMode & ProcessMode.HotRegions ) == ProcessMode.HotRegions )
 			{
@@ -1148,16 +916,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		internal int FindInsertIndex()
 		{
 			int insertIndex = 0;
-#if !WINFORMS_CONTROL
-            foreach (MapArea mapArea in _common.ChartPicture.MapAreas)
-			{
-				if(!mapArea.IsCustom)
-				{
-					break;
-				}
-				++insertIndex;
-			}
-#endif // !WINFORMS_CONTROL
 
 			return insertIndex;
 		}
@@ -1209,10 +967,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// <summary>
     /// The HitTestResult class contains the result of the hit test function.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class HitTestResult
 	{
         #region Fields
@@ -1348,10 +1102,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <remarks>
     /// <see cref="OutlinePath"/> may be null for complex objects or objects with two points or fewer.
     /// </remarks>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class ChartElementOutline : IDisposable
     {
         /// <summary>
@@ -1412,9 +1162,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// This class contains methods used for Windows Forms selection.
 	/// </summary>
 	internal class Selection : IServiceProvider
-#if WINFORMS_CONTROL
         , IDisposable
-#endif //WINFORMS_CONTROL
 	{
 		#region Fields
 
@@ -1422,8 +1170,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// The chart service container
         /// </summary>
         private IServiceContainer _service = null;
-
-#if WINFORMS_CONTROL
 
         /// <summary>
         /// Stores the tooltip of the control.
@@ -1448,7 +1194,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		// Tool tips enabled flag checked
 		internal bool					enabledChecked = false;
 
-#endif //WINFORMS_CONTROL
 		#endregion
 
         #region Constructors 
@@ -1461,7 +1206,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
             this._service = service;
             this._chartControl = this.ChartControl;
-#if WINFORMS_CONTROL
             
             // Set up the tooltip
 			this._toolTip.Active = true;
@@ -1470,11 +1214,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			this._toolTip.ReshowDelay = 50;
 			this._toolTip.ShowAlways = true;
 			this._toolTip.Active = false;
-#endif //WINFORMS_CONTROL
 
         }
 
-#if WINFORMS_CONTROL
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources
         /// </summary>
@@ -1499,8 +1241,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-#endif //WINFORMS_CONTROL
 
         #endregion //Constructors
 
@@ -1581,14 +1321,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
         #region Methods
 
         #region Tooltips
-#if WINFORMS_CONTROL
         /// <summary>
 		/// Checks if tooltips are enabled
 		/// </summary>
 		/// <returns>true if tooltips enabled</returns>
 		private bool IsToolTipsEnabled()
 		{
-			// Enabled checked. Don’t check every time series 
+			// Enabled checked. Donâ€™t check every time series 
 			// and data points for tooltips.
 			if( enabledChecked )
 			{
@@ -1596,9 +1335,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 
 			enabledChecked = true;
-
-
-
 
 			// Annotations loop
 			foreach( Annotation annotation in _chartControl.Annotations )
@@ -1611,7 +1347,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					return true;
 				}
 			}
-
 
 			// Data series loop
 			foreach( Series series in _chartControl.Series )
@@ -1626,7 +1361,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					return true;
 				}
 
-
 				// Check if custom properties (Pie collected slice) that create tooltips are used
 				if(series.IsCustomPropertySet(Utilities.CustomPropertyName.CollectedToolTip))
 				{
@@ -1634,7 +1368,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					_toolTipsEnabled = true;
 					return true;
 				}
-
 
 				// Check point tooltips only for "non-Fast" chart types
 				if( !series.IsFastChartType() )
@@ -1948,7 +1681,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-#endif //WINFORMS_CONTROL
 
         #endregion //Tooltips
 
@@ -2301,9 +2033,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             result.PointIndex = pointIndex;
             result.ChartElementType = type;
 
-#if WINFORMS_CONTROL
             AxisScrollBar scrollBar;
-#endif // WINFORMS_CONTROL
 
             switch (type)
             {
@@ -2406,7 +2136,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         result.ChartArea = result.Axis.ChartArea;
                     }
                     break;
-#if WINFORMS_CONTROL
                 case ChartElementType.ScrollBarLargeDecrement:
                     scrollBar = (AxisScrollBar)obj;
                     result.Axis = scrollBar.axis;
@@ -2447,7 +2176,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         result.ChartArea = scrollBar.axis.ChartArea;
                     }
                     break;
-#endif // WINFORMS_CONTROL
 
                 case ChartElementType.Annotation:
                     result.Axis = null;
@@ -3374,7 +3102,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	}
 
 
-#if WINFORMS_CONTROL
 	/// <summary>
     /// The ToolTipEventArgs class stores the tool tips event arguments.
 	/// </summary>
@@ -3477,6 +3204,4 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         #endregion	
 	}
-
-#endif // #if WINFORMS_CONTROL
 }

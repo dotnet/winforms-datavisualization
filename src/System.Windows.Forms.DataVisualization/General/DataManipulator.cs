@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -207,10 +207,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// <summary>
 	/// The IDataPointFilter interface is used for filtering series data points.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public interface IDataPointFilter
 	{
 		/// <summary>
@@ -230,10 +226,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// operations, and is exposed via the DataManipulator property of the 
     /// root Chart object.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class DataManipulator : DataFormula
 	{
         #region Fields
@@ -2182,7 +2174,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		}
 
         /// <summary>
-        /// Grouping by X value, when it’s a string (stored in AxisLabel property).
+        /// Grouping by X value, when itâ€™s a string (stored in AxisLabel property).
         /// </summary>
         /// <param name="formula">Grouping formula.</param>
         /// <param name="inputSeries">Array of input series.</param>

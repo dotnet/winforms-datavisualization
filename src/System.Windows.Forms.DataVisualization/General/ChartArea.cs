@@ -103,8 +103,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         AxesView = 4,
 
-#if WINFORMS_CONTROL
-
         /// <summary>
         /// Cursor and Selection alignment.
         /// </summary>
@@ -114,14 +112,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// Complete alignment.
         /// </summary>
         All = Position | PlotPosition | Cursor | AxesView
-#else // WINFORMS_CONTROL
-
-   			/// <summary>
-			/// Complete alignment.
-			/// </summary>
-            All = Position | PlotPosition | AxesView
-
-#endif // WINFORMS_CONTROL
     }
 
     #endregion
@@ -196,13 +186,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         private ArrayList _circularAxisList = null;
 
-#if WINFORMS_CONTROL
         // Buffered plotting area image
         internal Bitmap areaBufferBitmap = null;
 
         private Cursor _cursorX = new Cursor();
         private Cursor _cursorY = new Cursor();
-#endif
 
         // Area SmartLabel class
         internal SmartLabel smartLabels = new SmartLabel();
@@ -213,8 +201,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         #endregion
 
         #region Chart Area Cursor properties
-
-#if WINFORMS_CONTROL
 
         /// <summary>
         /// Gets or sets a Cursor object that is used for cursors and selected ranges along the X-axis.
@@ -268,8 +254,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-#endif // WINFORMS_CONTROL
-
         #endregion
 
         #region Chart Area properties
@@ -311,11 +295,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(Constants.NotSetValue),
         SRDescription("DescriptionAttributeChartArea_AlignWithChartArea"),
-        TypeConverter(typeof(LegendAreaNameConverter)),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-            ]
+        TypeConverter(typeof(LegendAreaNameConverter))
+        ]
         public string AlignWithChartArea
         {
             get
@@ -436,12 +417,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         Browsable(false),
         SRDescription("DescriptionAttributeChartArea_AxisY"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            TypeConverter(typeof(NoNameExpandableObjectConverter))
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Axis AxisY
         {
@@ -466,12 +443,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         Browsable(false),
         SRDescription("DescriptionAttributeChartArea_AxisX"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            TypeConverter(typeof(NoNameExpandableObjectConverter))
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Axis AxisX
         {
@@ -496,12 +469,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         Browsable(false),
         SRDescription("DescriptionAttributeChartArea_AxisX2"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            TypeConverter(typeof(NoNameExpandableObjectConverter))
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Axis AxisX2
         {
@@ -526,12 +495,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         Browsable(false),
         SRDescription("DescriptionAttributeChartArea_AxisY2"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            TypeConverter(typeof(NoNameExpandableObjectConverter))
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Axis AxisY2
         {
@@ -555,12 +520,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         Bindable(true),
         SRDescription("DescriptionAttributeChartArea_Position"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		    PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            NotifyParentPropertyAttribute(true),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ElementPositionConverter)),
         SerializationVisibilityAttribute(SerializationVisibility.Element)
         ]
@@ -578,11 +539,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     else
                     {
                         ElementPosition newPosition = new ElementPosition();
-#if WINFORMS_CONTROL
                         newPosition.Auto = false;
-#else
-						newPosition.Auto = true;
-#endif
                         newPosition.SetPositionNoAuto(_areaPosition.X, _areaPosition.Y, _areaPosition.Width, _areaPosition.Height);
                         return newPosition;
                     }
@@ -614,12 +571,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         Bindable(true),
         SRDescription("DescriptionAttributeChartArea_InnerPlotPosition"),
-#if WINFORMS_CONTROL
-            DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
-#else
-		    PersistenceMode(PersistenceMode.InnerProperty),
-#endif
-            NotifyParentPropertyAttribute(true),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ElementPositionConverter)),
         SerializationVisibilityAttribute(SerializationVisibility.Element)
         ]
@@ -637,11 +590,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     else
                     {
                         ElementPosition newPosition = new ElementPosition();
-#if WINFORMS_CONTROL
                         newPosition.Auto = false;
-#else
-						newPosition.Auto = true;
-#endif
                         newPosition.SetPositionNoAuto(_innerPlotPosition.X, _innerPlotPosition.Y, _innerPlotPosition.Width, _innerPlotPosition.Height);
                         return newPosition;
                     }
@@ -749,10 +698,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartImageWrapMode.Tile),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageWrapMode"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-            ]
+        ]
         public ChartImageWrapMode BackImageWrapMode
         {
             get
@@ -800,10 +746,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartImageAlignmentStyle.TopLeft),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackImageAlign"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-            ]
+        ]
         public ChartImageAlignmentStyle BackImageAlignment
         {
             get
@@ -903,10 +846,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(0),
         SRDescription("DescriptionAttributeShadowOffset"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-            ]
+        ]
         public int ShadowOffset
         {
             get
@@ -1236,13 +1176,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 PlotAreaPosition = new ElementPosition(this);
             }
 
-#if WINFORMS_CONTROL
-
             // Initialize cursor class
             this._cursorX.Initialize(this, AxisName.X);
             this._cursorY.Initialize(this, AxisName.Y);
-
-#endif // WINFORMS_CONTROL
         }
 
         /// <summary>
@@ -1268,10 +1204,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // Read axis Max/Min from data
             ResetMinMaxFromData();
 
-#if WINFORMS_CONTROL
             Set3DAnglesAndReverseMode();
             SetTempValues();
-#endif
 
             // Initialize area position
             _axisArray[0].ReCalc(PlotAreaPosition);
@@ -1283,10 +1217,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // to this chart area an set default values
             SetData();
 
-#if WINFORMS_CONTROL
             Restore3DAnglesAndReverseMode();
             GetTempValues();
-#endif
         }
 
         /// <summary>
@@ -1342,8 +1274,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // Add scroll bar rectangles to the area background 
             RectangleF backgroundPositionWithScrollBars = new RectangleF(backgroundPosition.Location, backgroundPosition.Size);
 
-#if WINFORMS_CONTROL
-
             if (requireAxes)
             {
                 // Loop through all axis
@@ -1375,7 +1305,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 }
             }
 
-#endif // WINFORMS_CONTROL
             return backgroundPositionWithScrollBars;
         }
 
@@ -2366,8 +2295,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 return;
             }
 
-#if WINFORMS_CONTROL
-
             Chart chart = this.Common.Chart;
             ChartPicture chartPicture = Common.ChartPicture;
 
@@ -2442,7 +2369,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 _cursorX.Paint(graph);
 
             }
-#endif // WINFORMS_CONTROL
 
         }
 
@@ -3066,7 +2992,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     this.PlotAreaPosition.Dispose();
                     this.PlotAreaPosition = null;
                 }
-#if WINFORMS_CONTROL
                 if (this.areaBufferBitmap != null)
                 {
                     this.areaBufferBitmap.Dispose();
@@ -3082,11 +3007,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     this._cursorY.Dispose();
                     this._cursorY = null;
                 }
-#endif
             }
             base.Dispose(disposing);
         }
-
 
         #endregion
 

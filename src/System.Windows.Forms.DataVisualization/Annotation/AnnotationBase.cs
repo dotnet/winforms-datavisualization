@@ -3946,7 +3946,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
             return null;
         }
-#if WINFORMS_CONTROL
+
         /// <summary>
         /// Checks if provided pixel coordinate is contained in one of the 
         /// selection handles rectangle.
@@ -3987,7 +3987,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
             return resizingMode;
         }
-#endif //WINFORMS_CONTROL
+
         /// <summary>
         /// Gets data point X or Y axis.
         /// </summary>

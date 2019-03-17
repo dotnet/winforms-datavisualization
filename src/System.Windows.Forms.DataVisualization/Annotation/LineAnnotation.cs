@@ -670,17 +670,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					path,
 					false,
 					ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
 					String.Empty,
 					String.Empty,
 					String.Empty,
-#else // WINFORMS_CONTROL
- ReplaceKeywords(this.Url),
-                        ReplaceKeywords(this.MapAreaAttributes),
-                        ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
- this,
-                        ChartElementType.Annotation);
+                    this,
+                    ChartElementType.Annotation);
                 }
 			}
 
@@ -705,10 +699,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeVerticalLineAnnotation_VerticalLineAnnotation"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class VerticalLineAnnotation : LineAnnotation
 	{
 		#region Construction and Initialization
@@ -794,10 +784,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeHorizontalLineAnnotation_HorizontalLineAnnotation"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class HorizontalLineAnnotation : LineAnnotation
 	{
 		#region Construction and Initialization

@@ -83,15 +83,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeStripLine_StripLine"),
 		DefaultProperty("IntervalOffset"),
 	]
-#if WINFORMS_CONTROL
 	public class StripLine : ChartElement
-#else
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-    public class StripLine : ChartElement, IChartMapArea
-#endif
     {
 
 		#region Fields
@@ -126,12 +118,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		// Chart image map properties 
 		private	string					_toolTip = "";
-
-#if !WINFORMS_CONTROL
-		private	string					_url = "";
-		private	string					_attributes = "";
-        private string                  _postbackValue = String.Empty;
-#endif
 
         // Default text orientation
         private TextOrientation _textOrientation = TextOrientation.Auto;
@@ -317,158 +303,141 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				{
 					break;
 				}
-						
-				// Draw strip
-				if(this.StripWidth > 0 && !drawLinesOnly)
-				{
+
+                // Draw strip
+                if (this.StripWidth > 0 && !drawLinesOnly)
+                {
                     double stripRightPosition = currentPosition + ChartHelper.GetIntervalSize(currentPosition, this.StripWidth, this.StripWidthType, axisSeries, this.IntervalOffset, offsetType, false);
                     if (stripRightPosition > this.Axis.ViewMinimum && currentPosition < this.Axis.ViewMaximum)
                     {
-					    // Calculate strip rectangle
-					    RectangleF	rect = RectangleF.Empty;
-					    double		pos1 = (float)this.Axis.GetLinearPosition(currentPosition);
-                        double      pos2 = (float)this.Axis.GetLinearPosition(stripRightPosition);
-					    if(horizontal)
-					    {
-						    rect.X = plotAreaPosition.X;
-						    rect.Width = plotAreaPosition.Width;
-						    rect.Y = (float)Math.Min(pos1, pos2);
-						    rect.Height = (float)Math.Max(pos1, pos2) - rect.Y;
+                        // Calculate strip rectangle
+                        RectangleF rect = RectangleF.Empty;
+                        double pos1 = (float)this.Axis.GetLinearPosition(currentPosition);
+                        double pos2 = (float)this.Axis.GetLinearPosition(stripRightPosition);
+                        if (horizontal)
+                        {
+                            rect.X = plotAreaPosition.X;
+                            rect.Width = plotAreaPosition.Width;
+                            rect.Y = (float)Math.Min(pos1, pos2);
+                            rect.Height = (float)Math.Max(pos1, pos2) - rect.Y;
 
-						    // Check rectangle boundaries
-						    rect.Intersect(plotAreaPosition);
-					    }
-					    else
-					    {
-						    rect.Y = plotAreaPosition.Y;
-						    rect.Height = plotAreaPosition.Height;
-						    rect.X = (float)Math.Min(pos1, pos2);
-						    rect.Width = (float)Math.Max(pos1, pos2) - rect.X;
+                            // Check rectangle boundaries
+                            rect.Intersect(plotAreaPosition);
+                        }
+                        else
+                        {
+                            rect.Y = plotAreaPosition.Y;
+                            rect.Height = plotAreaPosition.Height;
+                            rect.X = (float)Math.Min(pos1, pos2);
+                            rect.Width = (float)Math.Max(pos1, pos2) - rect.X;
 
-						    // Check rectangle boundaries
-						    rect.Intersect(plotAreaPosition);
-					    }
+                            // Check rectangle boundaries
+                            rect.Intersect(plotAreaPosition);
+                        }
 
-					    if(rect.Width > 0 && rect.Height > 0)
-					    {
-    					
-    #if WINFORMS_CONTROL
-						    // Start Svg Selection mode
-						    graph.StartHotRegion( "", this._toolTip );
-    #else
-						    // Start Svg Selection mode
-						    graph.StartHotRegion( this._url, this._toolTip );
-    #endif
-						    if(!this.Axis.ChartArea.Area3DStyle.Enable3D)
-						    {
-							    // Draw strip
-							    graph.FillRectangleRel( rect, 
-								    this.BackColor, this.BackHatchStyle, this.BackImage, 
-								    this.BackImageWrapMode, this.BackImageTransparentColor, this.BackImageAlignment,
-								    this.BackGradientStyle, this.BackSecondaryColor, this.BorderColor, 
-								    this.BorderWidth, this.BorderDashStyle, Color.Empty,
-								    0, PenAlignment.Inset );
-						    }
-						    else
-						    {
-							    Draw3DStrip( graph, rect, horizontal );
-						    }
+                        if (rect.Width > 0 && rect.Height > 0)
+                        {
 
-						    // End Svg Selection mode
-						    graph.EndHotRegion( );
+                            // Start Svg Selection mode
+                            graph.StartHotRegion("", this._toolTip);
+                            if (!this.Axis.ChartArea.Area3DStyle.Enable3D)
+                            {
+                                // Draw strip
+                                graph.FillRectangleRel(rect,
+                                    this.BackColor, this.BackHatchStyle, this.BackImage,
+                                    this.BackImageWrapMode, this.BackImageTransparentColor, this.BackImageAlignment,
+                                    this.BackGradientStyle, this.BackSecondaryColor, this.BorderColor,
+                                    this.BorderWidth, this.BorderDashStyle, Color.Empty,
+                                    0, PenAlignment.Inset);
+                            }
+                            else
+                            {
+                                Draw3DStrip(graph, rect, horizontal);
+                            }
 
-						    // Draw strip line title
-						    PaintTitle(graph, rect);
+                            // End Svg Selection mode
+                            graph.EndHotRegion();
 
-						    if( common.ProcessModeRegions )
-						    {
-							    if(!this.Axis.ChartArea.Area3DStyle.Enable3D)
-							    {
-#if !WINFORMS_CONTROL
-                                    				common.HotRegionsList.AddHotRegion(rect, this.ToolTip, this.Url, this.MapAreaAttributes, this.PostBackValue, this, ChartElementType.StripLines, string.Empty);
-#else
-								common.HotRegionsList.AddHotRegion(rect, this.ToolTip, string.Empty, string.Empty, string.Empty, this, ChartElementType.StripLines, null );
-#endif // !WINFORMS_CONTROL
+                            // Draw strip line title
+                            PaintTitle(graph, rect);
+
+                            if (common.ProcessModeRegions)
+                            {
+                                if (!this.Axis.ChartArea.Area3DStyle.Enable3D)
+                                {
+                                    common.HotRegionsList.AddHotRegion(rect, this.ToolTip, string.Empty, string.Empty, string.Empty, this, ChartElementType.StripLines, null);
                                 }
-						    }
-					    }
-                        
-				    }
+                            }
+                        }
+
+                    }
                 }
-				// Draw line
-				else if(this.StripWidth == 0 && drawLinesOnly)
-				{
-					if(currentPosition > this.Axis.ViewMinimum && currentPosition < this.Axis.ViewMaximum)
-					{
-						// Calculate line position
-						PointF	point1 = PointF.Empty;
-						PointF	point2 = PointF.Empty;
-						if(horizontal)
-						{
-							point1.X = plotAreaPosition.X;
-							point1.Y = (float)this.Axis.GetLinearPosition(currentPosition);
-							point2.X = plotAreaPosition.Right;
-							point2.Y = point1.Y;
-						}
-						else
-						{
-							point1.X = (float)this.Axis.GetLinearPosition(currentPosition);
-							point1.Y = plotAreaPosition.Y;
-							point2.X = point1.X;
-							point2.Y = plotAreaPosition.Bottom;
-						}
+                // Draw line
+                else if (this.StripWidth == 0 && drawLinesOnly)
+                {
+                    if (currentPosition > this.Axis.ViewMinimum && currentPosition < this.Axis.ViewMaximum)
+                    {
+                        // Calculate line position
+                        PointF point1 = PointF.Empty;
+                        PointF point2 = PointF.Empty;
+                        if (horizontal)
+                        {
+                            point1.X = plotAreaPosition.X;
+                            point1.Y = (float)this.Axis.GetLinearPosition(currentPosition);
+                            point2.X = plotAreaPosition.Right;
+                            point2.Y = point1.Y;
+                        }
+                        else
+                        {
+                            point1.X = (float)this.Axis.GetLinearPosition(currentPosition);
+                            point1.Y = plotAreaPosition.Y;
+                            point2.X = point1.X;
+                            point2.Y = plotAreaPosition.Bottom;
+                        }
 
-#if WINFORMS_CONTROL
-						// Start Svg Selection mode
-						graph.StartHotRegion( "", this._toolTip );
-#else
-						// Start Svg Selection mode
-						graph.StartHotRegion( this._url, this._toolTip );
-#endif
-						// Draw Line
-						if(!this.Axis.ChartArea.Area3DStyle.Enable3D)
-						{
-							graph.DrawLineRel(this.BorderColor, this.BorderWidth, this.BorderDashStyle, point1, point2);
-						}
-						else
-						{
-							graph.Draw3DGridLine(this.Axis.ChartArea, _borderColor, _borderWidth, _borderDashStyle, point1, point2, horizontal, Axis.Common, this );
-						}
+                        // Start Svg Selection mode
+                        graph.StartHotRegion("", this._toolTip);
 
-						// End Svg Selection mode
-						graph.EndHotRegion( );
+                        // Draw Line
+                        if (!this.Axis.ChartArea.Area3DStyle.Enable3D)
+                        {
+                            graph.DrawLineRel(this.BorderColor, this.BorderWidth, this.BorderDashStyle, point1, point2);
+                        }
+                        else
+                        {
+                            graph.Draw3DGridLine(this.Axis.ChartArea, _borderColor, _borderWidth, _borderDashStyle, point1, point2, horizontal, Axis.Common, this);
+                        }
 
-						// Draw strip line title
-						PaintTitle(graph, point1, point2);
+                        // End Svg Selection mode
+                        graph.EndHotRegion();
 
-						if( common.ProcessModeRegions )
-						{
-							SizeF		relBorderWidth = new SizeF(this.BorderWidth + 1, this.BorderWidth +  1);
-							relBorderWidth = graph.GetRelativeSize(relBorderWidth);
-							RectangleF	lineRect = RectangleF.Empty;
-							if(horizontal)
-							{
-								lineRect.X = point1.X;
-								lineRect.Y = point1.Y - relBorderWidth.Height / 2f;
-								lineRect.Width = point2.X - point1.X;
-								lineRect.Height = relBorderWidth.Height;
-							}
-							else
-							{
-								lineRect.X = point1.X - relBorderWidth.Width / 2f;
-								lineRect.Y = point1.Y;
-								lineRect.Width = relBorderWidth.Width;
-								lineRect.Height = point2.Y - point1.Y;
-							}
+                        // Draw strip line title
+                        PaintTitle(graph, point1, point2);
 
-#if !WINFORMS_CONTROL
-							common.HotRegionsList.AddHotRegion( lineRect, this.ToolTip, this.Url, this.MapAreaAttributes, this.PostBackValue, this, ChartElementType.StripLines, string.Empty );
-#else
-							common.HotRegionsList.AddHotRegion( lineRect, this.ToolTip, null, null, null, this, ChartElementType.StripLines, null );
-#endif // !WINFORMS_CONTROL
-						}
-					}
-				}
+                        if (common.ProcessModeRegions)
+                        {
+                            SizeF relBorderWidth = new SizeF(this.BorderWidth + 1, this.BorderWidth + 1);
+                            relBorderWidth = graph.GetRelativeSize(relBorderWidth);
+                            RectangleF lineRect = RectangleF.Empty;
+                            if (horizontal)
+                            {
+                                lineRect.X = point1.X;
+                                lineRect.Y = point1.Y - relBorderWidth.Height / 2f;
+                                lineRect.Width = point2.X - point1.X;
+                                lineRect.Height = relBorderWidth.Height;
+                            }
+                            else
+                            {
+                                lineRect.X = point1.X - relBorderWidth.Width / 2f;
+                                lineRect.Y = point1.Y;
+                                lineRect.Width = relBorderWidth.Width;
+                                lineRect.Height = point2.Y - point1.Y;
+                            }
+
+                            common.HotRegionsList.AddHotRegion(lineRect, this.ToolTip, null, null, null, this, ChartElementType.StripLines, null);
+                        }
+                    }
+                }
 
 				// Go to the next line/strip
 				if(this.Interval > 0)
@@ -511,12 +480,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			if( this.Axis.Common.ProcessModeRegions )
 			{
-			 
-#if !WINFORMS_CONTROL
-				this.Axis.Common.HotRegionsList.AddHotRegion( graph, path, false, this.ToolTip, this.Url, this.MapAreaAttributes, this.PostBackValue, this, ChartElementType.StripLines );
-#else
 				this.Axis.Common.HotRegionsList.AddHotRegion( graph, path, false, this.ToolTip, null, null, null, this, ChartElementType.StripLines );
-#endif // !WINFORMS_CONTROL
 			}
 
 			if(horizontal)
@@ -558,16 +522,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					this.BorderWidth,
                     this.BorderDashStyle,
 					operationType );
-
 			}
+
 			if( this.Axis.Common.ProcessModeRegions )
 			{
-#if !WINFORMS_CONTROL
-				this.Axis.Common.HotRegionsList.AddHotRegion( graph, path, false, this.ToolTip, this.Url, this.MapAreaAttributes, this.PostBackValue, this, ChartElementType.StripLines );
-#else
 				this.Axis.Common.HotRegionsList.AddHotRegion( graph, path, false, this.ToolTip, null, null, null, this, ChartElementType.StripLines );
-#endif // !WINFORMS_CONTROL
 			}
+
             if (path != null)
             {
                 path.Dispose();
@@ -786,11 +747,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(TextOrientation.Auto),
         SRDescription("DescriptionAttribute_TextOrientation"),
-        NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        NotifyParentPropertyAttribute(true)
+        ]
         public TextOrientation TextOrientation
         {
             get
@@ -812,10 +770,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0.0),
 		SRDescription("DescriptionAttributeStripLine_IntervalOffset"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisLabelDateValueConverter))
+		TypeConverter(typeof(AxisLabelDateValueConverter))
 		]
 		public double IntervalOffset
 		{
@@ -838,10 +793,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(DateTimeIntervalType.Auto),
 		SRDescription("DescriptionAttributeStripLine_IntervalOffsetType"),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public DateTimeIntervalType IntervalOffsetType
 		{
@@ -864,10 +816,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0.0),
 		RefreshPropertiesAttribute(RefreshProperties.All),
-		SRDescription("DescriptionAttributeStripLine_Interval"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeStripLine_Interval")
 		]
 		public double Interval
 		{
@@ -890,10 +839,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(DateTimeIntervalType.Auto),
 		SRDescription("DescriptionAttributeStripLine_IntervalType"),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public DateTimeIntervalType IntervalType
 		{
@@ -915,10 +861,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeData"),
 		Bindable(true),
 		DefaultValue(0.0),
-		SRDescription("DescriptionAttributeStripLine_StripWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeStripLine_StripWidth")
 		]
 		public double StripWidth
 		{
@@ -945,10 +888,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(DateTimeIntervalType.Auto),
 		SRDescription("DescriptionAttributeStripLine_StripWidthType"),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public DateTimeIntervalType StripWidthType
 		{
@@ -1018,10 +958,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(ChartDashStyle.Solid),
-        SRDescription("DescriptionAttributeBorderDashStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBorderDashStyle")
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -1043,10 +980,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(1),
-        SRDescription("DescriptionAttributeBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBorderWidth")
 		]
 		public int BorderWidth
 		{
@@ -1093,10 +1027,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartImageWrapMode.Tile),
 		NotifyParentPropertyAttribute(true),
-        SRDescription("DescriptionAttributeImageWrapMode"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeImageWrapMode")
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -1144,10 +1075,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartImageAlignmentStyle.TopLeft),
 		NotifyParentPropertyAttribute(true),
-        SRDescription("DescriptionAttributeBackImageAlign"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBackImageAlign")
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -1270,9 +1198,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue("StripLine"),
 		SRDescription("DescriptionAttributeStripLine_Name"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
 		]
@@ -1292,10 +1217,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeStripLine_Title"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public string Text
 		{
@@ -1343,10 +1265,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(StringAlignment), "Far"),
 		SRDescription("DescriptionAttributeStripLine_TitleAlignment"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public StringAlignment TextAlignment
 		{
@@ -1369,10 +1288,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(StringAlignment), "Near"),
 		SRDescription("DescriptionAttributeStripLine_TitleLineAlignment"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public StringAlignment TextLineAlignment
 		{
@@ -1395,10 +1311,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(Font), "Microsoft Sans Serif, 8pt"),
         SRDescription("DescriptionAttributeTitleFont"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public Font Font
 		{
@@ -1422,10 +1335,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
-		DefaultValue(""),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue("")
 		]
 		public string ToolTip
 		{
@@ -1440,78 +1350,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Gets or sets the URL.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-	        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-
-		]
-		public string Url
-		{
-			set
-			{
-				_url = value;
-				this.Invalidate(); 
-			}
-			get
-			{
-				return _url;
-			}
-		}
-
-        /// <summary>
-		/// Gets or sets the other map area attributes.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-				_attributes = value;
-				this.Invalidate(); 
-			}
-			get
-			{
-				return _attributes;
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on a click event.
-        /// </summary>
-        /// <value>The value which is passed to a click event as an argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string PostBackValue 
-        {
-            get
-            {
-                return this._postbackValue;
-            }
-            set
-            {
-                this._postbackValue = value;
-            } 
-        }
-
-
-#endif	//#if !WINFORMS_CONTROL
-
         #endregion
 
 
@@ -1522,13 +1360,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		private new void Invalidate()
 		{
-#if WINFORMS_CONTROL
-
 			if(this.Axis != null)
 			{
 				Axis.Invalidate();
 			}
-#endif
 		}
 
 		#endregion 

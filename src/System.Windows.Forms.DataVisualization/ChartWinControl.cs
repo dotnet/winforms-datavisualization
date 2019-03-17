@@ -1193,10 +1193,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeImage"),
 		Bindable(true),
 		DefaultValue(typeof(TextAntiAliasingQuality), "High"),
-		SRDescription("DescriptionAttributeTextAntiAliasingQuality"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
+		SRDescription("DescriptionAttributeTextAntiAliasingQuality")
 		]
 		public TextAntiAliasingQuality TextAntiAliasingQuality
 		{
@@ -2607,8 +2604,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		#region Annotation events
 
-#if WINFORMS_CONTROL
-
 		/// <summary>
 		/// Fires when annotation text was changed. 
 		/// </summary>
@@ -2717,8 +2712,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 			return false;
 		}
-
-#endif // WINFORMS_CONTROL
 
 		#endregion
 

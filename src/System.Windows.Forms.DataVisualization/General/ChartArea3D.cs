@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -79,10 +79,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// The ChartArea3DStyleClass class provides the functionality for 3D attributes of chart areas,
         /// such as rotation angles and perspective.
         /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class ChartArea3DStyle
 	{
 		#region Constructor and Initialization
@@ -552,9 +548,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeArea3DStyle"),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
 		TypeConverter(typeof(NoNameExpandableObjectConverter)),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		]
 		public ChartArea3DStyle Area3DStyle
 		{
@@ -2061,13 +2054,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			// Calculate the smallest interval (0.5 pixels) in relative coordinates
 			SizeF	interval = new SizeF(0.5f, 0.5f);
-#if WINFORMS_CONTROL
 			interval.Width = interval.Width * 100F / ((float)(this.Common.Chart.Width - 1)); 
 			interval.Height = interval.Height * 100F / ((float)(this.Common.Chart.Height - 1)); 
-#else
-			interval.Width = interval.Width * 100F / ((float)(this.Common.Chart.Width.Value - 1)); 
-			interval.Height = interval.Height * 100F / ((float)(this.Common.Chart.Height.Value - 1)); 
-#endif	//#if WINFORMS_CONTROL
 
 			// Find middle point and check it's surface orientation
 			bool	doneFlag = false;

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -1028,10 +1028,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <summary>
     /// The TTestResult class stores the results of the TTest statistical calculations.
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class TTestResult
     {
         #region Fields
@@ -1208,10 +1204,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <summary>
     /// The FTestResult class stores the results of the FTest statistical calculations.
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class FTestResult
     {
         #region Fields
@@ -1338,10 +1330,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <summary>
     /// The AnovaResult class stores the results of the Anova statistical calculations.
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AnovaResult
     {
         #region Fields
@@ -1517,10 +1505,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// <summary>
     /// The ZTestResult class stores the results of the ZTest statistical calculations.
     /// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class ZTestResult
     {
         #region Constructor

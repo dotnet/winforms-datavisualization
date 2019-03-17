@@ -411,26 +411,16 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 				// Save current control type descriptor context
                 _chart = context.Instance as Chart;
 			}
-#if   !WINFORMS_CONTROL
-	        if(_chart!=null)
-			{
-                Chart.controlCurrentContext = context;
-			}
-#endif
             INameController controller = value as INameController;
             bool isReferenceCollection = controller != null && (value is ChartAreaCollection || value is LegendCollection);
             try
             {
                 if (isReferenceCollection)
                 {
-#if   WINFORMS_CONTROL                  
                     controller.DoSnapshot(true, 
                         new EventHandler<NameReferenceChangedEventArgs>(OnNameReferenceChanging),
                         new EventHandler<NameReferenceChangedEventArgs>(OnNameReferenceChanged)
                         );
-#else
-                    controller.DoSnapshot(true, null, null);
-#endif
                     controller.IsColectionEditing = true;
                 }
                 return base.EditValue(context, provider, value);;
@@ -440,19 +430,15 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 if (isReferenceCollection)
                 {
                     controller.IsColectionEditing = false;
-#if   WINFORMS_CONTROL                  
 
                     controller.DoSnapshot(false,
                         new EventHandler<NameReferenceChangedEventArgs>(OnNameReferenceChanging),
                         new EventHandler<NameReferenceChangedEventArgs>(OnNameReferenceChanged)
                         );
-#else
-                    controller.DoSnapshot(false, null, null);
-#endif
                 }
             }
         }
-#if   WINFORMS_CONTROL         
+
         /// <summary>
         /// Called when [name reference changing].
         /// </summary>
@@ -480,7 +466,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 svc.OnComponentChanged(this._chart, null, null, null);
             }
         }
-#endif   //WINFORMS_CONTROL 
 
         /// <summary>
         /// Sets the specified array as the items of the collection.
@@ -663,13 +648,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		/// </summary>
 		private void OnControlAddedRemoved(object sender, ControlEventArgs e)
 		{
-#if !WINFORMS_CONTROL
-			// Update design-time HTML
-			if(ChartWebDesigner.controlDesigner != null)
-			{
-				ChartWebDesigner.controlDesigner.UpdateDesignTimeHtml();
-			}
-#endif
 		}
 
 		/// <summary>
@@ -677,13 +655,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		/// </summary>
 		private void OnPropertyChanged(object sender, PropertyValueChangedEventArgs e)
 		{
-#if !WINFORMS_CONTROL
-			// Update design-time HTML
-			if(ChartWebDesigner.controlDesigner != null)
-			{
-				ChartWebDesigner.controlDesigner.UpdateDesignTimeHtml();
-			}
-#endif
 		}
 
 		/// <summary>
@@ -734,28 +705,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		public SeriesCollectionEditor() : base(typeof(SeriesCollection))
 		{
 		}
-
-#if !WINFORMS_CONTROL
-		/// <summary>
-		/// Edit series value.
-		/// </summary>
-		/// <param name="context">Descriptor context.</param>
-		/// <param name="provider">Service provider.</param>
-		/// <param name="value">Value to edit.</param>
-		/// <returns>The new value of the object.</returns>
-		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value) 
-		{
-			if (context != null && context.Instance != null)
-			{
-				// Save current control type descriptor context
-				if(context.Instance is Chart)
-				{
-					Chart.controlCurrentContext = context;
-				}
-			}
-			return base.EditValue(context, provider, value);
-		}
-#endif // !WINFORMS_CONTROL
 
         internal static Series CreateNewSeries(Chart control, string suggestedChartArea)
         {

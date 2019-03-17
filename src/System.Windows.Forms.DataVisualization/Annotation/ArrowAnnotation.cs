@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -334,16 +334,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         arrowPathAbs,
                         false,
                         ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
-					String.Empty,
-					String.Empty,
-					String.Empty,
-#else // WINFORMS_CONTROL
-                    ReplaceKeywords(this.Url),
-			        ReplaceKeywords(this.MapAreaAttributes),
-                    ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
- this,
+					    String.Empty,
+					    String.Empty,
+					    String.Empty,
+                        this,
                         ChartElementType.Annotation);
                 }
 

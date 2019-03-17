@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -44,10 +44,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeElementPosition_ElementPosition"),
 		DefaultProperty("Data"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class ElementPosition : ChartElement
 	{
 		#region Fields
@@ -294,11 +290,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeElementPosition_X"),
 		NotifyParentPropertyAttribute(true),
 		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "X")]
+        SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "X")
+        ]
 		public float X
 		{
 			get
@@ -334,11 +327,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeElementPosition_Y"),
 		NotifyParentPropertyAttribute(true),
 		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Y")]
+        SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Y")
+        ]
 		public float Y
 		{
 			get
@@ -373,10 +363,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(0.0F),
 		SRDescription("DescriptionAttributeElementPosition_Width"),
 		NotifyParentPropertyAttribute(true),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public float Width
 		{
@@ -412,10 +399,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(0.0F),
 		SRDescription("DescriptionAttributeElementPosition_Height"),
 		NotifyParentPropertyAttribute(true),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public float Height
 		{
@@ -452,10 +436,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeElementPosition_Auto"),
 		NotifyParentPropertyAttribute(true),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public bool Auto
 		{

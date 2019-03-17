@@ -265,17 +265,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         private string _url = String.Empty;
 
-#if !WINFORMS_CONTROL
-
-        
-        /// <summary>
-		/// Axis map area attributes
-		/// </summary>
-		private	string					_mapAreaAttributes = String.Empty;
-
-        private string _postbackValue = String.Empty;
-
-#endif
 
         #endregion
 
@@ -322,13 +311,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // Create axis data scaleView object
                 _scaleView = new AxisScaleView(this);
             }
-#if WINFORMS_CONTROL
             if (scrollBar == null)
             {
                 // Create axis croll bar class
                 scrollBar = new AxisScrollBar(this);
             }
-#endif // WINFORMS_CONTROL
 
             this.axisType = axisTypeName;
 
@@ -373,12 +360,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 #endif 
 
-#if WINFORMS_CONTROL
 
             // Initialize axis scroll bar class
             this.ScrollBar.Initialize();
 
-#endif // WINFORMS_CONTROL
 
             // Create collection of scale segments
             if (this.scaleSegments == null)
@@ -446,10 +431,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(TextOrientation.Auto),
         SRDescription("DescriptionAttribute_TextOrientation"),
         NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        ]
         public TextOrientation TextOrientation
         {
             get
@@ -1126,78 +1108,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// URL target of the axis.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-		]
-		public string Url
-		{
-			set
-			{
-				this._url = value;
-			}
-			get
-			{
-                return this._url;
-			}
-		}
-
-
-		/// <summary>
-		/// Gets or sets the map area attributes.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-				this._mapAreaAttributes = value;
-			}
-			get
-			{
-                return this._mapAreaAttributes;
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on click event.
-        /// </summary>
-        /// <value>The value which is passed to click event as argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string PostBackValue
-        {
-            get
-            {
-                return this._postbackValue;
-            }
-            set
-            {
-                this._postbackValue = value;
-            }
-        }
-
-
-#endif // !WINFORMS_CONTROL
-
-
-
         #endregion
 
         #region Axis Interavl properies
@@ -1212,10 +1122,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeInterval4"),
         RefreshPropertiesAttribute(RefreshProperties.All),
         TypeConverter(typeof(AxisIntervalValueConverter)),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
-]
+        ]
         public double Interval
         {
             get
@@ -1253,10 +1160,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(0.0),
         SRDescription("DescriptionAttributeIntervalOffset6"),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute),
-#endif
- RefreshPropertiesAttribute(RefreshProperties.All),
+        RefreshPropertiesAttribute(RefreshProperties.All),
         TypeConverter(typeof(AxisIntervalValueConverter))
         ]
         public double IntervalOffset
@@ -1289,11 +1193,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(DateTimeIntervalType.Auto),
         SRDescription("DescriptionAttributeIntervalType4"),
-        RefreshPropertiesAttribute(RefreshProperties.All),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        RefreshPropertiesAttribute(RefreshProperties.All)
+        ]
         public DateTimeIntervalType IntervalType
         {
             get
@@ -1329,11 +1230,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(DateTimeIntervalType.Auto),
         SRDescription("DescriptionAttributeIntervalOffsetType4"),
-        RefreshPropertiesAttribute(RefreshProperties.All),
-#if !WINFORMS_CONTROL
- PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        RefreshPropertiesAttribute(RefreshProperties.All)
+        ]
         public DateTimeIntervalType IntervalOffsetType
         {
             get
@@ -3246,12 +3144,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 #endif // SUBAXES
 
-
-#if WINFORMS_CONTROL
             // Disable Common.Chart invalidation
             bool oldDisableInvalidates = Common.Chart.disableInvalidates;
 			Common.Chart.disableInvalidates = true;
-#endif //WINFORMS_CONTROL
 
             // Set Common.Chart area position
             PlotAreaPosition = chartAreaPosition;
@@ -3426,8 +3321,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // Add axis scroll bar size (if it's visible)
             this.scrollBarSize = 0f;
 
-#if WINFORMS_CONTROL
-
             if (this.ScrollBar.IsVisible &&
                 (this.IsAxisOnAreaEdge || !this.IsMarksNextToAxis))
             {
@@ -3441,7 +3334,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 }
             }
 
-#endif // WINFORMS_CONTROL
 
 
             //*********************************************************
@@ -3907,11 +3799,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 #endif // SUBAXES
 
-
-#if WINFORMS_CONTROL
             // Restore previous invalidation flag
 			Common.Chart.disableInvalidates = oldDisableInvalidates;
-#endif //WINFORMS_CONTROL
         }
 
 		/// <summary>
@@ -6365,17 +6254,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     tempLabels.Dispose();
                     tempLabels = null;
                 }
-#if WINFORMS_CONTROL
                 if (this.scrollBar != null)
                 {
                     this.scrollBar.Dispose();
                     this.scrollBar = null;
                 }
-#endif // WINFORMS_CONTROL
             }
             base.Dispose(disposing);
         }
-
 
         #endregion
 

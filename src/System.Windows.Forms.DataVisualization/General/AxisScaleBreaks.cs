@@ -97,10 +97,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	SRDescription("DescriptionAttributeAxisScaleBreakStyle_AxisScaleBreakStyle"),
 	DefaultProperty("Enabled"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AxisScaleBreakStyle
 	{
         #region Fields

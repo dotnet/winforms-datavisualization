@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -128,10 +128,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// all ChartGraphics3D class methods for 3D shapes. Only this 
     /// class should be used for any drawing in the chart.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public partial class ChartGraphics : ChartElement
 	{
 		#region Fields
@@ -568,7 +564,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>GDI+ line style.</returns>
 		internal DashStyle GetPenStyle( ChartDashStyle style )
 		{
-			// Convert to chart line styles. The custom style doesn’t exist.
+			// Convert to chart line styles. The custom style doesnâ€™t exist.
 			switch( style )
 			{
 				case ChartDashStyle.Dash:
@@ -1552,21 +1548,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				if( common != null &&
 					common.ProcessModeRegions)
 				{
-#if !WINFORMS_CONTROL
-					// Remember all point attributes
-                    string oldToolTip = point.IsCustomPropertySet( CommonCustomProperties.ToolTip) ?  point.ToolTip : null;
-					string oldUrl = point.IsCustomPropertySet( CommonCustomProperties.Url) ?  point.Url : null;
-					string oldMapAreaAttributes = point.IsCustomPropertySet( CommonCustomProperties.MapAreaAttributes) ?  point.MapAreaAttributes : null;
-                    string oldPostback = point.IsCustomPropertySet( CommonCustomProperties.PostBackValue) ?  point.PostBackValue : null;
-                    object oldTag = point.Tag;
-                    // Set label attributes into the point attribute.
-					// Workaround for the AddHotRegion method limitation.
-					point.ToolTip = point.LabelToolTip;
-					point.Url = point.LabelUrl;
-					point.MapAreaAttributes = point.LabelMapAreaAttributes;
-                    point.PostBackValue = point.PostBackValue;
-#endif // !WINFORMS_CONTROL
-
                     // Insert area
 					if(angle == 0)
 					{
@@ -1594,15 +1575,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 pointIndex);
                         }
 					}
-
-#if !WINFORMS_CONTROL
-					// Restore all point attributes
-                    if (oldToolTip != null) point.ToolTip = oldToolTip; else point.ResetToolTip();
-                    if (oldUrl != null) point.Url = oldUrl; else point.ResetUrl();
-                    if (oldMapAreaAttributes != null) point.MapAreaAttributes = oldMapAreaAttributes; else point.ResetMapAreaAttributes();
-                    if (oldPostback != null) point.PostBackValue = oldPostback; else point.ResetPostBackValue();
-                    point.Tag = oldTag;
-#endif // !WINFORMS_CONTROL
 
 					// Set new hot region element type 
                     if (common.HotRegionsList.List != null && common.HotRegionsList.List.Count > 0)
@@ -2237,11 +2209,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         string url = string.Empty;
                         string mapAreaAttributes = string.Empty;
                         string postbackValue = string.Empty;
-#if !WINFORMS_CONTROL
-                        url = label.Url;
-                        mapAreaAttributes = label.MapAreaAttributes;
-                        postbackValue = label.PostBackValue;
-#endif // !WINFORMS_CONTROL
                         common.HotRegionsList.AddHotRegion(
                             this,
                             path,
@@ -2328,11 +2295,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             string imageUrl = string.Empty;
                             string imageMapAreaAttributes = string.Empty;
                             string postbackValue = string.Empty;
-#if !WINFORMS_CONTROL
-                            imageUrl = label.ImageUrl;
-                            imageMapAreaAttributes = label.ImageMapAreaAttributes;
-                            postbackValue = label.PostBackValue;
-#endif // !WINFORMS_CONTROL
                             common.HotRegionsList.AddHotRegion(
                                 this,
                                 path,

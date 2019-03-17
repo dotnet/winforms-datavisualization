@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -44,8 +44,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
     #region Scrolling  enumerations
 
-#if WINFORMS_CONTROL
-
     /// <summary>
 	/// Scrolling type enumeration.
 	/// </summary>
@@ -77,8 +75,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Last
 	}
 
-#endif // WINFORMS_CONTROL
-
 	#endregion
 
     /// <summary>
@@ -89,10 +85,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeAxisDataView_AxisDataView"),
 		DefaultProperty("Position"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AxisScaleView
 	{
 		#region Fields
@@ -108,8 +100,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		// Axis data scaleView size units type
 		private	DateTimeIntervalType	_sizeType = DateTimeIntervalType.Auto;
-
-#if WINFORMS_CONTROL
         
         // Axis data scaleView minimum scaleView/scrolling size
 		private	double					_minSize = double.NaN;
@@ -140,8 +130,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		// Storage for the saved data scaleView states (position/size/sizetype)
 		internal ArrayList				dataViewStates = null;
-        
-#endif
 
 		// Ignore validation flag
 		private	bool					_ignoreValidation = false;
@@ -273,10 +261,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							this.axis.Common.ChartPicture.AlignChartAreasAxesView(this.axis.ChartArea, orientation);
 						}
 					}
-#if WINFORMS_CONTROL 					
 					// Reset current scrolling line size
 					this._currentSmallScrollSize = double.NaN;
-#endif //WINFORMS_CONTROL 
+
 					// Validate chart
 					if(!_ignoreValidation && axis != null)
 					{
@@ -350,8 +337,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     !double.IsNaN(this.Position));
             }
         }
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Gets or sets the minimum size of the AxisScaleView.
@@ -549,8 +534,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#endif // WINFORMS_CONTROL
-
         #endregion
 
         #region ScaleView position internal methods
@@ -638,8 +621,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		#endregion
 
 		#region Scrolling methods
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Call this method to scroll to a specified position along an axis.
@@ -764,12 +745,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#endif
         #endregion
 
         #region Zooming and ZoomResetting methods
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Sets a new axis data view/position based on the start and end dates specified.
@@ -896,13 +874,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return true;
 		}
 
-#endif
-
         #endregion
 
         #region Data scaleView state saving/restoring methods
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Saves current data scaleView position/size/sizetype, so
@@ -1023,13 +997,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			dataViewStates.Add(this.Size);
 			dataViewStates.Add(this.SizeType);
 		}
-#endif
 
         #endregion
 
         #region Helper methods
 
-#if WINFORMS_CONTROL
 		/// <summary>
 		/// Initialize internal scrolling line size variables for later use.
 		/// This size is used in to scroll chart one line up or down.
@@ -1282,12 +1254,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			return null;
         }
-#endif //WINFORMS_CONTROL
 
         #endregion
     }
-
-#if WINFORMS_CONTROL
 
 	/// <summary>
 	/// This class is used as a parameter object in the AxisViewChanged and AxisViewChanging events of the root Chart object.
@@ -1421,14 +1390,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
     #endregion
 	}
 
-#endif	// #if WINFORMS_CONTROL
 }
 
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting
-#else
-	namespace System.Web.UI.DataVisualization.Charting
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting
 {
     /// <summary>
     /// Designer converter class
@@ -1583,14 +1547,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				{
 					axis = ((AxisScaleView)context.Instance).axis;
 				}
-
-#if WINFORMS_CONTROL
-
 				else if(context.Instance is Cursor)
 				{
 					axis = ((Cursor)context.Instance).GetAxis();
 				}
-#endif // WINFORMS_CONTROL
 
 				if (axis != null && destinationType == typeof(string))
 				{
@@ -1678,13 +1638,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				{
 					axis = ((AxisScaleView)context.Instance).axis;
 				}
-
-#if WINFORMS_CONTROL
 				else if(context.Instance is Cursor)
 				{
 					axis = ((Cursor)context.Instance).GetAxis();
 				}
-#endif // WINFORMS_CONTROL
 
                 if (axis != null && crossingValue != null)
 				{

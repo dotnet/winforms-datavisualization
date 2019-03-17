@@ -1,7 +1,7 @@
-
+ï»¿
 //-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -162,12 +162,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 // Show properties help
                 grid.HelpVisible = true;
                 grid.CommandsVisibleIfAvailable = true;
-#if !WINFORMS_CONTROL
-                // Hookup to the update events
-                grid.PropertyValueChanged += new PropertyValueChangedEventHandler(this.OnPropertyChanged);
-                grid.ControlAdded += new ControlEventHandler(this.OnControlAddedRemoved);
-                grid.ControlRemoved += new ControlEventHandler(this.OnControlAddedRemoved);
-#endif //!WINFORMS_CONTROL
             }
 
             // Changed Apr 29, DT, for VS2005 compatibility
@@ -175,12 +169,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             this.CollectButtons(buttons, _form.Controls);
             foreach (System.Windows.Forms.Button button in buttons)
             {
-#if !WINFORMS_CONTROL
-                if (button.DialogResult == DialogResult.OK )
-                {
-                    button.Click += new EventHandler(this.OnOkClicked);
-                }
-#endif //!WINFORMS_CONTROL
                 if (button.Name.StartsWith("add", StringComparison.OrdinalIgnoreCase) ||
                     button.Name.StartsWith("remove", StringComparison.OrdinalIgnoreCase) ||
                     button.Text.Length == 0)
@@ -215,45 +203,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 _button_EnabledChanging = false;
             }
         }
-
-
-#if !WINFORMS_CONTROL
-		
-		/// <summary>
-		/// Update design-time HTML when OK button is clicked in the collection editor
-		/// </summary>
-		private void OnOkClicked(object sender, EventArgs e)
-		{
-			// Clear the help topic
-			_helpTopic = "";
-		}
-
-		/// <summary>
-		/// Update design-time HTML when propery is added or removed
-		/// </summary>
-		private void OnControlAddedRemoved(object sender, ControlEventArgs e)
-		{
-			// Update design-time HTML
-			if(ChartWebDesigner.controlDesigner != null)
-			{
-				ChartWebDesigner.controlDesigner.UpdateDesignTimeHtml();
-			}
-
-		}
-
-		/// <summary>
-		/// Update design-time HTML when propery is changed
-		/// </summary>
-		private void OnPropertyChanged(object sender, PropertyValueChangedEventArgs e)
-		{
-			// Update design-time HTML
-			if(ChartWebDesigner.controlDesigner != null)
-			{
-				ChartWebDesigner.controlDesigner.UpdateDesignTimeHtml();
-			}
-
-		}
-#endif
 
     #endregion
         }
@@ -345,13 +294,11 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         }
 
 
-#if WINFORMS_CONTROL
         /// <summary>
         /// DataPoint Converter - helps windows form serializer to create inline datapoints.
         /// </summary>
         internal class DataPointConverter : DataPointCustomPropertiesConverter
         {
-
 
             /// <summary>
             /// This method overrides CanConvertTo from TypeConverter. This is called when someone
@@ -407,6 +354,5 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             }
 
         }
-#endif //WINFORMS_CONTROL
 
     }

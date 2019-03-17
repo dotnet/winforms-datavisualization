@@ -68,10 +68,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultProperty("Enabled"),
 		SRDescription("DescriptionAttributeTickMark_TickMark"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class TickMark : Grid
 	{
         #region Private fields and Constructors
@@ -221,16 +217,12 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// Axis scroll bar will increase size of the Outside and Cross style tick marks
 			float	scrollBarSize = 0;
 
-#if WINFORMS_CONTROL
-
             if (this.Axis.ScrollBar.IsVisible &&
                 this.Axis.ScrollBar.IsPositionedInside &&
                 (this.Axis.IsAxisOnAreaEdge || !this.Axis.IsMarksNextToAxis))
 			{
                 scrollBarSize = (float)this.Axis.ScrollBar.GetScrollBarRelativeSize();
 			}
-
-#endif // WINFORMS_CONTROL
 
 			// Left tickmarks
             if (Axis.AxisPosition == AxisPosition.Left)
@@ -563,14 +555,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// Axis scroll bar will increase size of the Outside and Cross style tick marks
 			float	scrollBarSize = 0;
 
-#if WINFORMS_CONTROL
-
             if (this.Axis.ScrollBar.IsVisible && this.Axis.ScrollBar.IsPositionedInside && this.Axis.IsAxisOnAreaEdge)
 			{
                 scrollBarSize = (float)this.Axis.ScrollBar.GetScrollBarRelativeSize();
 			}
-
-#endif // WINFORMS_CONTROL
 
 			// Left tickmarks
             if (Axis.AxisPosition == AxisPosition.Left)
@@ -989,10 +977,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(TickMarkStyle.OutsideArea),
-		SRDescription("DescriptionAttributeTickMark_Style"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeTickMark_Style")
 		]
         public TickMarkStyle TickMarkStyle
 		{
@@ -1014,10 +999,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(1.0F),
-		SRDescription("DescriptionAttributeTickMark_Size"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeTickMark_Size")
 		]
 		public float Size
 		{
@@ -1042,12 +1024,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
 	[
 		DefaultProperty("Enabled"),
-		SRDescription("DescriptionAttributeGrid_Grid"),
+		SRDescription("DescriptionAttributeGrid_Grid")
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class Grid
 	{
 		#region Grid fields and Constructors
@@ -1190,13 +1168,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		internal void Invalidate()
 		{
-#if WINFORMS_CONTROL
-
 			if(this._axis != null)
 			{
 				this._axis.Invalidate();
 			}
-#endif
 		}
 
 		#endregion
@@ -1612,10 +1587,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
         Bindable(true),
         SRDescription("DescriptionAttributeIntervalOffset3"),
-        TypeConverter(typeof(AxisElementIntervalValueConverter)),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute),
-        #endif
+        TypeConverter(typeof(AxisElementIntervalValueConverter))
         ]
         public double IntervalOffset
         {
@@ -1667,10 +1639,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
         Bindable(true),
         SRDescription("DescriptionAttributeIntervalOffsetType6"),
-        RefreshPropertiesAttribute(RefreshProperties.All),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute)
-        #endif
+        RefreshPropertiesAttribute(RefreshProperties.All)
         ]
         public DateTimeIntervalType IntervalOffsetType
         {
@@ -1721,9 +1690,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeInterval6"),
         TypeConverter(typeof(AxisElementIntervalValueConverter)),
         RefreshProperties(RefreshProperties.All),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute)
-        #endif
         ]
         public double Interval
         {
@@ -1818,10 +1784,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
         Bindable(true),
         SRDescription("DescriptionAttributeIntervalType3"),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute),
-        #endif
-         RefreshPropertiesAttribute(RefreshProperties.All)
+        RefreshPropertiesAttribute(RefreshProperties.All)
         ]
         public DateTimeIntervalType IntervalType
         {
@@ -1910,10 +1873,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(ChartDashStyle.Solid),
-        SRDescription("DescriptionAttributeLineDashStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeLineDashStyle")
 		]
 		public ChartDashStyle LineDashStyle
 		{
@@ -1935,10 +1895,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(1),
-        SRDescription("DescriptionAttributeLineWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeLineWidth")
 		]
 		public int LineWidth
 		{
@@ -1959,10 +1916,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
-		SRDescription("DescriptionAttributeEnabled5"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeEnabled5")
 		]
 		public bool Enabled
 		{

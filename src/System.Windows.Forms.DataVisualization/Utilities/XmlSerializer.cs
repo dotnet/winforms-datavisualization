@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -1101,9 +1101,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             if (typeStr.EndsWith(".CustomPropertiesTypeConverter", StringComparison.OrdinalIgnoreCase)) { result = new CustomPropertiesTypeConverter(); }
             else if (typeStr.EndsWith(".DoubleNanValueConverter", StringComparison.OrdinalIgnoreCase)) { result = new DoubleNanValueConverter(); }
             else if (typeStr.EndsWith(".DoubleDateNanValueConverter", StringComparison.OrdinalIgnoreCase)) { result = new DoubleDateNanValueConverter(); }
-#if !WINFORMS_CONTROL
-            else if (typeStr.EndsWith(".MapAreaCoordinatesConverter", StringComparison.OrdinalIgnoreCase)) { result = new MapAreaCoordinatesConverter(); }
-#endif //WINFORMS_CONTROL
             else if (typeStr.EndsWith(".ElementPositionConverter", StringComparison.OrdinalIgnoreCase)) { result = new ElementPositionConverter(); }
             else if (typeStr.EndsWith(".SeriesAreaNameConverter", StringComparison.OrdinalIgnoreCase)) { result = new SeriesAreaNameConverter(); }
             else if (typeStr.EndsWith(".ChartDataSourceConverter", StringComparison.OrdinalIgnoreCase)) { result = new ChartDataSourceConverter(); }
@@ -1367,11 +1364,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			// Create document fragment
 			XmlDocumentFragment docFragment = xmlDocument.CreateDocumentFragment();
 
-
-
 			// Serialize object
 			SerializeObject(objectToSerialize, null, GetObjectName(objectToSerialize), docFragment, xmlDocument);
-
 
 			// Append document fragment
 			xmlDocument.AppendChild(docFragment);
@@ -1760,14 +1754,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				return ColorArrayConverter.ColorArrayToString(colors);
 			}
 
-#if !WINFORMS_CONTROL
-            if(obj is Unit)
-			{
-                Unit unit = (Unit)obj;
-				return unit.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
-			}
-#endif
-
             System.Drawing.Image image = obj as System.Drawing.Image;
 			if(image != null)
 			{
@@ -2149,13 +2135,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				{
 					objValue = (Color)colorConverter.ConvertFromString(null, System.Globalization.CultureInfo.InvariantCulture, attrValue);
 				}
-
-#if !WINFORMS_CONTROL
-				else if(pi.PropertyType == typeof(Unit))
-				{
-					objValue = new Unit(Int32.Parse(attrValue, System.Globalization.CultureInfo.InvariantCulture));
-				}
-#endif
 
 				else if(pi.PropertyType == typeof(System.Drawing.Image))
 				{
@@ -2675,13 +2654,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				writer.Write((byte)obj);
 			}
 
-#if !WINFORMS_CONTROL
-			else if(obj is Unit)
-			{
-				writer.Write(((Unit)obj).Value);
-			}
-#endif
-
 			else if(obj is Font)
 			{
 				// Write as string
@@ -2752,8 +2724,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				imageStream.Close();
 			}
 
-
-
 			else if(obj is Margins)
 			{
 				// Write as 4 integers
@@ -2762,8 +2732,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				writer.Write(((Margins)obj).Left);
 				writer.Write(((Margins)obj).Right);
 			}
-
-
 
 			else
 			{
@@ -3087,13 +3055,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 					objValue = reader.ReadByte();
 				}
 
-#if !WINFORMS_CONTROL
-				else if(pi.PropertyType == typeof(Unit))
-				{
-					objValue = new Unit((double)reader.ReadDouble());
-				}
-#endif
-
 				else if(pi.PropertyType == typeof(Font))
 				{
 					// Read as string
@@ -3118,8 +3079,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 					objValue = new Size(reader.ReadInt32(), reader.ReadInt32());
 				}
 
-
-
 				else if(pi.PropertyType == typeof(Margins) )
 				{
 					// Read as 4 integers
@@ -3129,8 +3088,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 						reader.ReadInt32(), 
 						reader.ReadInt32());
 				}
-
-
 
 				else if(pi.PropertyType == typeof(double[]))
 				{

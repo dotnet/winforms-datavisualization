@@ -426,16 +426,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             ellipsePath,
                             true,
                             ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
-						String.Empty,
-						String.Empty,
-						String.Empty,
-#else // WINFORMS_CONTROL
- ReplaceKeywords(this.Url),
-				ReplaceKeywords(this.MapAreaAttributes),
-                ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
- this,
+						    String.Empty,
+						    String.Empty,
+						    String.Empty,
+                            this,
                             ChartElementType.Annotation);
                     }
 				}
@@ -444,15 +438,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					this.Common.HotRegionsList.AddHotRegion(
 						textPosition,
 						ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
 						String.Empty,
 						String.Empty,
 						String.Empty,
-#else // WINFORMS_CONTROL
-                        ReplaceKeywords(this.Url),
-					    ReplaceKeywords(this.MapAreaAttributes),
-                        ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
 						this,
 						ChartElementType.Annotation,
 						String.Empty);
@@ -1119,10 +1107,7 @@ System.Drawing.Image		graphicsImage = null;
 		EditorBrowsableAttribute(EditorBrowsableState.Never),
 		DefaultValue(ChartDashStyle.Solid),
         SRDescription("DescriptionAttributeLineDashStyle"),
-			#if !WINFORMS_CONTROL
-			PersistenceMode(PersistenceMode.Attribute)
-			#endif
-		]
+        ]
 		override public ChartDashStyle CalloutLineDashStyle
 		{
 			get

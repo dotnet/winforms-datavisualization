@@ -198,9 +198,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		DefaultValue(BorderSkinStyle.None),
 		SRDescription("DescriptionAttributeBorderSkin_SkinStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		ParenthesizePropertyNameAttribute(true)
 		]
 		public BorderSkinStyle SkinStyle
@@ -328,9 +325,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		DefaultValue(ChartImageWrapMode.Tile),
         SRDescription("DescriptionAttributeImageWrapMode"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -385,9 +379,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		DefaultValue(ChartImageAlignmentStyle.TopLeft),
         SRDescription("DescriptionAttributeBackImageAlign"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -467,9 +458,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		DefaultValue(1),
 		SRDescription("DescriptionAttributeBorderSkin_FrameBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public int BorderWidth
 		{
@@ -498,9 +486,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		DefaultValue(ChartDashStyle.NotSet),
 		SRDescription("DescriptionAttributeBorderSkin_FrameBorderDashStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -520,11 +505,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 }
 
 
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Borders3D
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
 {
     /// <summary>
     /// Keep track of all registered 3D borders.

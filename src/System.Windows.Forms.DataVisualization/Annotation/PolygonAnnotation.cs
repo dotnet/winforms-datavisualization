@@ -394,10 +394,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMisc"),
 		DefaultValue(false),
 		SRDescription("DescriptionAttributeFreeDrawPlacement"),
-#if !WINFORMS_CONTROL
-		Browsable(false),
-		EditorBrowsable(EditorBrowsableState.Never),
-#endif // !WINFORMS_CONTROL
 		]
 		virtual public bool IsFreeDrawPlacement
 		{
@@ -730,16 +726,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         selectionPath,
                         false,
                         ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
-					String.Empty,
-					String.Empty,
-					String.Empty,
-#else // WINFORMS_CONTROL
- ReplaceKeywords(this.Url),
-						ReplaceKeywords(this.MapAreaAttributes),
-                        ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
- this,
+					    String.Empty,
+					    String.Empty,
+					    String.Empty,
+                        this,
                         ChartElementType.Annotation);
 
                     //Clean up
@@ -762,7 +752,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		#endregion // Painting
 
 		#region Position Changing
-#if WINFORMS_CONTROL
 		/// <summary>
 		/// Changes annotation position, so it exactly matches the bounary of the 
 		/// polyline path.
@@ -798,7 +787,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				this.SetPositionRelative(pathBoundary, anchorPoint);
 			}
 		}
-#endif //WINFORMS_CONTROL
         /// <summary>
         /// Adjust annotation location and\or size as a result of user action.
         /// </summary>
@@ -824,12 +812,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// Remember path before moving operation
 			if(userInput == true && startMovePathRel == null)
 			{
-#if WINFORMS_CONTROL
 				this.startMovePathRel = (GraphicsPath)_graphicsPath.Clone();
 				this.startMovePositionRel = new RectangleF(firstPoint, size);
 				this.startMoveAnchorLocationRel = new PointF(anchorPoint.X, anchorPoint.Y);
 
-#endif // WINFORMS_CONTROL
 			}
 
 			// Convert moving distance to coordinates relative to the anotation
@@ -859,7 +845,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					}
 				}
 
-#if WINFORMS_CONTROL
 
 				// Adjust annotation position to the boundary of the path
 				if(userInput && this.AllowResizing)
@@ -892,12 +877,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					}
 				}
 
-#endif // WINFORMS_CONTROL
 
-#if WINFORMS_CONTROL
 				// Position changed
 				this.positionChanged = true;
-#endif // WINFORMS_CONTROL
 			
 				// Recreate path with new points
                 _defaultGraphicsPath.Dispose();
@@ -913,8 +895,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		#endregion // Position Changing
 
 		#region Placement Methods
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Ends user placement of an annotation.
@@ -1103,7 +1083,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#endif // WINFORMS_CONTROL
 
         #endregion // Placement Methods
 
@@ -1142,10 +1121,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributePolygonAnnotation_PolygonAnnotation"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class PolygonAnnotation : PolylineAnnotation
 	{
 		#region Construction and Initialization
@@ -1422,10 +1397,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeAnnotationPathPointCollection_AnnotationPathPointCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AnnotationPathPointCollection : ChartElementCollection<AnnotationPathPoint>
 	{
 		#region Fields
@@ -1522,10 +1493,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeAnnotationPathPoint_AnnotationPathPoint"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class AnnotationPathPoint: ChartElement
 	{
 		#region Fields
@@ -1593,9 +1560,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(0f),
 		Browsable(true),
 		SRDescription("DescriptionAttributeAnnotationPathPoint_X"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "X")]
         public float X
@@ -1621,9 +1585,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(0f),
 		Browsable(true),
 		SRDescription("DescriptionAttributeAnnotationPathPoint_Y"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		]
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Y")]
         public float Y
@@ -1653,9 +1614,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		EditorBrowsableAttribute(EditorBrowsableState.Never),
 		SRDescription("DescriptionAttributeAnnotationPathPoint_Name"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif
 		]
 		public byte PointType
 		{

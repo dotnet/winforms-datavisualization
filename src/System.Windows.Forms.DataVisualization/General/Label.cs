@@ -125,10 +125,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeCustomLabelsCollection_CustomLabelsCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class CustomLabelsCollection : ChartElementCollection<CustomLabel>
 	{
 		#region Constructors
@@ -383,15 +379,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	SRDescription("DescriptionAttributeCustomLabel_CustomLabel"),
 	DefaultProperty("Text"),
 	]
-#if WINFORMS_CONTROL
 	public class CustomLabel : ChartNamedElement
-#else
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-    public class CustomLabel : ChartNamedElement, IChartMapArea
-#endif
     {
 		#region Fields and Constructors
 
@@ -420,26 +408,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		private string			_tooltip = string.Empty;
 
         private Axis            _axis = null;
-#if !WINFORMS_CONTROL
-
-		// URL target of the label image.
-		private	string			_imageUrl = string.Empty;
-
-		// Other attributes of the label image map area.
-		private	string			_imageMapAreaAttributes = string.Empty;
-
-        private string          _imagePostbackValue = String.Empty;
-
-		// Label tooltip
-		private string			_url = string.Empty;
-
-		// Other attributes of the label image map area.
-		private	string			_mapAreaAttributes = string.Empty;
-        
-        private string          _postbackValue = String.Empty;
-
-
-#endif // !WINFORMS_CONTROL
 
 
 
@@ -519,12 +487,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			newLabel.Image = this.Image;
 			newLabel.ImageTransparentColor = this.ImageTransparentColor;
 
-#if !WINFORMS_CONTROL
-			newLabel.Url = this.Url;
-			newLabel.MapAreaAttributes = this.MapAreaAttributes;
-			newLabel.ImageUrl = this.ImageUrl;
-			newLabel.ImageMapAreaAttributes = this.ImageMapAreaAttributes;
-#endif // !WINFORMS_CONTROL
 
 
 
@@ -572,9 +534,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// Gets or sets the tooltip of the custom label.
 		/// </summary>
 		[
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-#endif //!WINFORMS_CONTROL
 		SRCategory("CategoryAttributeMapArea"),
 		Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
@@ -591,141 +550,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				return this._tooltip;
 			}
 		}
-
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// URL target of the custom label.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-		]
-		public string Url
-		{
-			set
-			{
-				this._url = value;
-			}
-			get
-			{
-				return this._url;
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the other attributes of the custom label map area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-                this._mapAreaAttributes = value;
-			}
-			get
-			{
-                return this._mapAreaAttributes;
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on a click event.
-        /// </summary>
-        /// <value>The value which is passed to a click event as an argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string PostBackValue
-        {
-            get
-            {
-                return this._postbackValue;
-            }
-            set
-            {
-                this._postbackValue = value;
-            }
-        }
-
-		/// <summary>
-		/// Gets or sets the URL target of the custom label image.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeCustomLabel_ImageUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base),
-        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings")
-		]
-		public string ImageUrl
-		{
-			set
-			{
-                this._imageUrl = value;
-			}
-			get
-			{
-                return this._imageUrl;
-			}
-		}
-
-		/// <summary>
-        /// Gets or sets the other attributes of the map area of the custom label image.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string ImageMapAreaAttributes
-		{
-			set
-			{
-                this._imageMapAreaAttributes = value;
-			}
-			get
-			{
-                return this._imageMapAreaAttributes;
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on a click event.
-        /// </summary>
-        /// <value>The value which is passed to a click event as an argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string ImagePostBackValue
-        {
-            get
-            {
-                return this._imagePostbackValue;
-            }
-            set
-            {
-                this._imagePostbackValue = value;
-            }
-        }
-
-
-#endif // !WINFORMS_CONTROL
 
         /// <summary>
 		/// Gets or sets the label image.
@@ -833,10 +657,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0.0),
 		SRDescription("DescriptionAttributeCustomLabel_From"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisLabelDateValueConverter))
+		TypeConverter(typeof(AxisLabelDateValueConverter))
 		]
 		public double FromPosition
 		{
@@ -859,10 +680,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0.0),
 		SRDescription("DescriptionAttributeCustomLabel_To"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisLabelDateValueConverter))
+		TypeConverter(typeof(AxisLabelDateValueConverter))
 		]
 		public double ToPosition
 		{
@@ -884,10 +702,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(""),
-		SRDescription("DescriptionAttributeCustomLabel_Text"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeCustomLabel_Text")
 		]
 		public string Text
 		{
@@ -959,10 +774,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(0),
-		SRDescription("DescriptionAttributeCustomLabel_RowIndex"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeCustomLabel_RowIndex")
 		]
 		public int RowIndex
 		{
@@ -989,10 +801,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(LabelMarkStyle.None),
-		SRDescription("DescriptionAttributeCustomLabel_LabelMark"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeCustomLabel_LabelMark")
 		]
 		public LabelMarkStyle LabelMark
 		{
@@ -1021,10 +830,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeLabel_Label"),
 		DefaultProperty("Enabled"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class LabelStyle : ChartElement
 	{
 		#region Fields
@@ -2496,13 +2301,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		internal override void Invalidate()
 		{
-#if WINFORMS_CONTROL
 
 			if(this._axis != null)
 			{
 				this._axis.Invalidate();
 			}
-#endif
             base.Invalidate();
 		}
 
@@ -2518,10 +2321,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         SRDescription("DescriptionAttributeLabel_IntervalOffset"),
         DefaultValue(Double.NaN),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute),
-        #endif
-         RefreshPropertiesAttribute(RefreshProperties.All),
+        RefreshPropertiesAttribute(RefreshProperties.All),
         TypeConverter(typeof(AxisElementIntervalValueConverter))
         ]
         public double IntervalOffset
@@ -2561,9 +2361,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(DateTimeIntervalType.NotSet),
 		SRDescription("DescriptionAttributeLabel_IntervalOffsetType"),
 		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
         public DateTimeIntervalType IntervalOffsetType
         {
@@ -2601,9 +2398,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(Double.NaN),
 		SRDescription("DescriptionAttributeLabel_Interval"),
         TypeConverter(typeof(AxisElementIntervalValueConverter)),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		]
         public double Interval
         {
@@ -2647,10 +2441,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(DateTimeIntervalType.NotSet),
 		SRDescription("DescriptionAttributeLabel_IntervalType"),
-		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
         public DateTimeIntervalType IntervalType
         {
@@ -2693,10 +2484,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		DefaultValue(typeof(Font), "Microsoft Sans Serif, 8pt"),
-		SRDescription("DescriptionAttributeLabel_Font"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeLabel_Font")
 		]
 		public Font Font
 		{
@@ -2753,9 +2541,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0),
 		SRDescription("DescriptionAttributeLabel_FontAngle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public int Angle
@@ -2799,9 +2584,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(false),
 		SRDescription("DescriptionAttributeLabel_OffsetLabels"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		RefreshPropertiesAttribute(RefreshProperties.All)
 		]
 		public bool IsStaggered
@@ -2841,9 +2623,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeLabel_ShowEndLabels"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsEndLabelVisible
 		{
@@ -2866,9 +2645,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(false),
 		SRDescription("DescriptionAttributeLabel_TruncatedLabels"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool TruncatedLabels
 		{
@@ -2891,9 +2667,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeLabel_Format"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		]
 		public string Format
 		{
@@ -2916,9 +2689,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeLabel_Enabled"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool Enabled
 		{

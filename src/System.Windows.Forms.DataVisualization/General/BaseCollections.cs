@@ -260,10 +260,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// Base class for all collections of named chart elements. Performs the name management and enforces the uniquness of the names
     /// </summary>
     /// <typeparam name="T"></typeparam>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public abstract class ChartNamedElementCollection<T> : ChartElementCollection<T>, INameController
         where T : ChartNamedElement
     {

@@ -62,10 +62,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		// Indicates that control was bound to the data source
 		internal bool	boundToDataSource = false;
 
-#if !WINFORMS_CONTROL
-		private ChartImageType	imageType = ChartImageType.Png;
-#endif
-		
 		#endregion
 
 		#region Constructor
@@ -110,32 +106,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Image type (Jpeg, BMP, Png)
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeImage"),
-		Bindable(true),
-		DefaultValue(ChartImageType.Png),
-		SRDescription("DescriptionAttributeImageType"),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public ChartImageType ImageType
-		{
-			get
-			{
-				return imageType; 
-			}
-			set
-			{
-				imageType = value;
-			}
-		}
-
-#endif
-
 		/// <summary>
 		/// Image compression value
 		/// </summary>
@@ -144,9 +114,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0),
 		SRDescription("DescriptionAttributeChartImage_Compression"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public int Compression
 		{
@@ -2928,8 +2895,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
         }
 
-#if WINFORMS_CONTROL
-
         /// <summary>
 		/// Align chart areas cursor.
 		/// </summary>
@@ -3051,8 +3016,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
         }
 
-#endif //WINFORMS_CONTROL
-
         /// <summary>
 		/// Align chart areas axes views.
 		/// </summary>
@@ -3150,11 +3113,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 throw new ArgumentNullException("name");
 
 			// Load template data into the stream
-#if WINFORMS_CONTROL
 			Stream	stream = new FileStream(name, FileMode.Open, FileAccess.Read);
-#else	// WINFORMS_CONTROL
-			Stream	stream = LoadTemplateData(name);
-#endif	// WINFORMS_CONTROL
 
 			// Load template from stream
 			LoadTemplate(stream);
@@ -3215,194 +3174,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 }
             }
         }
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Loads template data from the URL.
-		/// </summary>
-		/// <param name="url">Template URL.</param>
-		/// <returns>Stream with template data or null if error.</returns>
-		private Stream LoadTemplateData(string url)
-		{
-            Debug.Assert(url != null, "LoadTemplateData: handed a null url string");
-
-			Stream	dataStream = null;
-
-			// Try to load as relative URL using the Control object
-			if(dataStream == null)
-			{
-                if (this.Common != null && 
-                    this.Common.Chart != null &&
-                    this.Common.Chart.Page != null)
-                {
-                    try
-                    {
-                        dataStream = new FileStream(
-                            this.Common.Chart.Page.MapPath(url),
-                            FileMode.Open);
-                    }
-                    catch (NotSupportedException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (SecurityException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (DirectoryNotFoundException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (PathTooLongException)
-                    {
-                        dataStream = null;
-                    }
-                }
-			}
-
-			// Try to load image using the Web Request
-			if(dataStream == null)
-			{
-				Uri	templateUri = null;
-                try
-                {
-                    // Try to create URI directly from template URL (will work in case of absolute URL)
-                    templateUri = new Uri(url);
-                }
-                catch (UriFormatException)
-                {
-                    templateUri = null;
-                }
-
-				// Make absolute URL using web form document URL
-				if(templateUri == null)
-				{
-                    if (this.Common != null && this.Common.Chart != null)
-					{
-						string	webFormUrl = this.Common.Chart.webFormDocumentURL;
-						int slashIndex = webFormUrl.LastIndexOf('/');
-						if(slashIndex != -1)
-						{
-							webFormUrl = webFormUrl.Substring(0, slashIndex + 1);
-						}
-
-                        try
-                        {
-                            templateUri = new Uri(new Uri(webFormUrl), url);
-                        }
-                        catch (UriFormatException)
-                        {
-                            templateUri = null;
-                        }
-					}
-				}
-
-				// Load image from file or web resource
-				if(templateUri != null)
-				{
-                    try
-                    {
-                        WebRequest request = WebRequest.Create(templateUri);
-                        dataStream = request.GetResponse().GetResponseStream();
-                    }
-                    catch (NotSupportedException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (NotImplementedException)
-                    {
-                        dataStream = null;
-                    }
-                    catch (SecurityException)
-                    {
-                        dataStream = null;
-                    }
-				}
-			}
-
-			// Try to load as file
-			if(dataStream == null)
-			{
-                dataStream = new FileStream(url, FileMode.Open);
-			}
-
-			return dataStream;
-		}
-
-#endif	// WINFORMS_CONTROL
-
-
-
-#if !WINFORMS_CONTROL
-
-
-        /// <summary>
-        /// Writes chart map tag into the stream.
-        /// </summary>
-        /// <param name="output">Html writer to output the data to.</param>
-        /// <param name="mapName">Chart map name.</param>
-        internal void WriteChartMapTag(HtmlTextWriter output, string mapName)
-		{
-            output.WriteLine();
-            output.AddAttribute(HtmlTextWriterAttribute.Name, mapName);
-            output.AddAttribute(HtmlTextWriterAttribute.Id, mapName);
-            output.RenderBeginTag(HtmlTextWriterTag.Map);
-
-			//****************************************************
-			//** Fire map areas customize event
-			//****************************************************
-
-			// Make sure only non-custom items are passed into the event handler
-			MapAreasCollection	custCollection = new MapAreasCollection();
-
-			// Move all non-custom items
-            for (int index = 0; index < _mapAreas.Count; index++)
-			{
-                if (!_mapAreas[index].IsCustom)
-				{
-                    custCollection.Add(_mapAreas[index]);
-                    _mapAreas.RemoveAt(index);
-					--index;
-				}
-			}
-
-			// Call a notification event, so that area items collection can be modified by user
-            Common.Chart.CallOnCustomizeMapAreas(custCollection);
-
-			// Add customized items
-			foreach(MapArea area in custCollection)
-			{
-				area.IsCustom = false;
-                _mapAreas.Add(area);
-			}
-
-			//****************************************************
-			//** Add all map areas
-			//****************************************************
-            foreach (MapArea area in _mapAreas)
-			{
-                area.RenderTag(output, this.Common.Chart);
-			}
-            // if this procedure is enforced to run the image maps have to have at least one map area. 
-            if (_mapAreas.Count == 0)
-            {
-                output.Write("<area shape=\"rect\" coords=\"0,0,0,0\" alt=\"\" />");
-            }
-			
-            //****************************************************
-			//** End of the map
-			//****************************************************
-            output.RenderEndTag();
-            
-			return;
-		}
-
-#endif
 
 		/// <summary>
 		/// Returns the default title from Titles collection.
@@ -3558,22 +3329,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     _borderSkin.Dispose();
                     _borderSkin = null;
                 }
-#if ! WINFORMS_CONTROL
-                if (_mapAreas != null)
-                {
-                    _mapAreas.Dispose();
-                    _mapAreas = null;
-                }
-#endif
 
-#if WINFORMS_CONTROL
                 if (nonTopLevelChartBuffer != null)
                 {
                     nonTopLevelChartBuffer.Dispose();
                     nonTopLevelChartBuffer = null;
                 }
-#endif
             }
+
             base.Dispose(disposing);
         }
 

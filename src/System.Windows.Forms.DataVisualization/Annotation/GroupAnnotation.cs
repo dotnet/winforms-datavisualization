@@ -141,7 +141,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         #region Visual Properties
 
-#if WINFORMS_CONTROL
         /// <summary>
         /// Gets or sets a flag that determines if an annotation is selected.
         /// <seealso cref="Annotation.AllowSelecting"/>
@@ -149,14 +148,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <value>
         /// <b>True</b> if the annotation is selected, <b>false</b> otherwise.
         /// </value>
-#else
-        /// <summary>
-        /// Gets or sets a flag that determines if an annotation is selected.
-        /// </summary>
-        /// <value>
-        /// <b>True</b> if the annotation is selected, <b>false</b> otherwise.
-        /// </value>
-#endif // WINFORMS_CONTROL
 		[
 		SRCategory("CategoryAttributeAppearance"),
 		DefaultValue(false),
@@ -621,8 +612,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         #region Editing Permissions Properties
 
-#if WINFORMS_CONTROL
-
 		/// <summary>
 		/// Gets or sets a flag that specifies whether an annotation may be selected 
 		/// with a mouse by the end user.
@@ -766,7 +755,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#endif // WINFORMS_CONTROL
 
         #endregion
 
@@ -913,15 +901,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					this.Common.HotRegionsList.AddHotRegion(
 						selectionRect,
 						ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
 						String.Empty,
 						String.Empty,
 						String.Empty,
-#else // WINFORMS_CONTROL
-                        ReplaceKeywords(this.Url),
-						ReplaceKeywords(this.MapAreaAttributes),
-                        ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
 						this,
 						ChartElementType.Annotation,
 						String.Empty);

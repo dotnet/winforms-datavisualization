@@ -2138,11 +2138,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 								// Set chart image map properties
 								item.ToolTip = point.ReplaceKeywords(point.LegendToolTip);
-#if !WINFORMS_CONTROL
-								item.MapAreaAttributes = point.ReplaceKeywords(point.LegendMapAreaAttributes);
-                                item.PostBackValue = point.ReplaceKeywords(point.LegendPostBackValue);
-								item.Url = point.ReplaceKeywords(point.LegendUrl);
-#endif
 								item.Name = point.ReplaceKeywords(point.LegendText);
 
 								item.SeriesPointIndex = index++;
@@ -2182,11 +2177,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 										// Process rest of the keywords
 										cell.Text = point.ReplaceKeywords(cell.Text);
 										cell.ToolTip = point.ReplaceKeywords(cell.ToolTip);
-#if !WINFORMS_CONTROL
-										cell.Url = point.ReplaceKeywords(cell.Url);
-										cell.MapAreaAttributes = point.ReplaceKeywords(cell.MapAreaAttributes);
-                                        cell.PostBackValue = point.ReplaceKeywords(cell.PostBackValue);
-#endif // !WINFORMS_CONTROL
 									}
 								}
 
@@ -2208,11 +2198,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							item.SetAttributes(this.Common, series);
 
 							item.ToolTip = series.ReplaceKeywords(series.LegendToolTip);
-#if !WINFORMS_CONTROL
-							item.Url = series.ReplaceKeywords(series.LegendUrl);
-							item.MapAreaAttributes = series.ReplaceKeywords(series.LegendMapAreaAttributes);
-                            item.PostBackValue = series.ReplaceKeywords(series.LegendPostBackValue);
-#endif // !WINFORMS_CONTROL
 
                             if (series.LegendText.Length > 0)
 							{
@@ -2231,11 +2216,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 									// Process rest of the keywords
 									cell.Text = series.ReplaceKeywords(cell.Text);
 									cell.ToolTip = series.ReplaceKeywords(cell.ToolTip);
-#if !WINFORMS_CONTROL
-									cell.Url = series.ReplaceKeywords(cell.Url);
-									cell.MapAreaAttributes = series.ReplaceKeywords(cell.MapAreaAttributes);
-                                    cell.PostBackValue = series.ReplaceKeywords(cell.PostBackValue);
-#endif // !WINFORMS_CONTROL
 								}
 							}
 
@@ -2560,10 +2540,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMisc"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegend_Name"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public override string Name
 		{
@@ -2587,10 +2564,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(Constants.NotSetValue),
 		SRDescription("DescriptionAttributeLegend_DockToChartArea"),
         TypeConverter(typeof(LegendAreaNameConverter)),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public string DockedToChartArea
 		{
@@ -2629,10 +2603,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeLegend_DockInsideChartArea"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public bool IsDockedInsideChartArea
 		{
@@ -2657,11 +2628,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegend_Position"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		NotifyParentPropertyAttribute(true),
 		TypeConverter(typeof(ElementPositionConverter)),
 		SerializationVisibilityAttribute(SerializationVisibility.Element)
@@ -2680,11 +2647,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					else
 					{
 						ElementPosition newPosition = new ElementPosition();
-#if WINFORMS_CONTROL
 						newPosition.Auto = false;
-#else
-						newPosition.Auto = true;
-#endif
 						newPosition.SetPositionNoAuto(_position.X, _position.Y, _position.Width, _position.Height);
 						return newPosition;
 					}
@@ -2717,10 +2680,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(false),
 		SRDescription("DescriptionAttributeLegend_EquallySpacedItems"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public bool IsEquallySpacedItems
 		{
@@ -2744,10 +2704,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeLegend_Enabled"),
 		NotifyParentPropertyAttribute(true),
-		ParenthesizePropertyNameAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		ParenthesizePropertyNameAttribute(true)
 		]
 		public bool Enabled
 		{
@@ -2770,10 +2727,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeLegend_AutoFitText"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public bool IsTextAutoFit
 		{
@@ -2812,10 +2766,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(LegendStyle.Table),
 		SRDescription("DescriptionAttributeLegend_LegendStyle"),
 		NotifyParentPropertyAttribute(true),
-		ParenthesizePropertyNameAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		ParenthesizePropertyNameAttribute(true)
 		]
 		public LegendStyle LegendStyle
 		{
@@ -2913,10 +2864,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(LegendTableStyle.Auto),
 		SRDescription("DescriptionAttributeLegend_TableStyle"),
 		NotifyParentPropertyAttribute(true),
-		ParenthesizePropertyNameAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		ParenthesizePropertyNameAttribute(true)
 		]
 		public LegendTableStyle TableStyle
 		{
@@ -3121,10 +3069,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartDashStyle.Solid),
         SRDescription("DescriptionAttributeBorderDashStyle"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -3148,10 +3093,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(1),
         SRDescription("DescriptionAttributeBorderWidth"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public int BorderWidth
 		{
@@ -3179,7 +3121,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
         Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
-        NotifyParentPropertyAttribute(true),
+        NotifyParentPropertyAttribute(true)
 		]
 		public string BackImage
 		{
@@ -3202,10 +3144,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartImageWrapMode.Tile),
 		NotifyParentPropertyAttribute(true),
-        SRDescription("DescriptionAttributeImageWrapMode"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeImageWrapMode")
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -3253,10 +3192,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartImageAlignmentStyle.TopLeft),
 		NotifyParentPropertyAttribute(true),
-        SRDescription("DescriptionAttributeBackImageAlign"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBackImageAlign")
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -3376,10 +3312,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(Font), "Microsoft Sans Serif, 8pt"),
 		SRDescription("DescriptionAttributeLegend_Font"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public Font Font
 		{
@@ -3430,10 +3363,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(StringAlignment.Near),
 		SRDescription("DescriptionAttributeLegend_Alignment"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public StringAlignment Alignment
 		{
@@ -3456,10 +3386,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(Docking.Right),
 		SRDescription("DescriptionAttributeLegend_Docking"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public Docking Docking
 		{
@@ -3486,10 +3413,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0),
         SRDescription("DescriptionAttributeShadowOffset"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public int ShadowOffset
 		{
@@ -4689,8 +4613,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "This parameter is used when compiling for the WinForms version of Chart")]
 		internal void Invalidate(bool invalidateLegendOnly)
 		{
-#if WINFORMS_CONTROL
-
 			if(Chart != null && !Chart.disableInvalidates)
 			{
 				if(invalidateLegendOnly)
@@ -4718,7 +4640,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					Invalidate();
 				}
 			}
-#endif
 		}
 
 		#endregion
@@ -4772,10 +4693,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeLegendCollection_LegendCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class LegendCollection : ChartNamedElementCollection<Legend>
     {
         #region Constructors
@@ -5000,10 +4917,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 		SRDescription("DescriptionAttributeCustomLabelsCollection_CustomLabelsCollection"),
 	]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class LegendItemsCollection : ChartElementCollection<LegendItem>
 	{
         #region Constructors
@@ -5094,17 +5007,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
 	[
 	SRDescription("DescriptionAttributeLegendItem_LegendItem"),
-	DefaultProperty("Name"),
+	DefaultProperty("Name")
 	]
-#if WINFORMS_CONTROL
 	public class LegendItem : ChartNamedElement
-#else
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-    public class LegendItem : ChartNamedElement, IChartMapArea
-#endif
     {
         #region Fields
 
@@ -5117,11 +5022,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		// Chart image map properties 
 		private	string					_toolTip = "";
         
-#if !WINFORMS_CONTROL
-		private	string					_url = "";
-		private	string					_attributes = "";
-        private string                  _postbackValue = String.Empty;
-#endif
 
         // Additional appearance properties
 		internal LegendImageStyle		style = LegendImageStyle.Rectangle;
@@ -5175,9 +5075,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			// Create collection of legend item cells
 			this._cells = new LegendCellCollection(this);
-#if !WINFORMS_CONTROL
-            this.PostBackValue = String.Empty;
-#endif //!WIN_CONTROL
 		}
 
 		/// <summary>
@@ -5193,9 +5090,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			// Create collection of legend item cells
 			this._cells = new LegendCellCollection(this);
-#if !WINFORMS_CONTROL
-            this.PostBackValue = String.Empty;
-#endif //!WIN_CONTROL
 		}
 
 		#endregion
@@ -5230,10 +5124,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeLegendItem_Name"),
 		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		ParenthesizePropertyNameAttribute(true)
+				ParenthesizePropertyNameAttribute(true)
 		]
 		public override string Name
 		{
@@ -5304,10 +5195,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(typeof(LegendImageStyle), "Rectangle"),
 		SRDescription("DescriptionAttributeLegendItem_Style"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		ParenthesizePropertyNameAttribute(true)
+				ParenthesizePropertyNameAttribute(true)
 		]
 		public LegendImageStyle ImageStyle
 		{
@@ -5467,10 +5355,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(1),
         SRDescription("DescriptionAttributeBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
+				]
 		public int BorderWidth
 		{
 			get
@@ -5519,10 +5404,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMarker"),
 		DefaultValue(1),
         SRDescription("DescriptionAttributeMarkerBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
+				]
 		public int MarkerBorderWidth
 		{
 			get
@@ -5550,10 +5432,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartDashStyle.Solid),
         SRDescription("DescriptionAttributeBorderDashStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
-		]
+				]
 		public ChartDashStyle BorderDashStyle
 		{
 			get
@@ -5578,9 +5457,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
         SRDescription("DescriptionAttributeShadowOffset"),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		DefaultValue(0)
 		]
 		public int ShadowOffset
@@ -5656,10 +5532,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(5),
 		SRDescription("DescriptionAttributeLegendItem_MarkerSize"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-		RefreshProperties(RefreshProperties.All)
+				RefreshProperties(RefreshProperties.All)
 		]
 		public int MarkerSize
 		{
@@ -5900,22 +5773,17 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMapArea"),
         Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
-		DefaultValue(""),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue("")
 		]
 		public string ToolTip
 		{
 			set
 			{
 				_toolTip = value;
-#if WINFORMS_CONTROL
 				if(Chart != null && Chart.selection != null)
 				{
 					Chart.selection.enabledChecked = false;
 				}
-#endif
 
 			}
 			get
@@ -5924,77 +5792,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if !WINFORMS_CONTROL
-		/// <summary>
-		/// URL target of the area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-#endif
-		]
-		public string Url
-		{
-			set
-			{
-				_url = value;
-			}
-			get
-			{
-				return _url;
-			}
-		}
-
-#endif
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Other attributes of the area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-				_attributes = value;
-			}
-			get
-			{
-				return _attributes;
-			}
-		}
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on a click event.
-        /// </summary>
-        /// <value>The value which is passed to a click event as an argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        public string PostBackValue 
-        {
-            get
-            {
-                return this._postbackValue;
-            }
-            set
-            {
-                this._postbackValue = value;
-            } 
-        }
-
-
-#endif //!WINFORMS_CONTROL
         #endregion
 
         #region Helper methods
@@ -6135,13 +5932,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "This parameter is used when compiling for the WinForms version of Chart")]
 		private void Invalidate(bool invalidateLegendOnly)
 		{
-#if WINFORMS_CONTROL
 			if(Legend != null)
 			{
 				// Invalidate control
 				Legend.Invalidate(invalidateLegendOnly);
 			}
-#endif
 		}
 
 		#endregion

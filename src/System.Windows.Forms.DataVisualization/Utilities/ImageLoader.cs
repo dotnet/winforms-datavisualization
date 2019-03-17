@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -163,41 +163,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				image = (System.Drawing.Image)_imageData[imageURL];
 			}
 
-#if ! WINFORMS_CONTROL
-
-			// Try to load as relative URL using the Control object
-			if(image == null)
-			{
-                Chart control = (Chart)_serviceContainer.GetService(typeof(Chart));
-                if (control != null && control.Page != null)
-                {
-                    if (!control.IsDesignMode())
-                    {
-                        image = LoadFromFile(control.Page.MapPath(imageURL));
-                    }
-                    else if (control.IsDesignMode() && !String.IsNullOrEmpty(control.webFormDocumentURL))
-                    {   
-                        // Find current web page path and fileName
-                        Uri pageUri = new Uri(control.webFormDocumentURL);
-                        string path = pageUri.LocalPath;
-                        string pageFile = pageUri.Segments[pageUri.Segments.Length-1];
-
-                        // Find full image fileName
-                        string imageFileRelative = control.ResolveClientUrl(imageURL);
-                        string imageFile = path.Replace(pageFile, imageFileRelative);
-                        
-                        // Load image
-                        image = LoadFromFile(imageFile);
-                    }
-                }
-
-                else if ( HttpContext.Current != null )
-                {
-                    image = LoadFromFile(HttpContext.Current.Request.MapPath(imageURL));
-                }
-			}
-#endif
-
 			// Try to load image from resource
 			if(image == null)
 			{
@@ -213,7 +178,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                         System.Resources.ResourceManager resourceManager = new System.Resources.ResourceManager(resourceRootName, Assembly.GetExecutingAssembly());
                         image = (System.Drawing.Image)(resourceManager.GetObject(resourceName));
                     }
-#if WINFORMS_CONTROL
                     else if (Assembly.GetEntryAssembly() != null)
                     {
                         // Check if resource class type was specified
@@ -254,7 +218,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                             }
                         }
                     }
-#endif
                 }
                 catch (MissingManifestResourceException)
                 {
@@ -294,24 +257,18 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                     }
 				}
             }
-#if WINFORMS_CONTROL
+
             // absolute uri(without Server.MapPath)in web is not allowed. Loading from replative uri Server[Page].MapPath is done above.
             // Try to load as file
 			if(image == null)
 			{
-
                 image = LoadFromFile(imageURL);
             }
-#endif
 
             // Error loading image
 			if(image == null)
 			{
-#if ! WINFORMS_CONTROL
-				throw(new ArgumentException( SR.ExceptionImageLoaderIncorrectImageUrl( imageURL ) ) );
-#else
 				throw(new ArgumentException( SR.ExceptionImageLoaderIncorrectImageLocation( imageURL ) ) );
-#endif
             }
 
 			// Save new image in cache

@@ -129,10 +129,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Data series.</param>
         /// <param name="sortOrder">Sorting order.</param>
 		/// <param name="sortBy">Value used for sorting ("X", "Y or Y1", "Y2", ...).</param>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-        [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
         public DataPointComparer(Series series, PointSortOrder sortOrder, string sortBy)
 		{
 			// Check if sorting value is valid
@@ -262,7 +258,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				series.noLabelsInPoints = false;
 			}
 
-#if WINFORMS_CONTROL
 			// Set flag that tooltips flags should be recalculated
 			if(dataPoint.ToolTip.Length > 0 && 
 				dataPoint.LegendToolTip.Length > 0 && 
@@ -271,7 +266,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			{
 				series.Chart.selection.enabledChecked = false;
 			}            
-#endif
 		}
 
 		#endregion
@@ -1723,7 +1717,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             base.Initialize(item);
         }
 
-#if WINFORMS_CONTROL
         /// <summary>
         /// Removes all elements from the <see cref="T:System.Collections.ObjectModel.Collection`1"/>.
         /// </summary>
@@ -1739,7 +1732,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
             base.ClearItems();
         }
-#endif
 
         #endregion
     }
@@ -1925,32 +1917,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				{
 					this.ToolTip = stringValue;
 				}
-#if !WINFORMS_CONTROL
-				else if(String.Compare(propertyName, "Url", StringComparison.OrdinalIgnoreCase) == 0)
-				{
-					this.Url = stringValue;
-				}
-                else if (String.Compare(propertyName, "PostBackValue", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    this.PostBackValue = stringValue;
-                }
-                else if (String.Compare(propertyName, "LabelUrl", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    this.LabelUrl = stringValue;
-                }
-                else if (String.Compare(propertyName, "LabelPostBackValue", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    this.LabelPostBackValue = stringValue;
-                }
-                else if (String.Compare(propertyName, "LegendUrl", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    this.LegendUrl = stringValue;
-                }
-                else if (String.Compare(propertyName, "LegendPostBackValue", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    this.LegendPostBackValue = stringValue;
-                }
-#endif // !WINFORMS_CONTROL
                 else if (String.Compare(propertyName, "Label", StringComparison.OrdinalIgnoreCase) == 0)
 				{
 					this.Label = stringValue;
@@ -2638,13 +2604,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			SRDescription("DescriptionAttributeDataPoint_XValue"),
 			TypeConverter(typeof(DataPointValueConverter)),
 			DefaultValue(typeof(double), "0.0"),
-
-
-#if WINFORMS_CONTROL
 			DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), 
-#else
-			PersistenceMode(PersistenceMode.Attribute)
-#endif
 		]
 		public	double XValue
 		{
@@ -2666,12 +2626,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			SRCategory("CategoryAttributeData"),
 			SRDescription("DescriptionAttributeDataPoint_YValues"),
 			Bindable(true),
-
-#if WINFORMS_CONTROL
 			DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), 
-#else
-			PersistenceMode(PersistenceMode.Attribute),
-#endif
 			TypeConverter(typeof(DoubleArrayConverter)),
 			Editor(typeof(UITypeEditor), typeof(UITypeEditor)),
 			RefreshProperties(RefreshProperties.All),
@@ -2710,9 +2665,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         Bindable(true),
 		SRDescription("DescriptionAttributeDataPoint_Empty"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		DefaultValue(false)
 		]
 		public	bool IsEmpty
@@ -3308,10 +3260,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		SRCategory("CategoryAttributeLabel"),
 		Bindable(true),
-		SRDescription("DescriptionAttributeLabelFormat"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		SRDescription("DescriptionAttributeLabelFormat")
 		]
 		public string LabelFormat
 		{
@@ -3365,10 +3314,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		SRCategory("CategoryAttributeLabel"),
 		Bindable(true),
-		SRDescription("DescriptionAttributeShowLabelAsValue"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeShowLabelAsValue")
 		]
 		public bool IsValueShownAsLabel
 		{
@@ -3524,10 +3470,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
-        SRDescription("DescriptionAttributeBorderDashStyle"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBorderDashStyle")
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -3576,9 +3519,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
         SRDescription("DescriptionAttributeBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public int BorderWidth
 		{
@@ -3688,10 +3628,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
-        SRDescription("DescriptionAttributeImageWrapMode"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeImageWrapMode")
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -3794,10 +3731,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		NotifyParentPropertyAttribute(true),
-        	SRDescription("DescriptionAttributeBackImageAlign"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBackImageAlign")
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -3993,10 +3927,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeLabelAppearance"),
 		Bindable(true),
-		SRDescription("DescriptionAttributeFont"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeFont")
 		]
 		public Font Font
 		{
@@ -4095,10 +4026,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeLabelAppearance"),
 		Bindable(true),
-		SRDescription(SR.Keys.DescriptionAttributeLabel_FontAngle),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		SRDescription(SR.Keys.DescriptionAttributeLabel_FontAngle)
 		]
 		public int LabelAngle
 		{
@@ -4207,9 +4135,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeMarker"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeMarkerSize"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		RefreshProperties(RefreshProperties.All)
 		]
 		public int MarkerSize
@@ -4470,10 +4395,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 		SRCategory("CategoryAttributeMarker"),
 		Bindable(true),
-        SRDescription("DescriptionAttributeMarkerBorderWidth"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeMarkerBorderWidth")
 		]
 		public int MarkerBorderWidth
 		{
@@ -4561,10 +4483,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		Browsable(false),
 		SRDescription("DescriptionAttributeCustomAttributesExtended"),
-		DefaultValue(""),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue("")
 		]
 		public string CustomProperties
 		{
@@ -4697,12 +4616,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				else 
 					series.toolTip = value;
 				
-#if WINFORMS_CONTROL
 				if(Chart != null && Chart.selection != null)
 				{
 					Chart.selection.enabledChecked = false;
 				}
-#endif
 			}
 			get
 			{
@@ -4734,159 +4651,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#if !WINFORMS_CONTROL
-
-        /// <summary>
-		/// URL target of the area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base)
-#endif
-		]
-		public string Url
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.Url, value);
-				else 
-					series.url = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.Url))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.Url);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.Url);
-						}
-
-						return series.url;
-
-					}
-				}
-				else
-				{
-					return series.url;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Other attributes of the area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-		Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base)
-		]
-		public string MapAreaAttributes
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.MapAreaAttributes, value);
-				else 
-					series.mapAreaAttributes = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.MapAreaAttributes))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.MapAreaAttributes);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.MapAreaAttributes);
-						}
-
-						return series.mapAreaAttributes;
-					}
-				}
-				else
-				{
-					return series.mapAreaAttributes;
-				}
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on click event.
-        /// </summary>
-        /// <value>The value which is passed to click event as argument.</value>
-        [DefaultValue("")]
-        [SRCategory(SR.Keys.CategoryAttributeMapArea)]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        [Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base)]
-        public string PostBackValue 
-        { 
-            get
-            {
-                if (this.pointCustomProperties)
-                {
-                    if (properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.PostBackValue))
-                    {
-                        return (String)GetAttributeObject(CommonCustomProperties.PostBackValue);
-                    }
-                    else
-                    {
-                        if (IsSerializing())
-                        {
-                            return "";
-                        }
-                        if (this.isEmptyPoint)
-                        {
-                            return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.PostBackValue);
-                        }
-
-                        return series.postbackValue;
-                    }
-                }
-                else
-                {
-                    return series.postbackValue;
-                }
-            }
-            set
-            {
-                if (this.pointCustomProperties)
-                    SetAttributeObject(CommonCustomProperties.PostBackValue, value);
-                else
-                    series.postbackValue = value;
-            }
-        }
-
-
-        
-	
-#endif
         /// <summary>
         /// Replaces predefined keyword inside the string with their values.
         /// </summary>
@@ -4906,13 +4670,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		[
 		SRCategory("CategoryAttributeLegend"),
-
 		Bindable(true),
-		SRDescription("DescriptionAttributeShowInLegend"),
-		#if !WINFORMS_CONTROL
-		DefaultValue(true),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		SRDescription("DescriptionAttributeShowInLegend")
 		]
 		public bool IsVisibleInLegend
 		{
@@ -5162,11 +4921,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeLabelAppearance"),
 		Bindable(true),
-        SRDescription("DescriptionAttributeLabelBorderDashStyle"),
-		#if !WINFORMS_CONTROL
-		DefaultValue(ChartDashStyle.Solid),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeLabelBorderDashStyle")
 		]
 		public ChartDashStyle LabelBorderDashStyle
 		{
@@ -5214,11 +4969,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeLabelAppearance"),
 		Bindable(true),
-        SRDescription("DescriptionAttributeBorderWidth"),
-		#if !WINFORMS_CONTROL
-		DefaultValue(1),
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+        SRDescription("DescriptionAttributeBorderWidth")
 		]
 		public int LabelBorderWidth
 		{
@@ -5316,318 +5067,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				}
 			}
 		}
-
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// URL target of the item in the legend.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeLegend"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeLegendUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base),
-        SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings")
-        ]
-		public string LegendUrl
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.LegendUrl, value);
-				else 
-					series.legendUrl = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LegendUrl))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.LegendUrl);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LegendUrl);
-						}
-
-						return series.legendUrl;
-					}
-				}
-				else
-				{
-					return series.legendUrl;
-				}
-			}
-		}
-
-#endif
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Other attributes of the legend map area.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeLegend"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base)
-		]
-		public string LegendMapAreaAttributes
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.LegendMapAreaAttributes, value);
-				else 
-					series.legendMapAreaAttributes = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LegendMapAreaAttributes))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.LegendMapAreaAttributes);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LegendMapAreaAttributes);
-						}
-
-						return series.legendMapAreaAttributes;
-
-					}
-				}
-				else
-				{
-					return series.legendMapAreaAttributes;
-				}
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on click event.
-        /// </summary>
-        /// <value>The value which is passed to click event as argument.</value>
-        [DefaultValue("")]
-		[SRCategory("CategoryAttributeLegend")]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        [Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base)]
-        public string LegendPostBackValue
-        {
-            get
-            {
-                if (this.pointCustomProperties)
-                {
-                    if (properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LegendPostBackValue))
-                    {
-                        return (String)GetAttributeObject(CommonCustomProperties.LegendPostBackValue);
-                    }
-                    else
-                    {
-                        if (IsSerializing())
-                        {
-                            return "";
-                        }
-                        if (this.isEmptyPoint)
-                        {
-                            return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LegendPostBackValue);
-                        }
-
-                        return series.legendPostbackValue;
-                    }
-                }
-                else
-                {
-                    return series.legendPostbackValue;
-                }
-            }
-            set
-            {
-                if (this.pointCustomProperties)
-                    SetAttributeObject(CommonCustomProperties.LegendPostBackValue, value);
-                else
-                    series.legendPostbackValue = value;
-            }
-        }
-
-#endif  // !WINFORMS_CONTROL
-
-
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// URL target of the data point label.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeUrl"),
-		DefaultValue(""),
-		PersistenceMode(PersistenceMode.Attribute),
-        Editor(Editors.UrlValueEditor.Editor, Editors.UrlValueEditor.Base),
-        SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings")
-		]
-		public string LabelUrl
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.LabelUrl, value);
-				else 
-					series.labelUrl = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LabelUrl))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.LabelUrl);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelUrl);
-						}
-
-						return series.labelUrl;
-					}
-				}
-				else
-				{
-					return series.labelUrl;
-				}
-			}
-		}
-
-#endif //if !WINFORMS_CONTROL
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Other attributes of the data point label.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeLabel"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeMapAreaAttributes"),
-		DefaultValue("")
-		]
-		public string LabelMapAreaAttributes
-		{
-			set
-			{
-				if(this.pointCustomProperties)
-					SetAttributeObject(CommonCustomProperties.LabelMapAreaAttributes, value);
-				else 
-					series.labelMapAreaAttributes = value;
-			}
-			get
-			{
-				if(this.pointCustomProperties)
-				{
-					if(properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LabelMapAreaAttributes))
-					{
-						return (String)GetAttributeObject(CommonCustomProperties.LabelMapAreaAttributes);
-					}
-					else
-					{
-						if(IsSerializing())
-						{
-							return "";
-						}
-						if(this.isEmptyPoint)
-						{
-							return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelMapAreaAttributes);
-						}
-
-						return series.labelMapAreaAttributes;
-
-					}
-				}
-				else
-				{
-					return series.labelMapAreaAttributes;
-				}
-			}
-		}
-
-        /// <summary>
-        /// Gets or sets the postback value which can be processed on click event.
-        /// </summary>
-        /// <value>The value which is passed to click event as argument.</value>
-        [DefaultValue("")]
-        [SRCategory("CategoryAttributeLabel")]
-        [SRDescription(SR.Keys.DescriptionAttributePostBackValue)]
-        [Editor(Editors.KeywordsStringEditor.Editor, Editors.KeywordsStringEditor.Base)]
-        public string LabelPostBackValue
-        {
-            get
-            {
-                if (this.pointCustomProperties)
-                {
-                    if (properties.Count != 0 && IsCustomPropertySet(CommonCustomProperties.LabelPostBackValue))
-                    {
-                        return (String)GetAttributeObject(CommonCustomProperties.LabelPostBackValue);
-                    }
-                    else
-                    {
-                        if (IsSerializing())
-                        {
-                            return "";
-                        }
-                        if (this.isEmptyPoint)
-                        {
-                            return (string)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelPostBackValue);
-                        }
-
-                        return series.labelPostbackValue;
-                    }
-                }
-                else
-                {
-                    return series.labelPostbackValue;
-                }
-            }
-            set
-            {
-                if (this.pointCustomProperties)
-                    SetAttributeObject(CommonCustomProperties.LabelPostBackValue, value);
-                else
-                    series.labelPostbackValue = value;
-            }
-        }
-
-
-#endif // !WINFORMS_CONTROL
-
-
 
         #endregion
 
@@ -5978,101 +5417,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				return !String.IsNullOrEmpty(series.toolTip);
 		}
 
-#if !WINFORMS_CONTROL
-
 		/// <summary>
 		/// Returns true if property should be serialized.
 		/// </summary>
-		
-		internal bool ShouldSerializeUrl()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.Url);
-			else
-				return !String.IsNullOrEmpty(series.url);
-		}
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
-		internal bool ShouldSerializeMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.MapAreaAttributes);
-			else
-				return !String.IsNullOrEmpty(series.mapAreaAttributes);
-		}
-
-        /// <summary>
-        /// Returns true if property should be serialized.
-        /// </summary>
-        internal bool ShouldSerializePostBackValue()
-        {
-            if (this.pointCustomProperties)
-                return CheckIfSerializationRequired(CommonCustomProperties.PostBackValue);
-            else
-                return !String.IsNullOrEmpty(series.postbackValue);
-        }
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
-		internal bool ShouldSerializeLegendUrl()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.LegendUrl);
-			else
-				return !String.IsNullOrEmpty(series.legendUrl);
-		}
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
-		internal bool ShouldSerializeLegendMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.LegendMapAreaAttributes);
-			else
-				return !String.IsNullOrEmpty(series.legendMapAreaAttributes);
-		}
-
-
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
-		internal bool ShouldSerializeLabelUrl()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.LabelUrl);
-			else
-				return !String.IsNullOrEmpty(series.labelUrl);
-		}
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
-		internal bool ShouldSerializeLabelMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				return CheckIfSerializationRequired(CommonCustomProperties.LabelMapAreaAttributes);
-			else
-				return !String.IsNullOrEmpty(series.labelMapAreaAttributes);
-		}
-
-
-
-#endif //	!WINFORMS_CONTROL
-
-		/// <summary>
-		/// Returns true if property should be serialized.
-		/// </summary>
-		
         internal bool ShouldSerializeIsVisibleInLegend()
 		{
 			if(this.pointCustomProperties)
@@ -6450,108 +5797,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			else
 				series.toolTip = "";
 
-#if WINFORMS_CONTROL
 			if(Chart != null && Chart.selection != null)
 			{
 				Chart.selection.enabledChecked = false;
 			}
-#endif
-		}
-
-#if !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
-		internal void  ResetUrl()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.Url);
-			else
-				series.url = "";
 		}
 
 		/// <summary>
 		/// Resets property to its default value.
 		/// </summary>
-		
-		internal void  ResetMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.MapAreaAttributes);
-			else
-				series.mapAreaAttributes = "";
-		}
-
-        /// <summary>
-        /// Resets property to its default value.
-        /// </summary>
-        internal void ResetPostBackValue()
-        {
-            if (this.pointCustomProperties)
-                ResetProperty(CommonCustomProperties.PostBackValue);
-            else
-                series.postbackValue = "";
-        }
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
-		internal void  ResetLegendUrl()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.LegendUrl);
-			else
-				series.legendUrl = "";
-		}
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
-		internal void  ResetLegendMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.LegendMapAreaAttributes);
-			else
-				series.legendMapAreaAttributes = "";
-		}
-
-
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
-		internal void  ResetLabelUrl()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.LabelUrl);
-			else
-				series.labelUrl = "";
-		}
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
-		internal void  ResetLabelMapAreaAttributes()
-		{
-			if(this.pointCustomProperties)
-				ResetProperty(CommonCustomProperties.LabelMapAreaAttributes);
-			else
-				series.labelMapAreaAttributes = "";
-		}
-
-
-#endif // !WINFORMS_CONTROL
-
-		/// <summary>
-		/// Resets property to its default value.
-		/// </summary>
-		
         public void ResetIsVisibleInLegend()
 		{
 			if(this.pointCustomProperties)
@@ -6583,12 +5837,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			else
 				series.legendToolTip = "";
 
-#if WINFORMS_CONTROL
 			if(Chart != null && Chart.selection != null)
 			{
 				Chart.selection.enabledChecked = false;
 			}
-#endif
 		}
 
 
@@ -6652,12 +5904,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			else
 				series.labelToolTip = "";
 
-#if WINFORMS_CONTROL
 			if(Chart != null && Chart.selection != null)
 			{
 				Chart.selection.enabledChecked = false;
 			}
-#endif
 		}
 
         
@@ -6673,7 +5923,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "This parameter is used when compiling for the WinForms version of Chart")]
 		internal void Invalidate(bool invalidateLegend)
 		{
-#if WINFORMS_CONTROL
 			if(this.series != null)
 			{
 				series.Invalidate(true, invalidateLegend);
@@ -6686,7 +5935,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     thisSeries.Invalidate(true, invalidateLegend);
                 }
 			}
-#endif
 		}
 
 		#endregion
@@ -6760,10 +6008,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
 	[ TypeConverter(typeof(CustomPropertiesTypeConverter)) ]
     [EditorBrowsable(EditorBrowsableState.Never)]
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class CustomProperties
 	{
 		#region Fields

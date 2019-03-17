@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -46,7 +46,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
         internal AnnotationGroup AnnotationGroup { get; set; }
 
-#if WINFORMS_CONTROL
 
         // Annotation object that was last clicked on
 		internal Annotation					lastClickedAnnotation = null;
@@ -59,8 +58,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         
         // Annotation object which is currently placed on the chart
 		internal		Annotation			placingAnnotation = null;
-
-#endif
 
         #endregion
 
@@ -164,7 +161,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification="This parameter is used when compiling for the WinForms version of Chart")]
 		internal void Paint(ChartGraphics chartGraph, bool drawAnnotationOnly)
 		{
-#if WINFORMS_CONTROL
             ChartPicture chartPicture = this.Chart.chartPicture;
 
 			// Restore previous background using double buffered bitmap
@@ -200,7 +196,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						chartPosition);
 				}
 			}
-#endif // WINFORMS_CONTROL
 
 			// Draw all annotation objects
 			foreach(Annotation annotation in this)
@@ -232,9 +227,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 						// Start Svg Selection mode
 						string url = String.Empty;
-#if !WINFORMS_CONTROL
-						url = annotation.Url;
-#endif // !WINFORMS_CONTROL
 						chartGraph.StartHotRegion( 
 							annotation.ReplaceKeywords(url), 
 							annotation.ReplaceKeywords(annotation.ToolTip) );
@@ -259,8 +251,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		#endregion
 
         #region Mouse Events Handlers
-
-#if WINFORMS_CONTROL
 
         /// <summary>
 		/// Mouse was double clicked.
@@ -777,7 +767,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-#endif // WINFORMS_CONTROL
 
 		#endregion 
 

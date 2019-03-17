@@ -52,11 +52,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeLabelStyle"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		TypeConverter(typeof(NoNameExpandableObjectConverter))
 		]
 		public LabelStyle LabelStyle

@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -761,7 +761,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 if (common.ProcessModeRegions)
                 {
 
-
                     // Check if processing collected data point
                     if (point.IsCustomPropertySet("_COLLECTED_DATA_POINT"))
                     {
@@ -771,16 +770,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             path,
                             false,
                             point.ReplaceKeywords(point.ToolTip),
-#if WINFORMS_CONTROL
-						string.Empty,
-						string.Empty,
-						string.Empty,
-#else // WINFORMS_CONTROL
- point.ReplaceKeywords(point.Url),
-                            point.ReplaceKeywords(point.MapAreaAttributes),
-                            point.ReplaceKeywords(point.PostBackValue),
-#endif // WINFORMS_CONTROL
- point,
+						    string.Empty,
+						    string.Empty,
+						    string.Empty,
+                            point,
                             ChartElementType.DataPoint);
 
                         return;
@@ -899,15 +892,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             path,
                             false,
                             point.ReplaceKeywords(point.ToolTip),
-#if WINFORMS_CONTROL
-						string.Empty,
-						string.Empty,
-						string.Empty,
-#else // WINFORMS_CONTROL
-                            point.ReplaceKeywords(point.Url),
-                            point.ReplaceKeywords(point.MapAreaAttributes),
-                            point.ReplaceKeywords(point.PostBackValue),
-#endif // WINFORMS_CONTROL
+						    string.Empty,
+						    string.Empty,
+						    string.Empty,
                             point,
                             ChartElementType.DataPoint);
 
@@ -1037,22 +1024,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             path,
                             false,
                             point.ReplaceKeywords(point.ToolTip),
-#if WINFORMS_CONTROL
-						string.Empty,
-						string.Empty,
-						string.Empty,
-#else // WINFORMS_CONTROL
-                            point.ReplaceKeywords(point.Url),
-                            point.ReplaceKeywords(point.MapAreaAttributes),
-                            point.ReplaceKeywords(point.PostBackValue),
-#endif // WINFORMS_CONTROL
+						    string.Empty,
+						    string.Empty,
+						    string.Empty,
                             point,
                             ChartElementType.DataPoint);
 
                         return;
                     }
-
-
 
                     // Add points to the map area
                     common.HotRegionsList.AddHotRegion(
@@ -4594,10 +4573,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// <summary>
     /// The Point3D class represents point coordinates in 3D space.
 	/// </summary>
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
     public class Point3D
 	{
 		#region Fields

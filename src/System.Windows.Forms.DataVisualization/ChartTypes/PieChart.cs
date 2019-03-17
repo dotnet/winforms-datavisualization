@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=íMicrosoft Corporationí>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+Ôªø//-------------------------------------------------------------
+// <copyright company=‚ÄôMicrosoft Corporation‚Äô>
+//   Copyright ¬© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -1335,7 +1335,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
                         }
 
                         // This method returns calculated rectangle from point position 
-                        // for outside label. Rectangle mustnít be out of chart area.
+                        // for outside label. Rectangle mustn‚Äôt be out of chart area.
                         labelRect = GetLabelRect(new PointF(x3, y3), area, text, format, graph, point, true);
                         labelRectOver = GetLabelRect(new PointF(x3Overlap, y3), area, text, format, graph, point, true);
                     }
@@ -1352,7 +1352,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
                         }
 
                         // This method returns calculated rectangle from point position 
-                        // for outside label. Rectangle mustnít be out of chart area.
+                        // for outside label. Rectangle mustn‚Äôt be out of chart area.
                         labelRect = GetLabelRect(new PointF(x3, y3), area, text, format, graph, point, false);
                         labelRectOver = GetLabelRect(new PointF(x3Overlap, y3), area, text, format, graph, point, false);
                     }
@@ -1455,7 +1455,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 		
 		/// <summary>
 		/// This method returns calculated rectangle from point position 
-		/// for outside label. Rectangle mustnít be out of chart area.
+		/// for outside label. Rectangle mustn‚Äôt be out of chart area.
 		/// </summary>
 		/// <param name="labelPosition">The first position for label</param>
 		/// <param name="area">Chart area used for chart area position</param>
@@ -1811,7 +1811,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 
                 // Add the pie to the graphics path
                 path.AddPie(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height, startAngle, sweepAngle);
-                // VSTS #250394 (Dev10:591140) Fix - Control should not return ìuselessî map areas
+                // VSTS #250394 (Dev10:591140) Fix - Control should not return ‚Äúuseless‚Äù map areas
                 if (sweepAngle <= 0)
                 {
                     return;
@@ -1859,16 +1859,10 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
                         path,
                         false,
                         point.ReplaceKeywords(point.ToolTip),
-#if WINFORMS_CONTROL
-					string.Empty,
-					string.Empty,
-					string.Empty,
-#else // WINFORMS_CONTROL
- point.ReplaceKeywords(point.Url),
-                        point.ReplaceKeywords(point.MapAreaAttributes),
-                        point.ReplaceKeywords(point.PostBackValue),
-#endif // WINFORMS_CONTROL
- point,
+					    string.Empty,
+					    string.Empty,
+					    string.Empty,
+                        point,
                         ChartElementType.DataPoint);
 
                     return;
@@ -2506,7 +2500,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 				area.Area3DStyle.LightStyle
 				);
 
-			// Turns are introduce because of special case ñ Big pie slice, which 
+			// Turns are introduce because of special case ‚Äì Big pie slice, which 
 			// is bigger, then 180 degree and it is back and 
 			// front point in same time. If special case exists drawing has to be split 
 			// into 4 parts: 1. Drawing back pie slices, 2. Drawing the first part of 
@@ -5121,7 +5115,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
 					numEmptyDown++;
 				}
 
-				// Find where are more empty spaces ñ on the top or on the bottom.
+				// Find where are more empty spaces ‚Äì on the top or on the bottom.
 				bool moreEmptyUp = numEmptyUp > numEmptyDown ? true : false;
 
 				// Find average number of empty spaces for top and bottom.

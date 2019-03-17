@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -173,30 +173,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
     internal class LegendConverter : NoNameExpandableObjectConverter
 	{
-		#region Converter methods
-
-#if !WINFORMS_CONTROL
-		/// <summary>
-		/// Overrides the GetPropertiesSupported method of TypeConverter.
-		/// Save reference to the descriptor context.
-		/// </summary>
-		/// <param name="context">Descriptor context.</param>
-		/// <returns>Indicates if properties are supported.</returns>
-		public override bool GetPropertiesSupported(ITypeDescriptorContext context)
-		{
-			if (context != null && context.Instance != null)
-			{
-				// Save current control type descriptor context
-				if(context.Instance is Chart)
-				{
-					Chart.controlCurrentContext = context;
-				}
-			}
-			return base.GetPropertiesSupported(context);
-		}
-#endif // !WINFORMS_CONTROL
-
-		#endregion
 	}
 
 	/// <summary>

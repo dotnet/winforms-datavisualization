@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -108,11 +108,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	#endregion	
 }
 
-#if WINFORMS_CONTROL
-	namespace System.Windows.Forms.DataVisualization.Charting.Utilities
-#else
-	namespace System.Web.UI.DataVisualization.Charting.Utilities
-#endif
+namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
     /// <summary>
     /// ChartPaletteColors is a utility class which provides access 

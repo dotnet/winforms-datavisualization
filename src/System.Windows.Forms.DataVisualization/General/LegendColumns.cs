@@ -118,16 +118,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Legend column margins
         private Margins _margins = new Margins(0, 0, 15, 15);
 
-#if !WINFORMS_CONTROL
-
-			// Legend column Url
-			private string	_url = string.Empty;
-
-			// Legend column map area attribute
-			private string _mapAreaAttribute = string.Empty;
-            private string _postbackValue = String.Empty;
-#endif // !WINFORMS_CONTROL
-
         // Legend column header text
         private string _headerText = string.Empty;
 
@@ -648,12 +638,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
             newCell.CellType = (this.ColumnType == LegendCellColumnType.SeriesSymbol) ? LegendCellType.SeriesSymbol : LegendCellType.Text;
             newCell.Text = this.Text;
             newCell.ToolTip = this.ToolTip;
-#if !WINFORMS_CONTROL
-				newCell.Url = this.Url;
-				newCell.MapAreaAttributes = this.MapAreaAttributes;
-                newCell.PostBackValue = this.PostBackValue;
-#endif // !WINFORMS_CONTROL
-
             newCell.SeriesSymbolSize = this.SeriesSymbolSize;
             newCell.Alignment = this.Alignment;
             newCell.Margins = new Margins(this.Margins.Top, this.Margins.Bottom, this.Margins.Left, this.Margins.Right);
@@ -744,17 +728,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Cell row index
         private int _rowIndex = -1;
 
-#if !WINFORMS_CONTROL
-
-			// Legend cell Url
-			private string	_url = string.Empty;
-
-			// Legend cell map area attribute
-			private string _mapAreaAttribute = string.Empty;
-            private string _postbackValue = String.Empty;
-
-#endif // !WINFORMS_CONTROL
-
         // Position where cell is drawn in pixel coordinates.
         // Exncludes margins and space required for separators
         internal Rectangle cellPosition = Rectangle.Empty;
@@ -829,9 +802,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 this._text = text;
             }
             this._alignment = alignment;
-#if !WINFORMS_CONTROL
-                this.PostBackValue = String.Empty;
-#endif //!WIN_CONTROL
         }
 
         #endregion // Constructors
@@ -1537,19 +1507,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <returns>Returns cell text.</returns>
         private string GetCellUrl()
         {
-#if !WINFORMS_CONTROL
-				// Check if tooltip is set in the cell (highest priority)
-				if(this._url.Length > 0)
-				{
-					return this._url;
-				}
-
-				// Check if tooltip is set in associated legend item
-				if(this.LegendItem != null)
-				{
-                    return this.LegendItem.Url;
-				}
-#endif // !WINFORMS_CONTROL
             return string.Empty;
         }
 
@@ -1563,19 +1520,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <returns>Returns cell text.</returns>
         private string GetCellMapAreaAttributes()
         {
-#if !WINFORMS_CONTROL
-				// Check if tooltip is set in the cell (highest priority)
-				if(this._mapAreaAttribute.Length > 0)
-				{
-					return this._mapAreaAttribute;
-				}
-
-				// Check if tooltip is set in associated legend item
-				if(this.LegendItem != null)
-				{
-					return this.LegendItem.MapAreaAttributes;
-				}
-#endif // !WINFORMS_CONTROL
             return string.Empty;
         }
 
@@ -1589,19 +1533,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <returns>Returns cell text.</returns>
         private string GetCellPostBackValue()
         {
-#if !WINFORMS_CONTROL
-                // Check if tooltip is set in the cell (highest priority)
-                if (this._postbackValue.Length > 0)
-                {
-                    return this._postbackValue;
-                }
-
-                // Check if tooltip is set in associated legend item
-                if (this.LegendItem != null)
-                {
-                    return this.LegendItem.PostBackValue;
-                }
-#endif // !WINFORMS_CONTROL
             return string.Empty;
         }
 
@@ -2342,13 +2273,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Right margin
         private int _right = 0;
 
-#if WINFORMS_CONTROL
-
         // Reference to common chart elements which allows to invalidate
         // chart when one of the properties is changed.
         internal CommonElements Common = null;
-
-#endif // WINFORMS_CONTROL
 
         #endregion // Fields
 
@@ -2569,12 +2496,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         private void Invalidate()
         {
-#if WINFORMS_CONTROL
             if (this.Common != null && this.Common.Chart != null)
             {
                 this.Common.Chart.Invalidate();
             }
-#endif // WINFORMS_CONTROL
         }
 
         #endregion // Methods

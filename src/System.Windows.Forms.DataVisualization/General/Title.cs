@@ -148,15 +148,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	[
 	SRDescription("DescriptionAttributeTitle5"),
 	]
-#if WINFORMS_CONTROL
 	public class Title : ChartNamedElement, IDisposable
-#else
-#if ASPPERM_35
-	[AspNetHostingPermission(System.Security.Permissions.SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-    [AspNetHostingPermission(System.Security.Permissions.SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal)]
-#endif
-    public class Title : ChartNamedElement, IDisposable, IChartMapArea
-#endif
     {
 		#region Fields
 
@@ -210,11 +202,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		// Interactive properties
 		private	string					_toolTip = String.Empty;
 
-#if !WINFORMS_CONTROL
-        private string                  _url = String.Empty;
-		private	string					_mapAreaAttributes = String.Empty;
-        private string                  _postbackValue = String.Empty;
-#endif
 
         // Default text orientation
         private TextOrientation         _textOrientation = TextOrientation.Auto;
@@ -291,14 +278,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// Gets or sets the unique name of a ChartArea object.
         /// </summary>
         [
-
         SRCategory("CategoryAttributeMisc"),
         Bindable(true),
         SRDescription("DescriptionAttributeTitle_Name"),
         NotifyParentPropertyAttribute(true),
-        #if !WINFORMS_CONTROL
-         PersistenceMode(PersistenceMode.Attribute)
-        #endif
         ]
         public override string Name
         {
@@ -320,11 +303,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(TextOrientation.Auto),
         SRDescription("DescriptionAttribute_TextOrientation"),
-        NotifyParentPropertyAttribute(true),
-#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-#endif
-]
+        NotifyParentPropertyAttribute(true)
+        ]
         public TextOrientation TextOrientation
         {
             get
@@ -372,10 +352,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(Constants.NotSetValue),
 		SRDescription("DescriptionAttributeTitle_DockToChartArea"),
         TypeConverter(typeof(LegendAreaNameConverter)),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public string DockedToChartArea
 		{
@@ -413,10 +390,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(true),
 		SRDescription("DescriptionAttributeTitle_DockInsideChartArea"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public bool IsDockedInsideChartArea
 		{
@@ -442,10 +416,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0),
 		SRDescription("DescriptionAttributeTitle_DockOffset"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public int DockingOffset
 		{
@@ -467,7 +438,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-
 		/// <summary>
 		/// Gets or sets the position of the title.
 		/// </summary>
@@ -475,11 +445,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeTitle_Position"),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ElementPositionConverter)),
 		SerializationVisibilityAttribute(SerializationVisibility.Element)
@@ -498,11 +464,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					else
 					{
 						ElementPosition newPosition = new ElementPosition();
-#if WINFORMS_CONTROL
 						newPosition.Auto = false;
-#else
-						newPosition.Auto = true;
-#endif
 						newPosition.SetPositionNoAuto(_position.X, _position.Y, _position.Width, _position.Height);
 						return newPosition;
 					}
@@ -536,10 +498,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeTitle_Text"),
 		NotifyParentPropertyAttribute(true),
-		ParenthesizePropertyNameAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		ParenthesizePropertyNameAttribute(true)
 		]
 		public string Text
 		{
@@ -563,10 +522,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(TextStyle.Default),
         SRDescription("DescriptionAttributeTextStyle"),
-        NotifyParentPropertyAttribute(true),
-        #if !WINFORMS_CONTROL
-        PersistenceMode(PersistenceMode.Attribute)
-        #endif
+        NotifyParentPropertyAttribute(true)
         ]
         public TextStyle TextStyle
         {
@@ -580,7 +536,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 this.Invalidate(true);
             }
         }
-
 
 		/// <summary>
 		/// Gets or sets the background color of the title.
@@ -641,9 +596,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartDashStyle.Solid),
         SRDescription("DescriptionAttributeBorderDashStyle"),
 		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartDashStyle BorderDashStyle
 		{
@@ -667,9 +619,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(1),
         SRDescription("DescriptionAttributeBorderWidth"),
 		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public int BorderWidth
 		{
@@ -721,9 +670,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartImageWrapMode.Tile),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageWrapMode"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartImageWrapMode BackImageWrapMode
 		{
@@ -772,9 +718,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartImageAlignmentStyle.TopLeft),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackImageAlign"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public ChartImageAlignmentStyle BackImageAlignment
 		{
@@ -947,10 +890,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ContentAlignment.MiddleCenter),
 		SRDescription("DescriptionAttributeTitle_Alignment"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public ContentAlignment Alignment
 		{
@@ -973,10 +913,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(Docking.Top),
 		SRDescription("DescriptionAttributeTitle_Docking"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public Docking Docking
 		{
@@ -999,10 +936,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(0),
         SRDescription("DescriptionAttributeShadowOffset"),
-		NotifyParentPropertyAttribute(true),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		NotifyParentPropertyAttribute(true)
 		]
 		public int ShadowOffset
 		{
@@ -1049,10 +983,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeToolTip"),
 		Bindable(true),
         SRDescription("DescriptionAttributeToolTip"),
-		DefaultValue(""),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue("")
 		]
 		public string ToolTip
 		{
@@ -1166,7 +1097,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "This parameter is used when compiling for the WinForms version of Chart")]
 		internal void Invalidate(bool invalidateTitleOnly)
 		{
-#if WINFORMS_CONTROL
 			if(Chart != null)
 			{
 				// Set dirty flag
@@ -1197,7 +1127,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					Invalidate();
 				}
 			}
-#endif // #if WINFORMS_CONTROL
 		}
 
 		#endregion 
@@ -1547,14 +1476,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				    chartGraph.Transform = oldTransform;
 			    }
 
-			    if( Common.ProcessModeRegions )
-			    {
-#if !WINFORMS_CONTROL
-				Common.HotRegionsList.AddHotRegion( titlePosition, this.ToolTip, this.Url, this.MapAreaAttributes, this.PostBackValue, this, ChartElementType.Title, string.Empty );
-#else
-				Common.HotRegionsList.AddHotRegion( titlePosition, this.ToolTip, null, null, null, this, ChartElementType.Title, null );
-#endif // !WINFORMS_CONTROL
-			    }
+                if (Common.ProcessModeRegions)
+                {
+                    Common.HotRegionsList.AddHotRegion(titlePosition, this.ToolTip, null, null, null, this, ChartElementType.Title, null);
+                }
             }
         }
 

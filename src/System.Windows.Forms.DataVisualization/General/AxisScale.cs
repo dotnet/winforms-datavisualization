@@ -180,12 +180,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		// Axis data scaleView
 		private	AxisScaleView			_scaleView = null;
 
-#if WINFORMS_CONTROL
-
 		// Axis scroll bar class
 		internal AxisScrollBar			scrollBar = null;
-
-#endif // WINFORMS_CONTROL
 
 		// For scater chart X values could be rounded.
 		internal bool roundedXValues = false;
@@ -242,9 +238,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(AxisPosition.Left),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeReverse"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden)
 		]
@@ -309,9 +302,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(false),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeReverse"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsReversed
 		{
@@ -338,9 +328,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(true),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeStartFromZero3"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsStartedFromZero
 		{
@@ -366,9 +353,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(true),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeMargin"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsMarginVisible
 		{
@@ -400,9 +384,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeInternalIntervalType"),
 		RefreshPropertiesAttribute(RefreshProperties.All),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		internal DateTimeIntervalType InternalIntervalType
 		{
@@ -508,10 +489,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(Double.NaN),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeMaximum"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisMinMaxAutoValueConverter))
+		TypeConverter(typeof(AxisMinMaxAutoValueConverter))
 		]
 		public double Maximum
 		{
@@ -563,10 +541,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(Double.NaN),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeMinimum"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisMinMaxAutoValueConverter))
+		TypeConverter(typeof(AxisMinMaxAutoValueConverter))
 		]
 		public double Minimum
 		{
@@ -616,10 +591,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(Double.NaN),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeCrossing"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(AxisCrossingValueConverter))
+		TypeConverter(typeof(AxisCrossingValueConverter))
 		]
 		virtual public double Crossing
 		{
@@ -654,9 +626,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(AxisEnabled), "Auto"),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeEnabled7"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public AxisEnabled Enabled
 		{
@@ -707,9 +676,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(false),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeLogarithmic"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsLogarithmic
 		{
@@ -734,9 +700,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(10.0),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeLogarithmBase"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public double LogarithmBase
 		{
@@ -774,11 +737,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeScaleBreakStyle"),
         TypeConverter(typeof(NoNameExpandableObjectConverter)),
 		NotifyParentPropertyAttribute(true),
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
 		]
 		virtual public AxisScaleBreakStyle ScaleBreakStyle
 		{
@@ -828,12 +787,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeDataView"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeView"),
-
-#if WINFORMS_CONTROL
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
-#else
-		PersistenceMode(PersistenceMode.InnerProperty),
-#endif
         TypeConverter(typeof(NoNameExpandableObjectConverter))
 		]
  	    public AxisScaleView ScaleView
@@ -849,8 +803,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				this.Invalidate();
 			}
 		}
-
-#if WINFORMS_CONTROL
 
 		/// <summary>
 		/// Gets or sets the scroll bar settings of the axis.
@@ -875,8 +827,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				this.Invalidate();
 			}
 		}
-
-#endif // WINFORMS_CONTROL
 
 		/// <summary>
 		/// Gets axis data scaleView minimum position.

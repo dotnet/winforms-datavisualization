@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -24,8 +24,6 @@ using System.Windows.Forms.DataVisualization.Charting.Utilities;
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-
-#if WINFORMS_CONTROL
 
     /// <summary>
     /// Image string editor class.
@@ -86,40 +84,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         #endregion
     }
 
-#else
-
-    /// <summary>
-	/// Image Url editor class
-	/// </summary>
-	internal class ImageValueEditor : ImageUrlEditor
-	{
-    #region Editor methods
-
-		/// <summary>
-		/// Edit Image Url value. 
-		/// Makes a base class call with a chart control descriptor context.
-		/// </summary>
-		/// <param name="context">Editing context.</param>
-		/// <param name="provider">Provider.</param>
-		/// <param name="value">Value to edit.</param>
-		/// <returns>Result</returns>
-		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value) 
-		{
-			// Use current control type descriptor context
-			// This allows to use ImageUrlEditor class
-			if(Chart.controlCurrentContext != null)
-			{
-				return base.EditValue(Chart.controlCurrentContext, provider, value);
-			}
-
-			return base.EditValue(context, provider, value);
-		}
-
-    #endregion
-	}
-
-    internal class ChartUrlEditor : UrlEditor
-    {
-    }
-#endif //WINFORMS_CONTROL
 }

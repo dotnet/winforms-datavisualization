@@ -1796,10 +1796,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeData"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_XValueType"),
-		DefaultValue(ChartValueType.Auto),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue(ChartValueType.Auto)
 		]
 		public ChartValueType XValueType
 		{
@@ -1823,9 +1820,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_XValueIndexed"),
 		DefaultValue(false),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		public bool IsXValueIndexed
 		{
@@ -1848,10 +1842,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_YValueType"),
 		DefaultValue(ChartValueType.Auto),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute),
-		#endif
-        TypeConverter(typeof(SeriesYValueTypeConverter)),
+		TypeConverter(typeof(SeriesYValueTypeConverter))
 		]
 		public ChartValueType YValueType
 		{
@@ -1875,10 +1866,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeData"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_YValuesPerPoint"),
-		DefaultValue(1),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
+		DefaultValue(1)
 		]
 		public int YValuesPerPoint
 		{
@@ -2407,9 +2395,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeAxisLabel"),
-		#if !WINFORMS_CONTROL
-		PersistenceMode(PersistenceMode.Attribute)
-		#endif
 		]
 		override public string AxisLabel
 		{

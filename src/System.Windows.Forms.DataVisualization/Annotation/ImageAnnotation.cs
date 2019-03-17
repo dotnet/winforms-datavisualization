@@ -584,15 +584,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				this.Common.HotRegionsList.AddHotRegion(
 					rectanglePosition,
 					ReplaceKeywords(this.ToolTip),
-#if WINFORMS_CONTROL
 					String.Empty,
 					String.Empty,
 					String.Empty,
-#else // WINFORMS_CONTROL
- ReplaceKeywords(this.Url),
-					ReplaceKeywords(this.MapAreaAttributes),
-                    ReplaceKeywords(this.PostBackValue),
-#endif // WINFORMS_CONTROL
 					this,
 					ChartElementType.Annotation,
 					String.Empty);

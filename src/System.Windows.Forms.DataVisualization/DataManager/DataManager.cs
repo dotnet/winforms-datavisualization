@@ -95,10 +95,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Data
         {
             base.Invalidate();
 
-#if WINFORMS_CONTROL
             if (Chart!=null)
                 Chart.Invalidate();
-#endif
         }
 
 
