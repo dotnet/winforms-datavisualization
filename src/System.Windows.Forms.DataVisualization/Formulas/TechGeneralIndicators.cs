@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -387,13 +387,13 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
 		/// of price trends. Note: This study is the same as the Momentum except that Momentum uses 
 		/// subtraction in its calculations while Rate of Change uses division. The resulting lines 
 		/// of these two studies operated over the same data will look exactly the same - only the 
-		/// scale values will differ. The Price Rate-of-Change ("ROC") indicator displays the 
+		/// scale values will differ. The Price Rate-of-Change indicator displays the 
 		/// difference between the current price and the price x-time periods ago. The difference 
 		/// can be displayed in either points or as a percentage. The Momentum indicator displays 
 		/// the same information, but expresses it as a ratio. When the Rate-of-Change displays 
-		/// the price change in points, it subtracts the price x-time periods ago from today’s price.
+		/// the price change in points, it subtracts the price x-time periods ago from todayâ€™s price.
 		/// When the Rate-of-Change displays the price change as a percentage, it divides 
-		/// the price change by price x-time period’s ago.
+		/// the price change by price x-time periodâ€™s ago.
 		/// ---------------------------------------------------------
 		/// Input: 
 		///		- 1 Y value ( Close ).
@@ -692,7 +692,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
 		/// the use of a statistical analysis which incorporates a moving average and a divisor 
 		/// reflecting both the possible and actual trading ranges. Although developed primarily 
 		/// for commodities, the CCI could conceivably be used to analyze stocks as well. The 
-		/// Commodity Channel Index ("CCI") measures the variation of a security’s price from 
+		/// Commodity Channel Index ("CCI") measures the variation of a securityâ€™s price from 
 		/// its statistical mean. High values show that prices are unusually high compared to 
 		/// average prices whereas low values indicate that prices are unusually low. 
 		/// 1. Calculate today's Typical Price (TP) = (H+L+C)/3 where H = high; L = low, and C = close. 

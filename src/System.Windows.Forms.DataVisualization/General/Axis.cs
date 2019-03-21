@@ -5539,7 +5539,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 resultSize = Math.Max(resultSize, axisLabelSize.Height);
                                 resultRotatedSize = Math.Max(resultRotatedSize, axisLabelSize.Height);
 
-                                // Calculate the over hang of labels on the side
+                                // Calculate the overhang of labels on the side
                                 labelNearOffset = (float)Math.Min(labelNearOffset, (fromPosition + toPosition) / 2f - axisLabelSize.Width / 2f);
                                 labelFarOffset = (float)Math.Max(labelFarOffset, (fromPosition + toPosition) / 2f + axisLabelSize.Width / 2f);
 
@@ -5549,7 +5549,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 resultSize = Math.Max(resultSize, axisLabelSize.Height);
                                 resultRotatedSize = Math.Max(resultRotatedSize, height);
 
-                                // Calculate the over hang of labels on the side
+                                // Calculate the overhang of labels on the side
                                 if (angle > 0)
                                 {
                                     labelFarOffset = (float)Math.Max(labelFarOffset, (fromPosition + toPosition) / 2f + width * 1.1f);
@@ -5568,7 +5568,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 resultSize = Math.Max(resultSize, axisLabelSize.Width);
                                 resultRotatedSize = Math.Max(resultRotatedSize, axisLabelSize.Width);
 
-                                // Calculate the over hang of labels on the side
+                                // Calculate the overhang of labels on the side
                                 labelNearOffset = (float)Math.Min(labelNearOffset, (fromPosition + toPosition) / 2f - axisLabelSize.Height / 2f);
                                 labelFarOffset = (float)Math.Max(labelFarOffset, (fromPosition + toPosition) / 2f + axisLabelSize.Height / 2f);
                             }
@@ -5577,7 +5577,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 resultSize = Math.Max(resultSize, axisLabelSize.Width);
                                 resultRotatedSize = Math.Max(resultRotatedSize, width);
 
-                                // Calculate the over hang of labels on the side
+                                // Calculate the overhang of labels on the side
                                 if (angle > 0)
                                 {
                                     labelFarOffset = (float)Math.Max(labelFarOffset, (fromPosition + toPosition) / 2f + height * 1.1f);

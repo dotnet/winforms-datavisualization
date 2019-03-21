@@ -2701,7 +2701,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						(area.AlignmentStyle & type) == type &&
 						(area.AlignmentOrientation & orientation) == orientation )
 					{
-						// Add "slave" area into the list
+						// Add client area into the list
 						areaList.Add(area);
 					}
 				}

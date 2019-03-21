@@ -1,6 +1,6 @@
-//-------------------------------------------------------------
-// <copyright company=’Microsoft Corporation’>
-//   Copyright © Microsoft Corporation. All Rights Reserved.
+ï»¿//-------------------------------------------------------------
+// <copyright company=â€™Microsoft Corporationâ€™>
+//   Copyright Â© Microsoft Corporation. All Rights Reserved.
 // </copyright>
 //-------------------------------------------------------------
 // @owner=alexgor, deliant
@@ -28,7 +28,7 @@
 //  By default, the angle scale ranges from 0 to 360 degrees. However, 
 //  the X Axis Minimum and Maximum properties may be used to specify 
 //  a different angular scale. The Minimum angle value starts at the 
-//  top (12 O'Clock position) of the chart but can be changed to 
+//  top (12:00 Clock position) of the chart but can be changed to 
 //  another angle using the Crossing property. For example, setting 
 //  the Crossing property to 90 will move the "zero" value to the 
 //  3 O'Clock position.
