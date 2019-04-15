@@ -1,11 +1,10 @@
 parameters:
-
-  # Needed because agent pool can't be read from a user-defined variable (Azure DevOps limitation)
-  # todo: change the default value to "dotnet-external-temp-vs2019" once we have a public github repo
-  agentPool: dotnet-internal-temp-vs2019
-
-  # Needed because runAsPublic is used in template expressions, which can't read from user-defined variables
-  runAsPublic: true 
+  # parameters should default to values for running in the External / Public
+  # be read from a user-defined variable (Azure DevOps limitation)
+  agentPoolName: NetCorePublic-Int-Pool
+  agentPool: BuildPool.Windows.10.Amd64.VS2019.BT.Open 
+  runAsPublic: true                      
+  repoName: dotnet/winforms     
 
 jobs:
 - template: /eng/common/templates/jobs/jobs.yml
@@ -14,14 +13,15 @@ jobs:
     enableMicrobuild: true
     enablePublishBuildArtifacts: true
     enablePublishTestResults: true
-    # todo: set to true if/when we publish to BAR
-    enablePublishBuildAssets: false
+    enablePublishBuildAssets: true
     enableTelemetry: true
-    helixRepo: dotnet/winforms-datavisualization
+    helixRepo: $(repoName)
 
     jobs:
     - job: Windows_NT
-      pool: ${{ parameters.agentPool }}
+      pool: 
+        name: ${{ parameters.agentPoolName }}
+        queue: ${{ parameters.agentPool }}
 
       variables:
         # needed for darc (dependency flow) publishing
