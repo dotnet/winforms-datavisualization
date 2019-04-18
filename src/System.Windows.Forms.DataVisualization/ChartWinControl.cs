@@ -191,6 +191,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// NOTE: Fixes issue #4475
 			this.SetStyle(ControlStyles.DoubleBuffer, true);
 
+			// This is necessary to raise focus event on chart mouse click.
+			this.SetStyle(ControlStyles.UserMouse, true);
+
 			//*********************************************************
 			//** Create services
 			//*********************************************************
@@ -2075,7 +2078,44 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
 		#endregion
-		
+
+		#region Control protected methods
+
+		protected override void OnGotFocus(EventArgs e)
+		{
+			base.OnGotFocus(e);
+
+			using (Graphics g = Graphics.FromHwndInternal(Handle))
+			{
+				ControlPaint.DrawFocusRectangle(g, new Rectangle(1, 1, Size.Width - 2, Size.Height - 2));
+			}
+		}
+
+		protected override void OnLostFocus(EventArgs e)
+		{
+			base.OnLostFocus(e);
+
+			using (Graphics g = Graphics.FromHwndInternal(Handle))
+			{
+				using (Brush b = new SolidBrush(BackColor))
+				{
+					Rectangle topBorder = new Rectangle(1, 1, Size.Width - 2, 1);
+					g.FillRectangle(b, topBorder);
+
+					Rectangle rightBorder = new Rectangle(Size.Width - 2, 1, 1, Size.Height - 2);
+					g.FillRectangle(b, rightBorder);
+
+					Rectangle bottomBorder = new Rectangle(1, Size.Height - 2, Size.Width - 2, 1);
+					g.FillRectangle(b, bottomBorder);
+
+					Rectangle leftBorder = new Rectangle(1, 1, 1, Size.Height - 2);
+					g.FillRectangle(b, leftBorder);
+				}
+			}
+		}
+
+		#endregion
+
 		#region ISupportInitialize implementation
 
 		/// <summary>

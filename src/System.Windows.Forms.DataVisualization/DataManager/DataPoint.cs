@@ -3990,6 +3990,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						{
 							return (Color)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelForeColor);
 						}
+						if(SystemInformation.HighContrast)
+						{
+							return Drawing.SystemColors.WindowText;
+						}
 
 						return series.fontColor;
 
@@ -4836,6 +4840,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						{
 							return (Color)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelBackColor);
 						}
+						if(SystemInformation.HighContrast)
+						{
+							return Drawing.SystemColors.Window;
+						}
 
 						return series.labelBackColor;
 					}
@@ -4885,6 +4893,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						if(this.isEmptyPoint)
 						{
 							return (Color)series.EmptyPointStyle.GetAttributeObject(CommonCustomProperties.LabelBorderColor);
+						}
+						if(SystemInformation.HighContrast)
+						{
+							return Drawing.SystemColors.ActiveBorder;
 						}
 
 						return series.labelBorderColor;
