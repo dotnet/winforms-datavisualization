@@ -132,6 +132,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Private data members, which store properties values
         private Axis[] _axisArray = new Axis[4];
         private Color _backColor = Color.Empty;
+        private bool _backColorIsSet = false;
         private ChartHatchStyle _backHatchStyle = ChartHatchStyle.None;
         private string _backImage = "";
         private ChartImageWrapMode _backImageWrapMode = ChartImageWrapMode.Tile;
@@ -619,11 +620,19 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
             get
             {
+                if (SystemInformation.HighContrast && _backColor.IsEmpty && !_backColorIsSet)
+                {
+                    return Drawing.SystemColors.Control;
+                }
+
                 return _backColor;
             }
             set
             {
                 _backColor = value;
+
+                _backColorIsSet = true;
+
                 Invalidate();
             }
         }
