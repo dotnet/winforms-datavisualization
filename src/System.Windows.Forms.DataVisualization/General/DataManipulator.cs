@@ -1,4 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -239,55 +239,55 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		{
 			Series[] array = null;
 
-			if(obj == null)
+			if (obj == null)
 			{
 				return null;
 			}
 
-			// Parameter is one series
-			if(obj.GetType() == typeof(Series))
+			// Parameter is one series.
+			if (obj.GetType() == typeof(Series))
 			{
 				array = new Series[1];
 				array[0] = (Series)obj;
 			}
 			
-			// Parameter is a string (comma separated series names)
-			else if(obj.GetType() == typeof(string))
+			// Parameter is a string (comma separated series names).
+			else if (obj.GetType() == typeof(string))
 			{
 				string	series = (string)obj;
 				int		index = 0;
 
-				// "*" means process all series from the collection
-				if(series == "*")
+				// "*" means process all series from the collection.
+				if (series == "*")
 				{
-					// Create array of series
+					// Create array of series.
 					array = new Series[Common.DataManager.Series.Count];
 
-					// Add all series from the collection
-					foreach(Series s in Common.DataManager.Series)
+					// Add all series from the collection.
+					foreach (Series s in Common.DataManager.Series)
 					{
 						array[index] = s;
 						++index;
 					}
 				}
 
-				// Comma separated list
-				else if(series.Length > 0)
+				// Comma separated list.
+				else if (series.Length > 0)
 				{
-					// Replace commas in value string
+					// Replace commas in value string.
 					series = series.Replace("\\,", "\\x45");
 					series = series.Replace("\\=", "\\x46");
 
-					// Split string by comma
+					// Split string by comma.
 					string[] seriesNames = series.Split(',');
 
-					// Create array of series
+					// Create array of series.
 					array = new Series[seriesNames.Length];
 
-					// Find series by name
-					foreach(string s in seriesNames)
+					// Find series by name.
+					foreach (string s in seriesNames)
 					{
-						// Put pack a comma character
+						// Put pack a comma character.
 						string seriesName = s.Replace("\\x45", ",");
 						seriesName = seriesName.Replace("\\x46", "=");
 
@@ -297,9 +297,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 						catch(System.Exception)
 						{
-							if(createNew)
+							if (createNew)
 							{
-                                Series newSeries = new Series(seriesName.Trim());
+                                var newSeries = new Series(seriesName.Trim());
                                 Common.DataManager.Series.Add(newSeries);
                                 array[index] = newSeries;
 							}
@@ -336,20 +336,20 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Series array to sort.</param>
         private void Sort(PointSortOrder pointSortOrder, string sortBy, Series[] series)
 		{
-            // Check arguments
+            // Check arguments.
             if (sortBy == null)
-                throw new ArgumentNullException("sortBy");
+                throw new ArgumentNullException(nameof(sortBy));
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
             
-            // Check array of series
-			if(series.Length == 0)
+            // Check array of series.
+			if (series.Length == 0)
 			{
 				return;
 			}
 
-			// Sort series 
-            DataPointComparer comparer = new DataPointComparer(series[0], pointSortOrder, sortBy);
+			// Sort series.
+            var comparer = new DataPointComparer(series[0], pointSortOrder, sortBy);
 			this.Sort(comparer, series);
 		}
 
@@ -360,16 +360,16 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Series array to sort.</param>
 		private void Sort(IComparer<DataPoint> comparer, Series[] series)
 		{
-            // Check arguments
+            // Check arguments.
             if (comparer == null)
-                throw new ArgumentNullException("comparer");
+                throw new ArgumentNullException(nameof(comparer));
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
 
 			//**************************************************
 			//** Check array of series
 			//**************************************************
-			if(series.Length == 0)
+			if (series.Length == 0)
 			{
 				return;
 			}
@@ -377,14 +377,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** If we sorting more than one series
 			//**************************************************
-			if(series.Length > 1)
+			if (series.Length > 1)
 			{
-				// Check if series X values are aligned
+				// Check if series X values are aligned.
 				this.CheckXValuesAlignment(series);
 
-				// Apply points indexes to the first series
+				// Apply points indexes to the first series.
 				int pointIndex = 0;
-				foreach(DataPoint point in series[0].Points)
+				foreach (DataPoint point in series[0].Points)
 				{
 					point["_Index"] = pointIndex.ToString(System.Globalization.CultureInfo.InvariantCulture);
 					++pointIndex;
@@ -399,28 +399,28 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** If we sorting more than one series
 			//**************************************************
-			if(series.Length > 1)
+			if (series.Length > 1)
 			{
-				// Sort other series (depending on the first)
+				// Sort other series (depending on the first).
 				int toIndex = 0;
 				int fromIndex = 0;
-				foreach(DataPoint point in series[0].Points)
+				foreach (DataPoint point in series[0].Points)
 				{
-					// Move point from index is stored in point attribute (as index before sorting)
+					// Move point from index is stored in point attribute (as index before sorting).
 					fromIndex = int.Parse(point["_Index"], System.Globalization.CultureInfo.InvariantCulture);
 
-					// Move points in series
-					for(int seriesIndex = 1; seriesIndex < series.Length; seriesIndex++)
+					// Move points in series.
+					for (int seriesIndex = 1; seriesIndex < series.Length; seriesIndex++)
 					{
 						series[seriesIndex].Points.Insert(toIndex, series[seriesIndex].Points[toIndex + fromIndex]);
 					}
 
-					// Increase move point to index
+					// Increase move point to index.
 					++toIndex;
 				}
 
-				// Remove extra points from series
-				for(int seriesIndex = 1; seriesIndex < series.Length; seriesIndex++)
+				// Remove extra points from series.
+				for (int seriesIndex = 1; seriesIndex < series.Length; seriesIndex++)
 				{
 					while(series[seriesIndex].Points.Count > series[0].Points.Count)
 					{
@@ -431,7 +431,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				//**************************************************
 				//** Remove points index attribute
 				//**************************************************
-				foreach(DataPoint point in series[0].Points)
+				foreach (DataPoint point in series[0].Points)
 				{
 					point.DeleteCustomProperty("_Index");
 				}
@@ -450,9 +450,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="seriesName">Comma separated series names to sort.</param>
         public void Sort(PointSortOrder pointSortOrder, string sortBy, string seriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (seriesName == null)
-                throw new ArgumentNullException("seriesName");
+                throw new ArgumentNullException(nameof(seriesName));
 
             Sort(pointSortOrder, sortBy, ConvertToSeriesArray(seriesName, false));
 		}
@@ -464,9 +464,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Series to sort.</param>
         public void Sort(PointSortOrder pointSortOrder, Series series)
 		{
-            // Check arguments
+            // Check arguments.
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
 
             Sort(pointSortOrder, "Y", ConvertToSeriesArray(series, false));
 		}
@@ -478,9 +478,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="seriesName">Comma separated series names to sort.</param>
         public void Sort(PointSortOrder pointSortOrder, string seriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (seriesName == null)
-                throw new ArgumentNullException("seriesName");
+                throw new ArgumentNullException(nameof(seriesName));
 
             Sort(pointSortOrder, "Y", ConvertToSeriesArray(seriesName, false));
 		}
@@ -493,9 +493,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Series to sort.</param>
         public void Sort(PointSortOrder pointSortOrder, string sortBy, Series series)
 		{
-            // Check arguments
+            // Check arguments.
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
 
             Sort(pointSortOrder, sortBy, ConvertToSeriesArray(series, false));
 		}
@@ -507,9 +507,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="series">Series to sort.</param>
         public void Sort(IComparer<DataPoint> comparer, Series series)
 		{
-            // Check arguments - comparer is checked in the private override of Sort
+            // Check arguments - comparer is checked in the private override of Sort.
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
             
             Sort(comparer, ConvertToSeriesArray(series, false));
 		}
@@ -521,9 +521,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="seriesName">Comma separated series names to sort.</param>
         public void Sort(IComparer<DataPoint> comparer, string seriesName)
 		{
-            // Check arguments - comparer is checked in the private override of Sort
+            // Check arguments - comparer is checked in the private override of Sort.
             if (seriesName == null)
-                throw new ArgumentNullException("seriesName");
+                throw new ArgumentNullException(nameof(seriesName));
             
             Sort(comparer, ConvertToSeriesArray(seriesName, false));
 		}
@@ -551,9 +551,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double toXValue,
 			Series[] series)
 		{
-            // Check the arguments
+            // Check the arguments.
             if (interval <= 0)
-                throw new ArgumentOutOfRangeException("interval");
+                throw new ArgumentOutOfRangeException(nameof(interval));
 
 			//**************************************************
 			//** Automaticly detect minimum and maximum values
@@ -562,13 +562,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double	toX = Math.Max(fromXValue, toXValue);
 			bool	fromIsNaN = double.IsNaN(fromX);
 			bool	toIsNaN = double.IsNaN(toX);
-			foreach(Series ser in series)
+			foreach (Series ser in series)
 			{
-				if(ser.Points.Count >= 1)
+				if (ser.Points.Count >= 1)
 				{
-					if(toIsNaN)
+					if (toIsNaN)
 					{
-						if(double.IsNaN(toX))
+						if (double.IsNaN(toX))
 						{
 							toX = ser.Points[ser.Points.Count - 1].XValue;
 						}
@@ -577,9 +577,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							toX = Math.Max(toX, ser.Points[ser.Points.Count - 1].XValue);
 						}
 					}
-					if(fromIsNaN)
+					if (fromIsNaN)
 					{
-						if(double.IsNaN(fromX))
+						if (double.IsNaN(fromX))
 						{
 							fromX = ser.Points[0].XValue;
 						}
@@ -588,7 +588,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							fromX = Math.Min(fromX, ser.Points[0].XValue);
 						}
 					}
-					if(fromX > toX)
+					if (fromX > toX)
 					{
 						double tempValue = fromX;
 						fromX = toX;
@@ -604,8 +604,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double	nonAdjustedFromX = fromX;
             fromX = ChartHelper.AlignIntervalStart(fromX, interval, ConvertIntervalType(intervalType));
 
-			// Add offset to the start position
-			if( intervalOffset != 0 )
+			// Add offset to the start position.
+			if (intervalOffset != 0)
 			{
                 fromX = fromX + ChartHelper.GetIntervalSize(fromX, intervalOffset, ConvertIntervalType(intervalOffsetType), null, 0, DateTimeIntervalType.Number, true, false);
 			}
@@ -614,7 +614,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** Loop through all series
 			//**************************************************
-			foreach(Series ser in series)
+			foreach (Series ser in series)
 			{
 				//**************************************************
 				//** Loop through all data points
@@ -628,42 +628,42 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//** Check that X value is in range 
 					//**************************************************
 					bool	outOfRange = false;
-					if(double.IsNaN(fromXValue) && currentPointValue < nonAdjustedFromX ||
+					if (double.IsNaN(fromXValue) && currentPointValue < nonAdjustedFromX ||
 						!double.IsNaN(fromXValue) && currentPointValue < fromXValue)
 					{
 						outOfRange = true;
 					}
-					else if(currentPointValue > toXValue)
+					else if (currentPointValue > toXValue)
 					{
 						outOfRange = true;
 					}
 
 
-					// Current X value is in range of points values
-					if(!outOfRange)
+					// Current X value is in range of points values.
+					if (!outOfRange)
 					{
 						//**************************************************
 						//** Find required X value
 						//**************************************************
 						int	insertPosition = lastInsertPoint;
-						for(int pointIndex = lastInsertPoint; pointIndex < ser.Points.Count; pointIndex++)
+						for (int pointIndex = lastInsertPoint; pointIndex < ser.Points.Count; pointIndex++)
 						{
-							// Value was found
-							if(ser.Points[pointIndex].XValue == currentPointValue)
+							// Value was found.
+							if (ser.Points[pointIndex].XValue == currentPointValue)
 							{
 								insertPosition = -1;
 								break;
 							}
 
-							// Save point index where we should insert new empty point
-							if(ser.Points[pointIndex].XValue > currentPointValue)
+							// Save point index where we should insert new empty point.
+							if (ser.Points[pointIndex].XValue > currentPointValue)
 							{
 								insertPosition = pointIndex;
 								break;
 							}
 
-							// Insert as last point
-							if(pointIndex == (ser.Points.Count - 1))
+							// Insert as last point.
+							if (pointIndex == (ser.Points.Count - 1))
 							{
 								insertPosition = ser.Points.Count;
 							}
@@ -672,11 +672,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						//**************************************************
 						//** Required value was not found - insert empty data point
 						//**************************************************
-						if(insertPosition != -1)
+						if (insertPosition != -1)
 						{
 							lastInsertPoint = insertPosition;
 							++numberOfPoints;
-							DataPoint	dataPoint = new DataPoint(ser);
+							var	dataPoint = new DataPoint(ser);
 							dataPoint.XValue = currentPointValue;
 							dataPoint.IsEmpty = true;
 							ser.Points.Insert(insertPosition, dataPoint);
@@ -695,7 +695,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//** Check if we exceed number of empty points
 					//** we can add.
 					//**************************************************
-					if(numberOfPoints > 1000)
+					if (numberOfPoints > 1000)
 					{
 						currentPointValue = toX + 1;
 						continue;
@@ -824,9 +824,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double toXValue,
 			string seriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (seriesName == null)
-                throw new ArgumentNullException("seriesName"); 
+                throw new ArgumentNullException(nameof(seriesName)); 
             
             InsertEmptyPoints(
 				interval, 
@@ -860,7 +860,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		{
             // Check arguments
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
             
             InsertEmptyPoints(
 				interval, 
@@ -887,22 +887,22 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//*****************************************************
 			//** Create DataSet object
 			//*****************************************************
-			DataSet	dataSet = new DataSet();
+			var	dataSet = new DataSet();
             dataSet.Locale = System.Globalization.CultureInfo.CurrentCulture;
-			// If input series are specified
-			if(series != null)
+			// If input series are specified.
+			if (series != null)
 			{
-				// Export each series in the loop
-				foreach(Series ser in series)
+				// Export each series in the loop.
+				foreach (Series ser in series)
 				{
 
 					//*****************************************************
 					//** Check if all X values are zeros
 					//*****************************************************
 					bool	zeroXValues = true;
-					foreach( DataPoint point in ser.Points )
+					foreach (DataPoint point in ser.Points)
 					{
-						if( point.XValue != 0.0 )
+						if (point.XValue != 0.0)
 						{
 							zeroXValues = false;
 							break;
@@ -919,18 +919,18 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//*****************************************************
 					//** Create new table for the series
 					//*****************************************************
-					DataTable seriesTable = new DataTable(ser.Name);
+					var seriesTable = new DataTable(ser.Name);
                     seriesTable.Locale = System.Globalization.CultureInfo.CurrentCulture;
 
 					//*****************************************************
 					//** Add X column into data table schema
 					//*****************************************************
 					Type	columnType = typeof(double);
-					if(ser.IsXValueDateTime())
+					if (ser.IsXValueDateTime())
 					{
 						columnType = typeof(DateTime);
 					}
-					else if(ser.XValueType == ChartValueType.String)
+					else if (ser.XValueType == ChartValueType.String)
 					{
 						columnType = typeof(string);
 					}
@@ -941,17 +941,17 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//** Add Y column(s) into data table schema
 					//*****************************************************
 					columnType = typeof(double);
-					if(ser.IsYValueDateTime())
+					if (ser.IsYValueDateTime())
 					{
 						columnType = typeof(DateTime);
 					}
-					else if(ser.YValueType == ChartValueType.String)
+					else if (ser.YValueType == ChartValueType.String)
 					{
 						columnType = typeof(string);
 					}
-					for(int yIndex = 0; yIndex < ser.YValuesPerPoint; yIndex++)
+					for (int yIndex = 0; yIndex < ser.YValuesPerPoint; yIndex++)
 					{
-						if(yIndex == 0)
+						if (yIndex == 0)
 						{
 							seriesTable.Columns.Add("Y", columnType);
 						}
@@ -966,52 +966,52 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//** Fill data table's rows
 					//*****************************************************
 					double pointIndex = 1.0;
-					foreach(DataPoint point in ser.Points)
+					foreach (DataPoint point in ser.Points)
 					{
-						if(!point.IsEmpty || !this.IsEmptyPointIgnored)
+						if (!point.IsEmpty || !this.IsEmptyPointIgnored)
 						{
 							DataRow dataRow = seriesTable.NewRow();
 					
-							// Set row X value
+							// Set row X value.
 							object	xValue = point.XValue;
-							if(ser.IsXValueDateTime())
+							if (ser.IsXValueDateTime())
 							{
                                 if (Double.IsNaN(point.XValue))
                                     xValue = DBNull.Value;
                                 else
                                     xValue = DateTime.FromOADate(point.XValue);
 							}
-							else if(ser.XValueType == ChartValueType.String)
+							else if (ser.XValueType == ChartValueType.String)
 							{
 								xValue = point.AxisLabel;
 							}
 							dataRow["X"] = (zeroXValues) ? pointIndex : xValue;
 
-							// Set row Y value(s)
-							for(int yIndex = 0; yIndex < ser.YValuesPerPoint; yIndex++)
+							// Set row Y value(s).
+							for (int yIndex = 0; yIndex < ser.YValuesPerPoint; yIndex++)
 							{
 								object	yValue = point.YValues[yIndex];
-								if(!point.IsEmpty)
+								if (!point.IsEmpty)
 								{
-									if(ser.IsYValueDateTime())
+									if (ser.IsYValueDateTime())
 									{
                                         if (Double.IsNaN(point.YValues[yIndex]))
                                             xValue = DBNull.Value;
                                         else
                                             yValue = DateTime.FromOADate(point.YValues[yIndex]);
 									}
-									else if(ser.YValueType == ChartValueType.String)
+									else if (ser.YValueType == ChartValueType.String)
 									{
 										yValue = point.AxisLabel;
 									}
 								}
-								else if(!this.IsEmptyPointIgnored)
+								else if (!this.IsEmptyPointIgnored)
 								{
-									// Special handling of empty points
+									// Special handling of empty points.
 									yValue = DBNull.Value;
 								}
 
-								if(yIndex == 0)
+								if (yIndex == 0)
 								{
 									dataRow["Y"] = yValue;
 								}
@@ -1021,14 +1021,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
 								}
 							}
 
-							// Add row to the table
+							// Add row to the table.
 							seriesTable.Rows.Add(dataRow);
 
 							++pointIndex;
 						}
 					}
 
-					// Accept changes
+					// Accept changes.
 					seriesTable.AcceptChanges();
 
 					//*****************************************************
@@ -1061,9 +1061,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>Dataset object with series data.</returns>
 		public DataSet ExportSeriesValues(string seriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (seriesNames == null)
-                throw new ArgumentNullException(seriesNames);
+                throw new ArgumentNullException(nameof(seriesNames));
 
 			return ExportSeriesValues(ConvertToSeriesArray(seriesNames, false));
 		}
@@ -1075,9 +1075,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>Dataset object with series data.</returns>
 		public DataSet ExportSeriesValues(Series series)
 		{
-            // Check arguments
+            // Check arguments.
             if (series == null)
-                throw new ArgumentNullException("series");
+                throw new ArgumentNullException(nameof(series));
             
             return ExportSeriesValues(ConvertToSeriesArray(series, false));
 		}
@@ -1141,15 +1141,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string usingValue,
 			bool getTopValues)
 		{
-			// Check input/output series arrays
+			// Check input/output series arrays.
 			CheckSeriesArrays(inputSeries, outputSeries);
 
-			// Check input series alignment
+			// Check input series alignment.
 			CheckXValuesAlignment(inputSeries);
 
-			if(pointCount <= 0)
+			if (pointCount <= 0)
 			{
-                throw (new ArgumentOutOfRangeException("pointCount", SR.ExceptionDataManipulatorPointCountIsZero));
+                throw (new ArgumentOutOfRangeException(nameof(pointCount), SR.ExceptionDataManipulatorPointCountIsZero));
 			}
 
 			//**************************************************
@@ -1157,39 +1157,39 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//** in all
 			//**************************************************
 
-			// Define an output series array
-			Series[] output = new Series[inputSeries.Length];
-			for(int seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+			// Define an output series array.
+			var output = new Series[inputSeries.Length];
+			for (int seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 			{
 				output[seriesIndex] = inputSeries[seriesIndex];
-				if(outputSeries != null && outputSeries.Length > seriesIndex)
+				if (outputSeries != null && outputSeries.Length > seriesIndex)
 				{
 					output[seriesIndex] = outputSeries[seriesIndex];
 				}
 
-				// Remove all points from the output series
-				if(output[seriesIndex] != inputSeries[seriesIndex])
+				// Remove all points from the output series.
+				if (output[seriesIndex] != inputSeries[seriesIndex])
 				{
 					output[seriesIndex].Points.Clear();
 
-					// Make sure there is enough Y values per point
+					// Make sure there is enough Y values per point.
 					output[seriesIndex].YValuesPerPoint = inputSeries[seriesIndex].YValuesPerPoint;
 
-					// Copy X values type
-					if(output[seriesIndex].XValueType == ChartValueType.Auto || output[seriesIndex].autoXValueType)
+					// Copy X values type.
+					if (output[seriesIndex].XValueType == ChartValueType.Auto || output[seriesIndex].autoXValueType)
 					{
 						output[seriesIndex].XValueType = inputSeries[seriesIndex].XValueType;
 						output[seriesIndex].autoXValueType = true;
 					}
-					// Copy Y values type
-					if(output[seriesIndex].YValueType == ChartValueType.Auto || output[seriesIndex].autoYValueType)
+					// Copy Y values type.
+					if (output[seriesIndex].YValueType == ChartValueType.Auto || output[seriesIndex].autoYValueType)
 					{
 						output[seriesIndex].YValueType = inputSeries[seriesIndex].YValueType;
 						output[seriesIndex].autoYValueType = true;
 					}
 
-					// Copy input points into output
-					foreach(DataPoint point in inputSeries[seriesIndex].Points)
+					// Copy input points into output.
+					foreach (DataPoint point in inputSeries[seriesIndex].Points)
 					{
 						output[seriesIndex].Points.Add(point.Clone());
 					}
@@ -1197,8 +1197,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			}
 
-			// No points to filter
-			if(inputSeries[0].Points.Count == 0)
+			// No points to filter.
+			if (inputSeries[0].Points.Count == 0)
 			{
 				return;
 			}
@@ -1213,13 +1213,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** Get top/bottom points
 			//**************************************************
-			// Process all series
-			for(int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+			// Process all series.
+			for (int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 			{
-				// Only keep N first points
-				while(output[seriesIndex].Points.Count > pointCount)
+				// Only keep N first points.
+				while (output[seriesIndex].Points.Count > pointCount)
 				{
-					if(this.FilterSetEmptyPoints)
+					if (this.FilterSetEmptyPoints)
 					{
 						output[seriesIndex].Points[pointCount].IsEmpty = true;
 						++pointCount;
@@ -1249,9 +1249,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			CheckXValuesAlignment(inputSeries);
 
-			if(filterInterface == null)
+			if (filterInterface == null)
 			{
-				throw(new ArgumentNullException("filterInterface"));
+				throw(new ArgumentNullException(nameof(filterInterface)));
 			}
 
 			//**************************************************
@@ -1259,32 +1259,32 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//** in all
 			//**************************************************
 
-			// Define an output series array
-			Series[] output = new Series[inputSeries.Length];
-			for(int seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+			// Define an output series array.
+			var output = new Series[inputSeries.Length];
+			for (int seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 			{
 				output[seriesIndex] = inputSeries[seriesIndex];
-				if(outputSeries != null && outputSeries.Length > seriesIndex)
+				if (outputSeries != null && outputSeries.Length > seriesIndex)
 				{
 					output[seriesIndex] = outputSeries[seriesIndex];
 				}
 
-				// Remove all points from the output series
-				if(output[seriesIndex] != inputSeries[seriesIndex])
+				// Remove all points from the output series.
+				if (output[seriesIndex] != inputSeries[seriesIndex])
 				{
 					output[seriesIndex].Points.Clear();
 
-					// Make sure there is enough Y values per point
+					// Make sure there is enough Y values per point.
 					output[seriesIndex].YValuesPerPoint = inputSeries[seriesIndex].YValuesPerPoint;
 
-					// Copy X values type
-					if(output[seriesIndex].XValueType == ChartValueType.Auto || output[seriesIndex].autoXValueType)
+					// Copy X values type.
+					if (output[seriesIndex].XValueType == ChartValueType.Auto || output[seriesIndex].autoXValueType)
 					{
 						output[seriesIndex].XValueType = inputSeries[seriesIndex].XValueType;
 						output[seriesIndex].autoXValueType = true;
 					}
-					// Copy Y values type
-					if(output[seriesIndex].YValueType == ChartValueType.Auto || output[seriesIndex].autoYValueType)
+					// Copy Y values type.
+					if (output[seriesIndex].YValueType == ChartValueType.Auto || output[seriesIndex].autoYValueType)
 					{
 						output[seriesIndex].YValueType = inputSeries[seriesIndex].YValueType;
 						output[seriesIndex].autoYValueType = true;
@@ -1294,8 +1294,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 			}
 
-			// No points to filter
-			if(inputSeries[0].Points.Count == 0)
+			// No points to filter.
+			if (inputSeries[0].Points.Count == 0)
 			{
 				return;
 			}
@@ -1304,50 +1304,50 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//** Loop through all points of the first input series
 			//**************************************************
 			int originalPointIndex = 0;
-			for(int pointIndex = 0; pointIndex < inputSeries[0].Points.Count; pointIndex++, originalPointIndex++)
+			for (int pointIndex = 0; pointIndex < inputSeries[0].Points.Count; pointIndex++, originalPointIndex++)
 			{
 				bool pointRemoved = false;
 
-				// Check if point match the criteria
+				// Check if point match the criteria.
 				bool matchCriteria = filterInterface.FilterDataPoint(
 					inputSeries[0].Points[pointIndex],
 					inputSeries[0],
 					originalPointIndex) == this.FilterMatchedPoints;
 
 
-				// Process all series
-				for(int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+				// Process all series.
+				for (int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 				{
 					bool seriesMatchCriteria = matchCriteria;
-					if(output[seriesIndex] != inputSeries[seriesIndex])
+					if (output[seriesIndex] != inputSeries[seriesIndex])
 					{
-						if(seriesMatchCriteria && !this.FilterSetEmptyPoints)
+						if (seriesMatchCriteria && !this.FilterSetEmptyPoints)
 						{
 							// Don't do anything...
 							seriesMatchCriteria = false;
 						}
 						else
 						{
-							// Copy point into the output series for all series
+							// Copy point into the output series for all series.
 							output[seriesIndex].Points.Add(inputSeries[seriesIndex].Points[pointIndex].Clone());
 						}
 					}
 					
 				
-					// If point match the criteria
-					if(seriesMatchCriteria)
+					// If point match the criteria.
+					if (seriesMatchCriteria)
 					{
-						// Set point's empty flag
-						if(this.FilterSetEmptyPoints)
+						// Set point's empty flag.
+						if (this.FilterSetEmptyPoints)
 						{
 							output[seriesIndex].Points[pointIndex].IsEmpty = true;
-							for(int valueIndex = 0; valueIndex <  output[seriesIndex].Points[pointIndex].YValues.Length; valueIndex++)
+							for (int valueIndex = 0; valueIndex <  output[seriesIndex].Points[pointIndex].YValues.Length; valueIndex++)
 							{
 								output[seriesIndex].Points[pointIndex].YValues[valueIndex] = 0.0;
 							}
 						}
 
-						// Remove point
+						// Remove point.
 						else
 						{
 							output[seriesIndex].Points.RemoveAt(pointIndex);
@@ -1357,7 +1357,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				}
 
 				// Adjust index because of the removed point
-				if(pointRemoved)
+				if (pointRemoved)
 				{
 					--pointIndex;
 				}
@@ -1451,31 +1451,31 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			/// <returns>Indicates that point should be filtered.</returns>
 			public bool FilterDataPoint(DataPoint point, Series series, int pointIndex)
 			{
-				// Check if point match the criteria
+				// Check if point match the criteria.
 				bool matchCriteria = false;
-				switch(_compareMethod)
+				switch (_compareMethod)
 				{
-					case(CompareMethod.EqualTo):
+					case (CompareMethod.EqualTo):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							== _compareValue;
 						break;
-					case(CompareMethod.LessThan):
+					case (CompareMethod.LessThan):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							< _compareValue;
 						break;
-					case(CompareMethod.LessThanOrEqualTo):
+					case (CompareMethod.LessThanOrEqualTo):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							<= _compareValue;
 						break;
-					case(CompareMethod.MoreThan):
+					case (CompareMethod.MoreThan):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							> _compareValue;
 						break;
-					case(CompareMethod.MoreThanOrEqualTo):
+					case (CompareMethod.MoreThanOrEqualTo):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							>= _compareValue;
 						break;
-					case(CompareMethod.NotEqualTo):
+					case (CompareMethod.NotEqualTo):
 						matchCriteria = point.GetValueByName(_usingValue) 
 							!= _compareValue;
 						break;
@@ -1493,60 +1493,60 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>Array of integer indexes.</returns>
 		private int[] ConvertElementIndexesToArray(string rangeElements)
 		{
-			// Split input string by comma
+			// Split input string by comma.
 			string[] indexes = rangeElements.Split(',');
 
-			// Check if there are items in the array
-			if(indexes.Length == 0)
+			// Check if there are items in the array.
+			if (indexes.Length == 0)
 			{
-                throw (new ArgumentException(SR.ExceptionDataManipulatorIndexUndefined, "rangeElements"));
+                throw (new ArgumentException(SR.ExceptionDataManipulatorIndexUndefined, nameof(rangeElements)));
 			}
 
-			// Allocate memory for the result array
+			// Allocate memory for the result array.
 			int[]	result = new int[indexes.Length * 2];
 
-			// Process each element index
+			// Process each element index.
 			int		index = 0;
-			foreach(string str in indexes)
+			foreach (string str in indexes)
 			{
-				// Check if it's a simple index or a range
-				if(str.IndexOf('-') != -1)
+				// Check if it's a simple index or a range.
+				if (str.IndexOf('-') != -1)
 				{
 					string[]	rangeIndex = str.Split('-');
-					if(rangeIndex.Length == 2)
+					if (rangeIndex.Length == 2)
 					{
-						// Convert to integer
+						// Convert to integer.
 						try
 						{
 							result[index] = Int32.Parse(rangeIndex[0], System.Globalization.CultureInfo.InvariantCulture);
 							result[index + 1] = Int32.Parse(rangeIndex[1], System.Globalization.CultureInfo.InvariantCulture);
 
-							if(result[index + 1] < result[index])
+							if (result[index + 1] < result[index])
 							{
 								int temp = result[index];
 								result[index] = result[index + 1];
 								result[index + 1] = temp;
 							}
 						}
-						catch(System.Exception)
+						catch (System.Exception)
 						{
-                            throw (new ArgumentException(SR.ExceptionDataManipulatorIndexFormatInvalid, "rangeElements"));
+                            throw (new ArgumentException(SR.ExceptionDataManipulatorIndexFormatInvalid, nameof(rangeElements)));
 						}
 					}
 					else
 					{
-                        throw (new ArgumentException(SR.ExceptionDataManipulatorIndexFormatInvalid, "rangeElements"));
+                        throw (new ArgumentException(SR.ExceptionDataManipulatorIndexFormatInvalid, nameof(rangeElements)));
 					}
 				}
 				else
 				{
-					// Convert to integer
+					// Convert to integer.
 					try
 					{
 						result[index] = Int32.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
 						result[index + 1] = result[index];
 					}
-					catch(System.Exception)
+					catch (System.Exception)
 					{
                         throw (new ArgumentException(SR.ExceptionDataManipulatorIndexFormatInvalid, "rangeElements"));
 					}
@@ -1570,40 +1570,40 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			int[] rangeElements,
 			DataPoint point)
 		{
-			// Conver X value to DateTime
+			// Convert X value to DateTime.
 			DateTime dateTimeValue = DateTime.FromOADate(point.XValue);
 
-			for(int index = 0; index < rangeElements.Length; index += 2)
+			for (int index = 0; index < rangeElements.Length; index += 2)
 			{
-				switch(dateRange)
+				switch (dateRange)
 				{
-					case(DateRangeType.Year):
-						if(dateTimeValue.Year >= rangeElements[index] && 
+					case (DateRangeType.Year):
+						if (dateTimeValue.Year >= rangeElements[index] && 
 							dateTimeValue.Year <= rangeElements[index+1])
 							return true;
 						break;
-					case(DateRangeType.Month):
-						if(dateTimeValue.Month >= rangeElements[index] && 
+					case (DateRangeType.Month):
+						if (dateTimeValue.Month >= rangeElements[index] && 
 							dateTimeValue.Month <= rangeElements[index+1])
 							return true;
 						break;
-					case(DateRangeType.DayOfWeek):
-						if((int)dateTimeValue.DayOfWeek >= rangeElements[index] && 
+					case (DateRangeType.DayOfWeek):
+						if ((int)dateTimeValue.DayOfWeek >= rangeElements[index] && 
 							(int)dateTimeValue.DayOfWeek <= rangeElements[index+1])
 							return true;
 						break;
-					case(DateRangeType.DayOfMonth):
-						if(dateTimeValue.Day >= rangeElements[index] && 
+					case (DateRangeType.DayOfMonth):
+						if (dateTimeValue.Day >= rangeElements[index] && 
 							dateTimeValue.Day <= rangeElements[index+1])
 							return true;
 						break;
-					case(DateRangeType.Hour):
-						if(dateTimeValue.Hour >= rangeElements[index] && 
+					case (DateRangeType.Hour):
+						if (dateTimeValue.Hour >= rangeElements[index] && 
 							dateTimeValue.Hour <= rangeElements[index+1])
 							return true;
 						break;
-					case(DateRangeType.Minute):
-						if(dateTimeValue.Minute >= rangeElements[index] && 
+					case (DateRangeType.Minute):
+						if (dateTimeValue.Minute >= rangeElements[index] && 
 							dateTimeValue.Minute <= rangeElements[index+1])
 							return true;
 						break;
@@ -1633,13 +1633,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesNames,
 			string outputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (rangeElements == null)
-                throw new ArgumentNullException("rangeElements");
+                throw new ArgumentNullException(nameof(rangeElements));
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
-			// Filter points using filtering interface
+			// Filter points using filtering interface.
 			Filter(new PointElementFilter(this, dateRange, rangeElements), 
 				ConvertToSeriesArray(inputSeriesNames, false), 
 				ConvertToSeriesArray(outputSeriesNames, true));
@@ -1660,11 +1660,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string rangeElements,
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (rangeElements == null)
-                throw new ArgumentNullException("rangeElements");
+                throw new ArgumentNullException(nameof(rangeElements));
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
             Filter(dateRange, rangeElements, inputSeries, null);
 		}
@@ -1685,13 +1685,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries,
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (rangeElements == null)
-                throw new ArgumentNullException("rangeElements");
+                throw new ArgumentNullException(nameof(rangeElements));
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
-			// Filter points using filtering interface
+			// Filter points using filtering interface.
 			Filter(new PointElementFilter(this, dateRange, rangeElements), 
 				ConvertToSeriesArray(inputSeries, false), 
 				ConvertToSeriesArray(outputSeries, false));
@@ -1712,11 +1712,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string rangeElements,
 			string inputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (rangeElements == null)
-                throw new ArgumentNullException("rangeElements");
+                throw new ArgumentNullException(nameof(rangeElements));
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
             Filter(dateRange, 
 				rangeElements, 
@@ -1735,9 +1735,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double compareValue,
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Filter(compareMethod,
 				compareValue,
@@ -1758,11 +1758,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries,
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
-			// Filter points using filtering interface
+			// Filter points using filtering interface.
 			Filter(new PointValueFilter(compareMethod, compareValue, "Y"), 
 				ConvertToSeriesArray(inputSeries, false),
 				ConvertToSeriesArray(outputSeries, false));
@@ -1782,13 +1782,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series outputSeries,
 			string usingValue)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
-			// Filter points using filtering interface
+			// Filter points using filtering interface.
 			Filter(new PointValueFilter(compareMethod, compareValue, usingValue), 
 				ConvertToSeriesArray(inputSeries, false),
 				ConvertToSeriesArray(outputSeries, false));
@@ -1805,9 +1805,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			double compareValue,
 			string inputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
 			Filter(compareMethod,
 				compareValue,
@@ -1828,9 +1828,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesNames,
 			string outputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
 			// Filter points using filtering interface
 			Filter(new PointValueFilter(compareMethod, compareValue, "Y"), 
@@ -1852,13 +1852,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string outputSeriesNames,
 			string usingValue)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
-			// Filter points using filtering interface
+			// Filter points using filtering interface.
 			Filter(new PointValueFilter(compareMethod, compareValue, usingValue), 
 				ConvertToSeriesArray(inputSeriesNames, false),
 				ConvertToSeriesArray(outputSeriesNames, true));
@@ -1879,11 +1879,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string usingValue,
 			bool getTopValues)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -1901,9 +1901,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		public void FilterTopN(int pointCount,
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             
             FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeries, false),
@@ -1922,9 +1922,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries,
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             
             FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeries, false),
@@ -1945,11 +1945,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series outputSeries,
 			string usingValue)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeries, false),
@@ -1972,11 +1972,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string usingValue,
 			bool getTopValues)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeries, false),
@@ -1995,9 +1995,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		public void FilterTopN(int pointCount,
 			string inputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -2017,9 +2017,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesNames,
 			string outputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -2041,11 +2041,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string outputSeriesNames,
 			string usingValue)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
             if (usingValue == null)
-                throw new ArgumentNullException("usingValue");
+                throw new ArgumentNullException(nameof(usingValue));
 
 			FilterTopN(pointCount,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -2064,11 +2064,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
         public void Filter(IDataPointFilter filterInterface,
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (filterInterface == null)
-                throw new ArgumentNullException("filterInterface");
+                throw new ArgumentNullException(nameof(filterInterface));
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Filter(filterInterface,
 				ConvertToSeriesArray(inputSeries, false),
@@ -2085,11 +2085,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries,
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (filterInterface == null)
-                throw new ArgumentNullException("filterInterface");
+                throw new ArgumentNullException(nameof(filterInterface));
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Filter(filterInterface,
 				ConvertToSeriesArray(inputSeries, false),
@@ -2105,11 +2105,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
         public void Filter(IDataPointFilter filterInterface,
 			string inputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (filterInterface == null)
-                throw new ArgumentNullException("filterInterface");
+                throw new ArgumentNullException(nameof(filterInterface));
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
 
 			Filter(filterInterface,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -2126,11 +2126,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesNames,
 			string outputSeriesNames)
 		{
-            // Check arguments
+            // Check arguments.
             if (filterInterface == null)
-                throw new ArgumentNullException("filterInterface");
+                throw new ArgumentNullException(nameof(filterInterface));
             if (inputSeriesNames == null)
-                throw new ArgumentNullException("inputSeriesNames");
+                throw new ArgumentNullException(nameof(inputSeriesNames));
             
             Filter(filterInterface,
 				ConvertToSeriesArray(inputSeriesNames, false),
@@ -2169,9 +2169,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="outputSeries">Array of output series.</param>
 		private void GroupByAxisLabel(string formula, Series[] inputSeries, Series[] outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (formula == null)
-                throw new ArgumentNullException("formula");
+                throw new ArgumentNullException(nameof(formula));
 
 			//**************************************************
 			//** Check input/output series arrays
@@ -2187,28 +2187,28 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** Loop through all input series
 			//**************************************************
-			for(int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+			for (int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 			{
-				// Define an input and output series
+				// Define an input and output series.
 				Series input = inputSeries[seriesIndex];
 				Series output = input;
-				if(outputSeries != null && seriesIndex < outputSeries.Length)
+				if (outputSeries != null && seriesIndex < outputSeries.Length)
 				{
 					output = outputSeries[seriesIndex];
 
-					// Remove all points from the output series
-					if(output.Name != input.Name)
+					// Remove all points from the output series.
+					if (output.Name != input.Name)
 					{
 						output.Points.Clear();
 
-						// Copy X values type
-						if(output.XValueType == ChartValueType.Auto || output.autoXValueType)
+						// Copy X values type.
+						if (output.XValueType == ChartValueType.Auto || output.autoXValueType)
 						{
 							output.XValueType = input.XValueType;
 							output.autoXValueType = true;
 						}
-						// Copy Y values type
-						if(output.YValueType == ChartValueType.Auto || output.autoYValueType)
+						// Copy Y values type.
+						if (output.YValueType == ChartValueType.Auto || output.autoYValueType)
 						{
 							output.YValueType = input.YValueType;
 							output.autoYValueType = true;
@@ -2217,13 +2217,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					}
 				}
 
-				// Copy input data into temp storage
-				if(input != output)
+				// Copy input data into temp storage.
+				if (input != output)
 				{
-					Series inputTemp = new Series("Temp", input.YValuesPerPoint);
-					foreach(DataPoint point in input.Points)
+					var inputTemp = new Series("Temp", input.YValuesPerPoint);
+					foreach (DataPoint point in input.Points)
 					{
-						DataPoint dp = new DataPoint(inputTemp);
+						var dp = new DataPoint(inputTemp);
 						dp.AxisLabel = point.AxisLabel;
 						dp.XValue = point.XValue;
 						point.YValues.CopyTo(dp.YValues, 0);
@@ -2233,13 +2233,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					input = inputTemp;
 				}
 
-				// No points to group
-				if(input.Points.Count == 0)
+				// No points to group.
+				if (input.Points.Count == 0)
 				{
 					continue;
 				}
 
-				// Make sure there is enough Y values per point
+				// Make sure there is enough Y values per point.
 				output.YValuesPerPoint = outputValuesNumber - 1;
 
 				//**************************************************
@@ -2257,7 +2257,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				//** Allocate array for storing temp. 
 				//** values of the point
 				//**************************************************
-				double[]	pointTempValues = new double[outputValuesNumber];
+				var	pointTempValues = new double[outputValuesNumber];
 
 				//**************************************************
 				//** Loop through the series points 
@@ -2265,24 +2265,24 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				string	currentLabel = null;
 				bool	lastPoint = false;
 				int		emptyPointsSkipped = 0;
-				for(int	pointIndex = 0; pointIndex <= input.Points.Count && !lastPoint; pointIndex++)
+				for (int	pointIndex = 0; pointIndex <= input.Points.Count && !lastPoint; pointIndex++)
 				{	
 					bool	endOfInterval = false;
 					
 					//**************************************************
 					//** Check if it's the last point
 					//**************************************************
-					if(pointIndex == input.Points.Count)
+					if (pointIndex == input.Points.Count)
 					{
-						// End of the group interval detected
+						// End of the group interval detected.
 						lastPoint = true;
 						intervalLastIndex = pointIndex - 1;
 						pointIndex = intervalLastIndex;
 						endOfInterval = true;
 					}
 
-					// Set current axis label
-					if(!endOfInterval && currentLabel == null)
+					// Set current axis label.
+					if (!endOfInterval && currentLabel == null)
 					{
 						currentLabel = input.Points[pointIndex].AxisLabel;
 					}
@@ -2290,9 +2290,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//**************************************************
 					//** Check if current point X value is inside current group
 					//**************************************************
-					if(!endOfInterval && input.Points[pointIndex].AxisLabel != currentLabel)
+					if (!endOfInterval && input.Points[pointIndex].AxisLabel != currentLabel)
 					{
-						// End of the group interval detected
+						// End of the group interval detected.
 						intervalLastIndex = pointIndex - 1;
 						endOfInterval = true;
 					}
@@ -2300,9 +2300,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//**************************************************
 					//** Process data at end of the interval
 					//**************************************************
-					if(endOfInterval)
+					if (endOfInterval)
 					{
-						// Finalize the calculation
+						// Finalize the calculation.
 						ProcessPointValues(
 							functions, 
 							pointTempValues,
@@ -2317,18 +2317,18 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						//**************************************************
 						//** Calculate the X values
 						//**************************************************
-						if(functions[0].function == GroupingFunction.Center)
+						if (functions[0].function == GroupingFunction.Center)
 						{
 							pointTempValues[0] = 
 								(inputSeries[seriesIndex].Points[intervalFirstIndex].XValue + 
 								inputSeries[seriesIndex].Points[intervalLastIndex].XValue) / 2.0;
 						}
-						else if(functions[0].function == GroupingFunction.First)
+						else if (functions[0].function == GroupingFunction.First)
 						{
 							pointTempValues[0] = 
 								inputSeries[seriesIndex].Points[intervalFirstIndex].XValue;
 						}
-						if(functions[0].function == GroupingFunction.Last)
+						if (functions[0].function == GroupingFunction.Last)
 						{
 							pointTempValues[0] = 
 								inputSeries[seriesIndex].Points[intervalLastIndex].XValue;
@@ -2337,11 +2337,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						//**************************************************
 						//** Create new point object
 						//**************************************************
-						DataPoint	newPoint = new DataPoint();
+						var	newPoint = new DataPoint();
 						newPoint.ResizeYValueArray(outputValuesNumber - 1);
 						newPoint.XValue = pointTempValues[0];
 						newPoint.AxisLabel = currentLabel;
-						for(int i = 1; i < pointTempValues.Length; i++)
+						for (int i = 1; i < pointTempValues.Length; i++)
 						{
 							newPoint.YValues[i - 1] = pointTempValues[i];
 						}
@@ -2351,13 +2351,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						//** series are the same
 						//**************************************************
 						int	newPointIndex = output.Points.Count;
-						if(output == input)
+						if (output == input)
 						{
 							newPointIndex = intervalFirstIndex;
 							pointIndex = newPointIndex + 1;
 
-							// Remove grouped points
-							for(int removedPoint = intervalFirstIndex; removedPoint <= intervalLastIndex; removedPoint++)
+							// Remove grouped points.
+							for (int removedPoint = intervalFirstIndex; removedPoint <= intervalLastIndex; removedPoint++)
 							{
 								output.Points.RemoveAt(intervalFirstIndex);
 							}
@@ -2369,15 +2369,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						output.Points.Insert(newPointIndex, newPoint);
 
 
-						// Set new group interval indexes
+						// Set new group interval indexes.
 						intervalFirstIndex = pointIndex;
 						intervalLastIndex = pointIndex;
 						
-						// Reset number of skipped points
+						// Reset number of skipped points.
 						emptyPointsSkipped = 0;
 						currentLabel = null;
 
-						// Process point once again
+						// Process point once again.
 						--pointIndex;
 
 						continue;
@@ -2418,9 +2418,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series[] inputSeries, 
 			Series[] outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (formula == null)
-                throw new ArgumentNullException("formula");
+                throw new ArgumentNullException(nameof(formula));
 
 			//**************************************************
 			//** Check input/output series arrays
@@ -2436,28 +2436,28 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//**************************************************
 			//** Loop through all input series
 			//**************************************************
-			for(int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
+			for (int	seriesIndex = 0; seriesIndex < inputSeries.Length; seriesIndex++)
 			{
-				// Define an input and output series
+				// Define an input and output series.
 				Series input = inputSeries[seriesIndex];
 				Series output = input;
-				if(outputSeries != null && seriesIndex < outputSeries.Length)
+				if (outputSeries != null && seriesIndex < outputSeries.Length)
 				{
 					output = outputSeries[seriesIndex];
 
-					// Remove all points from the output series
-					if(output.Name != input.Name)
+					// Remove all points from the output series.
+					if (output.Name != input.Name)
 					{
 						output.Points.Clear();
 
-						// Copy X values type
-						if(output.XValueType == ChartValueType.Auto || output.autoXValueType)
+						// Copy X values type.
+						if (output.XValueType == ChartValueType.Auto || output.autoXValueType)
 						{
 							output.XValueType = input.XValueType;
 							output.autoXValueType = true;
 						}
-						// Copy Y values type
-						if(output.YValueType == ChartValueType.Auto || output.autoYValueType)
+						// Copy Y values type.
+						if (output.YValueType == ChartValueType.Auto || output.autoYValueType)
 						{
 							output.YValueType = input.YValueType;
 							output.autoYValueType = true;
@@ -2466,13 +2466,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					}
 				}
 
-				// No points to group
-				if(input.Points.Count == 0)
+				// No points to group.
+				if (input.Points.Count == 0)
 				{
 					continue;
 				}
 
-				// Make sure there is enough Y values per point
+				// Make sure there is enough Y values per point.
 				output.YValuesPerPoint = outputValuesNumber - 1;
 
 				//**************************************************
@@ -2483,24 +2483,24 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				double	intervalFrom = 0;
 				double	intervalTo = 0;
 
-				// Set interval start point
+				// Set interval start point.
 				intervalFrom = input.Points[0].XValue;
 
-				// Adjust start point depending on the interval type
+				// Adjust start point depending on the interval type.
                 intervalFrom = ChartHelper.AlignIntervalStart(intervalFrom, interval, ConvertIntervalType(intervalType));
 
-				// Add offset to the start position
+				// Add offset to the start position.
 				double offsetFrom = 0;
-				if( intervalOffset != 0 )
+				if (intervalOffset != 0)
 				{
                     offsetFrom = intervalFrom + ChartHelper.GetIntervalSize(intervalFrom, 
 						intervalOffset, 
 						ConvertIntervalType(intervalOffsetType));
 
-					// Check if there are points left outside first group
-					if(input.Points[0].XValue < offsetFrom)
+					// Check if there are points left outside first group.
+					if (input.Points[0].XValue < offsetFrom)
 					{
-						if(intervalType == IntervalType.Number)
+						if (intervalType == IntervalType.Number)
 						{
                             intervalFrom = offsetFrom + ChartHelper.GetIntervalSize(offsetFrom, 
 								-interval, 
@@ -2530,7 +2530,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				//** Allocate array for storing temp. 
 				//** values of the point
 				//**************************************************
-				double[]	pointTempValues = new double[outputValuesNumber];
+				var	pointTempValues = new double[outputValuesNumber];
 
 
 				//**************************************************
@@ -2539,16 +2539,16 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				bool	lastPoint = false;
 				int		emptyPointsSkipped = 0;
 				int		pointsNumberInInterval = 0;
-				for(int	pointIndex = 0; pointIndex <= input.Points.Count && !lastPoint; pointIndex++)
+				for (int	pointIndex = 0; pointIndex <= input.Points.Count && !lastPoint; pointIndex++)
 				{	
 					bool	endOfInterval = false;
 
 					//**************************************************
 					//** Check if series is sorted by X value
 					//**************************************************
-					if(pointIndex > 0 && pointIndex < input.Points.Count)
+					if (pointIndex > 0 && pointIndex < input.Points.Count)
 					{
-						if(input.Points[pointIndex].XValue < input.Points[pointIndex - 1].XValue)
+						if (input.Points[pointIndex].XValue < input.Points[pointIndex - 1].XValue)
 						{
                             throw (new InvalidOperationException(SR.ExceptionDataManipulatorGroupedSeriesNotSorted));
 						}
@@ -2557,9 +2557,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//**************************************************
 					//** Check if it's the last point
 					//**************************************************
-					if(pointIndex == input.Points.Count)
+					if (pointIndex == input.Points.Count)
 					{
-						// End of the group interval detected
+						// End of the group interval detected.
 						lastPoint = true;
 						intervalLastIndex = pointIndex - 1;
 						pointIndex = intervalLastIndex;
@@ -2569,10 +2569,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//**************************************************
 					//** Check if current point X value is inside current group
 					//**************************************************
-					if(!endOfInterval && input.Points[pointIndex].XValue >= intervalTo)
+					if (!endOfInterval && input.Points[pointIndex].XValue >= intervalTo)
 					{
 						// End of the group interval detected
-						if(pointIndex == 0)
+						if (pointIndex == 0)
 						{
 							continue;
 						}
@@ -2583,12 +2583,12 @@ namespace System.Windows.Forms.DataVisualization.Charting
 					//**************************************************
 					//** Process data at end of the interval
 					//**************************************************
-					if(endOfInterval)
+					if (endOfInterval)
 					{
-						// Add grouped point only if there are non empty points in the interval
-						if(pointsNumberInInterval > emptyPointsSkipped)
+						// Add grouped point only if there are non empty points in the interval.
+						if (pointsNumberInInterval > emptyPointsSkipped)
 						{
-							// Finalize the calculation
+							// Finalize the calculation.
 							ProcessPointValues(
 								functions, 
 								pointTempValues,
@@ -2603,15 +2603,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							//**************************************************
 							//** Calculate the X values
 							//**************************************************
-							if(functions[0].function == GroupingFunction.Center)
+							if (functions[0].function == GroupingFunction.Center)
 							{
 								pointTempValues[0] = (intervalFrom + intervalTo) / 2.0;
 							}
-							else if(functions[0].function == GroupingFunction.First)
+							else if (functions[0].function == GroupingFunction.First)
 							{
 								pointTempValues[0] = intervalFrom;
 							}
-							if(functions[0].function == GroupingFunction.Last)
+							if (functions[0].function == GroupingFunction.Last)
 							{
 								pointTempValues[0] = intervalTo;
 							}
@@ -2619,10 +2619,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							//**************************************************
 							//** Create new point object
 							//**************************************************
-							DataPoint	newPoint = new DataPoint();
+							var	newPoint = new DataPoint();
 							newPoint.ResizeYValueArray(outputValuesNumber - 1);
 							newPoint.XValue = pointTempValues[0];
-							for(int i = 1; i < pointTempValues.Length; i++)
+							for (int i = 1; i < pointTempValues.Length; i++)
 							{
 								newPoint.YValues[i - 1] = pointTempValues[i];
 							}
@@ -2632,13 +2632,13 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							//** series are the same
 							//**************************************************
 							int	newPointIndex = output.Points.Count;
-							if(output == input)
+							if (output == input)
 							{
 								newPointIndex = intervalFirstIndex;
 								pointIndex = newPointIndex + 1;
 
-								// Remove grouped points
-								for(int removedPoint = intervalFirstIndex; removedPoint <= intervalLastIndex; removedPoint++)
+								// Remove grouped points.
+								for (int removedPoint = intervalFirstIndex; removedPoint <= intervalLastIndex; removedPoint++)
 								{
 									output.Points.RemoveAt(intervalFirstIndex);
 								}
@@ -2650,21 +2650,21 @@ namespace System.Windows.Forms.DataVisualization.Charting
 							output.Points.Insert(newPointIndex, newPoint);
 						}
 
-						// Set new From To values of the group interval
+						// Set new From To values of the group interval.
 						intervalFrom = intervalTo;
                         intervalTo = intervalFrom + ChartHelper.GetIntervalSize(intervalFrom, interval, ConvertIntervalType(intervalType));
 
-						// Set new group interval indexes
+						// Set new group interval indexes.
 						intervalFirstIndex = pointIndex;
 						intervalLastIndex = pointIndex;
 						
-						// Reset number of points in the interval
+						// Reset number of points in the interval.
 						pointsNumberInInterval = 0;
 
-						// Reset number of skipped points
+						// Reset number of skipped points.
 						emptyPointsSkipped = 0;
 
-						// Process point once again
+						// Process point once again.
 						--pointIndex;
 
 						continue;
@@ -2684,7 +2684,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						false,
 						ref emptyPointsSkipped);
 
-					// Increase number of points in the group
+					// Increase number of points in the group.
 					++pointsNumberInInterval;
 				}
 			}
@@ -2716,35 +2716,35 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//*******************************************************************
 			//** Initialize temp data if it's the first point in the interval
 			//*******************************************************************
-			if(pointIndex == intervalFirstIndex && !finalPass)
+			if (pointIndex == intervalFirstIndex && !finalPass)
 			{
-				// Initialize values depending on the function type
+				// Initialize values depending on the function type.
 				int	funcIndex = 0;
-				foreach(GroupingFunctionInfo functionInfo in functions)
+				foreach (GroupingFunctionInfo functionInfo in functions)
 				{
-					// Check that we do not exced number of input values
-					if(funcIndex > point.YValues.Length)
+					// Check that we do not exced number of input values.
+					if (funcIndex > point.YValues.Length)
 					{
 						break;
 					}
 
-					// Initialize with zero
+					// Initialize with zero.
 					pointTempValues[functionInfo.outputIndex] = 0;
 
-					// Initialize with custom value depending on the formula
-					if(functionInfo.function == GroupingFunction.Min)
+					// Initialize with custom value depending on the formula.
+					if (functionInfo.function == GroupingFunction.Min)
 					{
 						pointTempValues[functionInfo.outputIndex] = double.MaxValue;
 					}
 
-					else if(functionInfo.function == GroupingFunction.Max)
+					else if (functionInfo.function == GroupingFunction.Max)
 					{
 						pointTempValues[functionInfo.outputIndex] = double.MinValue;
 					}
 
-					else if(functionInfo.function == GroupingFunction.First)
+					else if (functionInfo.function == GroupingFunction.First)
 					{
-						if(funcIndex == 0)
+						if (funcIndex == 0)
 						{
 							pointTempValues[0] = point.XValue;
 						}
@@ -2754,23 +2754,23 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 					}
 
-					else if(functionInfo.function == GroupingFunction.HiLo ||
+					else if (functionInfo.function == GroupingFunction.HiLo ||
 						functionInfo.function == GroupingFunction.HiLoOpCl)
 					{
-						// Hi
+						// Hi.
 						pointTempValues[functionInfo.outputIndex] = double.MinValue;
-						//Lo
+						// Lo.
 						pointTempValues[functionInfo.outputIndex + 1] = double.MaxValue;
-						if(functionInfo.function == GroupingFunction.HiLoOpCl)
+						if (functionInfo.function == GroupingFunction.HiLoOpCl)
 						{
-							//Open
+							// Open.
 							pointTempValues[functionInfo.outputIndex + 2] = point.YValues[funcIndex-1];
-							//Close
+							// Close.
 							pointTempValues[functionInfo.outputIndex + 3] = 0;
 						}
 					}
 
-					// Increase current function index
+					// Increase current function index.
 					++funcIndex;
 				}
 			}
@@ -2778,12 +2778,12 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//*******************************************************************
 			//** Add points values using formula
 			//*******************************************************************
-			if(!finalPass)
+			if (!finalPass)
 			{
 				//*******************************************************************
 				//** Ignore empty points
 				//*******************************************************************
-				if(point.IsEmpty && this.IsEmptyPointIgnored)
+				if (point.IsEmpty && this.IsEmptyPointIgnored)
 				{
 					++numberOfEmptyPoints;
 					return;
@@ -2793,32 +2793,32 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				//** Loop through each grouping function
 				//*******************************************************************
 				int	funcIndex = 0;
-				foreach(GroupingFunctionInfo functionInfo in functions)
+				foreach (GroupingFunctionInfo functionInfo in functions)
 				{
-					// Check that we do not exced number of input values
-					if(funcIndex > point.YValues.Length)
+					// Check that we do not exced number of input values.
+					if (funcIndex > point.YValues.Length)
 					{
 						break;
 					}
 
-					// Process point values depending on the formula
-					if(functionInfo.function == GroupingFunction.Min &&
+					// Process point values depending on the formula.
+					if (functionInfo.function == GroupingFunction.Min &&
 						(!point.IsEmpty && this.IsEmptyPointIgnored))
 					{
 						pointTempValues[functionInfo.outputIndex] = 
 							Math.Min(pointTempValues[functionInfo.outputIndex], point.YValues[funcIndex-1]);
 					}
 
-					else if(functionInfo.function == GroupingFunction.Max)
+					else if (functionInfo.function == GroupingFunction.Max)
 					{
 						pointTempValues[functionInfo.outputIndex] = 
 							Math.Max(pointTempValues[functionInfo.outputIndex], point.YValues[funcIndex-1]);
 					}
 
-					else if(functionInfo.function == GroupingFunction.Ave || 
+					else if (functionInfo.function == GroupingFunction.Ave || 
 						functionInfo.function == GroupingFunction.Sum)
 					{
-						if(funcIndex == 0)
+						if (funcIndex == 0)
 						{
 							pointTempValues[0] += point.XValue;
 						}
@@ -2828,15 +2828,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 					}
 
-					else if(functionInfo.function == GroupingFunction.Variance ||
+					else if (functionInfo.function == GroupingFunction.Variance ||
 						functionInfo.function == GroupingFunction.Deviation)
 					{
 						pointTempValues[functionInfo.outputIndex] += point.YValues[funcIndex-1];
 					}
 
-					else if(functionInfo.function == GroupingFunction.Last)
+					else if (functionInfo.function == GroupingFunction.Last)
 					{
-						if(funcIndex == 0)
+						if (funcIndex == 0)
 						{
 							pointTempValues[0] = point.XValue;
 						}
@@ -2846,28 +2846,28 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 					}
 
-					else if(functionInfo.function == GroupingFunction.Count)
+					else if (functionInfo.function == GroupingFunction.Count)
 					{
 						pointTempValues[functionInfo.outputIndex] += 1;
 					}
 
-					else if(functionInfo.function == GroupingFunction.HiLo ||
+					else if (functionInfo.function == GroupingFunction.HiLo ||
 						functionInfo.function == GroupingFunction.HiLoOpCl)
 					{
-						// Hi
+						// Hi.
 						pointTempValues[functionInfo.outputIndex] = 
 							Math.Max(pointTempValues[functionInfo.outputIndex], point.YValues[funcIndex-1]);
-						// Lo
+						// Lo.
 						pointTempValues[functionInfo.outputIndex + 1] = 
 							Math.Min(pointTempValues[functionInfo.outputIndex + 1], point.YValues[funcIndex-1]);
-						if(functionInfo.function == GroupingFunction.HiLoOpCl)
+						if (functionInfo.function == GroupingFunction.HiLoOpCl)
 						{
-							// Close
+							// Close.
 							pointTempValues[functionInfo.outputIndex + 3] = point.YValues[funcIndex-1];
 						}
 					}
 
-					// Increase current function index
+					// Increase current function index.
 					++funcIndex;
 				}
 			}
@@ -2876,62 +2876,62 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			//*******************************************************************
 			//** Adjust formula results at final pass
 			//*******************************************************************
-			if(finalPass)
+			if (finalPass)
 			{
 				int	funcIndex = 0;
-				foreach(GroupingFunctionInfo functionInfo in functions)
+				foreach (GroupingFunctionInfo functionInfo in functions)
 				{
-					// Check that we do not exceed number of input values
-					if(funcIndex > point.YValues.Length)
+					// Check that we do not exceed number of input values.
+					if (funcIndex > point.YValues.Length)
 					{
 						break;
 					}
 
-					if(functionInfo.function == GroupingFunction.Ave)
+					if (functionInfo.function == GroupingFunction.Ave)
 					{
 						pointTempValues[functionInfo.outputIndex] /= intervalLastIndex - intervalFirstIndex - numberOfEmptyPoints + 1;
 					}
 
-					if(functionInfo.function == GroupingFunction.DistinctCount)
+					if (functionInfo.function == GroupingFunction.DistinctCount)
 					{
-						// Initialize value with zero
+						// Initialize value with zero.
 						pointTempValues[functionInfo.outputIndex] = 0;
 
-						// Create a list of uniques values
-						ArrayList uniqueValues = new ArrayList(intervalLastIndex - intervalFirstIndex + 1);
+						// Create a list of uniques values.
+						var uniqueValues = new ArrayList(intervalLastIndex - intervalFirstIndex + 1);
 
-						// Second pass through inteval points required for calculations
-						for(int secondPassIndex = intervalFirstIndex; secondPassIndex <= intervalLastIndex; secondPassIndex++)
+						// Second pass through inteval points required for calculations.
+						for (int secondPassIndex = intervalFirstIndex; secondPassIndex <= intervalLastIndex; secondPassIndex++)
 						{
-							// Ignore empty points
-							if(series.Points[secondPassIndex].IsEmpty && this.IsEmptyPointIgnored)
+							// Ignore empty points.
+							if (series.Points[secondPassIndex].IsEmpty && this.IsEmptyPointIgnored)
 							{
 								continue;
 							}
 
-							// Check if current value is in the unique list
-							if(!uniqueValues.Contains(series.Points[secondPassIndex].YValues[funcIndex-1]))
+							// Check if current value is in the unique list.
+							if (!uniqueValues.Contains(series.Points[secondPassIndex].YValues[funcIndex-1]))
 							{
 								uniqueValues.Add(series.Points[secondPassIndex].YValues[funcIndex-1]);
 							}
 						}
 
-						// Get count of unique values
+						// Get count of unique values.
 						pointTempValues[functionInfo.outputIndex] = uniqueValues.Count;
 					}
 
-					else if(functionInfo.function == GroupingFunction.Variance ||
+					else if (functionInfo.function == GroupingFunction.Variance ||
 						functionInfo.function == GroupingFunction.Deviation)
 					{
-						// Calculate average first
+						// Calculate average first.
 						double average = pointTempValues[functionInfo.outputIndex] / (intervalLastIndex - intervalFirstIndex - numberOfEmptyPoints + 1);
 
-						// Second pass through inteval points required for calculations
+						// Second pass through inteval points required for calculations.
 						pointTempValues[functionInfo.outputIndex] = 0;
-						for(int secondPassIndex = intervalFirstIndex; secondPassIndex <= intervalLastIndex; secondPassIndex++)
+						for (int secondPassIndex = intervalFirstIndex; secondPassIndex <= intervalLastIndex; secondPassIndex++)
 						{
-							// Ignore empty points
-							if(series.Points[secondPassIndex].IsEmpty && this.IsEmptyPointIgnored)
+							// Ignore empty points.
+							if (series.Points[secondPassIndex].IsEmpty && this.IsEmptyPointIgnored)
 							{
 								continue;
 							}
@@ -2940,19 +2940,19 @@ namespace System.Windows.Forms.DataVisualization.Charting
 								Math.Pow(series.Points[secondPassIndex].YValues[funcIndex-1] - average, 2);
 						}
 
-						// Divide by points number
+						// Divide by points number.
 						pointTempValues[functionInfo.outputIndex] /= 
 							intervalLastIndex - intervalFirstIndex - numberOfEmptyPoints + 1;
 
-						// If calculating the deviation - take a square root of variance
-						if(functionInfo.function == GroupingFunction.Deviation)
+						// If calculating the deviation - take a square root of variance.
+						if (functionInfo.function == GroupingFunction.Deviation)
 						{
 							pointTempValues[functionInfo.outputIndex] = 
 								Math.Sqrt(pointTempValues[functionInfo.outputIndex]);
 						}
 					}
 
-					// Increase current function index
+					// Increase current function index.
 					++funcIndex;
 				}
 			}
@@ -2969,89 +2969,89 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>Array of functions for each Y value.</returns>
 		private GroupingFunctionInfo[] GetGroupingFunctions(Series[] inputSeries, string formula, out int outputValuesNumber)
 		{
-			// Get maximum number of Y values in all series
+			// Get maximum number of Y values in all series.
 			int	numberOfYValues = 0;
-			foreach(Series series in inputSeries)
+			foreach (Series series in inputSeries)
 			{
 				numberOfYValues = (int)Math.Max(numberOfYValues, series.YValuesPerPoint);
 			}
 
-			// Allocate memory for the result array for X and each Y values
-			GroupingFunctionInfo[]	result = new GroupingFunctionInfo[numberOfYValues + 1];
-			for(int index = 0 ; index < result.Length; index++)
+			// Allocate memory for the result array for X and each Y values.
+			var	result = new GroupingFunctionInfo[numberOfYValues + 1];
+			for (int index = 0 ; index < result.Length; index++)
 			{
 				result[index] = new GroupingFunctionInfo();
 			}
 
-			// Split formula by comma
+			// Split formula by comma.
 			string[]	valueFormulas = formula.Split(',');
 
-			// At least one formula must be specified
-			if(valueFormulas.Length == 0)
+			// At least one formula must be specified.
+			if (valueFormulas.Length == 0)
 			{
                 throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaUndefined));
 			}
 
-			// Check each formula in the array
-			GroupingFunctionInfo	defaultFormula = new GroupingFunctionInfo();
-			foreach(string s in valueFormulas)
+			// Check each formula in the array.
+			var	defaultFormula = new GroupingFunctionInfo();
+			foreach (string s in valueFormulas)
 			{
-				// Trim white space and make upper case
+				// Trim white space and make upper case.
 				string formulaString = s.Trim();
 				formulaString = formulaString.ToUpper(System.Globalization.CultureInfo.InvariantCulture);
 
-				// Get value index and formula type from the string
+				// Get value index and formula type from the string.
 				int	valueIndex = 1;
 				GroupingFunction	formulaType = ParseFormulaAndValueType(formulaString, out valueIndex);
 
-				// Save the default (first) formula
-				if(defaultFormula.function == GroupingFunction.None)
+				// Save the default (first) formula.
+				if (defaultFormula.function == GroupingFunction.None)
 				{
 					defaultFormula.function = formulaType;
 				}
 
-				// Check that value index do not exceed the max values number
-				if(valueIndex >= result.Length)
+				// Check that value index do not exceed the max values number.
+				if (valueIndex >= result.Length)
 				{
-					throw(new ArgumentException(SR.ExceptionDataManipulatorYValuesIndexExceeded( formulaString )));
+					throw(new ArgumentException(SR.ExceptionDataManipulatorYValuesIndexExceeded(formulaString)));
 				}
 
-				// Check if formula for this value type was already set
-				if(result[valueIndex].function != GroupingFunction.None)
+				// Check if formula for this value type was already set.
+				if (result[valueIndex].function != GroupingFunction.None)
 				{
                     throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaAlreadyDefined(formulaString)));
 				}
                 
-				// Set formula type
+				// Set formula type.
 				result[valueIndex].function = formulaType;
 			}
 				
-			// Apply default formula for non set X value
-			if(result[0].function == GroupingFunction.None)
+			// Apply default formula for non set X value.
+			if (result[0].function == GroupingFunction.None)
 			{
 				result[0].function = GroupingFunction.First;
 			}
 
-			// Apply default formula for all non set Y values
-			for(int funcIndex = 1; funcIndex < result.Length; funcIndex++)
+			// Apply default formula for all non set Y values.
+			for (int funcIndex = 1; funcIndex < result.Length; funcIndex++)
 			{
-				if(result[funcIndex].function == GroupingFunction.None)
+				if (result[funcIndex].function == GroupingFunction.None)
 				{
 					result[funcIndex].function = defaultFormula.function;
 				}
 			}
 
-			// Specify output value index
+			// Specify output value index.
 			outputValuesNumber = 0;
-			for(int funcIndex = 0; funcIndex < result.Length; funcIndex++)
+			for (int funcIndex = 0; funcIndex < result.Length; funcIndex++)
 			{
 				result[funcIndex].outputIndex = outputValuesNumber;
 
-				if(result[funcIndex].function == GroupingFunction.HiLoOpCl)
+				if (result[funcIndex].function == GroupingFunction.HiLoOpCl)
 				{
 					outputValuesNumber += 3;
 				}
-				else if(result[funcIndex].function == GroupingFunction.HiLo)
+				else if (result[funcIndex].function == GroupingFunction.HiLo)
 				{
 					outputValuesNumber += 1;
 				}
@@ -3059,8 +3059,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				++outputValuesNumber;
 			}
 
-			// X value formula can be FIRST, LAST and AVE
-			if(result[0].function != GroupingFunction.First && 
+			// X value formula can be FIRST, LAST and AVE.
+			if (result[0].function != GroupingFunction.First && 
 				result[0].function != GroupingFunction.Last && 
 				result[0].function != GroupingFunction.Center)
 			{
@@ -3079,81 +3079,81 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <returns>Formula type.</returns>
 		private GroupingFunction ParseFormulaAndValueType(string formulaString, out int valueIndex)
 		{
-			// Initialize value index as first Y value (default)
+			// Initialize value index as first Y value (default).
 			valueIndex = 1;
 
-			// Split formula by optional ':' character
+			// Split formula by optional ':' character.
 			string[] formulaParts = formulaString.Split(':');
 
-			// There must be at least one and no more than two result strings
-			if(formulaParts.Length < 1 && formulaParts.Length > 2)
+			// There must be at least one and no more than two result strings.
+			if (formulaParts.Length < 1 && formulaParts.Length > 2)
 			{
-				throw(new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid( formulaString )));
+				throw(new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid(formulaString)));
 			}
 
-			// Check specified value type
-			if(formulaParts.Length == 2)
+			// Check specified value type.
+			if (formulaParts.Length == 2)
 			{
-				if(formulaParts[0] == "X")
+				if (formulaParts[0] == "X")
 				{
 					valueIndex = 0;
 				}
-				else if(formulaParts[0].StartsWith("Y", StringComparison.Ordinal))
+				else if (formulaParts[0].StartsWith("Y", StringComparison.Ordinal))
 				{
 					formulaParts[0] = formulaParts[0].TrimStart('Y');
 
-					if(formulaParts[0].Length == 0)
+					if (formulaParts[0].Length == 0)
 					{
 						valueIndex = 1;
 					}
 					else
 					{
-						// Try to convert the rest of the string to integer
+						// Try to convert the rest of the string to integer.
 						try
 						{
 							valueIndex = Int32.Parse(formulaParts[0], System.Globalization.CultureInfo.InvariantCulture);
 						}
 						catch(System.Exception)
 						{
-                            throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid( formulaString )));
+                            throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid(formulaString)));
 						}
 					}
 				}
 				else
 				{
-                    throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid( formulaString )));
+                    throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaFormatInvalid(formulaString)));
 				}
 			}
 
-			// Check formula name
-			if(formulaParts[formulaParts.Length - 1] == "MIN")
+			// Check formula name.
+			if (formulaParts[formulaParts.Length - 1] == "MIN")
 				return GroupingFunction.Min;
-			else if(formulaParts[formulaParts.Length - 1] == "MAX")
+			else if (formulaParts[formulaParts.Length - 1] == "MAX")
 				return GroupingFunction.Max;
-			else if(formulaParts[formulaParts.Length - 1] == "AVE")
+			else if (formulaParts[formulaParts.Length - 1] == "AVE")
 				return GroupingFunction.Ave;
-			else if(formulaParts[formulaParts.Length - 1] == "SUM")
+			else if (formulaParts[formulaParts.Length - 1] == "SUM")
 				return GroupingFunction.Sum;
-			else if(formulaParts[formulaParts.Length - 1] == "FIRST")
+			else if (formulaParts[formulaParts.Length - 1] == "FIRST")
 				return GroupingFunction.First;
-			else if(formulaParts[formulaParts.Length - 1] == "LAST")
+			else if (formulaParts[formulaParts.Length - 1] == "LAST")
 				return GroupingFunction.Last;
-			else if(formulaParts[formulaParts.Length - 1] == "HILOOPCL")
+			else if (formulaParts[formulaParts.Length - 1] == "HILOOPCL")
 				return GroupingFunction.HiLoOpCl;
-			else if(formulaParts[formulaParts.Length - 1] == "HILO")
+			else if (formulaParts[formulaParts.Length - 1] == "HILO")
 				return GroupingFunction.HiLo;
-			else if(formulaParts[formulaParts.Length - 1] == "COUNT")
+			else if (formulaParts[formulaParts.Length - 1] == "COUNT")
 				return GroupingFunction.Count;
-			else if(formulaParts[formulaParts.Length - 1] == "DISTINCTCOUNT")
+			else if (formulaParts[formulaParts.Length - 1] == "DISTINCTCOUNT")
 				return GroupingFunction.DistinctCount;
-			else if(formulaParts[formulaParts.Length - 1] == "VARIANCE")
+			else if (formulaParts[formulaParts.Length - 1] == "VARIANCE")
 				return GroupingFunction.Variance;
-			else if(formulaParts[formulaParts.Length - 1] == "DEVIATION")
+			else if (formulaParts[formulaParts.Length - 1] == "DEVIATION")
 				return GroupingFunction.Deviation;
-			else if(formulaParts[formulaParts.Length - 1] == "CENTER")
+			else if (formulaParts[formulaParts.Length - 1] == "CENTER")
 				return GroupingFunction.Center;
 			
-			// Invalid formula name
+			// Invalid formula name.
             throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingFormulaNameInvalid(formulaString)));
 		}
 
@@ -3165,14 +3165,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="outputSeries">Output series array.</param>
 		private void CheckSeriesArrays(Series[] inputSeries, Series[] outputSeries)
 		{
-			// At least one series must be in the input series
-			if(inputSeries == null || inputSeries.Length == 0)
+			// At least one series must be in the input series.
+			if (inputSeries == null || inputSeries.Length == 0)
 			{
                 throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingInputSeriesUndefined));
 			}
 
-			// Output series must be empty or have the same number of items
-			if(outputSeries != null && outputSeries.Length != inputSeries.Length)
+			// Output series must be empty or have the same number of items.
+			if (outputSeries != null && outputSeries.Length != inputSeries.Length)
 			{
                 throw (new ArgumentException(SR.ExceptionDataManipulatorGroupingInputOutputSeriesNumberMismatch));
 			}
@@ -3195,9 +3195,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			IntervalType intervalType, 
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Group(formula, interval, intervalType, inputSeries, null);
 		}
@@ -3215,9 +3215,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			IntervalType intervalType, 
 			string inputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName");
+                throw new ArgumentNullException(nameof(inputSeriesName));
 
 			Group(formula, interval, intervalType, inputSeriesName, "");
 		}
@@ -3239,9 +3239,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			IntervalType intervalOffsetType, 
 			Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             
             Group(formula, interval, intervalType, intervalOffset, intervalOffsetType, inputSeries, null);
 		}
@@ -3263,9 +3263,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			IntervalType intervalOffsetType, 
 			string inputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName");
+                throw new ArgumentNullException(nameof(inputSeriesName));
             
             Group(formula, interval, intervalType, intervalOffset, intervalOffsetType, inputSeriesName, "");
 		}
@@ -3279,9 +3279,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="outputSeriesName">Comma separated list of output series names.</param>
 		public void GroupByAxisLabel(string formula, string inputSeriesName, string outputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName");
+                throw new ArgumentNullException(nameof(inputSeriesName));
 
 			GroupByAxisLabel(formula, 
 				ConvertToSeriesArray(inputSeriesName, false), 
@@ -3296,9 +3296,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="inputSeries">Input data series.</param>
 		public void GroupByAxisLabel(string formula, Series inputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             
             GroupByAxisLabel(formula, inputSeries, null);
 		}
@@ -3311,9 +3311,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="inputSeriesName">Comma separated list of input series names.</param>
 		public void GroupByAxisLabel(string formula, string inputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName"); 
+                throw new ArgumentNullException(nameof(inputSeriesName)); 
             
             GroupByAxisLabel(formula, inputSeriesName, null);
 		}
@@ -3338,9 +3338,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesName, 
 			string outputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName");
+                throw new ArgumentNullException(nameof(inputSeriesName));
 
 			Group(formula,
 				interval, 
@@ -3366,9 +3366,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries, 
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Group(formula, interval, intervalType, 0, IntervalType.Number, inputSeries, outputSeries);
 		}
@@ -3388,9 +3388,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			string inputSeriesName, 
 			string outputSeriesName)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeriesName == null)
-                throw new ArgumentNullException("inputSeriesName");
+                throw new ArgumentNullException(nameof(inputSeriesName));
 
 			Group(formula, interval, intervalType, 0, IntervalType.Number, inputSeriesName, outputSeriesName);
 		}
@@ -3414,9 +3414,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			Series inputSeries, 
 			Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
 
 			Group(formula,
 				interval, 
@@ -3436,9 +3436,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// <param name="outputSeries">Output data series.</param>
 		public void GroupByAxisLabel(string formula, Series inputSeries, Series outputSeries)
 		{
-            // Check arguments
+            // Check arguments.
             if (inputSeries == null)
-                throw new ArgumentNullException("inputSeries");
+                throw new ArgumentNullException(nameof(inputSeries));
             
             GroupByAxisLabel(formula, 
 				ConvertToSeriesArray(inputSeries, false), 
