@@ -1,4 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
@@ -136,7 +136,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             SuspendUpdates();
             while (this.Count > 0)
             {
-                this.RemoveItem(0);
+                this.RemoveItem(this.Count - 1);
             }
             ResumeUpdates();
         }
