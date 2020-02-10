@@ -50,6 +50,8 @@ using System.Xml;
 
 namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 {
+    using Size = System.Drawing.Size;
+
     #region Serialization enumerations
 
     /// <summary>

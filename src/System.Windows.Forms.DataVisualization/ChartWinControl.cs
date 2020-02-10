@@ -28,6 +28,8 @@ using System.Windows.Forms.Design.DataVisualization.Charting;
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
+    using Size = System.Drawing.Size;
+
     #region Enumerations
 
     /// <summary>
