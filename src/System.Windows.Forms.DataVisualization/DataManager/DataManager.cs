@@ -1052,7 +1052,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Data
 		/// </summary>
 		[
 		SRCategory("CategoryAttributeData"),
+#if DESIGNER
         Editor(typeof(SeriesCollectionEditor), typeof(UITypeEditor)),
+#endif
         Bindable(true)
 		]
 		public SeriesCollection Series
@@ -1071,7 +1073,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Data
 		Bindable(true),
 		SRDescription("DescriptionAttributePalette"),
         DefaultValue(ChartColorPalette.BrightPastel),
+#if DESIGNER
         Editor(typeof(ColorPaletteEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartColorPalette Palette
 		{

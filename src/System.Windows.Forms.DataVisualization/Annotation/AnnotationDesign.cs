@@ -35,19 +35,14 @@ using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-#if WINFORMS_CONTROL
-	using System.Windows.Forms.Charting;
-	using System.Windows.Forms.Charting.Data;
-	using System.Windows.Forms.Charting.ChartTypes;
-	using System.Windows.Forms.Charting.Utilities;
-	using System.Windows.Forms.Charting.Borders3D;
-	using System.Windows.Forms.Charting.Design;
-#else
-using System.Web;
-using System.Web.UI;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting.Data;
+using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using System.Windows.Forms.DataVisualization.Charting.Borders3D;
+//using System.Windows.Forms.DataVisualization.Charting.Design;
 #if VS_DESIGN_TIME
 using System.Web.UI.Design;
-#endif //VS_DESIGN_TIME
 using System.Web.UI.WebControls.Charting.Design;
 using System.Web.UI.WebControls.Charting.Data;
 using System.Web.UI.WebControls.Charting.Utilities;
@@ -612,9 +607,9 @@ using System.Web.UI.WebControls.Charting.Utilities;
 					else if(value is Axis)
 					{
 						Axis axis = (Axis)value;
-						if(axis.chartArea != null)
+						if(axis.ChartArea != null)
 						{
-							return axis.chartArea.Name + " - " + axis.Name;
+							return axis.ChartArea.Name + " - " + axis.Name;
 						}
 					}
 				}

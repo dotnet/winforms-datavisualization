@@ -260,7 +260,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(typeof(LabelAlignmentStyles), "Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight"),
         SRDescription("DescriptionAttributeMovingDirection"),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public LabelAlignmentStyles MovingDirection
         {
@@ -385,7 +387,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeCalloutLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color CalloutLineColor
         {
@@ -431,7 +435,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Transparent"),
         SRDescription("DescriptionAttributeCalloutBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color CalloutBackColor
         {

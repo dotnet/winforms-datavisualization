@@ -7,7 +7,7 @@
 //  Purpose:	Windows forms chart control designer class.
 //
 
-
+#if DESIGNER
 using System.ComponentModel.Design.Serialization;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
@@ -103,3 +103,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	}
 }
 
+#endif

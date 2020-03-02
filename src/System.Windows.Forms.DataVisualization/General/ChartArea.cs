@@ -322,7 +322,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(AreaAlignmentOrientations.Vertical),
         SRDescription("DescriptionAttributeChartArea_AlignOrientation"),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public AreaAlignmentOrientations AlignmentOrientation
         {
@@ -346,7 +348,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(AreaAlignmentStyles.All),
         SRDescription("DescriptionAttributeChartArea_AlignType"),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public AreaAlignmentStyles AlignmentStyle
         {
@@ -369,7 +373,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         SRDescription("DescriptionAttributeChartArea_Axes"),
         TypeConverter(typeof(AxesArrayConverter)),
+#if DESIGNER
         Editor(typeof(AxesArrayEditor), typeof(UITypeEditor)),
+#endif
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden)
         ]
@@ -614,7 +620,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackColor
         {
@@ -648,7 +656,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartHatchStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartHatchStyle BackHatchStyle
         {
@@ -671,7 +681,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
+#if DESIGNER
         Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+#endif
         NotifyParentPropertyAttribute(true)
         ]
         public string BackImage
@@ -720,7 +732,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackImageTransparentColor
         {
@@ -769,7 +783,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(GradientStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         public GradientStyle BackGradientStyle
         {
@@ -795,7 +811,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackSecondaryColor
         {
@@ -820,7 +838,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeShadowColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color ShadowColor
         {
@@ -869,7 +889,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBorderColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BorderColor
         {

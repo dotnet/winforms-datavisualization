@@ -152,7 +152,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				_chartImage.Height = oldHeight;
 			}
 		}
-
+#if PRINTING
 		/// <summary>
 		/// Shows Page Setup dialog.
 		/// </summary>
@@ -209,8 +209,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			// Print chart
 			this.PrintDocument.Print();
 		}
+#endif
 
-		/// <summary>
+        /// <summary>
 		/// Handles PrintPage event of the document.
 		/// </summary>
 		/// <param name="sender">Sender object.</param>
@@ -263,7 +264,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 }
             }
 		}
-
 		#endregion
 
         #region IDisposable Members

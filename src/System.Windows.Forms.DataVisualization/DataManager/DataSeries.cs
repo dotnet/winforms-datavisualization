@@ -1719,7 +1719,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeSeries_ValueMembersY"),
 		DefaultValue(""),
         TypeConverter(typeof(SeriesDataSourceMemberConverter)),
+#if DESIGNER
         Editor(typeof(SeriesDataSourceMemberValueAxisUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public string YValueMembers
 		{
@@ -1918,7 +1920,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeSeries_Points"),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+#if DESIGNER
         Editor(typeof(DataPointCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public DataPointCollection Points
 		{
@@ -1966,7 +1970,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributePalette"),
 		DefaultValue(ChartColorPalette.None),
+#if DESIGNER
         Editor(typeof(ColorPaletteEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartColorPalette Palette
 		{
@@ -2221,7 +2227,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeSeries_Type"),
 		DefaultValue(SeriesChartType.Column),
 		RefreshProperties(RefreshProperties.All),
+#if DESIGNER
         Editor(typeof(ChartTypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public SeriesChartType ChartType
 		{
@@ -2270,7 +2278,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeSeries_Type"),
 		DefaultValue(ChartTypeNames.Column),
         TypeConverter(typeof(ChartTypeConverter)),
+#if DESIGNER
         Editor(typeof(ChartTypeEditor), typeof(UITypeEditor)),
+#endif
         RefreshProperties(RefreshProperties.All),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
 		DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden)

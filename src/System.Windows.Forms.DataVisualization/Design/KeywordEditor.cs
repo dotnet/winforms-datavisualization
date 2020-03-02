@@ -8,7 +8,7 @@
 //				new and edit exsisting keywords in the string.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -831,3 +831,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 }
 
 
+#endif

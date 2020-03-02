@@ -67,7 +67,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeCustomLabels"),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public CustomLabelsCollection CustomLabels
 		{

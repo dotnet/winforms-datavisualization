@@ -7,7 +7,7 @@
 //  Purpose:	Design-time UI editor for Annotations.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Globalization;
@@ -523,3 +523,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     }
 
 }
+#endif

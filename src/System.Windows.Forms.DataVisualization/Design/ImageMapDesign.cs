@@ -7,7 +7,7 @@
 //  Purpose:	Design-time classes for the image maps.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -76,3 +76,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     }
 
 }
+#endif

@@ -8,7 +8,7 @@
 //				Series and DataPoint properties.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -787,3 +787,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 }
 
 
+#endif

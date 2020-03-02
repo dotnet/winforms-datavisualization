@@ -7,7 +7,7 @@
 //  Purpose:	Design-time support classes for Legend.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -226,3 +226,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		}
 
 }
+#endif

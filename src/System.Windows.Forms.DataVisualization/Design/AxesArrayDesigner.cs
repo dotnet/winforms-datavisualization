@@ -7,7 +7,6 @@
 //  Purpose:	Design-time editors and converters for the Axes array.
 //
 
-
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -18,6 +17,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
+#if DESIGNER
     /// <summary>
     /// Designer editor for the chart areas collection.
     /// </summary>
@@ -38,7 +38,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			{
 			}
 
-        #endregion
+    #endregion
 
     #region Methods
 
@@ -196,8 +196,8 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 
     #endregion
         }
-
-        internal class DataPointCustomPropertiesConverter : TypeConverter
+#endif
+    internal class DataPointCustomPropertiesConverter : TypeConverter
         {
 
             /// <summary>

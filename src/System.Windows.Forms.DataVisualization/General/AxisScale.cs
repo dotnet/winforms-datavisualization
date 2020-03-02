@@ -756,7 +756,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeAxisScaleSegmentCollection_AxisScaleSegmentCollection"),
 		SerializationVisibilityAttribute(SerializationVisibility.Hidden),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         internal AxisScaleSegmentCollection ScaleSegments
 		{

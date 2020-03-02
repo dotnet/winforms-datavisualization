@@ -10,7 +10,7 @@
 //				registry.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -967,3 +967,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 }
 
 
+#endif

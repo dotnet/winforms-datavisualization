@@ -818,7 +818,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color ForeColor
         {
@@ -897,7 +899,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color LineColor
         {
@@ -983,7 +987,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color BackColor
         {
@@ -1015,7 +1021,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(ChartHatchStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public ChartHatchStyle BackHatchStyle
         {
@@ -1046,7 +1054,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(GradientStyle.None),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public GradientStyle BackGradientStyle
         {
@@ -1081,7 +1091,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color BackSecondaryColor
         {
@@ -1108,7 +1120,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "128,0,0,0"),
         SRDescription("DescriptionAttributeShadowColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color ShadowColor
         {
@@ -1284,7 +1298,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAxisX"),
+#if DESIGNER
         Editor(typeof(AnnotationAxisUITypeEditor), typeof(UITypeEditor)),
+#endif
         TypeConverter(typeof(AnnotationAxisValueConverter)),
         ]
         virtual public Axis AxisX
@@ -1328,7 +1344,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAxisY"),
+#if DESIGNER
         Editor(typeof(AnnotationAxisUITypeEditor), typeof(UITypeEditor)),
+#endif
         TypeConverter(typeof(AnnotationAxisValueConverter)),
         ]
         virtual public Axis AxisY
@@ -1428,7 +1446,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Hidden),
         SerializationVisibilityAttribute(SerializationVisibility.Hidden),
         SRDescription("DescriptionAttributeAnchorDataPoint"),
+#if DESIGNER
         Editor(typeof(AnchorPointUITypeEditor), typeof(UITypeEditor)),
+#endif
         TypeConverter(typeof(AnchorPointValueConverter)),
         ]
         virtual public DataPoint AnchorDataPoint
@@ -3102,8 +3122,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 {
                     string seriesName = dataPointName.Substring(0, separatorIndex);
                     string pointIndex = dataPointName.Substring(separatorIndex + 2);
-
-                    if (int.TryParse(pointIndex, NumberStyles.Any, CultureInfo.InvariantCulture, out int index))
+                    int index = 0;
+                    if (int.TryParse(pointIndex, NumberStyles.Any, CultureInfo.InvariantCulture, out index))
                     {
                         dataPoint = Chart.Series[seriesName].Points[index];
                     }

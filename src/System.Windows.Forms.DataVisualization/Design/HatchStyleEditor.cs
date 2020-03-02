@@ -16,11 +16,12 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace System.Windows.Forms.Design.DataVisualization.Charting
 {
-    /// <summary>
-    /// AxisName editor for the hatch type.
-    /// Paints a rectangle with hatch sample.
-    /// </summary>
-    internal class HatchStyleEditor : UITypeEditor, IDisposable
+#if DESIGNER
+	/// <summary>
+	/// AxisName editor for the hatch type.
+	/// Paints a rectangle with hatch sample.
+	/// </summary>
+	internal class HatchStyleEditor : UITypeEditor, IDisposable
 	{
 		#region Editor methods and properties
 
@@ -164,6 +165,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 
         #endregion
     }
-
+#endif
 
 }

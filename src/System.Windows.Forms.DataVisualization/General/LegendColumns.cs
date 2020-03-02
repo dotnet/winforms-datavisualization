@@ -15,6 +15,9 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
+#if FRCORE
+using FastReport.TypeConverters;
+#endif
 
 namespace System.Windows.Forms.DataVisualization.Charting
 {
@@ -24,7 +27,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     using System.Windows.Forms.Design.DataVisualization.Charting;
     using SizeF = System.Drawing.SizeF;
 
-    #region Enumerations
+#region Enumerations
 
     /// <summary>
     /// An enumeration of legend cell types.
@@ -63,7 +66,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SeriesSymbol
     }
 
-    #endregion // Enumerations
+#endregion // Enumerations
 
     /// <summary>
     /// The LegendCellColumn class represents a cell column in a legend, 
@@ -76,7 +79,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     ]
     public class LegendCellColumn : ChartNamedElement
     {
-        #region Fields
+#region Fields
 
         // Legend column type
         private LegendCellColumnType _columnType = LegendCellColumnType.Text;
@@ -129,9 +132,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Maximum column width
         private int _maximumCellWidth = -1;
 
-        #endregion // Fields
+#endregion // Fields
 
-        #region Constructors
+#region Constructors
 
         /// <summary>
         /// LegendCellColumn constructor.
@@ -170,9 +173,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
 
-        #endregion // Constructors
+#endregion // Constructors
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Gets or sets name of legend column.
@@ -244,7 +247,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeSeriesItems"),
         DefaultValue(KeywordName.LegendText),
         SRDescription("DescriptionAttributeLegendCellColumn_Text"),
+#if DESIGNER
         Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+#endif
         ]
         public virtual string Text
         {
@@ -267,7 +272,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color ForeColor
         {
@@ -290,7 +297,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color BackColor
         {
@@ -429,7 +438,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeSeriesItems"),
         SRDescription("DescriptionAttributeToolTip"),
         DefaultValue(""),
+#if DESIGNER
         Editor(typeof(KeywordsStringEditor), typeof(UITypeEditor)),
+#endif
         ]
         public virtual string ToolTip
         {
@@ -477,7 +488,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeLegendCellColumn_HeaderColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color HeaderForeColor
         {
@@ -500,7 +513,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeHeaderBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color HeaderBackColor
         {
@@ -613,9 +628,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-        #endregion // Properties
+#endregion // Properties
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Creates a new LegendCell object and copies all properties from the 
@@ -634,9 +649,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             return newCell;
         }
 
-        #endregion // Methods
+#endregion // Methods
 
-        #region IDisposable Members
+#region IDisposable Members
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources
@@ -655,7 +670,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -671,7 +686,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     ]
     public class LegendCell : ChartNamedElement
     {
-        #region Fields
+#region Fields
 
         // Legend cell type
         private LegendCellType _cellType = LegendCellType.Text;
@@ -732,9 +747,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // Font reduced value used to calculate last cached cell size
         private int _cachedCellSizeFontReducedBy = 0;
 
-        #endregion // Fields
+#endregion // Fields
 
-        #region Constructors
+#region Constructors
 
         /// <summary>
         /// LegendCell constructor.
@@ -794,9 +809,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             this._alignment = alignment;
         }
 
-        #endregion // Constructors
+#endregion // Constructors
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Gets or sets the name of the legend cell.
@@ -909,7 +924,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color ForeColor
         {
@@ -932,7 +949,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color BackColor
         {
@@ -975,7 +994,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         DefaultValue(""),
         SRDescription("DescriptionAttributeLegendCell_Image"),
+#if DESIGNER
         Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+#endif
         ]
         public virtual string Image
         {
@@ -998,7 +1019,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public virtual Color ImageTransparentColor
         {
@@ -1185,9 +1208,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-        #endregion // Properties
+#endregion // Properties
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Resets cached cell values.
@@ -1626,9 +1649,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             return Color.Black;
         }
 
-        #endregion // Methods
+#endregion // Methods
 
-        #region Cell Painting Methods
+#region Cell Painting Methods
 
         /// <summary>
         /// Paints content of the legend cell.
@@ -2215,9 +2238,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             chartGraph.EndHotRegion();
         }
 
-        #endregion // Cell Painting Methods
+#endregion // Cell Painting Methods
 
-        #region IDisposable Members
+#region IDisposable Members
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources
@@ -2237,7 +2260,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -2249,7 +2272,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     ]
     public class Margins
     {
-        #region Fields
+#region Fields
 
         // Top margin
         private int _top = 0;
@@ -2267,9 +2290,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         // chart when one of the properties is changed.
         internal CommonElements Common = null;
 
-        #endregion // Fields
+#endregion // Fields
 
-        #region Constructor
+#region Constructor
 
         /// <summary>
         /// Margins constructor.
@@ -2293,9 +2316,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             this._right = right;
         }
 
-        #endregion // Constructor
+#endregion // Constructor
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Gets or sets the top margin.
@@ -2405,9 +2428,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-        #endregion // Properties
+#endregion // Properties
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Convert margins object to string.
@@ -2492,7 +2515,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             }
         }
 
-        #endregion // Methods
+#endregion // Methods
     }
 
     /// <summary>
@@ -2504,7 +2527,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     public class LegendCellCollection : ChartNamedElementCollection<LegendCell>
     {
 
-        #region Constructors
+#region Constructors
 
         /// <summary>
         /// LegendCellCollection constructor.
@@ -2517,9 +2540,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
         }
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
         /// <summary>
         /// Adds a cell to the end of the collection.
         /// </summary>
@@ -2563,7 +2586,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             this.Insert(index, new LegendCell(cellType, text, alignment));
         }
 
-        #endregion
+#endregion
 
     }
 
@@ -2577,7 +2600,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     public class LegendCellColumnCollection : ChartNamedElementCollection<LegendCellColumn>
     {
 
-        #region Construction and Initialization
+#region Construction and Initialization
 
         /// <summary>
         /// LegendCellColumnCollection constructor.
@@ -2593,9 +2616,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
         }
 
-        #endregion // Construction and Initialization
+#endregion // Construction and Initialization
 
-        #region IDisposable Members
+#region IDisposable Members
 
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources
@@ -2616,7 +2639,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
 
-        #endregion
+#endregion
     }
 
 }
