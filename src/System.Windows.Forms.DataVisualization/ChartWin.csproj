@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>false</CLSCompliant>
@@ -20,31 +20,34 @@
   </ItemGroup>
   
 
-  <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.1.28.3" />
-  </ItemGroup>
   <!--<ItemGroup>
-    <ProjectReference Include="C:\Users\kirea\source\repos\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
+    <PackageReference Include="FastReport.Compat" Version="2020.1.28.3" />
   </ItemGroup>-->
+  <ItemGroup>
+    <ProjectReference Include="D:\Source\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
+    <PackageReference Include="System.Drawing.Common" Version="[4.6.1,)" />
+  </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'!='net40'">
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+  </ItemGroup>
+  
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
       <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="SR.resx">
       <GenerateSource>true</GenerateSource>
-      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>  <!--I think you want System here--> 
+      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
     </EmbeddedResource>
   </ItemGroup>
 
-
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
-    <PackageReference Include="System.Drawing.Common" Version="[4.6.1,)" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
-  </ItemGroup>
 </Project>
