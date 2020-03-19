@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     [AttributeUsage(AttributeTargets.All)]
     internal sealed class SRCategoryAttribute : CategoryAttribute

@@ -7,19 +7,24 @@
 //  Purpose:	Converter classes for Legend.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
+#if NETSTANDARD
+using FastReport.TypeConverters;
+#endif
+using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Chart area name converter. Displays list of available areas names
     /// </summary>
     internal class LegendAreaNameConverter : StringConverter
 	{
-		#region Converter methods
+#region Converter methods
 
 		/// <summary>
 		/// Standart values supported - return true
@@ -154,7 +159,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return new StandardValuesCollection(values);
 		}
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -168,9 +173,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// Designer converter class
 	/// Converts Size.Emty tofrom "Auto".
 	/// </summary>
-    internal class SizeEmptyValueConverter : System.Drawing.SizeConverter
+	internal class SizeEmptyValueConverter : SizeConverter
 	{
-	#region Converter methods
+#region Converter methods
 
 		/// <summary>
 		/// Standard values supported - return true
@@ -245,15 +250,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return base.ConvertFrom(context, culture, value);
 		}
 
-	#endregion
+#endregion
 	}
 
 	/// <summary>
 	/// Data point properties converter
 	/// </summary>
-    internal class MarginExpandableObjectConverter : ExpandableObjectConverter
+	internal class MarginExpandableObjectConverter : ExpandableObjectConverter
 	{
-	#region Converter methods
+#region Converter methods
 
 		/// <summary>
 		/// This method overrides CanConvertTo from TypeConverter. This is called when someone
@@ -360,7 +365,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return base.ConvertFrom(context, culture, value);
 		}
 
-	#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -369,7 +374,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
     internal class IntNanValueConverter : Int32Converter
 	{
-	#region Converter methods
+#region Converter methods
 
 		/// <summary>
 		/// Standard values supported - return true
@@ -445,6 +450,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return base.ConvertFrom(context, culture, value);
 		}
 
-	#endregion
+#endregion
 	}
+
 }

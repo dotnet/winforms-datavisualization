@@ -10,18 +10,17 @@
 //              set by the user.
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Labels enumerations
 
@@ -549,7 +548,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
 		SRDescription("DescriptionAttributeCustomLabel_Image"),
+#if DESIGNER
         Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+#endif
         NotifyParentPropertyAttribute(true)
 		]
 		public string Image
@@ -575,7 +576,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color ImageTransparentColor
 		{
@@ -624,7 +627,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GridTickTypes.None),
 		SRDescription("DescriptionAttributeCustomLabel_GridTicks"),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public GridTickTypes GridTicks
 		{
@@ -717,7 +722,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeForeColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color ForeColor
 		{
@@ -742,7 +749,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeCustomLabel_MarkColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color MarkColor
 		{
@@ -2508,7 +2517,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeFontColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color ForeColor
 		{

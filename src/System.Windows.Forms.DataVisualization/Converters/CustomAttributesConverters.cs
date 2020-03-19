@@ -16,11 +16,11 @@ using System.Drawing;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
 
-	using System.Windows.Forms.DataVisualization.Charting.Utilities;
-    using System.Windows.Forms.DataVisualization.Charting;
+	using FastReport.DataVisualization.Charting.Utilities;
+    using FastReport.DataVisualization.Charting;
 
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
 	/// <summary>
 	/// Custom properties object type converter.

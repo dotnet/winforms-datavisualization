@@ -7,13 +7,13 @@
 //  Purpose:	Converters for the Axis object properties.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Converts labels, grid and ticks start position to support dates format

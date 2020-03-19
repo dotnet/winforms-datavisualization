@@ -8,16 +8,15 @@
 //				labels related properties and methods.
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The Axis class provides functionality for 
@@ -67,7 +66,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		SRDescription("DescriptionAttributeCustomLabels"),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public CustomLabelsCollection CustomLabels
 		{

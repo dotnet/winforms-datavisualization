@@ -33,13 +33,13 @@
 // can either be done at runtime, or design-time.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.ChartTypes;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     #region Enumerations
 

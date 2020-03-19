@@ -7,10 +7,10 @@
 //  Purpose:	Chart control accessible object.
 //
 
-
+#if ACCESSIBLE
 using System.Collections.Generic;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     using System.Drawing;
 
@@ -846,3 +846,4 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
     }
 }
 
+#endif

@@ -27,12 +27,12 @@
 //  3 O'Clock position.
 //
 
-
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// PolarChart class uses its base class RadarChart to perform most of the 

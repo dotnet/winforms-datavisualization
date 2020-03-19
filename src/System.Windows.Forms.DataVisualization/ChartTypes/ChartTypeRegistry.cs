@@ -14,13 +14,13 @@
 //              Chart.GetService(typeof(ChartTypeRegistry)) method.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Reflection;
 using System.Resources;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// ChartTypeName class contains constant strings defining

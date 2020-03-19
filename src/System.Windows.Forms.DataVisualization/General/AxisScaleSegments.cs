@@ -2,13 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>AxisScaleSegment</b> class represents a single segment of the axis with

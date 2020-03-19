@@ -7,16 +7,15 @@
 //  Purpose:	Rectangle, Ellipse and 3DBorder annotation classes.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Borders3D;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>RectangleAnnotation</b> is a class that represents a rectangle annotation.
@@ -66,7 +65,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color LineColor
 		{
@@ -149,7 +150,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackColor
 		{
@@ -181,7 +184,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         override public ChartHatchStyle BackHatchStyle
 		{
@@ -213,7 +218,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         override public GradientStyle BackGradientStyle
 		{
@@ -248,7 +255,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackSecondaryColor
 		{

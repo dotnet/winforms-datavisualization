@@ -10,14 +10,14 @@
 //              including the chart's data.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.IO;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 using System.Xml;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Serialization enumeration
 

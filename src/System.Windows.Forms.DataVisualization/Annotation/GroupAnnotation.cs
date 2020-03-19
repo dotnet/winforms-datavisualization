@@ -7,14 +7,13 @@
 //  Purpose:	Annotation group class.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>AnnotationGroup</b> is a class that represents an annotation group.
@@ -254,7 +253,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#endif
         Browsable(false),
 		]
 		override public Color ForeColor
@@ -315,7 +316,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
 		SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#endif
         Browsable(false),
 		]
 		override public Color LineColor
@@ -409,7 +412,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#endif
         Browsable(false),
 		]
 		override public Color BackColor
@@ -445,7 +450,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor)),
+#endif
         Browsable(false),
 		]
 		override public ChartHatchStyle BackHatchStyle
@@ -481,7 +488,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
-        Editor(typeof(GradientEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         Browsable(false),
 		]		
 		override public GradientStyle BackGradientStyle
@@ -520,7 +529,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         Browsable(false),
 		] 
 		override public Color BackSecondaryColor
@@ -551,7 +562,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "128,0,0,0"),
         SRDescription("DescriptionAttributeShadowColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#endif
         Browsable(false),
 		]
 		override public Color ShadowColor
@@ -764,7 +777,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeAnnotations"),
 		SRDescription("DescriptionAttributeAnnotationGroup_Annotations"),
+#if DESIGNER
         Editor(typeof(AnnotationCollectionEditor), typeof(UITypeEditor)),
+#endif
         DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
 		]
 		public AnnotationCollection Annotations

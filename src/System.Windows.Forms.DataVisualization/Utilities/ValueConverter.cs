@@ -9,10 +9,10 @@
 //              values as labels, tooltips and axis labels.
 //
 
-
+using System;
 using System.Globalization;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     /// <summary>
     /// ValueConverter class is used when numeric or DateTime 

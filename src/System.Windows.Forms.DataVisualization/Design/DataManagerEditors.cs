@@ -8,16 +8,16 @@
 //				Series and DataPoint properties.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.ChartTypes;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class SeriesDataSourceMemberValueAxisUITypeEditor : System.Drawing.Design.UITypeEditor 
 	{
-		#region Editor methods and properties
+#region Editor methods and properties
 
         internal virtual SeriesDataSourceMemberYCheckedListBox GetDropDownControl(Chart chart, ITypeDescriptorContext context, object value, bool flag)
         {
@@ -96,7 +96,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.GetEditStyle(context);
 		}
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -113,7 +113,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         // Indicates that editor was used for the Y values members
         protected bool usedForYValue = false;
 
-        #region Control constructor
+#region Control constructor
 
         /// <summary>
         /// Public constructor.
@@ -139,9 +139,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             _chart = chart;
         }
 
-        #endregion
+#endregion
 
-        #region Control methods
+#region Control methods
 
         protected override void OnCreateControl()
         {
@@ -221,7 +221,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             return result;
         }
 
-        #endregion
+#endregion
     }
 
 	/// <summary>
@@ -229,7 +229,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class ChartTypeEditor : UITypeEditor
 	{
-		#region Converter methods
+#region Converter methods
 
 		// Reference to the chart type registry
 		private ChartTypeRegistry	_chartTypeRegistry = null;
@@ -294,7 +294,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			}
 		}
 		
-        #endregion
+#endregion
 	}
 
 	/// <summary>
@@ -302,7 +302,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class DataPointCollectionEditor : ChartCollectionEditor
 	{
-		#region Editor methods
+#region Editor methods
 
 		/// <summary>
 		/// Default constructor
@@ -355,7 +355,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.CreateInstance(itemType);
 		}
 	
-		#endregion
+#endregion
 	}
 
 
@@ -364,7 +364,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class ChartCollectionEditor : CollectionEditor
 	{
-		#region Editor methods and properties 
+#region Editor methods and properties 
 
 		// Collection editor form
 		CollectionForm	_form = null;
@@ -673,7 +673,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             // don't destroy instance because remove is clicked.
         }
 
-		#endregion
+#endregion
 	}
 
 
@@ -682,7 +682,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class SeriesCollectionEditor : ChartCollectionEditor
 	{
-		#region Editor methods
+#region Editor methods
 
 		/// <summary>
 		/// Object constructor.
@@ -782,8 +782,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.CreateInstance(itemType);
 		}
 	
-		#endregion
+#endregion
 	}
 }
 
 
+#endif

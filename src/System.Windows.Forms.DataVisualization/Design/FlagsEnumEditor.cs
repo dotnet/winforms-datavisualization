@@ -8,28 +8,28 @@
 //				Editor displays the drop down list with check marks.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// UI type editor for the enumerations with Flags attribute
     /// </summary>
     internal class FlagsEnumUITypeEditor : System.Drawing.Design.UITypeEditor 
 	{
-		#region Constructor
+#region Constructor
 
 		/// <summary>
 		/// Enumeration type.
 		/// </summary>
 		private	Type	_enumType = null;
 
-		#endregion
+#endregion
 
-		#region Editor methods and properties
+#region Editor methods and properties
 
 		private IWindowsFormsEditorService	_edSvc = null;
 
@@ -88,7 +88,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.GetEditStyle(context);
 		}
 	
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -96,7 +96,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class FlagsEnumCheckedListBox : CheckedListBox
 	{
-		#region Control fields
+#region Control fields
 
 		// Enumeration object to edit
 		private	object		_editValue = null;
@@ -104,9 +104,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		// Enumeration type to edit
 		private	Type		_editType = null;
 
-		#endregion
+#endregion
 
-		#region Control constructor
+#region Control constructor
 
 		/// <summary>
 		/// Public constructor.
@@ -126,9 +126,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			this.FillList();
 		}
 
-		#endregion
+#endregion
 
-		#region Control methods
+#region Control methods
 
 		/// <summary>
 		/// Fills checked list items
@@ -185,7 +185,8 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return Enum.ToObject(this._editType, editValueInt32);
 		}
 
-		#endregion
+#endregion
 	}
 }
 
+#endif

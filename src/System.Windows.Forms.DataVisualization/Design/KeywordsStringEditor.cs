@@ -10,24 +10,24 @@
 //				registry.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Stirng editor form that is used to edit properties that support keywords.
     /// </summary>
     internal class KeywordsStringEditorForm : System.Windows.Forms.Form
 	{
-		#region Fields
+#region Fields
 
 		// Form fields
 		private System.Windows.Forms.RichTextBox _richTextBox;
@@ -112,9 +112,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         private static int widthDialogExtend = 80;
 		private static int heightDialogExtend = 38;
 		
-        #endregion // Fields
+#endregion // Fields
 
-		#region Constructor
+#region Constructor
 
 		/// <summary>
 		/// Default public constructor
@@ -162,9 +162,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			base.Dispose( disposing );
 		}
 
-		#endregion // Constructor
+#endregion // Constructor
 
-		#region Windows Form Designer generated code
+#region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -318,9 +318,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             this.ResumeLayout(false);
 
 		}
-		#endregion
+#endregion
 
-		#region Event Handlers
+#region Event Handlers
 
 		/// <summary>
 		/// Form loaded event handler.
@@ -536,9 +536,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			this.ResultString = this.ResultString.Replace("\n", "\\n");
 		}
 
-		#endregion // Event Handlers
+#endregion // Event Handlers
 
-		#region Helper Methods
+#region Helper Methods
 
 		/// <summary>
 		/// Helper method that generates the RTF text based on the string.
@@ -814,7 +814,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			this._labelDescription.Height += heightDialogExtend;
 		}
         
-		#endregion // Helper Methods
+#endregion // Helper Methods
 	}
 
 	/// <summary>
@@ -822,7 +822,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class KeywordsStringEditor : System.Drawing.Design.UITypeEditor 
 	{
-		#region Editor methods and properties
+#region Editor methods and properties
 
 		// Editor services
 		private IWindowsFormsEditorService	_edSvc = null;
@@ -961,9 +961,10 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.GetEditStyle(context);
 		}
 	
-		#endregion
+#endregion
 	}
 
 }
 
 
+#endif

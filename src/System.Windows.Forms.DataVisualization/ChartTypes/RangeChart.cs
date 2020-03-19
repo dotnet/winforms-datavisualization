@@ -13,12 +13,12 @@
 //              default tension of the lines between data points.
 //
 
-
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// SplineRangeChart class extends the RangeChart class by 

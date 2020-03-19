@@ -22,14 +22,13 @@ using System.Drawing.Design;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Diagnostics.CodeAnalysis;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Data;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Borders3D;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using Point = System.Drawing.Point;
 
@@ -514,7 +513,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeInterlacedColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color InterlacedColor
         {
@@ -818,7 +819,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(LabelAutoFitStyles.DecreaseFont | LabelAutoFitStyles.IncreaseFont | LabelAutoFitStyles.LabelsAngleStep30 | LabelAutoFitStyles.StaggeredLabels | LabelAutoFitStyles.WordWrap),
         SRDescription("DescriptionAttributeLabelsAutoFitStyle"),
         NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         public LabelAutoFitStyles LabelAutoFitStyle
         {
@@ -891,7 +894,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeTitleColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color TitleForeColor
         {
@@ -962,7 +967,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeLineColor"),
         NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color LineColor
         {
@@ -1035,7 +1042,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         SRDescription("DescriptionAttributeStripLines"),
 		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public StripLinesCollection StripLines
         {

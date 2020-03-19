@@ -12,7 +12,7 @@
 using System;
 using System.Globalization;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Formulas
+namespace FastReport.DataVisualization.Charting.Formulas
 {
 	/// <summary>
 	/// This class is used for calculations of 

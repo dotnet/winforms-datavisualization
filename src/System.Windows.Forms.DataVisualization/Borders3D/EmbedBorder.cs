@@ -7,11 +7,11 @@
 //  Purpose:	Classes that implement different 3D border styles.
 //
 
-
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
+namespace FastReport.DataVisualization.Charting.Borders3D
 {
     /// <summary>
     /// Implements frame border.

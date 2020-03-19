@@ -7,15 +7,14 @@
 //  Purpose:	Line annotation class.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>LineAnnotation</b> is a class that represents a line annotation.
@@ -189,7 +188,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color ForeColor
 		{
@@ -236,7 +237,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackColor
 		{
@@ -261,7 +264,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         override public ChartHatchStyle BackHatchStyle
 		{
@@ -283,7 +288,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         override public GradientStyle BackGradientStyle
 		{
@@ -306,7 +313,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackSecondaryColor
 		{

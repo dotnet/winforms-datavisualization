@@ -36,11 +36,11 @@
 //  topic in the MSDN library.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     /// <summary>
     /// KeywordName class contains constant strings defining

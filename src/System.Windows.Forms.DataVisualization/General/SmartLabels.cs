@@ -12,16 +12,15 @@
 //              information about labels in a chart area.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.ChartTypes;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Enumerations
 
@@ -260,7 +259,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         DefaultValue(typeof(LabelAlignmentStyles), "Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight"),
         SRDescription("DescriptionAttributeMovingDirection"),
+#if DESIGNER
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public LabelAlignmentStyles MovingDirection
         {
@@ -385,7 +386,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeCalloutLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color CalloutLineColor
         {
@@ -431,7 +434,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), "Transparent"),
         SRDescription("DescriptionAttributeCalloutBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         virtual public Color CalloutBackColor
         {

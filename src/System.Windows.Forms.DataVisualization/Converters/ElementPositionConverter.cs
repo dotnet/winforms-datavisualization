@@ -7,11 +7,11 @@
 //  Purpose:	Converter of the element position.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Element position converter.

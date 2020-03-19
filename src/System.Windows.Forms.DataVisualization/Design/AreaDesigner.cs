@@ -7,11 +7,11 @@
 //  Purpose:	Design-time chart areas collection editor class
 //
 
-
+#if DESIGNER
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Designer editor for the chart areas collection.
@@ -62,3 +62,4 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     }
 }
 
+#endif

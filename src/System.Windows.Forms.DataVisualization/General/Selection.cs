@@ -7,7 +7,8 @@
 //  Purpose:	This file contains methods used for Win Form selection
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +19,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Text;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using Point = System.Drawing.Point;
 

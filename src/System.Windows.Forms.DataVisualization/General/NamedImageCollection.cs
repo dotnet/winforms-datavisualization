@@ -18,7 +18,7 @@
 
 using System.ComponentModel;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The NamedImagesCollection class is a strongly typed collection of NamedImage

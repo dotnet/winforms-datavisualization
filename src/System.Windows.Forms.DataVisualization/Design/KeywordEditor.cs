@@ -8,20 +8,20 @@
 //				new and edit exsisting keywords in the string.
 //
 
-
+#if DESIGNER
 using System.Collections;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Summary description for KeywordEditor.
     /// </summary>
     internal class KeywordEditor : System.Windows.Forms.Form
 	{
-		#region Fields
+#region Fields
 
 		/// <summary>
 		/// List of keywords that are applicable to the edited property
@@ -67,9 +67,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		private static int widthDialogExtend = 80;
 		private static int heightDialogExtend = 38;
 
-		#endregion // Fields
+#endregion // Fields
 
-		#region Constructors
+#region Constructors
 
 		/// <summary>
 		/// Default public constructor.
@@ -112,9 +112,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			base.Dispose( disposing );
 		}
 
-		#endregion // Constructors
+#endregion // Constructors
 
-		#region Windows Form Designer generated code
+#region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
@@ -360,9 +360,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			this.ResumeLayout(false);
 
 		}
-		#endregion
+#endregion
 
-		#region Event Handlers
+#region Event Handlers
 
 		/// <summary>
 		/// Form loaded event handler.
@@ -677,9 +677,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			}
 		}
 
-		#endregion // Event Handlers
+#endregion // Event Handlers
 
-		#region Helper Methods
+#region Helper Methods
 
 		/// <summary>
 		/// Gets current format string
@@ -826,8 +826,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			this._groupBoxFormat.Top += heightDialogExtend;
 		}
 
-		#endregion // Helper Methods
+#endregion // Helper Methods
 	}
 }
 
 
+#endif

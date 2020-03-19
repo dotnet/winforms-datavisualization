@@ -7,18 +7,18 @@
 //  Purpose:	Design-time support classes for Legend.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Designer editor for the custom legend items collection.
     /// </summary>
     internal class LegendItemCollectionEditor : ChartCollectionEditor
 	{
-		#region Editor methods
+#region Editor methods
 
 		/// <summary>
 		/// Object constructor.
@@ -39,7 +39,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.EditValue(context, provider, value);
 		}
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -47,7 +47,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class LegendCollectionEditor : ChartCollectionEditor
 	{
-		#region Editor methods
+#region Editor methods
 
 		/// <summary>
 		/// Object constructor.
@@ -98,7 +98,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.CreateInstance(itemType);
 		}
 
-        #endregion
+#endregion
 	}
 
 
@@ -108,7 +108,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 	/// </summary>
 	internal class LegendCellColumnCollectionEditor : ChartCollectionEditor
 	{
-    #region Editor methods
+#region Editor methods
 
 		/// <summary>
 		/// Object constructor.
@@ -161,7 +161,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return base.CreateInstance(itemType);
 		}
 
-        #endregion
+#endregion
 	}
 
 		/// <summary>
@@ -169,7 +169,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 		/// </summary>
 		internal class LegendCellCollectionEditor : ChartCollectionEditor
 		{
-    #region Editor methods
+#region Editor methods
 
 			/// <summary>
 			/// Object constructor.
@@ -222,7 +222,8 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 				return base.CreateInstance(itemType);
 			}
 
-        #endregion
+#endregion
 		}
 
 }
+#endif

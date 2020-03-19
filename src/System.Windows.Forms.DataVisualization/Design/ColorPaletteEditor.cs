@@ -11,17 +11,18 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
+#if DESIGNER
     /// <summary>
     /// AxisName editor for the palette properties.
     /// </summary>
     internal class ColorPaletteEditor : UITypeEditor
     {
-        #region UI editor methods
+#region UI editor methods
 
         /// <summary>
         /// Override this function to support palette colors drawing
@@ -72,7 +73,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             }
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -85,4 +86,5 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     {
         // left empty on purpose, see summary comment.
     }
+#endif
 }

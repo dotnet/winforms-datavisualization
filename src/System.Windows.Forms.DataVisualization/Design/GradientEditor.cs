@@ -12,17 +12,17 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Reflection;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
 
-
-    /// <summary>
-    /// AxisName editor for the gradient type.
-    /// Paints a rectangle with gradient sample.
-    /// </summary>
-    internal class GradientEditor : UITypeEditor, IDisposable
+#if DESIGNER
+	/// <summary>
+	/// AxisName editor for the gradient type.
+	/// Paints a rectangle with gradient sample.
+	/// </summary>
+	internal class GradientEditor : UITypeEditor, IDisposable
 	{
 		#region Editor method and properties
 
@@ -166,6 +166,6 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 
         #endregion
     }
-
+#endif
 
 }

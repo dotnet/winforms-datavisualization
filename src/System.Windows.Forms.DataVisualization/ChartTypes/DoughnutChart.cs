@@ -13,7 +13,7 @@
 using System;
 using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
 	/// <summary>
     /// DoughnutChart class provide only the behaviour information for the 

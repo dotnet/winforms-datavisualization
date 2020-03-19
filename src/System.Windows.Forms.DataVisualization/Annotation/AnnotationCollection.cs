@@ -7,11 +7,12 @@
 //  Purpose:	Collection of annotation objects.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>AnnotationCollection</b> is a collection that stores chart annotation objects.

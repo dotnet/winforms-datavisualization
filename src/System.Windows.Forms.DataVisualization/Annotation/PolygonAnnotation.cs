@@ -7,16 +7,16 @@
 //  Purpose:	Polyline and polygon annotation classes.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// <b>PolylineAnnotation</b> is a class that represents a polyline annotation.
@@ -182,7 +182,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeForeColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color ForeColor
 		{
@@ -229,7 +231,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackColor
 		{
@@ -251,7 +255,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         override public ChartHatchStyle BackHatchStyle
 		{
@@ -273,7 +279,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         override public GradientStyle BackGradientStyle
 		{
@@ -296,7 +304,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackSecondaryColor
 		{
@@ -451,7 +461,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributePosition"),
 		SRDescription("DescriptionAttributePathPoints"),
 		EditorBrowsableAttribute(EditorBrowsableState.Never),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor)),
+#endif
         DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
 		]
 		public AnnotationPathPointCollection GraphicsPathPoints
@@ -1199,7 +1211,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeBackColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackColor
 		{
@@ -1231,7 +1245,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
 		SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         override public ChartHatchStyle BackHatchStyle
 		{
@@ -1263,7 +1279,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         override public GradientStyle BackGradientStyle
 		{
@@ -1298,7 +1316,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackSecondaryColor
 		{

@@ -35,14 +35,14 @@
 //	with this type of chart.
 //
 
-
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// KagiChart class provides 2D and 3D drawing and hit testing of

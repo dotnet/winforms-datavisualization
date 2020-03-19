@@ -11,7 +11,7 @@
 
 using System;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Formulas
+namespace FastReport.DataVisualization.Charting.Formulas
 {
 	/// <summary>
 	/// Price indicator is module with mathematical calculations 

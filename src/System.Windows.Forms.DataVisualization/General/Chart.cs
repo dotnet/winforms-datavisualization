@@ -9,7 +9,8 @@
 //				class, which is used for Paint events arguments.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,11 +27,10 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Borders3D;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using FontStyle = System.Drawing.FontStyle;
 
@@ -147,9 +147,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     IntPtr hdc = IntPtr.Zero;
                     try
                     {
+#if DESIGNER
                         System.Security.Permissions.SecurityPermission securityPermission = new System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode);
                         securityPermission.Demand();
-                        
+#endif
                         hdc = newGraphics.GetHdc();
 
 
@@ -2169,7 +2170,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRCategory("CategoryAttributeAppearance"),
 		Bindable(true),
 		SRDescription("DescriptionAttributeChartAreas"),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartAreaCollection ChartAreas
 		{
@@ -2185,7 +2188,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeChart"),
 		SRDescription("DescriptionAttributeLegends"),
+#if DESIGNER
         Editor(typeof(LegendCellCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public LegendCollection Legends
 		{
@@ -2201,7 +2206,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeCharttitle"),
 		SRDescription("DescriptionAttributeTitles"),
+#if DESIGNER
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
+#endif
         ]
         public TitleCollection Titles
 		{
@@ -2219,8 +2226,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		[
 		SRCategory("CategoryAttributeChart"),
 		SRDescription("DescriptionAttributeAnnotations3"),
+#if DESIGNER
         Editor(typeof(AnnotationCollectionEditor), (typeof(UITypeEditor)))
-		]
+#endif
+        ]
 		public AnnotationCollection Annotations
 		{
 			get
@@ -2238,7 +2247,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "White"),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), (typeof(UITypeEditor)))
+#if DESIGNER
+		Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackColor
 		{
@@ -2262,7 +2273,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "White"),
 		SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), (typeof(UITypeEditor)))
+#if DESIGNER
+		Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BorderColor
 		{
@@ -2349,7 +2362,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartHatchStyle.None),
         SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartHatchStyle BackHatchStyle
 		{
@@ -2371,7 +2386,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
+#if DESIGNER
         Editor(typeof(ImageValueEditor), (typeof(UITypeEditor))),
+#endif
         NotifyParentPropertyAttribute(true)
 		]
 		public string BackImage
@@ -2418,7 +2435,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackImageTransparentColor
 		{
@@ -2526,7 +2545,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GradientStyle.None),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         public GradientStyle BackGradientStyle
 		{
@@ -2550,7 +2571,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackSecondaryColor
 		{
@@ -2621,9 +2644,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             get { return _fontCache; }
         }
 
-		#endregion	
+#endregion
 
-		#region Chart areas alignment methods
+#region Chart areas alignment methods
 
 		/// <summary>
 		/// Checks if any of the chart areas are aligned.
@@ -3059,9 +3082,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Helper methods
+#region Helper methods
 
         /// <summary>
         /// Inspects the chart dimensions.
@@ -3259,9 +3282,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			return false;
 		}
 
-		#endregion
+#endregion
 
-        #region IDisposable Members
+#region IDisposable Members
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources
         /// </summary>
@@ -3322,7 +3345,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             base.Dispose(disposing);
         }
 
-        #endregion
+#endregion
     }
 
 	/// <summary>
@@ -3330,7 +3353,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	/// </summary>
     public class ChartPaintEventArgs : EventArgs
 	{
-		#region Fields
+#region Fields
 
 		// Private fields
         private object          _chartElement = null;
@@ -3339,9 +3362,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		private Chart			_chart = null;
 		private ElementPosition _position = null;
 
-		#endregion
+#endregion
 
-		#region Properties
+#region Properties
 
 
         /// <summary>
@@ -3406,9 +3429,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 			}
 		} 
 
-		#endregion
+#endregion
 
-		#region Methods
+#region Methods
 
 		/// <summary>
 		/// Default constructor is not accessible
@@ -3432,7 +3455,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             this._position = position;
 		}
 
-		#endregion
+#endregion
 	}
 
     /// <summary>
@@ -3440,7 +3463,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// </summary>
     public class FormatNumberEventArgs : EventArgs
     {
-        #region Fields
+#region Fields
 
         // Private fields
         private double _value;
@@ -3450,9 +3473,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         private object _senderTag;
         private ChartElementType _elementType = ChartElementType.Nothing;
 
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Value to be formatted.
@@ -3503,9 +3526,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             get { return _elementType; }
         }
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Default constructor is not accessible
@@ -3533,16 +3556,16 @@ namespace System.Windows.Forms.DataVisualization.Charting
             this._elementType = elementType;
         }
 
-        #endregion
+#endregion
     }
 
-    #region FontCache
+#region FontCache
     /// <summary>
     /// Font cache class helps ChartElements to reuse the Font instances
     /// </summary>
     internal class FontCache : IDisposable
     {
-        #region Static
+#region Static
 
         // Default font family name
         private static string _defaultFamilyName;
@@ -3575,16 +3598,16 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 return _defaultFamilyName;
             }
         }
-        #endregion
+#endregion
 
-        #region Fields
+#region Fields
 
         // Cached fonts dictionary 
         private Dictionary<KeyInfo, Font> _fontCache = new Dictionary<KeyInfo, Font>(new KeyInfo.EqualityComparer());
 
-        #endregion // Fields
+#endregion // Fields
 
-        #region Properties
+#region Properties
         /// <summary>
         /// Gets the default font.
         /// </summary>
@@ -3602,9 +3625,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         {
             get { return this.GetFont(DefaultFamilyName, 8, FontStyle.Bold); }
         }
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Gets the font.
@@ -3674,9 +3697,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             return this._fontCache[key];
         }
 
-        #endregion
+#endregion
 
-        #region IDisposable Members
+#region IDisposable Members
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -3691,9 +3714,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+#endregion
 
-        #region FontKeyInfo struct
+#region FontKeyInfo struct
         /// <summary>
         /// Font key info
         /// </summary>
@@ -3754,7 +3777,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 this._unit = unit;
             }
 
-            #region IEquatable<FontKeyInfo> Members
+#region IEquatable<FontKeyInfo> Members
             /// <summary>
             /// KeyInfo equality comparer
             /// </summary>
@@ -3789,11 +3812,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     return obj._familyName.GetHashCode() ^ obj._size.GetHashCode();
                 }
             }
-            #endregion
+#endregion
         }
-        #endregion
+#endregion
     }
-    #endregion
+#endregion
 
 
 }

@@ -21,16 +21,15 @@
 //              of using strip lines with interval. 
 //
 
-
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The StripLinesCollection class is a strongly typed collection of 
@@ -897,7 +896,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackColor
 		{
@@ -921,7 +922,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
         DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBorderColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BorderColor
 		{
@@ -988,7 +991,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(""),
         SRDescription("DescriptionAttributeBackImage"),
+#if DESIGNER
         Editor(typeof(ImageValueEditor), typeof(UITypeEditor)),
+#endif
         NotifyParentPropertyAttribute(true)
 		]
 		public string BackImage
@@ -1037,7 +1042,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeImageTransparentColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackImageTransparentColor
 		{
@@ -1092,7 +1099,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(GradientStyle.None),
         SRDescription("DescriptionAttributeBackGradientStyle"),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         public GradientStyle BackGradientStyle
 		{
@@ -1127,7 +1136,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
         SRDescription("DescriptionAttributeBackSecondaryColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color BackSecondaryColor
 		{
@@ -1159,7 +1170,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Bindable(true),
 		DefaultValue(ChartHatchStyle.None),
         SRDescription("DescriptionAttributeBackHatchStyle"),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         public ChartHatchStyle BackHatchStyle
 		{
@@ -1227,7 +1240,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		SRDescription("DescriptionAttributeStripLine_TitleColor"),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color ForeColor
 		{

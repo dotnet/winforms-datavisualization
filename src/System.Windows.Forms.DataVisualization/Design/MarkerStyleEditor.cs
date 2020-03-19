@@ -12,19 +12,19 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
 
-
-    /// <summary>
-    /// AxisName editor for the marker style.
-    /// Paints a rectangle with marker sample.
-    /// </summary>
-    internal class MarkerStyleEditor : UITypeEditor, IDisposable
+#if DESIGNER
+	/// <summary>
+	/// AxisName editor for the marker style.
+	/// Paints a rectangle with marker sample.
+	/// </summary>
+	internal class MarkerStyleEditor : UITypeEditor, IDisposable
 	{
-		#region Editor method and properties
+#region Editor method and properties
 
 		ChartGraphics	_chartGraph = null;
         private bool _disposed;
@@ -120,9 +120,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			}
 		}
 
-		#endregion
+#endregion
 
-        #region IDisposable Members
+#region IDisposable Members
 
         /// <summary>
         /// Finalizer for the MarkerStyleEditor, disposes any remaining
@@ -159,8 +159,8 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+#endregion
     }
-
+#endif
 
 }

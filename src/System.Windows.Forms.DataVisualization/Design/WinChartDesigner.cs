@@ -7,14 +7,14 @@
 //  Purpose:	Windows forms chart control designer class.
 //
 
-
+#if DESIGNER
 using Microsoft.Win32;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
 
 
@@ -23,14 +23,14 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class ChartWinDesigner : ControlDesigner
     {
-        #region Fields
+#region Fields
 
         // Reference to the chart designer
         static internal ChartWinDesigner controlDesigner = null;
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Intialize designer.
@@ -119,9 +119,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         }
         
 
-        #endregion
+#endregion
 
-        #region Data Binding
+#region Data Binding
 
         /// <summary>
         /// Data source was changed.
@@ -191,8 +191,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             return selectedDataSource;
         }
 
-        #endregion //DataBinding
+#endregion //DataBinding
 
     }
 }
 
+#endif

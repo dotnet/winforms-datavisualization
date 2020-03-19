@@ -7,20 +7,20 @@
 //  Purpose:	Design-time UI editor for Annotations.
 //
 
-
+#if DESIGNER
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Designer editor for the Annotation Collection.
     /// </summary>
     internal class AnnotationCollectionEditor : ChartCollectionEditor
     {
-        #region Methods
+#region Methods
 
         /// <summary>
         /// Object constructor.
@@ -101,7 +101,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         }
 
 
-        #endregion // Methods
+#endregion // Methods
     }
 
     /// <summary>
@@ -109,7 +109,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class AnchorPointUITypeEditor : System.Drawing.Design.UITypeEditor
     {
-        #region Editor methods and properties
+#region Editor methods and properties
 
         /// <summary>
         /// Display a drop down list with check boxes.
@@ -161,7 +161,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             return base.GetEditStyle(context);
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -169,16 +169,16 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class AnchorPointNameTreeView : TreeView
     {
-        #region Control fields
+#region Control fields
 
         // Annotation object to edit
         private Annotation _annotation = null;
         private DataPoint _dataPoint = null;
         IWindowsFormsEditorService _edSvc = null;
 
-        #endregion
+#endregion
 
-        #region Control constructor
+#region Control constructor
 
         /// <summary>
         /// Public constructor.
@@ -203,9 +203,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             this.FillTree();
         }
 
-        #endregion
+#endregion
 
-        #region Control methods
+#region Control methods
 
         /// <summary>
         /// Fills data points name tree.
@@ -299,7 +299,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 }
             }
         }
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -307,7 +307,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class AnnotationAxisUITypeEditor : System.Drawing.Design.UITypeEditor
     {
-        #region Editor methods and properties
+#region Editor methods and properties
 
         /// <summary>
         /// Display a drop down list with check boxes.
@@ -368,7 +368,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             return base.GetEditStyle(context);
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -376,7 +376,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class AnnotationAxisNameTreeView : TreeView
     {
-        #region Control fields
+#region Control fields
 
         // Annotation object to edit
         private Annotation _annotation = null;
@@ -384,9 +384,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         IWindowsFormsEditorService _edSvc = null;
         private bool _showXAxes = true;
 
-        #endregion
+#endregion
 
-        #region Control constructor
+#region Control constructor
 
         /// <summary>
         /// Public constructor.
@@ -414,9 +414,9 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             this.FillTree();
         }
 
-        #endregion
+#endregion
 
-        #region Control methods
+#region Control methods
 
         /// <summary>
         /// Fills data points name tree.
@@ -519,7 +519,8 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 }
             }
         }
-        #endregion
+#endregion
     }
 
 }
+#endif

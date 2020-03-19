@@ -34,7 +34,7 @@
 //  "*.BackColor".
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -47,12 +47,14 @@ using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Xml;
+#if NETSTANDARD
+using FastReport.TypeConverters;
+#endif
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     using Size = System.Drawing.Size;
-
-    #region Serialization enumerations
+#region Serialization enumerations
 
     /// <summary>
     /// Enumeration which describes how to persist property during the serialization
@@ -101,7 +103,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         Resetting
     }
 
-	#endregion
+#endregion
 
 	/// <summary>
 	/// Attribute which describes how to persist property during the serialization.
@@ -109,14 +111,14 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 	[AttributeUsage(AttributeTargets.All)]
 	internal sealed class SerializationVisibilityAttribute : System.Attribute 
 	{
-		#region Fields
+#region Fields
 
 		// Visibility style
 		private SerializationVisibility _visibility = SerializationVisibility.Attribute;
 
-		#endregion
+#endregion
 
-		#region Constructor
+#region Constructor
 
 		/// <summary>
 		/// Public constructor
@@ -127,9 +129,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             this._visibility = visibility;
 		}
 
-		#endregion
+#endregion
 
-		#region Properties
+#region Properties
 
 		/// <summary>
 		/// Serialization visibility property
@@ -146,7 +148,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             //}
 		}
 
-		#endregion
+#endregion
 	}
 	
 	/// <summary>
@@ -154,7 +156,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 	/// </summary>
 	internal abstract class SerializerBase
 	{
-		#region Fields
+#region Fields
 
 		/// <summary>
 		/// Indicates that unknown properties and elements are ignored
@@ -202,9 +204,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         HybridDictionary _converterDict = new HybridDictionary();
 
 
-		#endregion
+#endregion
 
-		#region Public properties
+#region Public properties
 
 		/// <summary>
 		/// Indicates that unknown properties and elements will be 
@@ -291,9 +293,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Resetting methods
+#region Resetting methods
         
 		/// <summary>
 		/// Reset properties of the object to default values.
@@ -460,9 +462,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 		}
 
 
-		#endregion
+#endregion
 
-		#region Abstract Serialization/Deserialization methods
+#region Abstract Serialization/Deserialization methods
 
 		/// <summary>
 		/// Serialize specified object into the destination object.
@@ -478,9 +480,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 		/// <param name="source">Source of the deserialization.</param>
         internal abstract void Deserialize(object objectToDeserialize, object source);
 
-		#endregion
+#endregion
 
-		#region Protected helper methods
+#region Protected helper methods
 
 		/// <summary>
 		/// Converts specified font object into a string.
@@ -1121,9 +1123,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             return result;
         }
 
-		#endregion
+#endregion
 
-		#region Serializable content list managment fields, methods and classes
+#region Serializable content list managment fields, methods and classes
 
 		/// <summary>
 		/// Stores information about content item (class or property)
@@ -1255,7 +1257,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			}
 		}
 
-		#endregion
+#endregion
     }
 
 	/// <summary>
@@ -1263,7 +1265,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 	/// </summary>
 	internal class XmlFormatSerializer : SerializerBase
 	{
-		#region Serialization public methods
+#region Serialization public methods
 
 		/// <summary>
 		/// Serialize specified object into the stream.
@@ -1310,9 +1312,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			Serialize(objectToSerialize, (object)fileName);
 		}
 
-		#endregion
+#endregion
         
-		#region Serialization private methods
+#region Serialization private methods
 
 		/// <summary>
 		/// Serialize specified object into different types of writers using XML format.
@@ -1807,9 +1809,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Deserialization public methods
+#region Deserialization public methods
 
 		/// <summary>
 		/// Deserialize specified object from the stream.
@@ -1855,9 +1857,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			Deserialize(objectToDeserialize, (object)fileName);
 		}
 
-		#endregion
+#endregion
 
-		#region Deserialization private methods
+#region Deserialization private methods
 
 		/// <summary>
 		/// Deserialize object from different types of readers using XML format.
@@ -2151,7 +2153,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			}
 		}
 
-		#endregion
+#endregion
 	}
 
 	/// <summary>
@@ -2159,7 +2161,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 	/// </summary>
 	internal class BinaryFormatSerializer : SerializerBase
 	{
-		#region Serialization methods
+#region Serialization methods
 
 		/// <summary>
 		/// Serialize specified object into the destination using binary format.
@@ -2754,9 +2756,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 			}
 #endif
 		}
-		#endregion
+#endregion
 
-		#region Deserialization methods
+#region Deserialization methods
 
 		/// <summary>
 		/// Deserialize specified object from the source using binary format.
@@ -3198,6 +3200,6 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             throw (new InvalidOperationException(SR.ExceptionChartSerializerPropertyNotFound));
 		}
 
-		#endregion
+#endregion
 	}
 }

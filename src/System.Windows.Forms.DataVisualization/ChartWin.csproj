@@ -1,51 +1,65 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR '$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='netcoreapp5.0'">
+    <IsNetCoreWin>true</IsNetCoreWin>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
 
+  <Sdk Name="Microsoft.NET.Sdk" Condition="!$(IsNetCoreWin)" />
+  <Sdk Name="Microsoft.NET.Sdk.WindowsDesktop" Condition="$(IsNetCoreWin)" />
+
+    
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
+    <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+    <AssemblyName>FastReport.DataVisualization</AssemblyName>
+    <PackageId>FastReport.DataVisualization</PackageId>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>false</CLSCompliant>
     <NoWarn>$(NoWarn);618</NoWarn>
     <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
-    <!-- <Win32Manifest>Resources\System\Windows\Forms\XPThemes.manifest</Win32Manifest> -->
+    <Copyright>Copyright © Fast Reports Inc 2020</Copyright>
+    <Product>FastReport.Net</Product>
+    <Company>Fast Reports Inc.</Company>
+    <Description>Charting library</Description>
+    <RootNamespace>FastReport.DataVisualization</RootNamespace>
   </PropertyGroup>
+  
 
   <ItemGroup>
     <Compile Remove="Annotation\AnnotationDesign.cs" />
     <Compile Remove="Common\EditorNames.cs" />
   </ItemGroup>
+  
 
   <ItemGroup>
-    <!-- Versions are defined in eng\Versions.props -->
-    <PackageReference Include="System.Data.SqlClient" Version="$(SystemDataSQLClientPackageVersion)" />
-    <PackageReference Include="System.Drawing.Common" Version="$(SystemDrawingCommonPackageVersion)" />
-    <PackageReference Include="System.Drawing.Primitives" Version="$(SystemDrawingPrimitivesPackageVersion)" />
-    <PackageReference Include="System.Windows.Extensions" Version="$(SystemWindowsExtensionsPackageVersion)" />
+    <PackageReference Include="FastReport.Compat" Version="2020.2.0" />
+  </ItemGroup>
+  <!--<ItemGroup>
+    <ProjectReference Include="D:\Source\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
+  </ItemGroup>-->
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
+    <PackageReference Include="System.Drawing.Common" Version="[4.6.1,)" />
+  </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)'!='net40'">
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+  </ItemGroup>
+
+  
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
       <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="SR.resx">
       <GenerateSource>true</GenerateSource>
-      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace> <!-- I think you want System here -->
+      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
     </EmbeddedResource>
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.6.0-preview.19073.11" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Windows.Extensions" Version="4.6.0-preview.19073.11" />
-  </ItemGroup>-->
-
-  <!-- <ItemGroup>
-    <EmbeddedResource Update="Resources\SR.resx">
-      <GenerateSource>true</GenerateSource>
-      <Namespace>System</Namespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\Common\Resources\ChartControl.ico">
-      <Link>ChartControl.ico</Link>
-    </EmbeddedResource>
-  </ItemGroup> -->
 </Project>

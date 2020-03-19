@@ -19,15 +19,15 @@
 //              interaction and programmatically.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.Design.DataVisualization.Charting;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The Cursor class is responsible for chart axes cursor and selection 
@@ -467,7 +467,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "Red"),
         SRDescription("DescriptionAttributeLineColor"),
         TypeConverter(typeof(ColorConverter)),
-        Editor(typeof(ChartColorEditor), typeof(UITypeEditor)),
+#if DESIGNER
+        Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color LineColor
 		{
@@ -539,7 +541,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), "LightGray"),
 		SRDescription("DescriptionAttributeCursor_SelectionColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         public Color SelectionColor
 		{

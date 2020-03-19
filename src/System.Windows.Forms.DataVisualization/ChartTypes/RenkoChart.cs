@@ -52,13 +52,13 @@
 //	this type of chart. 
 //
 
-
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// RenkoChart class provides methods to perform all nessesary 

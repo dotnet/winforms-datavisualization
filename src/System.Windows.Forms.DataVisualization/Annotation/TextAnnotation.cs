@@ -7,16 +7,16 @@
 //  Purpose:	Text annotation class.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Security;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using Point = System.Drawing.Point;
     using Size = System.Drawing.Size;
@@ -149,7 +149,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(typeof(Color), "Black"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color LineColor
 		{
@@ -214,7 +216,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackColor
 		{
@@ -236,7 +240,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(ChartHatchStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))
+#endif
         ]
         override public ChartHatchStyle BackHatchStyle
 		{
@@ -258,7 +264,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		Browsable(false),
 		DefaultValue(GradientStyle.None),
 		NotifyParentPropertyAttribute(true),
+#if DESIGNER
         Editor(typeof(GradientEditor), typeof(UITypeEditor))
+#endif
         ]
         override public GradientStyle BackGradientStyle
 		{
@@ -281,7 +289,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		DefaultValue(typeof(Color), ""),
 		NotifyParentPropertyAttribute(true),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color BackSecondaryColor
 		{
@@ -1072,7 +1082,9 @@ System.Drawing.Image		graphicsImage = null;
 		DefaultValue(typeof(Color), "Black"),
         SRDescription("DescriptionAttributeCalloutLineColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color CalloutLineColor
 		{
@@ -1124,7 +1136,9 @@ System.Drawing.Image		graphicsImage = null;
 		DefaultValue(typeof(Color), "Transparent"),
         SRDescription("DescriptionAttributeCalloutBackColor"),
         TypeConverter(typeof(ColorConverter)),
+#if DESIGNER
         Editor(typeof(ChartColorEditor), typeof(UITypeEditor))
+#endif
         ]
         override public Color CalloutBackColor
 		{

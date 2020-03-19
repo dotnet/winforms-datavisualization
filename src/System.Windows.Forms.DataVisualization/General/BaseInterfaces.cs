@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// IChartElement is implemented by both ChartElements and ChartElementCollection to provide a unified access to Parent/Common elements. 
