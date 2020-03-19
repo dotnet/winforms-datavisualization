@@ -166,7 +166,7 @@ Task("DataVisualization")
 
   });
 
-#endregion Compat 
+#endregion
 
 // Task("setup-connectors-temporal-task")
 //   .IsDependentOn("Prepare")
