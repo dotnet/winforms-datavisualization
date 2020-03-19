@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) .NET Foundation and Contributors
+Copyright (c) 2020 Fast Reports Inc
 
 All rights reserved.
 
