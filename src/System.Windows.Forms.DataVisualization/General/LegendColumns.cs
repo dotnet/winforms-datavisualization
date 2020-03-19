@@ -15,9 +15,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using FastReport.DataVisualization.Charting.Utilities;
-#if FRCORE
-using FastReport.TypeConverters;
-#endif
 
 namespace FastReport.DataVisualization.Charting
 {

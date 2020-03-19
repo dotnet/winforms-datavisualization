@@ -1,5 +1,5 @@
 ﻿<Project>
-  
+
   <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR '$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='netcoreapp5.0'">
     <IsNetCoreWin>true</IsNetCoreWin>
     <UseWindowsForms>true</UseWindowsForms>
@@ -8,9 +8,9 @@
   <Sdk Name="Microsoft.NET.Sdk" Condition="!$(IsNetCoreWin)" />
   <Sdk Name="Microsoft.NET.Sdk.WindowsDesktop" Condition="$(IsNetCoreWin)" />
 
-    
+
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1;$(TargetFrameworks)</TargetFrameworks>
     <AssemblyName>FastReport.DataVisualization</AssemblyName>
     <PackageId>FastReport.DataVisualization</PackageId>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -22,21 +22,23 @@
     <Company>Fast Reports Inc.</Company>
     <Description>Charting library</Description>
     <RootNamespace>FastReport.DataVisualization</RootNamespace>
+    <RepositoryUrl>https://github.com/FastReports/winforms-datavisualization</RepositoryUrl>
+    <PackageTags>Chart WinForms Windows Forms DataVisualization DataVisualisation Data Visualization Visualisation</PackageTags>
+    <PackageIcon>frlogo-big.png</PackageIcon>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
   </PropertyGroup>
-  
+
 
   <ItemGroup>
     <Compile Remove="Annotation\AnnotationDesign.cs" />
     <Compile Remove="Common\EditorNames.cs" />
   </ItemGroup>
-  
+
 
   <ItemGroup>
     <PackageReference Include="FastReport.Compat" Version="2020.2.0" />
   </ItemGroup>
-  <!--<ItemGroup>
-    <ProjectReference Include="D:\Source\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
-  </ItemGroup>-->
 
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
     <Reference Include="System.Windows.Forms" />
@@ -47,11 +49,11 @@
     <PackageReference Include="System.Drawing.Common" Version="[4.6.1,)" />
   </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)'!='net40'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net40'">
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
   </ItemGroup>
 
-  
+
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
       <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
@@ -60,6 +62,18 @@
       <GenerateSource>true</GenerateSource>
       <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
     </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\..\frlogo-big.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE.TXT">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

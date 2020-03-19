@@ -11,9 +11,6 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
-#if NETSTANDARD
-using FastReport.TypeConverters;
-#endif
 using System.Drawing;
 
 
