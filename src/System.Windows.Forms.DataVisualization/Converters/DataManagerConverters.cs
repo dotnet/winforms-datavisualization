@@ -7,16 +7,16 @@
 //  Purpose:	Converter classes for the Series and DataPoint properties.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Reflection;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Data;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Data;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Chart area name converter. Displays list of available areas names

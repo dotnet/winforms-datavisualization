@@ -15,12 +15,12 @@
 //				axes for them.
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.ChartTypes;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// ChartAreaAxes class represents axes (X, Y, X2 and Y2) in the chart area. 

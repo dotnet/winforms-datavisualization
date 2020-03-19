@@ -35,7 +35,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The StatisticFormula class provides helper methods for statistical calculations.

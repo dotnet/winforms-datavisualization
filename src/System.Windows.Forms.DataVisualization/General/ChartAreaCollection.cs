@@ -8,8 +8,9 @@
 //              typed collection of ChartArea objects.
 //
 
+using System;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// The ChartAreaCollection class represents a strongly typed collection of 

@@ -9,17 +9,17 @@
 
 #if DESIGNER
 using System.ComponentModel.Design.Serialization;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
     /// <summary>
     /// Windows forms chart control designer class.
     /// </summary>
     internal class ChartWinDesignerSerializer : CodeDomSerializer
 	{
-		#region Methods
+#region Methods
 
 		/// <summary>
 		/// Serializes the specified object into a CodeDOM object.
@@ -99,7 +99,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
 			return null;
 		}
 
-		#endregion
+#endregion
 	}
 }
 

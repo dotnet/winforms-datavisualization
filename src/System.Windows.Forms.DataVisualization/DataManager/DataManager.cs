@@ -7,16 +7,15 @@
 //  Purpose:	Series storage and manipulation class.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Data
+namespace FastReport.DataVisualization.Charting.Data
 {
     /// <summary>
     /// Data Manager.

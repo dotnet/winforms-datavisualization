@@ -10,11 +10,11 @@
 //              perspective settings.
 //
 
-
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// This class is responsible for all 3D coordinates transformations: Translation, 

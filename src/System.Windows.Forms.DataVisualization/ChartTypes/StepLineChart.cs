@@ -9,12 +9,12 @@
 //              labels drawing code is inherited from the Line chart.
 //
 
-
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// StepLine class extends its base class LineChart by changing how two 

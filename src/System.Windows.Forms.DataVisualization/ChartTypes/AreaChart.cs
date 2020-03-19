@@ -10,12 +10,12 @@
 //              charts.
 //
 
-
+using System;
 using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// SplineAreaChart class extends the AreaChart class by 

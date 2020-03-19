@@ -11,12 +11,12 @@
 //              through the DataFormula base class.
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Data manipulation enumerations
 

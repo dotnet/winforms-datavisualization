@@ -11,7 +11,8 @@
 //				DataPointComparer - used for sorting data points in series
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,10 +23,10 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Globalization;
 using System.Text;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
+using FastReport.Design.DataVisualization.Charting;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region CustomProperties enumeration
 
@@ -4014,7 +4015,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 						if(SystemInformation.HighContrast)
 						{
-							return Drawing.SystemColors.WindowText;
+							return SystemColors.WindowText;
 						}
 
 						return series.fontColor;
@@ -4882,7 +4883,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 						if(SystemInformation.HighContrast)
 						{
-							return Drawing.SystemColors.Window;
+							return SystemColors.Window;
 						}
 
 						return series.labelBackColor;
@@ -4938,7 +4939,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 						}
 						if(SystemInformation.HighContrast)
 						{
-							return Drawing.SystemColors.ActiveBorder;
+							return SystemColors.ActiveBorder;
 						}
 
 						return series.labelBorderColor;

@@ -7,12 +7,12 @@
 //  Purpose:	Converter for the Axes array.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
 	/// Converter object of axes array

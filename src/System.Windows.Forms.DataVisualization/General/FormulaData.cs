@@ -10,11 +10,11 @@
 //				output data to be displayed as a chart.
 //
 
-
+using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Windows.Forms.DataVisualization.Charting.Formulas;
+using FastReport.DataVisualization.Charting.Formulas;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Financial Formula Name enumeration
 

@@ -8,7 +8,7 @@
 //              caches it in the memory for the future use.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -19,7 +19,7 @@ using System.Reflection;
 using System.Resources;
 using System.Security;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     using Size = System.Drawing.Size;
 

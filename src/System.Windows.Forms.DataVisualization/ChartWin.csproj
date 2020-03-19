@@ -1,8 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project>
+  
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0' OR '$(TargetFramework)'=='netcoreapp3.1' OR '$(TargetFramework)'=='netcoreapp5.0'">
+    <IsNetCoreWin>true</IsNetCoreWin>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
 
+  <Sdk Name="Microsoft.NET.Sdk" Condition="!$(IsNetCoreWin)" />
+  <Sdk Name="Microsoft.NET.Sdk.WindowsDesktop" Condition="$(IsNetCoreWin)" />
+
+    
   <PropertyGroup>
     <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
-    <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
+    <AssemblyName>FastReport.DataVisualization</AssemblyName>
+    <PackageId>FastReport.DataVisualization</PackageId>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>false</CLSCompliant>
     <NoWarn>$(NoWarn);618</NoWarn>
@@ -11,6 +21,7 @@
     <Product>FastReport.Net</Product>
     <Company>Fast Reports Inc.</Company>
     <Description>Charting library</Description>
+    <RootNamespace>FastReport.DataVisualization</RootNamespace>
   </PropertyGroup>
   
 
@@ -20,12 +31,12 @@
   </ItemGroup>
   
 
-  <!--<ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.1.28.3" />
-  </ItemGroup>-->
   <ItemGroup>
-    <ProjectReference Include="D:\Source\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
+    <PackageReference Include="FastReport.Compat" Version="2020.2.0" />
   </ItemGroup>
+  <!--<ItemGroup>
+    <ProjectReference Include="D:\Source\FastReport.Compat\FastReport.Compat\FastReport.Compat.csproj" />
+  </ItemGroup>-->
 
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
     <Reference Include="System.Windows.Forms" />
@@ -39,6 +50,7 @@
     <ItemGroup Condition="'$(TargetFramework)'!='net40'">
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
   </ItemGroup>
+
   
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">

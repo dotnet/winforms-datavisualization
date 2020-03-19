@@ -15,10 +15,10 @@
 //              color for each point of the series. 
 //
 
-
+using System;
 using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Color palettes enumeration
 
@@ -96,7 +96,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 	#endregion	
 }
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     /// <summary>
     /// ChartPaletteColors is a utility class which provides access 

@@ -7,7 +7,8 @@
 //  Purpose:	Main windows forms chart control class.
 //
 
-
+using System;
+using System.Windows.Forms;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -19,14 +20,13 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.Formulas;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.Design.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Borders3D;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Data;
+using FastReport.DataVisualization.Charting.Formulas;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Enumerations
 
@@ -1181,7 +1181,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Editor(typeof(FlagsEnumUITypeEditor), typeof(UITypeEditor)),
 #endif
         ]
-        public System.Windows.Forms.DataVisualization.Charting.AntiAliasingStyles AntiAliasing
+        public FastReport.DataVisualization.Charting.AntiAliasingStyles AntiAliasing
 		{
 			get
 			{

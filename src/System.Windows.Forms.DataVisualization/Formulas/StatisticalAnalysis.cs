@@ -11,7 +11,7 @@
 using System;
 using System.Collections;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Formulas
+namespace FastReport.DataVisualization.Charting.Formulas
 {
 	/// <summary>
 	/// 

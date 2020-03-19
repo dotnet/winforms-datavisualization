@@ -10,21 +10,20 @@
 //              samples describing this functionality.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 #if FRCORE
 using FastReport.TypeConverters;
 #endif
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using System.Drawing;
     using System.Drawing.Design;
     using System.Drawing.Drawing2D;
-    using System.Windows.Forms.Design.DataVisualization.Charting;
     using SizeF = System.Drawing.SizeF;
 
 #region Enumerations

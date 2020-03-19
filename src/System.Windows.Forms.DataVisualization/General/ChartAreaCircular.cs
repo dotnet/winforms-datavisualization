@@ -12,7 +12,7 @@
 
 using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// CircularChartAreaAxis class represents a single axis in the circular 

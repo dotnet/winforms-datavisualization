@@ -7,7 +7,7 @@
 //  Purpose:	Converter classes for Legend.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
@@ -17,7 +17,7 @@ using FastReport.TypeConverters;
 using System.Drawing;
 
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Chart area name converter. Displays list of available areas names

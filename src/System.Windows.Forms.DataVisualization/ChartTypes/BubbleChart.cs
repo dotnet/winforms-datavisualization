@@ -11,12 +11,12 @@
 //              is used to control the size of the marker.
 //
 
-
+using System;
 using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting.ChartTypes
+namespace FastReport.DataVisualization.Charting.ChartTypes
 {
     /// <summary>
     /// BubbleChart class extends PointChart class to add support for

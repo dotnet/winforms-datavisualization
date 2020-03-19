@@ -7,11 +7,11 @@
 //  Purpose:	Class that implements Emboss 3D border style.
 //
 
-
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Borders3D
+namespace FastReport.DataVisualization.Charting.Borders3D
 {
 
     /// <summary>

@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
 
     /// <summary>

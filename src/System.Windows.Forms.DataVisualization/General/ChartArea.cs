@@ -22,18 +22,16 @@ using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
-
-using System.Windows.Forms.DataVisualization.Charting.Data;
-using System.Windows.Forms.DataVisualization.Charting.ChartTypes;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
-using System.Windows.Forms.DataVisualization.Charting.Borders3D;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms;
+using FastReport.DataVisualization.Charting.Data;
+using FastReport.DataVisualization.Charting.ChartTypes;
+using FastReport.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Borders3D;
+using FastReport.DataVisualization.Charting;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
-using System.Windows.Forms.Design;
-using System.Windows.Forms.Design.DataVisualization.Charting;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     using FontStyle = System.Drawing.FontStyle;
 
@@ -630,7 +628,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             {
                 if (SystemInformation.HighContrast && _backColor.IsEmpty && !_backColorIsSet)
                 {
-                    return Drawing.SystemColors.Control;
+                    return SystemColors.Control;
                 }
 
                 return _backColor;

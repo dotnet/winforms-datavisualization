@@ -34,7 +34,7 @@
 //  "*.BackColor".
 //
 
-
+using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -51,7 +51,7 @@ using System.Xml;
 using FastReport.TypeConverters;
 #endif
 
-namespace System.Windows.Forms.DataVisualization.Charting.Utilities
+namespace FastReport.DataVisualization.Charting.Utilities
 {
     using Size = System.Drawing.Size;
 #region Serialization enumerations

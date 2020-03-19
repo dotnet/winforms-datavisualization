@@ -7,11 +7,11 @@
 //  Purpose:	Keep track of all registered formula module types.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace System.Windows.Forms.DataVisualization.Charting.Formulas
+namespace FastReport.DataVisualization.Charting.Formulas
 {
     /// <summary>
     /// Keep track of all registered formula modules types.

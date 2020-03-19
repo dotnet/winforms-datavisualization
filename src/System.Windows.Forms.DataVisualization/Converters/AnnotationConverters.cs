@@ -7,11 +7,11 @@
 //  Purpose:	Annotation Converters.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
 	/// Converts anchor data point to string name.

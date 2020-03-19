@@ -12,14 +12,14 @@
 //              and then drawn with 2D chart graphics engine.
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region 3D enumerations
 

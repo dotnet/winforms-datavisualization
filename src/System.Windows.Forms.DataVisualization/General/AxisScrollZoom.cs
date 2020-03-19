@@ -22,14 +22,14 @@
 //              selected range is then displayed as a scaleView. 
 //
 
-
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
 
     #region Scrolling  enumerations
@@ -1382,7 +1382,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 }
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// Designer converter class

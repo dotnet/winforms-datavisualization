@@ -10,10 +10,10 @@
 #if DESIGNER
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.Windows.Forms.DataVisualization.Charting.Utilities;
+using FastReport.DataVisualization.Charting;
+using FastReport.DataVisualization.Charting.Utilities;
 
-namespace System.Windows.Forms.Design.DataVisualization.Charting
+namespace FastReport.Design.DataVisualization.Charting
 {
 
     /// <summary>
@@ -21,7 +21,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// </summary>
     internal class ImageValueEditor : FileNameEditor
     {
-        #region Editor method and properties
+#region Editor method and properties
 
         /// <summary>
         /// Override this function to support palette colors drawing
@@ -72,7 +72,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             catch (ArgumentException)
             { }
         }
-        #endregion
+#endregion
     }
 
 }

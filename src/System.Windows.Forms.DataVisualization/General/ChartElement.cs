@@ -8,11 +8,11 @@
 //				of classes. It stores common methods and data.
 //
 
-
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     #region Enumerations
 

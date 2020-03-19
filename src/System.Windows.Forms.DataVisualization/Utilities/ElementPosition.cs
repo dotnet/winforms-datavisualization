@@ -17,12 +17,12 @@
 //              automatically set Auto property to false.
 //
 
-
+using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
-namespace System.Windows.Forms.DataVisualization.Charting
+namespace FastReport.DataVisualization.Charting
 {
     /// <summary>
     /// ElementPosition is the base class for many chart visual 
