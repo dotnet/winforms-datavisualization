@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.28531.58
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8B60E1B8-479C-4AE1-B0FB-55189DD3B9DF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkg", "pkg", "{A8DD6E44-68DD-4146-AE45-18C516372A9F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Windows.Forms.DataVisualization", "pkg\System.Windows.Forms.DataVisualization.csproj", "{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartWin", "src\System.Windows.Forms.DataVisualization\ChartWin.csproj", "{1944C3B0-C641-419D-AE92-A96DD39B7C4F}"
 EndProject
 Global
@@ -17,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,7 +22,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CA4C5FB2-92AC-467D-9DB3-1C1F9076A0BC} = {A8DD6E44-68DD-4146-AE45-18C516372A9F}
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F} = {8B60E1B8-479C-4AE1-B0FB-55189DD3B9DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
