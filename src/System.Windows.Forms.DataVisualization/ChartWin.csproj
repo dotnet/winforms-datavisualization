@@ -19,6 +19,8 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>FastReport.OpenSource.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
