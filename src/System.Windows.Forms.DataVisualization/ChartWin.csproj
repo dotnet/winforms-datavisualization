@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.2.1" />
+    <PackageReference Include="FastReport.Compat" Version="2020.2.2" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
@@ -47,11 +47,11 @@
 
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
-      <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
+      <LogicalName>FastReport.DataVisualization.Charting.SR.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="SR.resx">
       <GenerateSource>true</GenerateSource>
-      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
+      <Namespace>FastReport.DataVisualization.Charting</Namespace>
     </EmbeddedResource>
   </ItemGroup>
 
