@@ -1,9 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<Target Name="CleanObjAndBin" AfterTargets="Clean">
-    <!-- Remove obj folder -->
-    <!-- <RemoveDir Directories="$(MSBuildProjectDirectory)\$(BaseIntermediateOutputPath)" /> -->
-</Target>
+  <Target Name="CopyFiles" AfterTargets="AfterBuild">
+      <!-- Copy *.targets for nuget pack -->
+    <Copy SourceFiles="$(SlnDir)\Nuget\FastReport.DataVisualization.targets"
+          DestinationFolder="$(BaseOutputPath)\build"/>
+
+      <!-- Copy nuspec for nuget pack -->
+    <Copy SourceFiles="$(SlnDir)\Nuget\FastReport.DataVisualization.nuspec"
+          DestinationFolder="$(BaseOutputPath)"/>
+
+      <!-- Copy resources for nuget pack -->
+    <Copy SourceFiles="$(SlnDir)\frlogo-big.png;$(SlnDir)\LICENSE.txt"
+          DestinationFolder="$(BaseOutputPath)"/>
+
+    <Copy SourceFiles="$(SlnDir)\Nuget\_._"
+          DestinationFolder="$(BaseOutputPath)\lib\netcoreapp3.0"/>
+  </Target>
 
 </Project>
