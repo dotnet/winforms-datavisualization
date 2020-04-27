@@ -69,7 +69,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="$(SlnDir)LICENSE.md">
+    <None Include="$(SlnDir)LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
