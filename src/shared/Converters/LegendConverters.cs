@@ -12,6 +12,9 @@ using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.Drawing;
+#if NETSTANDARD
+using FastReport.TypeConverters;
+#endif
 
 
 namespace FastReport.DataVisualization.Charting
