@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.0;$(CustomTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastReport.Compat" Version="2020.2.10" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'!='netcoreapp3.0'">
+    <OutputPath>$(BaseOutputPath)\lib</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0'">
+    <OutputPath>$(BaseOutputPath)\build\lib</OutputPath>
+  </PropertyGroup>
+
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+    <PackageReference Include="System.Drawing.Common" Version="[4.6.0,)" />
+  </ItemGroup>
+
+</Project>

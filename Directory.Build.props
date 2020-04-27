@@ -1,7 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1;$(CustomTargetFrameworks)</TargetFrameworks>
+    <SlnDir>$(MSBuildThisFileDirectory)</SlnDir>
+    <BaseOutputPath>$(SlnDir)bin</BaseOutputPath>
     <AssemblyName>FastReport.DataVisualization</AssemblyName>
     <PackageId>FastReport.DataVisualization</PackageId>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -19,30 +21,27 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl />
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>FastReport.OpenSource.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(SlnDir)FastReport.OpenSource.snk</AssemblyOriginatorKeyFile>
+    <SourceCode>$(SlnDir)src\shared</SourceCode>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <BuildProjectReferences>false</BuildProjectReferences>
+	<GenerateDependencyFile>false</GenerateDependencyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Annotation\AnnotationDesign.cs" />
-    <Compile Remove="Common\EditorNames.cs" />
+    <Compile Include="$(SourceCode)\**\*.cs"/>
+    <EmbeddedResource Include="$(SourceCode)\**\*.resx"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.2.2" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
-    <PackageReference Include="System.Drawing.Common" Version="[4.6.1,)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'!='net40'">
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+    <Compile Remove="$(SorceCode)\Annotation\AnnotationDesign.cs" />
+    <Compile Remove="$(SorceCode)\Common\EditorNames.cs" />
   </ItemGroup>
 
   <ItemGroup Label="Embedded Resources">
@@ -55,12 +54,22 @@
     </EmbeddedResource>
   </ItemGroup>
 
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <BaseOutputPath>$(BaseOutputPath)\nuget</BaseOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <BaseOutputPath>$(BaseOutputPath)\Debug</BaseOutputPath>
+  </PropertyGroup>
+
+
   <ItemGroup>
-    <None Include="..\..\frlogo-big.png">
+    <None Include="$(SlnDir)frlogo-big.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\..\LICENSE.TXT">
+    <None Include="$(SlnDir)LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

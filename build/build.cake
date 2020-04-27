@@ -19,11 +19,6 @@ string solutionDirectory = Argument("solution-directory", "");
 string solutionFilename = Argument("solution-filename", "DataViz.sln");
 string outdir = Argument("out-dir", "");
 
-string[] projects = new string[]
-{
-  System.IO.Path.Combine("src", "System.Windows.Forms.DataVisualization", "ChartWin.csproj")
-};
-
 #endregion Arguments
 
 #region Prepare
@@ -112,13 +107,6 @@ Task("DataVisualization")
 
     DotNetCoreMSBuild(solutionFile, new DotNetCoreMSBuildSettings()
       .SetConfiguration(config)
-      .WithTarget("CleanObjAndBin")
-      .WithProperty("SolutionDir", solutionDirectory)
-      .WithProperty("SolutionFileName", solutionFilename)
-      .WithProperty("Version", versionNum));
-
-    DotNetCoreMSBuild(solutionFile, new DotNetCoreMSBuildSettings()
-      .SetConfiguration(config)
       .WithTarget("Clean")
       .WithProperty("SolutionDir", solutionDirectory)
       .WithProperty("SolutionFileName", solutionFilename)
@@ -140,29 +128,10 @@ Task("DataVisualization")
       .WithProperty("Version", versionNum)
     );
 
-    DotNetCoreBuildSettings settings = new DotNetCoreBuildSettings();
-    settings.Configuration = config;
-
-    foreach (var proj in projects)
-    {
-      DotNetCorePackSettings settings1 = new DotNetCorePackSettings();
-      settings1.Configuration = config;
-      settings1.NoBuild = true;
-      settings1.NoRestore = true;
-      settings1.OutputDirectory = outdir;
-      if (config.ToLower() == "debug")
-      {
-        settings1.IncludeSource = true;
-        settings1.IncludeSymbols = true;
-      }
-
-      settings1.MSBuildSettings = new DotNetCoreMSBuildSettings()
-        .WithProperty("SolutionDir", solutionDirectory)
-        .WithProperty("SolutionFileName", solutionFilename)
-        .WithProperty("Version", versionNum);
-
-      DotNetCorePack(System.IO.Path.Combine(solutionDirectory, proj), settings1);
-    }
+    string nuget = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "tools", "nuget.exe");
+    string nuspec = System.IO.Path.Combine(solutionDirectory, "bin", "nuget", "FastReport.DataVisualization.nuspec");
+    string arguments = $"pack {nuspec} -OutputDirectory \"{outdir}\" -Version {versionNum}";
+    StartProcess(nuget, arguments);
 
   });
 

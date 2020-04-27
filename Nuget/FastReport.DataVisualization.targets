@@ -1,0 +1,16 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+    <When Condition="'$(TargetFramework)'=='netcoreapp3.0' Or '$(TargetFramework)'=='netcoreapp3.1'">
+      <!-- <_MicrosoftNetSdkWindowsDesktop> property is declared in Microsoft.NET.Sdk.WindowsDesktop.props when using WindowsDesktop SDK  -->
+      <PropertyGroup Condition="'$(_MicrosoftNetSdkWindowsDesktop)' == ''">
+        <_MicrosoftNetSdkWindowsDesktop>false</_MicrosoftNetSdkWindowsDesktop>
+      </PropertyGroup>
+      <ItemGroup Condition="!$(_MicrosoftNetSdkWindowsDesktop)">
+        <Reference Include="$(MSBuildThisFileDirectory)lib\netcoreapp3.0\FastReport.DataVisualization.dll" />
+      </ItemGroup>
+      <ItemGroup Condition="$(_MicrosoftNetSdkWindowsDesktop)">
+        <Reference Include="$(MSBuildThisFileDirectory)lib\netcoreapp3.0-Win\FastReport.DataVisualization.dll" />
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>
