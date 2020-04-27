@@ -16,10 +16,6 @@
     <OutputPath>$(BaseOutputPath)\build\lib</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.0'">
-    <PackageReference Include="System.Windows.Extensions" Version="4.6.0"/>
-  </ItemGroup>
-
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1' OR '$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="System.Security.Permissions" Version="[4.4.0,)" />
