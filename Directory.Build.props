@@ -36,7 +36,9 @@
 
   <ItemGroup>
     <Compile Include="$(SourceCode)\**\*.cs"/>
-    <EmbeddedResource Include="$(SourceCode)\**\*.resx"/>
+    <EmbeddedResource Include="$(SourceCode)\**\SR.resx">
+      <DependentUpon>SR.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
