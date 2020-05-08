@@ -5,10 +5,6 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.2.10" />
-  </ItemGroup>
-
   <PropertyGroup Condition="'$(TargetFramework)'=='net40'">
     <OutputPath>$(BaseOutputPath)\lib</OutputPath>
   </PropertyGroup>
@@ -23,6 +19,10 @@
 
   <ItemGroup Condition="'$(TargetFramework)'!='net40'">
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastReport.Compat" Version="2020.3.1" />
   </ItemGroup>
 
 </Project>
