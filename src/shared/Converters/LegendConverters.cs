@@ -12,7 +12,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.Drawing;
-#if NETSTANDARD
+#if NETSTANDARD || !NETCOREWIN
 using FastReport.TypeConverters;
 #endif
 

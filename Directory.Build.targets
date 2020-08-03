@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="CopyFiles" AfterTargets="AfterBuild">
+  <Target Name="PrepareDataVisPackage">
+
+      <!-- Copy runtime libraries for .Net Core 3
+    <Copy SourceFiles="$(BaseOutputPath)build\lib\netcoreapp3.0\$(PackageId).dll"
+          DestinationFolder="$(BaseOutputPath)runtimes\win\lib\netcoreapp3.0"/> -->
+    <Copy SourceFiles="$(BaseOutputPath)build\lib\netcoreapp3.0\$(PackageId).dll"
+          DestinationFolder="$(BaseOutputPath)runtimes\unix\lib\netcoreapp3.0"/>
+
       <!-- Copy *.targets for nuget pack -->
     <Copy SourceFiles="$(SlnDir)\Nuget\FastReport.DataVisualization.targets"
           DestinationFolder="$(BaseOutputPath)\build"/>

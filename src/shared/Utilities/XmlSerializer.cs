@@ -47,8 +47,9 @@ using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Xml;
-#if NETSTANDARD
+#if NETSTANDARD || !NETCOREWIN
 using FastReport.TypeConverters;
+using FontConverter = FastReport.TypeConverters.FontConverter;
 #endif
 
 namespace FastReport.DataVisualization.Charting.Utilities

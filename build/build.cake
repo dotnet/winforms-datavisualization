@@ -128,6 +128,15 @@ Task("DataVisualization")
       .WithProperty("Version", versionNum)
     );
 
+    DotNetCoreMSBuild(solutionFile, new DotNetCoreMSBuildSettings()
+      .SetConfiguration(config)
+      .WithTarget("PrepareDataVisPackage")
+      .WithProperty("SolutionDir", solutionDirectory)
+      .WithProperty("SolutionFileName", solutionFilename)
+      .WithProperty("Version", versionNum)
+    );
+
+
     string nuget = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "tools", "nuget.exe");
     string nuspec = System.IO.Path.Combine(solutionDirectory, "bin", "nuget", "FastReport.DataVisualization.nuspec");
     string arguments = $"pack {nuspec} -OutputDirectory \"{outdir}\" -Version {versionNum}";
@@ -136,14 +145,5 @@ Task("DataVisualization")
   });
 
 #endregion
-
-// Task("setup-connectors-temporal-task")
-//   .IsDependentOn("Prepare")
-//   .Does(() =>
-//   {
-//     ReplaceRegexInFiles(System.IO.Path.Combine(solutionDirectory, csprojCore),
-//       "<TargetFrameworks>.*<\\/TargetFrameworks>",
-//       "<TargetFrameworks>netstandard2.0</TargetFrameworks>");
-//   });
 
 RunTarget(target);
