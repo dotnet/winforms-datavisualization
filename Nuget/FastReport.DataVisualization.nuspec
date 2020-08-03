@@ -20,17 +20,17 @@
       <group targetFramework=".NETCoreApp3.0">
         <dependency id="FastReport.Compat" version="2020.3.7" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
-		<dependency id="System.Data.SqlClient" version="4.4.3" />
+		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
       <group targetFramework=".NETStandard2.0">
         <dependency id="FastReport.Compat" version="2020.3.7" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
-		<dependency id="System.Data.SqlClient" version="4.4.3" />
+		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
 	    <group targetFramework=".NETStandard2.1">
         <dependency id="FastReport.Compat" version="2020.3.7" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
-		<dependency id="System.Data.SqlClient" version="4.4.3" />
+		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
     </dependencies>
   </metadata>
