@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net40;netcoreapp3.0;$(CustomTargetFrameworks)</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
+    <DefineConstants>$(DefineConstants);NETCOREWIN</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net40'">
@@ -22,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.3.1" />
+    <PackageReference Include="FastReport.Compat" Version="2020.3.7" />
   </ItemGroup>
 
 </Project>
