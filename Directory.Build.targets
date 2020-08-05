@@ -3,9 +3,9 @@
 
   <Target Name="PrepareDataVisPackage">
 
-      <!-- Copy runtime libraries for .Net Core 3
+      <!-- Copy runtime libraries for .Net Core 3 -->
     <Copy SourceFiles="$(BaseOutputPath)build\lib\netcoreapp3.0\$(PackageId).dll"
-          DestinationFolder="$(BaseOutputPath)runtimes\win\lib\netcoreapp3.0"/> -->
+          DestinationFolder="$(BaseOutputPath)runtimes\win\lib\netcoreapp3.0"/>
     <Copy SourceFiles="$(BaseOutputPath)build\lib\netcoreapp3.0\$(PackageId).dll"
           DestinationFolder="$(BaseOutputPath)runtimes\unix\lib\netcoreapp3.0"/>
 
