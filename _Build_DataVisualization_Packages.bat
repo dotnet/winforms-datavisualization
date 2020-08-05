@@ -9,5 +9,5 @@ rem that's all
 ECHO NOW TRY TO BUILD FR.DataVisualization
 
 pushd .\build
-   Powershell -ExecutionPolicy ByPass -File ".\build.ps1" --target=DataVisualization --solution-filename=DataViz.sln --config=Release  --vers=2020.3.7
+   Powershell -ExecutionPolicy ByPass -File ".\build.ps1" --target=DataVisualization --solution-filename=DataViz.sln --config=Release  --vers=2020.3.8
 popd
