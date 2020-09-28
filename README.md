@@ -11,3 +11,5 @@ The best way to learn about Chart Controls is by looking at the [sample solution
 ![Chart Controls](sample-screenshot.png)
 
 There is also a [.NET Framework version](https://code.msdn.microsoft.com/Windows-Forms-Samples-26bf2a53) of this sample available on Microsoft samples portal.
+
+osfijgiodjfgoidfjgij
