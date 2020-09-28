@@ -11,12 +11,18 @@ variables:
   
 # only trigger ci builds for the master branch
 trigger:
-- master
+  branches:
+    include:
+      - master
+      - main
 
 # To be added in the future when VSTS supports this feature
 # only trigger pull request builds for the master branch
 pr:
-- master
+  branches:
+    include:
+    - master
+    - main
 
 # Call the ci.yml template, which does the real work
 jobs:
