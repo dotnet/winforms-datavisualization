@@ -1,4 +1,4 @@
-# Master -> main rename
+# Master -> Main Rename
 
 The `master` branch has recently been renamed to `main` in this repo. 
 
