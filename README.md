@@ -31,3 +31,5 @@ The best way to learn about Chart Controls is by looking at the [sample solution
 ![Chart Controls](sample-screenshot.png)
 
 There is also a [.NET Framework version](https://code.msdn.microsoft.com/Windows-Forms-Samples-26bf2a53) of this sample available on Microsoft samples portal.
+
+Pre-release version of this package is available from [NuGet Gallery](https://www.nuget.org/packages/System.Windows.Forms.DataVisualization)
