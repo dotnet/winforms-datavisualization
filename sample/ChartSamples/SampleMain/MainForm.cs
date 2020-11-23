@@ -68,9 +68,9 @@ namespace ChartSamples
 		private System.Windows.Forms.Panel panelWebBrowser;
 		private System.Windows.Forms.Button buttonSamplePrevious;
 		private System.Windows.Forms.Button buttonSampleNext;
-		private System.Windows.Forms.ContextMenu contextMenuRTF;
-		private System.Windows.Forms.MenuItem menuItemCopy;
-		private System.Windows.Forms.MenuItem menuItemCopyAll;
+		private System.Windows.Forms.ContextMenuStrip contextMenuRTF;
+		private System.Windows.Forms.ToolStripMenuItem menuItemCopy;
+		private System.Windows.Forms.ToolStripMenuItem menuItemCopyAll;
         private ImageList imageListTree;	
 		private System.ComponentModel.IContainer components;
 
@@ -222,9 +222,9 @@ namespace ChartSamples
             this.tabControlSample = new VerticalTabControl();
             this.buttonSamplePrevious = new System.Windows.Forms.Button();
             this.buttonSampleNext = new System.Windows.Forms.Button();
-            this.contextMenuRTF = new System.Windows.Forms.ContextMenu();
-            this.menuItemCopy = new System.Windows.Forms.MenuItem();
-            this.menuItemCopyAll = new System.Windows.Forms.MenuItem();
+            this.contextMenuRTF = new System.Windows.Forms.ContextMenuStrip();
+            this.menuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCopyAll = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSampleTitle = new LabelWithBackImage();
             this.panelTree.SuspendLayout();
             this.panelIndex.SuspendLayout();
@@ -458,20 +458,20 @@ namespace ChartSamples
             // 
             // contextMenuRTF
             // 
-            this.contextMenuRTF.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.contextMenuRTF.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemCopy,
             this.menuItemCopyAll});
-            this.contextMenuRTF.Popup += new System.EventHandler(this.contextMenuRTF_Popup);
+            this.contextMenuRTF.Opened+= new System.EventHandler(this.contextMenuRTF_Popup);
             // 
             // menuItemCopy
             // 
-            this.menuItemCopy.Index = 0;
+        //    this.menuItemCopy.MergeIndex = 0;
             this.menuItemCopy.Text = "&Copy";
             this.menuItemCopy.Click += new System.EventHandler(this.menuItemCopy_Click);
             // 
             // menuItemCopyAll
             // 
-            this.menuItemCopyAll.Index = 1;
+          //  this.menuItemCopyAll.Index = 1;
             this.menuItemCopyAll.Text = "Copy &All";
             this.menuItemCopyAll.Click += new System.EventHandler(this.menuItemCopyAll_Click);
             // 
@@ -846,7 +846,7 @@ namespace ChartSamples
 						tabPage.Controls.Add(richTextBox);
 
 						// Add context menu to the RTF control
-						richTextBox.ContextMenu = this.contextMenuRTF;
+						richTextBox.ContextMenuStrip = this.contextMenuRTF;
 					}
 
 					// Set rich-text control text
@@ -1342,7 +1342,7 @@ namespace ChartSamples
 			{
 				copyEnabled = false;
 			}
-			contextMenuRTF.MenuItems[0].Enabled = copyEnabled;
+			contextMenuRTF.Items[0].Enabled = copyEnabled;
 		}
 
 		private void menuItemCopy_Click(object sender, System.EventArgs e)

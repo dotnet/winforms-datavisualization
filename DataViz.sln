@@ -11,6 +11,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Windows.Forms.DataVi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartWin", "src\System.Windows.Forms.DataVisualization\ChartWin.csproj", "{1944C3B0-C641-419D-AE92-A96DD39B7C4F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartSamples", "sample\ChartSamples\ChartSamples.csproj", "{64404B0B-9406-4E00-9433-90BB2B6067E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E398874-2CA9-43C9-AD80-472D55941F09}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		azure-pipelines.yml = azure-pipelines.yml
+		build.cmd = build.cmd
+		CODE-OF-CONDUCT.md = CODE-OF-CONDUCT.md
+		CODEOWNERS = CODEOWNERS
+		LICENSE.TXT = LICENSE.TXT
+		NuGet.config = NuGet.config
+		README.md = README.md
+		SECURITY.md = SECURITY.md
+		THIRD-PARTY-NOTICES.TXT = THIRD-PARTY-NOTICES.TXT
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +41,10 @@ Global
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1944C3B0-C641-419D-AE92-A96DD39B7C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64404B0B-9406-4E00-9433-90BB2B6067E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64404B0B-9406-4E00-9433-90BB2B6067E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64404B0B-9406-4E00-9433-90BB2B6067E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64404B0B-9406-4E00-9433-90BB2B6067E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
