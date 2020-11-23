@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <!-- Versions are defined in eng\Versions.props -->
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
