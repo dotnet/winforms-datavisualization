@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.3.7" />
+    <PackageReference Include="FastReport.Compat" Version="2020.4.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
     <PackageReference Include="System.Drawing.Common" Version="[4.6.0,)" />
   </ItemGroup>
