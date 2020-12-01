@@ -15,25 +15,25 @@
     <repository type="GIT" url="https://github.com/FastReports/winforms-datavisualization" />
 	  <dependencies>
       <group targetFramework=".NETFramework4.0">
-        <dependency id="FastReport.Compat" version="2020.4.1" />
+        <dependency id="FastReport.Compat" version="2020.4.2" />
       </group>
       <group targetFramework=".NETCoreApp3.0">
-        <dependency id="FastReport.Compat" version="2020.4.1" />
+        <dependency id="FastReport.Compat" version="2020.4.2" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
 		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="FastReport.Compat" version="2020.4.1" />
+        <dependency id="FastReport.Compat" version="2020.4.2" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
 		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
 	    <group targetFramework=".NETStandard2.1">
-        <dependency id="FastReport.Compat" version="2020.4.1" />
+        <dependency id="FastReport.Compat" version="2020.4.2" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
 		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
       <group targetFramework="net5.0-windows7.0">
-        <dependency id="FastReport.Compat" version="2020.4.1" />
+        <dependency id="FastReport.Compat" version="2020.4.2" />
         <dependency id="System.Drawing.Common" version="4.6.0" />
 		    <dependency id="System.Data.SqlClient" version="4.4.3" />
       </group>
