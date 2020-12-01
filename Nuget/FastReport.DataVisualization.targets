@@ -9,7 +9,7 @@
       <PropertyGroup Condition="'$(UseWindowsForms)' == ''">
         <UseWindowsForms>false</UseWindowsForms>
       </PropertyGroup>
-      <ItemGroup Condition="!$(_MicrosoftNetSdkWindowsDesktop) Or !$(UseWindowsForms)">
+      <ItemGroup Condition="(!$(_MicrosoftNetSdkWindowsDesktop) Or !$(UseWindowsForms)) And !('$(TargetFrameworkVersion[1])'>='5' And '$(TargetPlatformIdentifier)'=='Windows')">
         <Reference Include="$(MSBuildThisFileDirectory)lib\netcoreapp3.0\FastReport.DataVisualization.dll" />
       </ItemGroup>
       <ItemGroup Condition="$(_MicrosoftNetSdkWindowsDesktop) And $(UseWindowsForms) And '$(TargetFrameworkVersion[1])'=='3'">
