@@ -10,7 +10,7 @@
     <CLSCompliant>false</CLSCompliant>
     <NoWarn>$(NoWarn);618</NoWarn>
     <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
-    <Copyright>Copyright © Fast Reports Inc 2020</Copyright>
+    <Copyright>Copyright © Fast Reports Inc 2021</Copyright>
     <Product>FastReport.Net</Product>
     <Company>Fast Reports Inc.</Company>
     <Description>Charting library</Description>
