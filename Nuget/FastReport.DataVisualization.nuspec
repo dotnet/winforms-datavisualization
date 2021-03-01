@@ -1,43 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>FastReport.DataVisualization</id>
-    <version>$version$</version>
-    <authors>Fast Reports Inc.</authors>
-    <owners>Fast Reports Inc.</owners>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <license type="file">LICENSE.txt</license>
-    <icon>frlogo-big.png</icon>    
-    <projectUrl>https://www.fast-report.com/en/product/fast-report-net</projectUrl>
-    <description>Charting library</description>
-    <copyright>Fast Reports Inc.</copyright>
-    <tags>Chart WinForms Windows Forms DataVisualization DataVisualisation Data Visualization Visualisation</tags>
-    <repository type="GIT" url="https://github.com/FastReports/winforms-datavisualization" />
-	  <dependencies>
-      <group targetFramework=".NETFramework4.0">
-        <dependency id="FastReport.Compat" version="2020.4.2" />
-      </group>
-      <group targetFramework=".NETCoreApp3.0">
-        <dependency id="FastReport.Compat" version="2020.4.2" />
-        <dependency id="System.Drawing.Common" version="4.6.0" />
-		    <dependency id="System.Data.SqlClient" version="4.4.3" />
-      </group>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="FastReport.Compat" version="2020.4.2" />
-        <dependency id="System.Drawing.Common" version="4.6.0" />
-		    <dependency id="System.Data.SqlClient" version="4.4.3" />
-      </group>
-	    <group targetFramework=".NETStandard2.1">
-        <dependency id="FastReport.Compat" version="2020.4.2" />
-        <dependency id="System.Drawing.Common" version="4.6.0" />
-		    <dependency id="System.Data.SqlClient" version="4.4.3" />
-      </group>
-      <group targetFramework="net5.0-windows7.0">
-        <dependency id="FastReport.Compat" version="2020.4.2" />
-        <dependency id="System.Drawing.Common" version="4.6.0" />
-		    <dependency id="System.Data.SqlClient" version="4.4.3" />
-      </group>
-    </dependencies>
     <frameworkReferences>
       <group targetFramework="net5.0-windows7.0">
         <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />

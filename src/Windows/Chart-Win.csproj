@@ -18,12 +18,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
+  <Import Project="$(SlnDir)UsedPackages.version"/>
   <ItemGroup Condition="'$(TargetFramework)'!='net40'">
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="$(SystemDataSqlClientVersion)" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.4.2" />
+    <PackageReference Include="FastReport.Compat" Version="$(FRCompatVersion)" />
   </ItemGroup>
 
 </Project>

@@ -13,10 +13,6 @@
     <Copy SourceFiles="$(SlnDir)\Nuget\FastReport.DataVisualization.targets"
           DestinationFolder="$(BaseOutputPath)\build"/>
 
-      <!-- Copy nuspec for nuget pack -->
-    <Copy SourceFiles="$(SlnDir)\Nuget\FastReport.DataVisualization.nuspec"
-          DestinationFolder="$(BaseOutputPath)"/>
-
       <!-- Copy resources for nuget pack -->
     <Copy SourceFiles="$(SlnDir)\frlogo-big.png;$(SlnDir)\LICENSE.txt"
           DestinationFolder="$(BaseOutputPath)"/>

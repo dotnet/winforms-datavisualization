@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+<!-- This group sets version used packages in FastReport.Compat and package -->
+    <PropertyGroup>
+
+        <FRCompatVersion>2021.1.0</FRCompatVersion>
+
+        <SystemDrawingCommonVersion>[4.6.0,)</SystemDrawingCommonVersion>
+		
+        <SystemDataSqlClientVersion>4.4.3</SystemDataSqlClientVersion>
+
+    </PropertyGroup>
+	
+</Project>
