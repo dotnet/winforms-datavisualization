@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.0;$(CustomTargetFrameworks)</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0;$(CustomTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'!='netcoreapp3.0'">
@@ -12,10 +12,11 @@
     <OutputPath>$(BaseOutputPath)\build\lib</OutputPath>
   </PropertyGroup>
 
+  <Import Project="$(SlnDir)UsedPackages.version"/>
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="2020.4.2" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
-    <PackageReference Include="System.Drawing.Common" Version="[4.6.0,)" />
+    <PackageReference Include="FastReport.Compat" Version="$(FRCompatVersion)" />
+    <PackageReference Include="System.Data.SqlClient" Version="$(SystemDataSqlClientVersion)" />
+    <PackageReference Include="System.Drawing.Common" Version="$(SystemDrawingCommonVersion)" />
   </ItemGroup>
 
 </Project>
