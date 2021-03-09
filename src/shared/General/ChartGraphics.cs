@@ -4851,7 +4851,7 @@ System.Drawing.Image image = _common.ImageLoader.LoadImage( backImage );
 			IBorderType	borderTypeInterface = _common.BorderTypeRegistry.GetBorderType(borderSkin.SkinStyle.ToString());
 			if(borderTypeInterface != null)
 			{
-                borderTypeInterface.Resolution = this.Graphics.DpiX;
+                borderTypeInterface.Resolution = 96;//this.Graphics.DpiX;
 				// Draw border
 				borderTypeInterface.DrawBorder(this, borderSkin, absRect, backColor, backHatchStyle, backImage, backImageWrapMode, 
 					backImageTransparentColor, backImageAlign, backGradientStyle, backSecondaryColor, 
