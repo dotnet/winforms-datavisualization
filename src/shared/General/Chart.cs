@@ -1901,7 +1901,7 @@ namespace FastReport.DataVisualization.Charting
 				border3D = Common.BorderTypeRegistry.GetBorderType(_borderSkin.SkinStyle.ToString());
 				if(border3D != null)
 				{
-                    border3D.Resolution = chartGraph.Graphics.DpiX;
+                    border3D.Resolution = 96f;// chartGraph.Graphics.DpiX;
 					// Check if title should be displayed in the border
 					titleInBorder = border3D.GetTitlePositionInBorder() != RectangleF.Empty;
 					_titlePosition = chartGraph.GetRelativeRectangle(border3D.GetTitlePositionInBorder());
