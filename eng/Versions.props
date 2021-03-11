@@ -9,7 +9,6 @@
   <!-- CoreFX dependencies -->
   <PropertyGroup>
     <MicrosoftNETCorePlatformsPackageVersion>3.0.0-preview4.19210.9</MicrosoftNETCorePlatformsPackageVersion>
-    <SystemDataSqlClientPackageVersion>4.7.0-preview4.19210.9</SystemDataSqlClientPackageVersion>
     <SystemDrawingCommonPackageVersion>4.6.0-preview4.19210.9</SystemDrawingCommonPackageVersion>
     <SystemWindowsExtensionsPackageVersion>4.6.0-preview4.19210.9</SystemWindowsExtensionsPackageVersion>
   </PropertyGroup>
