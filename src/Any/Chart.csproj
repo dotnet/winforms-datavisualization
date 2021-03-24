@@ -14,7 +14,11 @@
 
   <Import Project="$(SlnDir)UsedPackages.version"/>
   <ItemGroup>
-    <PackageReference Include="FastReport.Compat" Version="$(FRCompatVersion)" />
+    <PackageReference Include="FastReport.Compat"
+                      Version="$(FRCompatVersion)"
+                      Condition="'$(DebugFRCompat)' != 'true'" />
+    <ProjectReference Include="..\..\FastReport.Compat\src\FastReport.Compat\FastReport.Compat.csproj"
+                      Condition="'$(DebugFRCompat)' == 'true'"/>
     <PackageReference Include="System.Data.SqlClient" Version="$(SystemDataSqlClientVersion)" />
     <PackageReference Include="System.Drawing.Common" Version="$(SystemDrawingCommonVersion)" />
   </ItemGroup>
