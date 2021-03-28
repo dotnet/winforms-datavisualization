@@ -515,7 +515,7 @@ namespace FastReport.DataVisualization.Charting
 		/// Saves the current state of this Graphics object and identifies the saved state with a GraphicsState object.
 		/// </summary>
 		/// <returns>This method returns a GraphicsState object that represents the saved state of this Graphics object.</returns>
-		public GraphicsState Save()
+		public IGraphicsState Save()
 		{
 			return _graphics.Save();
 		}
@@ -525,7 +525,7 @@ namespace FastReport.DataVisualization.Charting
 		/// </summary>
 		/// <param name="gstate">GraphicsState object that represents the state to which to restore this Graphics object.</param>
 		public void Restore(
-			GraphicsState gstate
+			IGraphicsState gstate
 			)
 		{
 			_graphics.Restore( gstate );
@@ -675,7 +675,7 @@ namespace FastReport.DataVisualization.Charting
 		/// <summary>
 		/// Reference to the Graphics object
 		/// </summary>
-		public Graphics Graphics
+		public IGraphics Graphics
 		{
 			get
 			{
@@ -694,7 +694,7 @@ namespace FastReport.DataVisualization.Charting
 		/// <summary>
 		/// Graphics object
 		/// </summary>
-		Graphics		_graphics = null;
+		IGraphics		_graphics = null;
 
 		#endregion // Fields
 	}

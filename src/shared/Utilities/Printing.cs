@@ -72,7 +72,56 @@ namespace FastReport.DataVisualization.Charting
 		}
 		#endregion
 
-		#region Printing properties
+
+		#region Printing methods
+
+		/// <summary>
+		/// Draws chart on the printer graphics.
+		/// </summary>
+        /// <param name="graphics">Printer graphics.</param>
+		/// <param name="position">Position to draw in the graphics.</param>
+        public void PrintPaint(IGraphics graphics, Rectangle position)
+		{
+			// Get a reference to the chart image object
+			if(_chartImage == null && _serviceContainer != null)
+			{
+				_chartImage = (ChartImage)_serviceContainer.GetService(typeof(ChartImage));
+			}
+
+			// Draw chart
+			if(_chartImage != null)
+			{
+				// Change chart size to fit the new position
+				int oldWidth = _chartImage.Width;
+				int oldHeight = _chartImage.Height;
+                _chartImage.Width = position.Width;
+                _chartImage.Height = position.Height;
+
+				// Save graphics state.
+				IGraphicsState transState = graphics.Save();
+
+				// Set required transformation
+				graphics.TranslateTransform(position.X, position.Y);
+
+				// Set printing indicator
+				_chartImage.isPrinting = true;
+
+				// Draw chart
+				_chartImage.Paint(graphics, false);
+
+				// Clear printing indicator
+				_chartImage.isPrinting = false;
+
+				// Restore graphics state.
+				graphics.Restore(transState);
+
+				// Restore old chart position
+				_chartImage.Width = oldWidth;
+				_chartImage.Height = oldHeight;
+			}
+		}
+
+#if PRINTING
 		/// <summary>
 		/// Chart printing document.
 		/// </summary>
@@ -103,56 +152,6 @@ namespace FastReport.DataVisualization.Charting
 			}
 		}
 
-		#endregion
-
-		#region Printing methods
-
-		/// <summary>
-		/// Draws chart on the printer graphics.
-		/// </summary>
-        /// <param name="graphics">Printer graphics.</param>
-		/// <param name="position">Position to draw in the graphics.</param>
-        public void PrintPaint(Graphics graphics, Rectangle position)
-		{
-			// Get a reference to the chart image object
-			if(_chartImage == null && _serviceContainer != null)
-			{
-				_chartImage = (ChartImage)_serviceContainer.GetService(typeof(ChartImage));
-			}
-
-			// Draw chart
-			if(_chartImage != null)
-			{
-				// Change chart size to fit the new position
-				int oldWidth = _chartImage.Width;
-				int oldHeight = _chartImage.Height;
-                _chartImage.Width = position.Width;
-                _chartImage.Height = position.Height;
-
-				// Save graphics state.
-				GraphicsState transState = graphics.Save();
-
-				// Set required transformation
-				graphics.TranslateTransform(position.X, position.Y);
-
-				// Set printing indicator
-				_chartImage.isPrinting = true;
-
-				// Draw chart
-				_chartImage.Paint(graphics, false);
-
-				// Clear printing indicator
-				_chartImage.isPrinting = false;
-
-				// Restore graphics state.
-				graphics.Restore(transState);
-
-				// Restore old chart position
-				_chartImage.Width = oldWidth;
-				_chartImage.Height = oldHeight;
-			}
-		}
-#if PRINTING
 		/// <summary>
 		/// Shows Page Setup dialog.
 		/// </summary>
@@ -209,7 +208,6 @@ namespace FastReport.DataVisualization.Charting
 			// Print chart
 			this.PrintDocument.Print();
 		}
-#endif
 
         /// <summary>
 		/// Handles PrintPage event of the document.
@@ -264,7 +262,8 @@ namespace FastReport.DataVisualization.Charting
                 }
             }
 		}
-		#endregion
+#endif
+        #endregion
 
         #region IDisposable Members
 

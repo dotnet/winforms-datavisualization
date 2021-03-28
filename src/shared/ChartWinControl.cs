@@ -134,7 +134,7 @@ namespace FastReport.DataVisualization.Charting
 		internal Bitmap							paintBufferBitmap = null;
 
 		// Graphics of the double buffered bitmap
-		internal Graphics						paintBufferBitmapGraphics = null;
+		internal IGraphics				paintBufferBitmapGraphics = null;
 
 		// Indicates that only chart area cursor/selection must be drawn during the next paint event
 		internal bool							paintTopLevelElementOnly = false;
@@ -362,19 +362,34 @@ namespace FastReport.DataVisualization.Charting
 				(this.BackColor == Color.Transparent || this.BackColor.A != 255) )
 			{
 
-				// Draw chart directly on the graphics
-				try
-				{
-					if(this.paintTopLevelElementOnly)
+
+/* Unmerged change from project 'Chart-Win (net5.0-windows7.0)'
+Before:
+                StandardGraphicsRenderer gr = new StandardGraphicsRenderer(e.Graphics, false);
+After:
+                GdiGraphics gr = new StandardGraphicsRenderer(e.Graphics, false);
+*/
+
+/* Unmerged change from project 'Chart-Win (netcoreapp3.0)'
+Before:
+                StandardGraphicsRenderer gr = new StandardGraphicsRenderer(e.Graphics, false);
+After:
+                GdiGraphics gr = new StandardGraphicsRenderer(e.Graphics, false);
+*/
+                FastReport.GdiGraphics gr = new FastReport.GdiGraphics(e.Graphics, false);
+                // Draw chart directly on the graphics
+                try
+                {
+                    if(this.paintTopLevelElementOnly)
 					{
-						chartPicture.Paint(e.Graphics, false);
+						chartPicture.Paint(gr, false);
 					}
-					chartPicture.Paint(e.Graphics, this.paintTopLevelElementOnly);
+					chartPicture.Paint(gr, this.paintTopLevelElementOnly);
 				}
 				catch(Exception)
 				{
 					// Draw exception method
-					DrawException(e.Graphics);
+					DrawException(gr);
 
 
 					// Rethrow exception if not in design-time mode
@@ -413,7 +428,7 @@ namespace FastReport.DataVisualization.Charting
 
                         // Create offscreen bitmap taking in consideration graphics scaling
                         paintBufferBitmap = new Bitmap((int)(ClientRectangle.Width * scaleX), (int)(ClientRectangle.Height * scaleY), e.Graphics);
-						paintBufferBitmapGraphics = Graphics.FromImage(paintBufferBitmap);
+                        paintBufferBitmapGraphics = new FastReport.GdiGraphics(paintBufferBitmap);
                         paintBufferBitmapGraphics.ScaleTransform(scaleX, scaleY);
 					}
 
@@ -552,7 +567,7 @@ namespace FastReport.DataVisualization.Charting
 		/// Draws exception information at design-time.
 		/// </summary>
 		/// <param name="graphics">Chart graphics to use.</param>
-		private void DrawException(Graphics graphics)
+		private void DrawException(IGraphics graphics)
 		{
 			// Fill background
 			graphics.FillRectangle(Brushes.White, 0, 0, this.Width, this.Height);

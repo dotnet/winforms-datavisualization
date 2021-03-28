@@ -292,7 +292,7 @@ namespace FastReport.DataVisualization.Charting.Utilities
         /// <param name="graphics">Graphics used to calculate the image size.</param>
         /// <param name="size">Calculated size.</param>
         /// <returns>false if it fails to calculate the size, otherwise true.</returns>
-        internal bool GetAdjustedImageSize(string name, Graphics graphics, ref SizeF size)
+        internal bool GetAdjustedImageSize(string name, IGraphics graphics, ref SizeF size)
         {
             Image image = LoadImage(name);
 
@@ -310,7 +310,7 @@ namespace FastReport.DataVisualization.Charting.Utilities
         /// <param name="image">Image for whcih to calculate the size.</param>
         /// <param name="graphics">Graphics used to calculate the image size.</param>
         /// <param name="size">Calculated size.</param>
-        internal static void GetAdjustedImageSize(Image image, Graphics graphics, ref SizeF size)
+        internal static void GetAdjustedImageSize(Image image, IGraphics graphics, ref SizeF size)
         {
             if (graphics != null)
             {
@@ -331,12 +331,12 @@ namespace FastReport.DataVisualization.Charting.Utilities
         /// <param name="image">Image to be checked.</param>
         /// <param name="graphics">Graphics object to be used.</param>
         /// <returns>true if they match, otherwise false.</returns>
-        internal static bool DoDpisMatch(Image image, Graphics graphics)
+        internal static bool DoDpisMatch(Image image, IGraphics graphics)
         {
             return graphics.DpiX == image.HorizontalResolution && graphics.DpiY == image.VerticalResolution;
         }
 
-        internal static Image GetScaledImage(Image image, Graphics graphics)
+        internal static Image GetScaledImage(Image image, IGraphics graphics)
         {
             Bitmap scaledImage = new Bitmap(image, new Size((int)(image.Width * graphics.DpiX / image.HorizontalResolution),
                 (int)(image.Height * graphics.DpiY / image.VerticalResolution)));

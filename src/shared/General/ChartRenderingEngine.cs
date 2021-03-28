@@ -648,7 +648,7 @@ namespace FastReport.DataVisualization.Charting
 		/// Saves the current state of this Graphics object and identifies the saved state with a GraphicsState object.
 		/// </summary>
 		/// <returns>This method returns a GraphicsState object that represents the saved state of this Graphics object.</returns>
-		internal GraphicsState Save()
+		internal IGraphicsState Save()
 		{
 			return RenderingObject.Save();
 		}
@@ -658,7 +658,7 @@ namespace FastReport.DataVisualization.Charting
 		/// </summary>
 		/// <param name="gstate">GraphicsState object that represents the state to which to restore this Graphics object.</param>
 		internal void Restore(
-			GraphicsState gstate
+			IGraphicsState gstate
 			)
 		{
 			RenderingObject.Restore( gstate );
@@ -793,7 +793,7 @@ namespace FastReport.DataVisualization.Charting
 		/// <summary>
 		/// Gets or sets the reference to the Graphics object.
 		/// </summary>
-		public Graphics Graphics
+		public IGraphics Graphics
 		{
 			get
 			{

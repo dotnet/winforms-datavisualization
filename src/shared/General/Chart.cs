@@ -164,7 +164,7 @@ namespace FastReport.DataVisualization.Charting
                         {
 
                             // Create graphics object to record metaFile.
-                            using (Graphics metaGraphics = Graphics.FromImage(metaFile))
+                            using (IGraphics metaGraphics = new FastReport.GdiGraphics(metaFile))
                             {
 
                                 // Note: Fix for issue #3674. Some 3D borders shadows may be drawn outside 
@@ -244,10 +244,9 @@ namespace FastReport.DataVisualization.Charting
                 }
             }
 
-			// Creates a new Graphics object from the 
-			// specified Image object.
-			Graphics offScreen = Graphics.FromImage( image );
-
+            // Creates a new Graphics object from the 
+            // specified Image object.
+            IGraphics offScreen = new FastReport.GdiGraphics(image);
 
 
             Color backGroundColor;
@@ -1448,7 +1447,7 @@ namespace FastReport.DataVisualization.Charting
 
             // Creates a new Graphics object from the 
             // specified Image object.
-            Graphics offScreen = Graphics.FromImage(image);
+            IGraphics offScreen = new FastReport.GdiGraphics(image);
 
             // Connect Graphics object with Chart Graphics object
             ChartGraph.Graphics = offScreen;
@@ -1511,7 +1510,7 @@ namespace FastReport.DataVisualization.Charting
         /// <param name="paintTopLevelElementOnly">Indicates that only chart top level elements like cursors, selection or annotation objects must be redrawn.</param>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "3#svg")]
         internal void Paint( 
-			Graphics graph, 
+			IGraphics graph, 
 			bool paintTopLevelElementOnly )
 		{
 

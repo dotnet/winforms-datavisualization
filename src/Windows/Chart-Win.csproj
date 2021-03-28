@@ -4,6 +4,7 @@
     <TargetFrameworks>net40;$(CustomTargetFrameworks)</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <DefineConstants>$(DefineConstants);NETCOREWIN</DefineConstants>
+    <DebugFRCompat>true</DebugFRCompat>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VisualStudioVersion)' >= '16'">
@@ -34,7 +35,7 @@
     <PackageReference Include="FastReport.Compat" 
                       Version="$(FRCompatVersion)" 
                       Condition="'$(DebugFRCompat)' != 'true'" />
-    <ProjectReference Include="..\..\FastReport.Compat\src\FastReport.Compat\FastReport.Compat.csproj"
+    <ProjectReference Include="..\..\..\FastReport.Compat\src\FastReport.Compat-Windows\FastReport.Compat-Windows.csproj"
                       Condition="'$(DebugFRCompat)' == 'true'"/>
   </ItemGroup>
 

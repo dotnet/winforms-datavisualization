@@ -370,7 +370,7 @@ namespace FastReport.DataVisualization.Charting
 			{
 				TextureBrush backFilledBrush = null;
 				Bitmap bitmap = new Bitmap(image.Width, image.Height);
-				using(Graphics graphics = Graphics.FromImage(bitmap))
+				using(Graphics graphics = System.Drawing.Graphics.FromImage(bitmap))
 				{
 					using(SolidBrush backBrush = new SolidBrush(backColor))
 					{
@@ -1480,7 +1480,7 @@ namespace FastReport.DataVisualization.Charting
 				_myMatrix.RotateAt( angle, rotationPoint );
 
 				// Save old state
-				GraphicsState graphicsState = this.Save();
+				IGraphicsState graphicsState = this.Save();
 
 				// Set transformatino
 				this.Transform = _myMatrix;
@@ -1626,7 +1626,7 @@ namespace FastReport.DataVisualization.Charting
 			_myMatrix.RotateAt(angle, absPosition);
     
 			// Save aold state
-			GraphicsState graphicsState = this.Save();
+			IGraphicsState graphicsState = this.Save();
 
 			// Set Angle
 			this.Transform = _myMatrix;
@@ -2012,10 +2012,10 @@ namespace FastReport.DataVisualization.Charting
                         region.Exclude(this.GetAbsoluteRectangle(boundaryRect));
 
                         // If any part of the label was outside bounding rectangle
-                        if (!region.IsEmpty(Graphics))
+                        if (!region.IsEmpty(Graphics.Graphics))
                         {
                             this.Transform = oldTransform;
-                            RectangleF truncateRect = region.GetBounds(Graphics);
+                            RectangleF truncateRect = region.GetBounds(Graphics.Graphics);
 
                             float sizeChange = truncateRect.Width / (float)Math.Cos(Math.Abs(angle) / 180F * Math.PI);
                             if (axis.AxisPosition == AxisPosition.Left)
@@ -4286,7 +4286,7 @@ namespace FastReport.DataVisualization.Charting
 			if(shadowOffset != 0 && shadowColor != Color.Transparent)
 			{
 				// Save graphics state and apply translate transformation
-				GraphicsState graphicsState = this.Save();
+				IGraphicsState graphicsState = this.Save();
 				this.TranslateTransform(shadowOffset, shadowOffset);
 
 				if(backColor == Color.Transparent &&

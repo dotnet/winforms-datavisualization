@@ -735,7 +735,7 @@ namespace FastReport.DataVisualization.Charting.ChartTypes
 							shadowPen.EndCap = LineCap.Round;
 
 							// Translate curve
-							GraphicsState graphicsState = graph.Save();
+							IGraphicsState graphicsState = graph.Save();
 							Matrix transform = graph.Transform.Clone();
 							transform.Translate(series.ShadowOffset, series.ShadowOffset);
 							graph.Transform = transform;

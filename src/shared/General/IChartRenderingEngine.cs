@@ -418,14 +418,14 @@ namespace FastReport.DataVisualization.Charting
 		/// Saves the current state of this Graphics object and identifies the saved state with a GraphicsState object.
 		/// </summary>
 		/// <returns>This method returns a GraphicsState object that represents the saved state of this Graphics object.</returns>
-		GraphicsState Save();
+		IGraphicsState Save();
 
 		/// <summary>
 		/// Restores the saved state of graphics object.
 		/// </summary>
 		/// <param name="gstate">State to restore.</param>
 		void Restore(
-			GraphicsState gstate
+			IGraphicsState gstate
 			);
 
 		/// <summary>
@@ -502,7 +502,7 @@ namespace FastReport.DataVisualization.Charting
 		/// <summary>
 		/// Reference to the Graphics object
 		/// </summary>
-		Graphics Graphics {get; set;}
+		IGraphics Graphics {get; set;}
 		
 		/// <summary>
 		/// Gets a value indicating whether the clipping region of this Graphics object is empty.

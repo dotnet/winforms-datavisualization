@@ -880,13 +880,13 @@ namespace FastReport.DataVisualization.Charting
 			// Create temporary bitmap based chart graphics if chart was not 
 			// rendered yet and the graphics was not created.
 			// NOTE: Fix for issue #3978.
-			Graphics		graphics = null;
+			IGraphics		graphics = null;
 System.Drawing.Image		graphicsImage = null;
 			ChartGraphics	tempChartGraph = null;
 			if(GetGraphics() == null &&	this.Common != null)
 			{
                 graphicsImage = new System.Drawing.Bitmap(Common.ChartPicture.Width, Common.ChartPicture.Height);
-				graphics = Graphics.FromImage( graphicsImage );
+				graphics = new FastReport.GdiGraphics( graphicsImage );
 				tempChartGraph = new ChartGraphics( Common );
 				tempChartGraph.Graphics = graphics;
 				tempChartGraph.SetPictureSize( Common.ChartPicture.Width, Common.ChartPicture.Height );

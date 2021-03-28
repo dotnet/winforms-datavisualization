@@ -321,10 +321,10 @@ namespace FastReport.DataVisualization.Charting.ChartTypes
                     using (Brush shadowBrush = new SolidBrush((series.ShadowColor.A != 255) ? series.ShadowColor : Color.FromArgb(pointColor.A / 2, series.ShadowColor)))
                     {
                         // Set offset transformation
-                        GraphicsState graphicsState = graph.Save();
+                        IGraphicsState graphicsState = graph.Save();
                         Region clipRegion = null;
                         Region clipRegionOld = null;
-                        if (!graph.IsClipEmpty && !graph.Clip.IsInfinite(graph.Graphics))
+                        if (!graph.IsClipEmpty && !graph.Clip.IsInfinite(graph.Graphics.Graphics))
                         {
                             clipRegionOld = graph.Clip.Clone();
                             clipRegion = graph.Clip;
