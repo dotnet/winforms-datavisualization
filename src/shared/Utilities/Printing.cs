@@ -70,16 +70,26 @@ namespace FastReport.DataVisualization.Charting
 			}
 			throw (new ArgumentException( SR.ExceptionChartSerializerUnsupportedType( serviceType.ToString() ) ) );
 		}
-		#endregion
+        #endregion
 
 
-		#region Printing methods
+        #region Printing methods
 
-		/// <summary>
-		/// Draws chart on the printer graphics.
-		/// </summary>
+        /// <summary>
+        /// Draws chart on the printer graphics.
+        /// </summary>
         /// <param name="graphics">Printer graphics.</param>
-		/// <param name="position">Position to draw in the graphics.</param>
+        /// <param name="position">Position to draw in the graphics.</param>
+        public void PrintPaint(Graphics graphics, Rectangle position)
+        {
+            PrintPaint(new FastReport.GdiGraphics(graphics, false), position);
+        }
+
+        /// <summary>
+        /// Draws chart on the graphics using graphics wrapper.
+        /// </summary>
+        /// <param name="graphics">Graphics wrapper.</param>
+        /// <param name="position">Position to draw in the graphics.</param>
         public void PrintPaint(IGraphics graphics, Rectangle position)
 		{
 			// Get a reference to the chart image object
