@@ -4,7 +4,7 @@
     <TargetFrameworks>net40;$(CustomTargetFrameworks)</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <DefineConstants>$(DefineConstants);NETCOREWIN</DefineConstants>
-    <DebugFRCompat>true</DebugFRCompat>
+    <DebugFRCompat>false</DebugFRCompat>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(VisualStudioVersion)' >= '16'">
