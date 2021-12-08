@@ -1,8 +1,8 @@
 parameters:
   # parameters should default to values for running in the External / Public
   # be read from a user-defined variable (Azure DevOps limitation)
-  agentPoolName: NetCorePublic-Pool
-  agentPool: BuildPool.Windows.10.Amd64.VS2019.Pre.Open
+  agentPoolName: NetCore1ESPool-Public
+  agentPool: Build.Windows.10.Amd64.VS2019.Pre.Open
   runAsPublic: true                      
   repoName: dotnet/winforms     
 
@@ -21,7 +21,7 @@ jobs:
     - job: Windows_NT
       pool: 
         name: ${{ parameters.agentPoolName }}
-        queue: ${{ parameters.agentPool }}
+        demands: ImageOverride -equals ${{ parameters.agentPool }}
 
       variables:
         # needed for darc (dependency flow) publishing
