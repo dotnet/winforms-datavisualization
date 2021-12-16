@@ -28,6 +28,6 @@ jobs:
   parameters:
 
     ${{ if and(ne(variables['System.TeamProject'], 'public'), notin(variables['Build.Reason'], 'PullRequest')) }}:
-      agentPoolName: NetCoreInternal-Pool
-      agentPool: BuildPool.Windows.10.Amd64.VS2019.Pre
+      agentPoolName: NetCore1ESPool-Internal
+      agentPool: Build.Windows.10.Amd64.VS2019.Pre
       runAsPublic: false
